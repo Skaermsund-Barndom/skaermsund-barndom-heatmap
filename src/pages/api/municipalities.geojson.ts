@@ -6,7 +6,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const GET: APIRoute = async () => {
-	const detail = "0.01";
+	const detail = "0.004";
 
 	// Create temp directory if it doesn't exist
 	const tempDir = join(process.cwd(), ".temp");
@@ -31,8 +31,7 @@ export const GET: APIRoute = async () => {
 			"interval=100",
 			"visvalingam",
 			detail,
-			// "keep-shapes",
-			// "weighting=0",
+			"planar",
 
 			"-o",
 			"precision=0.001",
@@ -96,58 +95,3 @@ type Municipalities = FeatureCollection<
 		region: string;
 	}
 >;
-
-async function simplify(municipalities: Municipalities) {
-	const detail = "0.01";
-
-	// Create temp directory if it doesn't exist
-	const tempDir = join(process.cwd(), ".temp");
-	await mkdir(tempDir, { recursive: true });
-
-	// Create temporary input and output files
-	const inputPath = join(tempDir, `input-${detail}.json`);
-	const outputPath = join(tempDir, `output-${detail}.json`);
-
-	// Write input GeoJSON to temp file
-	await writeFile(inputPath, JSON.stringify(municipalities));
-
-	// Run mapshaper CLI command
-	await new Promise((resolve, reject) => {
-		const process = spawn("npx", [
-			"mapshaper",
-			inputPath,
-
-			"-clean",
-
-			"-simplify",
-			"interval=100",
-			"visvalingam",
-			detail,
-			// "keep-shapes",
-			// "weighting=0",
-
-			"-o",
-			"precision=0.001",
-			"format=geojson",
-			outputPath,
-		]);
-
-		process.on("close", (code) => {
-			if (code === 0) {
-				resolve(code);
-			} else {
-				reject(new Error(`Mapshaper process exited with code ${code}`));
-			}
-		});
-
-		process.on("error", reject);
-	});
-
-	// Read and parse the output file
-	const output = await readFile(outputPath, "utf-8");
-
-	// delete temp directory
-	// await rm(tempDir, { recursive: true, force: true });
-
-	return JSON.parse(output) as Municipalities;
-}
