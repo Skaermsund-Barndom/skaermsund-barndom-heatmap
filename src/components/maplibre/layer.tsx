@@ -33,6 +33,8 @@ export const Layer: VoidComponent<Props> = (props) => {
 	});
 
 	createEffect(() => {
+		console.log(props.layer.id);
+
 		props.map.addLayer(
 			props.layer,
 			props.map.getLayer(props.beforeId ?? "") ? props.beforeId : undefined,

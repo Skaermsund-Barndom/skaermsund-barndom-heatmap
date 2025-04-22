@@ -38,5 +38,5 @@ export const GeoJSONSource: ParentComponent<Props> = (props) => {
 		}
 	});
 
-	return props.children;
+	return <>{props.children}</>;
 };

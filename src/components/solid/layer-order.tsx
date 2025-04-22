@@ -1,10 +1,10 @@
 import { Layer } from "@/components/maplibre/layer";
 import type { MapProps } from "@/components/maplibre/map-gl";
 import { Background } from "@/components/solid/background";
+import { Municipalities } from "@/components/solid/municipalities";
 import {
-	BG_BORDERS_LAYER,
-	BG_COUNTRY_LABEL_LAYER,
-	BG_COUNTRY_LAYER,
+	BG_MUNICIPALITIES_LAYER,
+	BOTTOM_LAYER,
 	TOP_LAYER,
 } from "@/scripts/const";
 import type { VoidComponent } from "solid-js";
@@ -13,16 +13,22 @@ interface Props extends MapProps {}
 
 export const LayerOrder: VoidComponent<Props> = (props) => {
 	return (
-		<div class="layers">
-			<EmptyLayer id={TOP_LAYER} map={props.map} />
-			<EmptyLayer id={BG_BORDERS_LAYER} beforeId={TOP_LAYER} map={props.map} />
+		<>
+			<Background map={props.map} beforeId={BOTTOM_LAYER} />
+			<Municipalities map={props.map} beforeId={BG_MUNICIPALITIES_LAYER} />
+
 			<EmptyLayer
-				id={BG_COUNTRY_LAYER}
-				beforeId={BG_COUNTRY_LABEL_LAYER}
+				id={BOTTOM_LAYER}
+				beforeId={BG_MUNICIPALITIES_LAYER}
 				map={props.map}
 			/>
-			<Background map={props.map} />
-		</div>
+			<EmptyLayer
+				id={BG_MUNICIPALITIES_LAYER}
+				beforeId={TOP_LAYER}
+				map={props.map}
+			/>
+			<EmptyLayer id={TOP_LAYER} map={props.map} />
+		</>
 	);
 };
 

@@ -19,17 +19,17 @@ export const Heatmap: VoidComponent = () => {
 		<>
 			<MapGL
 				mapOptions={{
-					// style: {
-					// 	version: 8,
-					// 	sources: {},
-					// 	layers: [],
-					// 	glyphs: `${window.location.origin}/fonts/{fontstack}/{range}.pbf`,
-					// 	transition: {
-					// 		duration: 0,
-					// 		delay: 0,
-					// 	},
-					// },
-					style: "https://demotiles.maplibre.org/style.json",
+					style: {
+						version: 8,
+						sources: {},
+						layers: [],
+						glyphs: `${window.location.origin}/fonts/{fontstack}/{range}.pbf`,
+						transition: {
+							duration: 0,
+							delay: 0,
+						},
+					},
+					// style: "https://demotiles.maplibre.org/style.json",
 					zoom: INITIAL_ZOOM,
 					dragRotate: false,
 					hash: false,
@@ -37,6 +37,10 @@ export const Heatmap: VoidComponent = () => {
 					fadeDuration: 0,
 					touchPitch: false,
 					boxZoom: false,
+					maxBounds: [
+						[8.052716042949726 - 5, 54.54105080166195 - 5],
+						[15.210410477270017 + 5, 57.770218411476634 + 5],
+					],
 				}}
 				events={{
 					load: (event) => setMap(event.target),

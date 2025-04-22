@@ -11,25 +11,19 @@ import { join } from "node:path";
 
 export const GET: APIRoute = async () => {
 	const mapPipeline = pipe(
-		simplify({ detail: 25 }),
+		simplify({ detail: 1 }),
 		removeDecimals({ precision: 3, coordinates: 2, mutate: true }),
 		removeProperties(["sovereignt", "sov_a3", "iso_a3"]),
 	);
 
 	const municipalities = await mapPipeline(municipalitiesRaw as Municipalities);
 
-	return new Response(
-		JSON.stringify({
-			json: municipalities,
-			length: JSON.stringify(municipalities).length,
-		}),
-		{
-			headers: {
-				"content-type": "application/json",
-				"Cache-Control": "public, max-age=31536000", // Cache for 1 year since this is static
-			},
+	return new Response(JSON.stringify(municipalities), {
+		headers: {
+			"content-type": "application/json",
+			"Cache-Control": "public, max-age=31536000", // Cache for 1 year since this is static
 		},
-	);
+	});
 };
 
 type Municipalities = FeatureCollection<

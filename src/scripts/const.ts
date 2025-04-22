@@ -12,12 +12,9 @@ export const OG_IMAGE_QUALITY = 90;
 export const OG_IMAGE_PATH = "/api/images/og-image.jpg";
 
 export const TOP_LAYER = "top-layer";
-export const BG_BORDERS_LAYER = "borders-background-layer";
+export const BOTTOM_LAYER = "bottom-layer";
+export const BG_MUNICIPALITIES_LAYER = "municipalities-background-layer";
 export const BG_LAYER = "background-layer";
-export const BG_COUNTRY_LAYER = "countries-background-layer";
-export const BG_COUNTRY_LABEL_LAYER = "country-labels-background-layer";
-export const BG_ROUTE_LAYER = "routes-background-layer";
-export const BG_LOCATION_LAYER = "locations-background-layer";
 
 export const COLORS = {
 	"--color-container": "#fafafa",
