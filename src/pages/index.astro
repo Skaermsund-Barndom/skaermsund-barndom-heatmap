@@ -1,0 +1,55 @@
+---
+import { Heatmap } from "@/components/solid/heatmap";
+import { UI } from "@/components/solid/ui";
+import "@/styles/global.css";
+import { SEO } from "astro-seo";
+
+interface Props {
+	title?: string | null;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="da">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+
+		<SEO
+			description="Skærmsund Barndom Heatmap"
+			canonical={Astro.url.href}
+			openGraph={{
+				basic: {
+					url: Astro.url.href,
+					title: title ?? "",
+					type: "website",
+					image: `${Astro.url.origin}/og-image.png`,
+				},
+				image: {
+					alt: "Skærmsund Barndom Heatmap",
+					height: 630,
+					url: `${Astro.url.origin}/og-image.png`,
+					width: 1200,
+				},
+			}}
+		/>
+
+		<title>{title}</title>
+	</head>
+	<body>
+		<main
+			class="fixed inset-0 bg-white text-black antialiased selection:bg-black selection:fill-white selection:text-white"
+			spellcheck={false}
+		>
+			<article class="contents">
+				<Heatmap client:only="solid" />
+				<UI client:load />
+			</article>
+		</main>
+	</body>
+</html>

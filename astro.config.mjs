@@ -1,15 +1,11 @@
 import solidJs from "@astrojs/solid-js";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-	server: {
-		port: 7474,
+	integrations: [solidJs()],
+	vite: {
+		plugins: [tailwindcss()],
 	},
-	output: "static",
-	site: "https://skaermsund-barndom-heatmap.netlify.app/",
-	integrations: [
-		solidJs(),
-	],
-	
 });

@@ -1,51 +1,35 @@
 ---
-import InitialColorLoader from "@/components/astro/InitialColorLoader.astro";
-import { ColorPicker } from "@/components/solid/color-picker";
-import { Footer } from "@/components/solid/footer";
-import { Header } from "@/components/solid/header";
-import {
-	type FontPage,
-	type Page,
-	globalSettingQuery,
-	tryQuery,
-} from "@/scripts/queries";
 import "@/styles/global.css";
 import { SEO } from "astro-seo";
 
 interface Props {
-	locale: string;
 	title?: string | null;
-	page?: Page | FontPage;
 }
 
-const { locale, title, page } = Astro.props;
-const { data } = await tryQuery(globalSettingQuery, { language: locale });
-const { globalTitle } = data ?? {};
-const pageTitle = title ? `${globalTitle} · ${title}` : globalTitle;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="da">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<InitialColorLoader />
 
 		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 
 		<SEO
-			description="Novo Holdings Annual Report 2024"
+			description="Skærmsund Barndom Heatmap"
 			canonical={Astro.url.href}
 			openGraph={{
 				basic: {
 					url: Astro.url.href,
-					title: pageTitle ?? "",
+					title: title ?? "",
 					type: "website",
 					image: `${Astro.url.origin}/og-image.png`,
 				},
 				image: {
-					alt: "Novo Holdings Annual Report 2024",
+					alt: "Skærmsund Barndom Heatmap",
 					height: 630,
 					url: `${Astro.url.origin}/og-image.png`,
 					width: 1200,
@@ -53,26 +37,9 @@ const pageTitle = title ? `${globalTitle} · ${title}` : globalTitle;
 			}}
 		/>
 
-		<title>{pageTitle}</title>
+		<title>{title}</title>
 	</head>
-	<body
-		class="min-h-screen bg-white text-black antialiased selection:bg-black selection:fill-white selection:text-white"
-		spellcheck="false"
-	>
-		<main
-			class="mx-auto grid w-full max-w-[144rem] grid-cols-6 gap-x-4 gap-y-12 px-4 md:grid-cols-9 xl:grid-cols-12"
-		>
-			<Header globalSettings={data} page={page} client:load>
-				<ColorPicker client:load />
-			</Header>
-			<article class="contents">
-				<slot />
-			</article>
-			<Footer globalSettings={data} />
-		</main>
+	<body>
+		<slot />
 	</body>
 </html>
-
-<script>
-	import "@/scripts/lenis";
-</script>
