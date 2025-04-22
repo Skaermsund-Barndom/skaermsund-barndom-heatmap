@@ -1,0 +1,4 @@
+# Prettier
+/apps/web/public
+/apps/web/src/types/sanity.types.ts
+/apps/studio/typegen/schema.json
