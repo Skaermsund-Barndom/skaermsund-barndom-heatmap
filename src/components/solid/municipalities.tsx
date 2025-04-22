@@ -60,6 +60,10 @@ export const Municipalities: VoidComponent<Props> = (props) => {
 						"line-color": COLORS["--color-secondary"],
 						"line-width": 1,
 					},
+					layout: {
+						"line-cap": "round",
+						"line-join": "round",
+					},
 				}}
 			/>
 		</GeoJSONSource>

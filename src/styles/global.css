@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-	--font-sans: "Duo Sans", ui-sans-serif, system-ui, sans-serif;
+	--font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 
 	--color-container: #fafafa;
 	--color-text: #2b2b2b;
