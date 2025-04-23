@@ -37,7 +37,7 @@ export const Municipalities: VoidComponent<Props> = (props) => {
 					type: "fill",
 					source: "municipalities",
 					paint: {
-						"fill-color": COLORS["--color-primary"],
+						"fill-color": COLORS["--color-primary-10"],
 					},
 				}}
 			/>

@@ -41,3 +41,12 @@ export function geojsonSource(data?: GeoJSON.GeoJSON) {
 		},
 	} satisfies GeoJSONSourceSpecification;
 }
+
+export function intergetCoordinateToDecimal(lngOrLat: number): number {
+	const length = lngOrLat.toString().length;
+	const padded = lngOrLat.toString().padEnd(10, "0");
+	const number = Number(lngOrLat);
+	const decimal = number / 10 ** 8;
+
+	return Number.isNaN(decimal) ? 0 : decimal;
+}

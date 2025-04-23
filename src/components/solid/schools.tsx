@@ -1,16 +1,18 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
 import type { MapProps } from "@/components/maplibre/map-gl";
+import { COLORS, FONT_STACK } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import { type VoidComponent, createResource } from "solid-js";
 
 interface Props extends MapProps {}
 
-export const GradeLevels: VoidComponent<Props> = (props) => {
+export const Schools: VoidComponent<Props> = (props) => {
 	const [source] = createResource(
 		async () => {
-			const response = await fetch("/api/test-classes.json");
+			const response = await fetch("/api/schools.json");
 			const data = await response.json();
+			console.log(data);
 			return geojsonSource(data);
 		},
 		{
@@ -27,9 +29,24 @@ export const GradeLevels: VoidComponent<Props> = (props) => {
 					type: "circle",
 					source: "grade-levels",
 					paint: {
-						"circle-color": "#000000",
-						"circle-opacity": 0.5,
-						"circle-radius": 10,
+						"circle-color": COLORS["--color-primary"],
+						"circle-radius": ["+", ["/", ["get", "submissions"], 5], 10],
+					},
+				}}
+			/>
+			<Layer
+				map={props.map}
+				layer={{
+					id: "regions",
+					type: "symbol",
+					source: "grade-levels",
+					layout: {
+						"text-field": ["get", "submissions"],
+						"text-font": FONT_STACK,
+						"text-size": 12,
+					},
+					paint: {
+						"text-color": "#ffffff",
 					},
 				}}
 			/>

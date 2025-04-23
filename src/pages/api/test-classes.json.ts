@@ -89,10 +89,6 @@ const SCHOOL_NAMES_SUFFIX = [
 	"Centralskole",
 ] as const;
 
-function getRandomInRange(min: number, max: number): number {
-	return Math.random() * (max - min) + min;
-}
-
 function getRandomElement<T>(array: readonly T[]): T {
 	if (array.length === 0) {
 		throw new Error("Cannot get random element from empty array");
