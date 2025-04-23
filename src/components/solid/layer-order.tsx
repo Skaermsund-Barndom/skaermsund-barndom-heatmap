@@ -1,8 +1,10 @@
 import { Layer } from "@/components/maplibre/layer";
 import type { MapProps } from "@/components/maplibre/map-gl";
 import { Background } from "@/components/solid/background";
+import { GradeLevels } from "@/components/solid/grade-levels";
 import { Municipalities } from "@/components/solid/municipalities";
 import {
+	BG_GRADE_LEVELS_LAYER,
 	BG_MUNICIPALITIES_LAYER,
 	BOTTOM_LAYER,
 	TOP_LAYER,
@@ -16,6 +18,7 @@ export const LayerOrder: VoidComponent<Props> = (props) => {
 		<>
 			<Background map={props.map} beforeId={BOTTOM_LAYER} />
 			<Municipalities map={props.map} beforeId={BG_MUNICIPALITIES_LAYER} />
+			<GradeLevels map={props.map} beforeId={BG_GRADE_LEVELS_LAYER} />
 
 			<EmptyLayer
 				id={BOTTOM_LAYER}
@@ -24,6 +27,11 @@ export const LayerOrder: VoidComponent<Props> = (props) => {
 			/>
 			<EmptyLayer
 				id={BG_MUNICIPALITIES_LAYER}
+				beforeId={BG_GRADE_LEVELS_LAYER}
+				map={props.map}
+			/>
+			<EmptyLayer
+				id={BG_GRADE_LEVELS_LAYER}
 				beforeId={TOP_LAYER}
 				map={props.map}
 			/>

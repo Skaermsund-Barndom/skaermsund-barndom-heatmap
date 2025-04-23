@@ -1,3 +1,5 @@
+import type { GeoJSONSourceSpecification } from "maplibre-gl";
+
 export function vw() {
 	return typeof window !== "undefined" ?
 			Math.max(
@@ -28,4 +30,14 @@ export function remToPx(rem: number) {
 			rem
 				* Number.parseFloat(getComputedStyle(document.documentElement).fontSize)
 		:	rem * 16;
+}
+
+export function geojsonSource(data?: GeoJSON.GeoJSON) {
+	return {
+		type: "geojson",
+		data: data ?? {
+			type: "FeatureCollection",
+			features: [],
+		},
+	} satisfies GeoJSONSourceSpecification;
 }

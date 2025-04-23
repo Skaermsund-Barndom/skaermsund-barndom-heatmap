@@ -2,6 +2,7 @@ import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
 import type { MapProps } from "@/components/maplibre/map-gl";
 import { COLORS } from "@/scripts/const";
+import { geojsonSource } from "@/scripts/helpers";
 import type { GeoJSONSourceSpecification } from "maplibre-gl";
 import type { VoidComponent } from "solid-js";
 import { createResource } from "solid-js";
@@ -15,19 +16,10 @@ export const Municipalities: VoidComponent<Props> = (props) => {
 		async () => {
 			const response = await fetch("/api/municipalities.geojson");
 			const data = await response.json();
-			return {
-				type: "geojson",
-				data,
-			};
+			return geojsonSource(data);
 		},
 		{
-			initialValue: {
-				type: "geojson",
-				data: {
-					type: "FeatureCollection",
-					features: [],
-				},
-			},
+			initialValue: geojsonSource(),
 		},
 	);
 

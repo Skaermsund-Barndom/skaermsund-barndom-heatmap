@@ -1,6 +1,5 @@
 import municipalitiesRaw from "@/data/kommune-granser-geojson.json";
 import type { APIRoute } from "astro";
-import type { FeatureCollection, MultiPolygon, Polygon } from "geojson";
 import { spawn } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -21,7 +20,7 @@ export const GET: APIRoute = async () => {
 
 	// Run mapshaper CLI command
 	await new Promise((resolve, reject) => {
-		const process = spawn("bunx", [
+		const process = spawn("npx", [
 			"mapshaper",
 			inputPath,
 
@@ -63,35 +62,3 @@ export const GET: APIRoute = async () => {
 		},
 	});
 };
-
-type Municipalities = FeatureCollection<
-	Polygon | MultiPolygon,
-	{
-		"id.namespa": string;
-		"id.lokalId": string;
-		status: string;
-		geometrist: string;
-		virkningFr: string;
-		virkningTi: string;
-		virkningsa: string;
-		forretning: string;
-		registreri: string;
-		registre_1: string;
-		registre_2: string;
-		forretni_1: string;
-		forretni_2: string;
-		DAGIid: null;
-		navn: string;
-		redigering: string;
-		dataspecif: string;
-		landekode: string;
-		skala: string;
-		udtraeksda: string;
-		kommunekod: string;
-		LAU1vaerdi: string;
-		udenforKom: string;
-		regionskod: string;
-		regionsLok: string;
-		region: string;
-	}
->;

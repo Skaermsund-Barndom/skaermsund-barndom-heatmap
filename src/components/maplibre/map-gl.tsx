@@ -21,6 +21,7 @@ interface Props {
 
 export interface MapProps {
 	map: MaplibreMap;
+	beforeId?: string;
 }
 
 export const MapGL: ParentComponent<Props> = (props) => {
