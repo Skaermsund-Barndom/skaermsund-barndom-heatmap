@@ -39,14 +39,25 @@ export function geojsonSource(data?: GeoJSON.GeoJSON) {
 			type: "FeatureCollection",
 			features: [],
 		},
+		generateId: true,
 	} satisfies GeoJSONSourceSpecification;
 }
 
-export function intergetCoordinateToDecimal(lngOrLat: number): number {
-	const length = lngOrLat.toString().length;
-	const padded = lngOrLat.toString().padEnd(10, "0");
-	const number = Number(lngOrLat);
-	const decimal = number / 10 ** 8;
-
-	return Number.isNaN(decimal) ? 0 : decimal;
+/**
+ * Maps a value from one range to another.
+ * @param value - The value to map.
+ * @param x1 - The start of the first range.
+ * @param y1 - The end of the first range.
+ * @param x2 - The start of the second range.
+ * @param y2 - The end of the second range.
+ * @returns The mapped value.
+ */
+export function interpolate(
+	value: number,
+	x1: number,
+	y1: number,
+	x2: number,
+	y2: number,
+) {
+	return ((value - x1) * (y2 - x2)) / (y1 - x1) + x2;
 }

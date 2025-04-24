@@ -70,7 +70,10 @@ export const Marker: ParentComponent<Props> = (props) => {
 	});
 
 	createEffect(() => {
-		if (!props.lngLat) return;
+		if (!props.lngLat) {
+			marker()?.remove();
+			return;
+		}
 
 		marker()?.setLngLat(props.lngLat);
 		marker()?.addTo(props.map);

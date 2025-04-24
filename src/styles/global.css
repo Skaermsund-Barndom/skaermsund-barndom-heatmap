@@ -20,6 +20,10 @@
 	--color-tertiary: #02321c;
 }
 
+#maplibregl {
+	font-family: var(--font-sans);
+}
+
 #maplibregl .maplibregl-control-container details {
 	background-color: transparent;
 	padding: 0;
