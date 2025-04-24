@@ -7,6 +7,8 @@ import type { FeatureCollection, Point } from "geojson";
 
 const SUBMISSIONS = "skole-class-fn Rollup (from Submissions 2)";
 const INSTITUTION_NAME = "INST_NAVN";
+const REGION_NAME = "BEL_REGION_TEKST";
+const MUNICIPALITY_NAME = "KOMMUNE";
 const LATITUDE = "GEO_BREDDE_GRAD";
 const LONGITUDE = "GEO_LAENGDE_GRAD";
 
@@ -54,14 +56,22 @@ export const GET: APIRoute = async () => {
 							}
 
 							const school_name = record.get(INSTITUTION_NAME);
+							const region_name = record.get(REGION_NAME);
+							const municipality_name = record.get(MUNICIPALITY_NAME);
 
-							if (typeof school_name !== "string") {
+							if (
+								typeof school_name !== "string"
+								|| typeof region_name !== "string"
+								|| typeof municipality_name !== "string"
+							) {
 								continue;
 							}
 
 							const feature = point([lng, lat], {
 								school_name,
 								submissions,
+								region_name,
+								municipality_name,
 							});
 
 							schools.features.push(feature);

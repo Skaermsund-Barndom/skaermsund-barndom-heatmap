@@ -3,6 +3,8 @@ import { Layer } from "@/components/maplibre/layer";
 import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import type { HeatmapProps } from "@/scripts/types";
+import { centerMedian, featureCollection, multiPoint, point } from "@turf/turf";
+import type { MultiPoint } from "geojson";
 import type { VoidComponent } from "solid-js";
 import { createMemo } from "solid-js";
 
@@ -16,10 +18,67 @@ const ZOOMS = {
 
 interface Props extends HeatmapProps {}
 
+interface RegionProperties {
+	submissions: number;
+	region_name: string;
+}
+
 export const RegionLayers: VoidComponent<Props> = (props) => {
 	const regions = createMemo(() => {
-		return props.schools;
+		const regionCollection = props.schools.features.reduce(
+			(collection, feature) => {
+				const {
+					geometry: { coordinates },
+					properties: { region_name, submissions },
+				} = feature;
+
+				const index = collection.features.findIndex(
+					(feature) => feature.properties.region_name === region_name,
+				);
+				if (index === -1) {
+					const feature = multiPoint([coordinates], {
+						region_name,
+						submissions,
+					});
+					collection.features.push(feature);
+
+					return collection;
+				}
+
+				if (collection.features[index]) {
+					collection.features[index].properties = {
+						submissions:
+							collection.features[index].properties.submissions + submissions,
+						region_name,
+					};
+					collection.features[index].geometry.coordinates.push(coordinates);
+				}
+
+				return collection;
+			},
+			featureCollection<MultiPoint, RegionProperties>([]),
+		);
+
+		return featureCollection(
+			regionCollection.features.map((feature) => {
+				const { geometry, properties } = feature;
+
+				const collection = featureCollection(
+					geometry.coordinates.map((c) => point(c)),
+				);
+				const centroid = centerMedian(collection);
+				return point(centroid.geometry.coordinates, properties);
+			}),
+		);
 	});
+
+	const regionMax = createMemo(() =>
+		Math.max(...regions().features.map((f) => f.properties.submissions)),
+	);
+
+	const regionMin = createMemo(() =>
+		Math.min(...regions().features.map((f) => f.properties.submissions)),
+	);
 
 	return (
 		<GeoJSONSource
@@ -35,8 +94,16 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 					type: "circle",
 					source: REGION_SOURCE,
 					paint: {
-						"circle-color": COLORS["--color-primary-30"],
-						"circle-radius": ["+", ["/", ["get", "submissions"], 5], 10],
+						"circle-color": COLORS["--color-primary"],
+						"circle-radius": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							regionMin(),
+							20,
+							regionMax(),
+							60,
+						],
 					},
 				}}
 			/>
@@ -50,7 +117,15 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 					layout: {
 						"text-field": ["get", "submissions"],
 						"text-font": FONT_STACK,
-						"text-size": 12,
+						"text-size": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							regionMin(),
+							14,
+							regionMax(),
+							20,
+						],
 					},
 					paint: {
 						"text-color": "#ffffff",

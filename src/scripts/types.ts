@@ -13,6 +13,8 @@ export interface HeatmapProps extends MapProps {
 export interface SchoolProperties {
 	school_name: string;
 	submissions: number;
+	region_name: string;
+	municipality_name: string;
 }
 
 export type SchoolCollection = FeatureCollection<Point, SchoolProperties>;
