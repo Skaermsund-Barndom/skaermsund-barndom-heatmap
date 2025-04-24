@@ -19,3 +19,12 @@
 	--color-secondary: #02321c;
 	--color-tertiary: #02321c;
 }
+
+#maplibregl .maplibregl-control-container details {
+	background-color: transparent;
+	padding: 0;
+}
+
+#maplibregl .maplibregl-ctrl-attrib a {
+	@apply text-container/70;
+}

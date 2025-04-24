@@ -46,12 +46,14 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<main
-			class="fixed inset-0 bg-white font-sans text-black antialiased selection:bg-black selection:fill-white selection:text-white"
+			class="fixed inset-0 overflow-hidden bg-transparent font-sans text-black antialiased selection:bg-black selection:fill-white selection:text-white"
 			spellcheck={false}
 		>
-			<article class="contents">
-				<Heatmap client:only="solid" />
+			<article
+				class="grid h-full grid-cols-[25rem_1fr] rounded-[1.5rem] bg-white p-1"
+			>
 				<UI client:load />
+				<Heatmap client:only="solid" />
 			</article>
 		</main>
 	</body>

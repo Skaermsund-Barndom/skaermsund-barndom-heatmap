@@ -16,7 +16,7 @@ export const Heatmap: VoidComponent = () => {
 	});
 
 	return (
-		<>
+		<div class="h-full w-full overflow-hidden rounded-[1.25rem]">
 			<MapGL
 				mapOptions={{
 					style: {
@@ -38,8 +38,8 @@ export const Heatmap: VoidComponent = () => {
 					touchPitch: false,
 					boxZoom: false,
 					maxBounds: [
-						[8.052716042949726 - 5, 54.54105080166195 - 5],
-						[15.210410477270017 + 5, 57.770218411476634 + 5],
+						[8.052716042949726 - 1, 54.54105080166195 - 0.5],
+						[15.210410477270017 + 1, 57.770218411476634 + 0.5],
 					],
 				}}
 				events={{
@@ -52,7 +52,7 @@ export const Heatmap: VoidComponent = () => {
 							<LayerOrder map={map()} />
 							<AttributionControl
 								options={{
-									customAttribution: `<a href="https://maplibre.org/" target="_blank" rel="noopener noreferrer">MapLibre</a>`,
+									customAttribution: `<a href="https://maplibre.org/" target="_blank" rel="noopener noreferrer" class="bg-primary-80/50 rounded-full px-2 py-1 m-1.5 text-container flex">© MapLibre</a>`,
 									compact: false,
 								}}
 								position="bottom-left"
@@ -63,6 +63,6 @@ export const Heatmap: VoidComponent = () => {
 					)}
 				</Show>
 			</MapGL>
-		</>
+		</div>
 	);
 };

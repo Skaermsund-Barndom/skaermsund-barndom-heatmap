@@ -2,7 +2,7 @@ import type { VoidComponent } from "solid-js";
 
 export const UI: VoidComponent = () => {
 	return (
-		<div class="fixed top-0 right-0 left-0 font-sans">
+		<div class="flex h-full w-full flex-col gap-6 p-6">
 			Whereas recognition of the inherent dignity
 		</div>
 	);
