@@ -1,5 +1,4 @@
 import { Layer } from "@/components/maplibre/layer";
-import type { MapProps } from "@/components/maplibre/map-gl";
 import { Background } from "@/components/solid/background";
 import { MunicipalityMap } from "@/components/solid/municipality-map";
 import {
@@ -8,6 +7,7 @@ import {
 	BOTTOM_LAYER,
 	TOP_LAYER,
 } from "@/scripts/const";
+import type { MapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
 import { HeatmapLayers } from "./heatmap-layers";
 

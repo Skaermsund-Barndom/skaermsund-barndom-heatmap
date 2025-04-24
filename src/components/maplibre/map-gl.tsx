@@ -19,11 +19,6 @@ interface Props {
 	events?: MapEvents;
 }
 
-export interface MapProps {
-	map: MaplibreMap;
-	beforeId?: string;
-}
-
 export const MapGL: ParentComponent<Props> = (props) => {
 	let container: HTMLDivElement | undefined;
 

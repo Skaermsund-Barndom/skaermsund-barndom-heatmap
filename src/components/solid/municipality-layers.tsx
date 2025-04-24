@@ -1,19 +1,33 @@
+import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
-import type { MapProps } from "@/components/maplibre/map-gl";
 import { COLORS, FONT_STACK } from "@/scripts/const";
-import type { VoidComponent } from "solid-js";
+import { geojsonSource } from "@/scripts/helpers";
+import type { HeatmapProps } from "@/scripts/types";
+import { type VoidComponent, createMemo } from "solid-js";
 
-interface Props extends MapProps {}
+const MUNICIPALITY_SOURCE = "municipalities";
+const MUNICIPALITY_CIRCLE_LAYER = "municipalities-circle";
+const MUNICIPALITY_TEXT_LAYER = "municipalities-text";
+
+interface Props extends HeatmapProps {}
 
 export const MunicipalityLayers: VoidComponent<Props> = (props) => {
+	const municipalities = createMemo(() => {
+		return props.schools;
+	});
+
 	return (
-		<>
+		<GeoJSONSource
+			id={MUNICIPALITY_SOURCE}
+			map={props.map}
+			source={geojsonSource(municipalities())}
+		>
 			<Layer
 				map={props.map}
 				layer={{
-					id: "grade-levels",
+					id: MUNICIPALITY_CIRCLE_LAYER,
 					type: "circle",
-					source: "grade-levels",
+					source: MUNICIPALITY_SOURCE,
 					paint: {
 						"circle-color": COLORS["--color-primary"],
 						"circle-radius": ["+", ["/", ["get", "submissions"], 5], 10],
@@ -23,9 +37,9 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 			<Layer
 				map={props.map}
 				layer={{
-					id: "regions",
+					id: MUNICIPALITY_TEXT_LAYER,
 					type: "symbol",
-					source: "grade-levels",
+					source: MUNICIPALITY_SOURCE,
 					layout: {
 						"text-field": ["get", "submissions"],
 						"text-font": FONT_STACK,
@@ -36,6 +50,6 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 					},
 				}}
 			/>
-		</>
+		</GeoJSONSource>
 	);
 };

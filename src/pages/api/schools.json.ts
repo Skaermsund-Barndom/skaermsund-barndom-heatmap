@@ -1,7 +1,9 @@
 import { tryCatch } from "@/scripts/try-catch";
+import type { SchoolProperties } from "@/scripts/types";
 import { featureCollection, point } from "@turf/turf";
 import Airtable from "airtable";
 import type { APIRoute } from "astro";
+import type { FeatureCollection, Point } from "geojson";
 
 const SUBMISSIONS = "skole-class-fn Rollup (from Submissions 2)";
 const INSTITUTION_NAME = "INST_NAVN";
@@ -18,10 +20,9 @@ const base = new Airtable({ apiKey: import.meta.env.AIRTABLE_API_KEY }).base(
 );
 
 export const GET: APIRoute = async () => {
-	const schools: GeoJSON.FeatureCollection = featureCollection([]);
-
-	let count = 0;
-	count = 0;
+	const schools: FeatureCollection<Point, SchoolProperties> = featureCollection(
+		[],
+	);
 
 	const { error } = await tryCatch(
 		new Promise<boolean>((resolve, reject) => {
@@ -52,8 +53,14 @@ export const GET: APIRoute = async () => {
 								continue;
 							}
 
+							const school_name = record.get(INSTITUTION_NAME);
+
+							if (typeof school_name !== "string") {
+								continue;
+							}
+
 							const feature = point([lng, lat], {
-								school_name: record.get(INSTITUTION_NAME),
+								school_name,
 								submissions,
 							});
 

@@ -1,4 +1,4 @@
-import type { MapProps } from "@/components/maplibre/map-gl";
+import type { MapProps } from "@/scripts/types";
 import type {
 	GeoJSONSourceSpecification,
 	GeoJSONSource as MaplibreGeoJSONSource,

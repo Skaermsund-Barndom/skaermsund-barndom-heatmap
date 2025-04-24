@@ -1,31 +1,46 @@
+import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
-import type { MapProps } from "@/components/maplibre/map-gl";
 import { COLORS, FONT_STACK } from "@/scripts/const";
+import { geojsonSource } from "@/scripts/helpers";
+import type { HeatmapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
+import { createMemo } from "solid-js";
 
-interface Props extends MapProps {}
+const REGION_SOURCE = "regions";
+const REGION_CIRCLE_LAYER = "regions-circle";
+const REGION_TEXT_LAYER = "regions-text";
+
+interface Props extends HeatmapProps {}
 
 export const RegionLayers: VoidComponent<Props> = (props) => {
+	const regions = createMemo(() => {
+		return props.schools;
+	});
+
 	return (
-		<>
+		<GeoJSONSource
+			id={REGION_SOURCE}
+			map={props.map}
+			source={geojsonSource(regions())}
+		>
 			<Layer
 				map={props.map}
 				layer={{
-					id: "grade-levels",
-					type: "circle",
-					source: "grade-levels",
+					id: REGION_CIRCLE_LAYER,
+					type: "fill",
+					source: REGION_SOURCE,
 					paint: {
-						"circle-color": COLORS["--color-primary"],
-						"circle-radius": ["+", ["/", ["get", "submissions"], 5], 10],
+						"fill-color": COLORS["--color-primary"],
+						"fill-opacity": 0.5,
 					},
 				}}
 			/>
 			<Layer
 				map={props.map}
 				layer={{
-					id: "regions",
+					id: REGION_TEXT_LAYER,
 					type: "symbol",
-					source: "grade-levels",
+					source: REGION_SOURCE,
 					layout: {
 						"text-field": ["get", "submissions"],
 						"text-font": FONT_STACK,
@@ -36,6 +51,6 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 					},
 				}}
 			/>
-		</>
+		</GeoJSONSource>
 	);
 };

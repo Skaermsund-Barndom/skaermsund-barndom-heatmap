@@ -1,6 +1,6 @@
 import { Layer } from "@/components/maplibre/layer";
-import type { MapProps } from "@/components/maplibre/map-gl";
 import { BG_LAYER, COLORS } from "@/scripts/const";
+import type { MapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
 
 interface Props extends MapProps {

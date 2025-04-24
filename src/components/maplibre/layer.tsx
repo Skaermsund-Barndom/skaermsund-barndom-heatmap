@@ -1,4 +1,4 @@
-import type { MapProps } from "@/components/maplibre/map-gl";
+import type { MapProps } from "@/scripts/types";
 import type { AddLayerObject, MapLayerEventType } from "maplibre-gl";
 import { type VoidComponent, createEffect, onCleanup } from "solid-js";
 
@@ -33,8 +33,6 @@ export const Layer: VoidComponent<Props> = (props) => {
 	});
 
 	createEffect(() => {
-		console.log(props.layer.id);
-
 		props.map.addLayer(
 			props.layer,
 			props.map.getLayer(props.beforeId ?? "") ? props.beforeId : undefined,

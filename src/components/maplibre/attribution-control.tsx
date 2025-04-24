@@ -1,5 +1,5 @@
 import { Control } from "@/components/maplibre/control";
-import type { MapProps } from "@/components/maplibre/map-gl";
+import type { MapProps } from "@/scripts/types";
 import {
 	type AttributionControlOptions,
 	type ControlPosition,

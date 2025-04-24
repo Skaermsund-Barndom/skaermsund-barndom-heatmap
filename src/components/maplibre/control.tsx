@@ -1,4 +1,4 @@
-import type { MapProps } from "@/components/maplibre/map-gl";
+import type { MapProps } from "@/scripts/types";
 import type { ControlPosition, IControl } from "maplibre-gl";
 import { type ParentComponent, createEffect, onCleanup } from "solid-js";
 
