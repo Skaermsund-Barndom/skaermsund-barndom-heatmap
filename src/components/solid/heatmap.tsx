@@ -13,6 +13,10 @@ export const Heatmap: VoidComponent = () => {
 	createEffect(() => {
 		map()?.touchZoomRotate.disableRotation();
 		map()?.keyboard.disableRotation();
+
+		map()?.on("zoom", (event) => {
+			console.log(event.target.getZoom());
+		});
 	});
 
 	return (

@@ -1,6 +1,6 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
-import { COLORS, FONT_STACK } from "@/scripts/const";
+import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import type { HeatmapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
@@ -9,6 +9,10 @@ import { createMemo } from "solid-js";
 const REGION_SOURCE = "regions";
 const REGION_CIRCLE_LAYER = "regions-circle";
 const REGION_TEXT_LAYER = "regions-text";
+const ZOOMS = {
+	minzoom: ZOOM_LEVELS.REGION,
+	maxzoom: ZOOM_LEVELS.MUNICIPALITY,
+} as const;
 
 interface Props extends HeatmapProps {}
 
@@ -26,18 +30,20 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 			<Layer
 				map={props.map}
 				layer={{
+					...ZOOMS,
 					id: REGION_CIRCLE_LAYER,
-					type: "fill",
+					type: "circle",
 					source: REGION_SOURCE,
 					paint: {
-						"fill-color": COLORS["--color-primary"],
-						"fill-opacity": 0.5,
+						"circle-color": COLORS["--color-primary-30"],
+						"circle-radius": ["+", ["/", ["get", "submissions"], 5], 10],
 					},
 				}}
 			/>
 			<Layer
 				map={props.map}
 				layer={{
+					...ZOOMS,
 					id: REGION_TEXT_LAYER,
 					type: "symbol",
 					source: REGION_SOURCE,

@@ -1,6 +1,6 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
-import { COLORS, FONT_STACK } from "@/scripts/const";
+import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import type { HeatmapProps } from "@/scripts/types";
 import { type VoidComponent, createMemo } from "solid-js";
@@ -8,6 +8,10 @@ import { type VoidComponent, createMemo } from "solid-js";
 const MUNICIPALITY_SOURCE = "municipalities";
 const MUNICIPALITY_CIRCLE_LAYER = "municipalities-circle";
 const MUNICIPALITY_TEXT_LAYER = "municipalities-text";
+const ZOOMS = {
+	minzoom: ZOOM_LEVELS.MUNICIPALITY,
+	maxzoom: ZOOM_LEVELS.SCHOOL,
+} as const;
 
 interface Props extends HeatmapProps {}
 
@@ -25,6 +29,7 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 			<Layer
 				map={props.map}
 				layer={{
+					...ZOOMS,
 					id: MUNICIPALITY_CIRCLE_LAYER,
 					type: "circle",
 					source: MUNICIPALITY_SOURCE,
@@ -37,6 +42,7 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 			<Layer
 				map={props.map}
 				layer={{
+					...ZOOMS,
 					id: MUNICIPALITY_TEXT_LAYER,
 					type: "symbol",
 					source: MUNICIPALITY_SOURCE,

@@ -34,3 +34,10 @@ export const COLORS = {
 	"--color-secondary": "#02321c",
 	"--color-tertiary": "#02321c",
 };
+
+export const ZOOM_LEVELS = {
+	REGION: 0,
+	MUNICIPALITY: 8,
+	SCHOOL: 10,
+	MAX: 24,
+} as const;
