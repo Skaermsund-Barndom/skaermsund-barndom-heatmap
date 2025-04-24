@@ -47,10 +47,16 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 					(feature) => feature.properties.region_name === region_name,
 				);
 				if (index === -1) {
-					const feature = multiPoint([coordinates], {
-						region_name,
-						submissions,
-					});
+					const feature = multiPoint(
+						[coordinates],
+						{
+							region_name,
+							submissions,
+						},
+						{
+							id: region_name,
+						},
+					);
 					collection.features.push(feature);
 
 					return collection;
@@ -154,7 +160,7 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 		<GeoJSONSource
 			id={REGION_SOURCE}
 			map={props.map}
-			source={geojsonSource(regions())}
+			source={geojsonSource(regions(), "region_name")}
 		>
 			<TooltipMarker
 				map={props.map}

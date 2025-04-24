@@ -10,6 +10,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 	const [schools] = createResource<SchoolCollection>(async () => {
 		const response = await fetch("/api/schools.json");
 		const data = await response.json();
+		console.log(data);
 		return data;
 	});
 

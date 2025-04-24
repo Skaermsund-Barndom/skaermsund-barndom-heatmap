@@ -6,6 +6,7 @@ import type { APIRoute } from "astro";
 import type { FeatureCollection, Point } from "geojson";
 
 const SUBMISSIONS = "skole-class-fn Rollup (from Submissions 2)";
+const INSTITUTION_ID = "INST_NR";
 const INSTITUTION_NAME = "INST_NAVN";
 const REGION_NAME = "BEL_REGION_TEKST";
 const MUNICIPALITY_NAME = "KOMMUNE";
@@ -67,7 +68,7 @@ export const GET: APIRoute = async () => {
 								continue;
 							}
 
-							const feature = point([lng, lat], {
+							const feature = point<SchoolProperties>([lng, lat], {
 								school_name,
 								submissions,
 								region_name,

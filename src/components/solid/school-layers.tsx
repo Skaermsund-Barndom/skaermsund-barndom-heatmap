@@ -41,7 +41,7 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 
 	const mousemove = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
-		if (feature?.geometry.type !== "Point") return;
+		if (feature?.geometry.type !== "Point" || !feature.id) return;
 
 		if (activeId() !== feature.id) {
 			setActiveId(feature.id);
@@ -98,7 +98,7 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 		<GeoJSONSource
 			id={SCHOOL_SOURCE}
 			map={props.map}
-			source={geojsonSource(props.schools)}
+			source={geojsonSource(props.schools, "school_name")}
 		>
 			<TooltipMarker
 				map={props.map}

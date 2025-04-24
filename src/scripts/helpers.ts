@@ -1,3 +1,4 @@
+import type { FeatureCollection } from "geojson";
 import type { GeoJSONSourceSpecification } from "maplibre-gl";
 
 export function vw() {
@@ -32,14 +33,17 @@ export function remToPx(rem: number) {
 		:	rem * 16;
 }
 
-export function geojsonSource(data?: GeoJSON.GeoJSON) {
+export function geojsonSource<F extends FeatureCollection>(
+	data?: F,
+	promoteId?: keyof F["features"][number]["properties"],
+) {
 	return {
 		type: "geojson",
 		data: data ?? {
 			type: "FeatureCollection",
 			features: [],
 		},
-		generateId: true,
+		promoteId: typeof promoteId === "string" ? promoteId : undefined,
 	} satisfies GeoJSONSourceSpecification;
 }
 

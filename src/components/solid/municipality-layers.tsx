@@ -154,7 +154,7 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 		<GeoJSONSource
 			id={MUNICIPALITY_SOURCE}
 			map={props.map}
-			source={geojsonSource(municipalities())}
+			source={geojsonSource(municipalities(), "municipality_name")}
 		>
 			<TooltipMarker
 				map={props.map}
