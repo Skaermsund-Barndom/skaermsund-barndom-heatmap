@@ -1,5 +1,6 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
+import { hoverOpacity } from "@/components/solid/heatmap-layers";
 import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
 import { geojsonSource, interpolate } from "@/scripts/helpers";
@@ -12,7 +13,9 @@ import { createMemo, createSignal } from "solid-js";
 
 const REGION_SOURCE = "regions";
 const REGION_CIRCLE_LAYER = "regions-circle";
+const REGION_CIRCLE_ACTIVE_LAYER = "regions-circle-active";
 const REGION_TEXT_LAYER = "regions-text";
+const REGION_TEXT_ACTIVE_LAYER = "regions-text-active";
 const ZOOMS = {
 	minzoom: ZOOM_LEVELS.REGION,
 	maxzoom: ZOOM_LEVELS.MUNICIPALITY,
@@ -181,12 +184,7 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 					type: "circle",
 					source: REGION_SOURCE,
 					paint: {
-						"circle-color": [
-							"case",
-							["boolean", ["feature-state", "hover"], false],
-							COLORS["--color-primary-80"],
-							COLORS["--color-primary"],
-						],
+						"circle-color": COLORS["--color-primary"],
 						"circle-radius": [
 							"interpolate",
 							["linear"],
@@ -221,6 +219,60 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 						],
 					},
 					paint: {
+						"text-color": COLORS["--color-container"],
+					},
+				}}
+			/>
+			<Layer
+				map={props.map}
+				events={{
+					mousemove,
+					mouseleave,
+					click,
+				}}
+				layer={{
+					...ZOOMS,
+					id: REGION_CIRCLE_ACTIVE_LAYER,
+					type: "circle",
+					source: REGION_SOURCE,
+					paint: {
+						"circle-opacity": hoverOpacity,
+						"circle-color": COLORS["--color-primary-80"],
+						"circle-radius": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							regionMin(),
+							REGION_CIRCLE_MIN_RADIUS,
+							regionMax(),
+							REGION_CIRCLE_MAX_RADIUS,
+						],
+					},
+				}}
+			/>
+			<Layer
+				map={props.map}
+				layer={{
+					...ZOOMS,
+					id: REGION_TEXT_ACTIVE_LAYER,
+					type: "symbol",
+					source: REGION_SOURCE,
+					layout: {
+						"text-field": ["get", "submissions"],
+						"text-font": FONT_STACK,
+						"text-overlap": "always",
+						"text-size": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							regionMin(),
+							REGION_TEXT_MIN_SIZE,
+							regionMax(),
+							REGION_TEXT_MAX_SIZE,
+						],
+					},
+					paint: {
+						"text-opacity": hoverOpacity,
 						"text-color": COLORS["--color-container"],
 					},
 				}}

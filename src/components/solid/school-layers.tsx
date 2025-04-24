@@ -1,5 +1,6 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
+import { hoverOpacity } from "@/components/solid/heatmap-layers";
 import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
 import { geojsonSource, interpolate } from "@/scripts/helpers";
@@ -9,7 +10,9 @@ import { type VoidComponent, createMemo, createSignal } from "solid-js";
 
 const SCHOOL_SOURCE = "schools";
 const SCHOOL_CIRCLE_LAYER = "schools-circle";
+const SCHOOL_CIRCLE_ACTIVE_LAYER = "schools-circle-active";
 const SCHOOL_TEXT_LAYER = "schools-text";
+const SCHOOL_TEXT_ACTIVE_LAYER = "schools-text-active";
 const ZOOMS = {
 	minzoom: ZOOM_LEVELS.SCHOOL,
 	maxzoom: ZOOM_LEVELS.MAX,
@@ -118,12 +121,7 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 					type: "circle",
 					source: SCHOOL_SOURCE,
 					paint: {
-						"circle-color": [
-							"case",
-							["boolean", ["feature-state", "hover"], false],
-							COLORS["--color-primary-80"],
-							COLORS["--color-primary"],
-						],
+						"circle-color": COLORS["--color-primary"],
 						"circle-radius": [
 							"interpolate",
 							["linear"],
@@ -158,6 +156,59 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 						],
 					},
 					paint: {
+						"text-color": COLORS["--color-container"],
+					},
+				}}
+			/>
+			<Layer
+				map={props.map}
+				events={{
+					mousemove,
+					mouseleave,
+				}}
+				layer={{
+					...ZOOMS,
+					id: SCHOOL_CIRCLE_ACTIVE_LAYER,
+					type: "circle",
+					source: SCHOOL_SOURCE,
+					paint: {
+						"circle-opacity": hoverOpacity,
+						"circle-color": COLORS["--color-primary-80"],
+						"circle-radius": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							schoolMin(),
+							SCHOOL_CIRCLE_MIN_RADIUS,
+							schoolMax(),
+							SCHOOL_CIRCLE_MAX_RADIUS,
+						],
+					},
+				}}
+			/>
+			<Layer
+				map={props.map}
+				layer={{
+					...ZOOMS,
+					id: SCHOOL_TEXT_ACTIVE_LAYER,
+					type: "symbol",
+					source: SCHOOL_SOURCE,
+					layout: {
+						"text-field": ["get", "submissions"],
+						"text-font": FONT_STACK,
+						"text-overlap": "always",
+						"text-size": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							schoolMin(),
+							SCHOOL_TEXT_MIN_SIZE,
+							schoolMax(),
+							SCHOOL_TEXT_MAX_SIZE,
+						],
+					},
+					paint: {
+						"text-opacity": hoverOpacity,
 						"text-color": COLORS["--color-container"],
 					},
 				}}

@@ -1,5 +1,6 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
+import { hoverOpacity } from "@/components/solid/heatmap-layers";
 import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
 import { geojsonSource, interpolate } from "@/scripts/helpers";
@@ -11,7 +12,9 @@ import { type VoidComponent, createMemo, createSignal } from "solid-js";
 
 const MUNICIPALITY_SOURCE = "municipalities";
 const MUNICIPALITY_CIRCLE_LAYER = "municipalities-circle";
+const MUNICIPALITY_CIRCLE_ACTIVE_LAYER = "municipalities-circle-active";
 const MUNICIPALITY_TEXT_LAYER = "municipalities-text";
+const MUNICIPALITY_TEXT_ACTIVE_LAYER = "municipalities-text-active";
 const ZOOMS = {
 	minzoom: ZOOM_LEVELS.MUNICIPALITY,
 	maxzoom: ZOOM_LEVELS.SCHOOL,
@@ -174,12 +177,7 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 					type: "circle",
 					source: MUNICIPALITY_SOURCE,
 					paint: {
-						"circle-color": [
-							"case",
-							["boolean", ["feature-state", "hover"], false],
-							COLORS["--color-primary-80"],
-							COLORS["--color-primary"],
-						],
+						"circle-color": COLORS["--color-primary"],
 						"circle-radius": [
 							"interpolate",
 							["linear"],
@@ -214,6 +212,59 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 						],
 					},
 					paint: {
+						"text-color": COLORS["--color-container"],
+					},
+				}}
+			/>
+			<Layer
+				map={props.map}
+				events={{
+					mousemove,
+					mouseleave,
+				}}
+				layer={{
+					...ZOOMS,
+					id: MUNICIPALITY_CIRCLE_ACTIVE_LAYER,
+					type: "circle",
+					source: MUNICIPALITY_SOURCE,
+					paint: {
+						"circle-opacity": hoverOpacity,
+						"circle-color": COLORS["--color-primary-80"],
+						"circle-radius": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							municipalityMin(),
+							MUNICIPALITY_CIRCLE_MIN_RADIUS,
+							municipalityMax(),
+							MUNICIPALITY_CIRCLE_MAX_RADIUS,
+						],
+					},
+				}}
+			/>
+			<Layer
+				map={props.map}
+				layer={{
+					...ZOOMS,
+					id: MUNICIPALITY_TEXT_ACTIVE_LAYER,
+					type: "symbol",
+					source: MUNICIPALITY_SOURCE,
+					layout: {
+						"text-field": ["get", "submissions"],
+						"text-font": FONT_STACK,
+						"text-overlap": "always",
+						"text-size": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							municipalityMin(),
+							MUNICIPALITY_TEXT_MIN_SIZE,
+							municipalityMax(),
+							MUNICIPALITY_TEXT_MAX_SIZE,
+						],
+					},
+					paint: {
+						"text-opacity": hoverOpacity,
 						"text-color": COLORS["--color-container"],
 					},
 				}}
