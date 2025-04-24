@@ -171,7 +171,7 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 						"circle-color": [
 							"case",
 							["boolean", ["feature-state", "hover"], false],
-							COLORS["--color-primary-70"],
+							COLORS["--color-primary-80"],
 							COLORS["--color-primary"],
 						],
 						"circle-radius": [
