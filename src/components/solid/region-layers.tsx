@@ -1,27 +1,13 @@
-import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
 import type { MapProps } from "@/components/maplibre/map-gl";
 import { COLORS, FONT_STACK } from "@/scripts/const";
-import { geojsonSource } from "@/scripts/helpers";
-import { type VoidComponent, createResource } from "solid-js";
+import type { VoidComponent } from "solid-js";
 
 interface Props extends MapProps {}
 
-export const Schools: VoidComponent<Props> = (props) => {
-	const [source] = createResource(
-		async () => {
-			const response = await fetch("/api/schools.json");
-			const data = await response.json();
-			console.log(data);
-			return geojsonSource(data);
-		},
-		{
-			initialValue: geojsonSource(),
-		},
-	);
-
+export const RegionLayers: VoidComponent<Props> = (props) => {
 	return (
-		<GeoJSONSource id="grade-levels" map={props.map} source={source()}>
+		<>
 			<Layer
 				map={props.map}
 				layer={{
@@ -50,6 +36,6 @@ export const Schools: VoidComponent<Props> = (props) => {
 					},
 				}}
 			/>
-		</GeoJSONSource>
+		</>
 	);
 };

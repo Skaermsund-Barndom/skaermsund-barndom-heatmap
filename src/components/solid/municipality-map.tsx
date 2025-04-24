@@ -11,8 +11,8 @@ interface Props extends MapProps {
 	beforeId?: string;
 }
 
-export const Municipalities: VoidComponent<Props> = (props) => {
-	const [municipalities] = createResource<GeoJSONSourceSpecification>(
+export const MunicipalityMap: VoidComponent<Props> = (props) => {
+	const [source] = createResource<GeoJSONSourceSpecification>(
 		async () => {
 			const response = await fetch("/api/municipalities.geojson");
 			const data = await response.json();
@@ -24,11 +24,7 @@ export const Municipalities: VoidComponent<Props> = (props) => {
 	);
 
 	return (
-		<GeoJSONSource
-			id="municipalities"
-			map={props.map}
-			source={municipalities()}
-		>
+		<GeoJSONSource id="municipalities" map={props.map} source={source()}>
 			<Layer
 				beforeId={props.beforeId}
 				map={props.map}
