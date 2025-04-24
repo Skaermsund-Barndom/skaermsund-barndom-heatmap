@@ -22,6 +22,7 @@ const SCHOOL_TEXT_MAX_SIZE = 18;
 interface Props extends HeatmapProps {}
 
 export const SchoolLayers: VoidComponent<Props> = (props) => {
+	const [activeId, setActiveId] = createSignal<number | string>();
 	const [markerLngLat, setMarkerLngLat] = createSignal<LngLat>();
 	const [markerOffset, setMarkerOffset] = createSignal(0);
 	const [markerText, setMarkerText] = createSignal("");
@@ -38,9 +39,14 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 		);
 	});
 
-	const mouseenter = (event: MapLayerMouseEvent) => {
+	const mousemove = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
 		if (feature?.geometry.type !== "Point") return;
+
+		if (activeId() !== feature.id) {
+			setActiveId(feature.id);
+			mouseleave();
+		}
 
 		const [lng, lat] = feature.geometry.coordinates;
 		if (!lng || !lat) return;
@@ -103,7 +109,7 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 			<Layer
 				map={props.map}
 				events={{
-					mouseenter,
+					mousemove,
 					mouseleave,
 				}}
 				layer={{
