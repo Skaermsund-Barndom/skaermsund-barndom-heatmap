@@ -92,12 +92,12 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 		);
 	});
 
-	const regionMax = createMemo(() =>
-		Math.max(...regions().features.map((f) => f.properties.submissions)),
+	const minSubmissions = createMemo(() =>
+		Math.min(...regions().features.map((f) => f.properties.submissions)),
 	);
 
-	const regionMin = createMemo(() =>
-		Math.min(...regions().features.map((f) => f.properties.submissions)),
+	const maxSubmissions = createMemo(() =>
+		Math.max(...regions().features.map((f) => f.properties.submissions)),
 	);
 
 	const mousemove = (event: MapLayerMouseEvent) => {
@@ -117,9 +117,9 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 
 		const offset = interpolate(
 			feature.properties.submissions,
-			regionMin(),
-			regionMax(),
+			minSubmissions(),
 			REGION_CIRCLE_MIN_RADIUS,
+			maxSubmissions(),
 			REGION_CIRCLE_MAX_RADIUS,
 		);
 		setMarkerOffset(offset);
@@ -189,9 +189,9 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							regionMin(),
+							minSubmissions(),
 							REGION_CIRCLE_MIN_RADIUS,
-							regionMax(),
+							maxSubmissions(),
 							REGION_CIRCLE_MAX_RADIUS,
 						],
 					},
@@ -212,9 +212,9 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							regionMin(),
+							minSubmissions(),
 							REGION_TEXT_MIN_SIZE,
-							regionMax(),
+							maxSubmissions(),
 							REGION_TEXT_MAX_SIZE,
 						],
 					},
@@ -242,9 +242,9 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							regionMin(),
+							minSubmissions(),
 							REGION_CIRCLE_MIN_RADIUS,
-							regionMax(),
+							maxSubmissions(),
 							REGION_CIRCLE_MAX_RADIUS,
 						],
 					},
@@ -265,9 +265,9 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							regionMin(),
+							minSubmissions(),
 							REGION_TEXT_MIN_SIZE,
-							regionMax(),
+							maxSubmissions(),
 							REGION_TEXT_MAX_SIZE,
 						],
 					},

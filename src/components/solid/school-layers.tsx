@@ -30,17 +30,13 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 	const [markerOffset, setMarkerOffset] = createSignal(0);
 	const [markerText, setMarkerText] = createSignal("");
 
-	const schoolMin = createMemo(() => {
-		return Math.min(
-			...props.schools.features.map((f) => f.properties.submissions),
-		);
-	});
+	const minSubmissions = createMemo(() =>
+		Math.min(...props.schools.features.map((f) => f.properties.submissions)),
+	);
 
-	const schoolMax = createMemo(() => {
-		return Math.max(
-			...props.schools.features.map((f) => f.properties.submissions),
-		);
-	});
+	const maxSubmissions = createMemo(() =>
+		Math.max(...props.schools.features.map((f) => f.properties.submissions)),
+	);
 
 	const mousemove = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
@@ -59,9 +55,9 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 
 		const offset = interpolate(
 			feature.properties.submissions,
-			schoolMin(),
-			schoolMax(),
+			minSubmissions(),
 			SCHOOL_CIRCLE_MIN_RADIUS,
+			maxSubmissions(),
 			SCHOOL_CIRCLE_MAX_RADIUS,
 		);
 		setMarkerOffset(offset);
@@ -126,9 +122,9 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							schoolMin(),
+							minSubmissions(),
 							SCHOOL_CIRCLE_MIN_RADIUS,
-							schoolMax(),
+							maxSubmissions(),
 							SCHOOL_CIRCLE_MAX_RADIUS,
 						],
 					},
@@ -149,9 +145,9 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							schoolMin(),
+							minSubmissions(),
 							SCHOOL_TEXT_MIN_SIZE,
-							schoolMax(),
+							maxSubmissions(),
 							SCHOOL_TEXT_MAX_SIZE,
 						],
 					},
@@ -178,9 +174,9 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							schoolMin(),
+							minSubmissions(),
 							SCHOOL_CIRCLE_MIN_RADIUS,
-							schoolMax(),
+							maxSubmissions(),
 							SCHOOL_CIRCLE_MAX_RADIUS,
 						],
 					},
@@ -201,9 +197,9 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							schoolMin(),
+							minSubmissions(),
 							SCHOOL_TEXT_MIN_SIZE,
-							schoolMax(),
+							maxSubmissions(),
 							SCHOOL_TEXT_MAX_SIZE,
 						],
 					},

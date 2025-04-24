@@ -86,17 +86,13 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 		);
 	});
 
-	const municipalityMin = createMemo(() => {
-		return Math.min(
-			...municipalities().features.map((f) => f.properties.submissions),
-		);
-	});
+	const minSubmissions = createMemo(() =>
+		Math.min(...municipalities().features.map((f) => f.properties.submissions)),
+	);
 
-	const municipalityMax = createMemo(() => {
-		return Math.max(
-			...municipalities().features.map((f) => f.properties.submissions),
-		);
-	});
+	const maxSubmissions = createMemo(() =>
+		Math.max(...municipalities().features.map((f) => f.properties.submissions)),
+	);
 
 	const mousemove = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
@@ -115,9 +111,9 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 
 		const offset = interpolate(
 			feature.properties.submissions,
-			municipalityMin(),
-			municipalityMax(),
+			minSubmissions(),
 			MUNICIPALITY_CIRCLE_MIN_RADIUS,
+			maxSubmissions(),
 			MUNICIPALITY_CIRCLE_MAX_RADIUS,
 		);
 		setMarkerOffset(offset);
@@ -182,9 +178,9 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							municipalityMin(),
+							minSubmissions(),
 							MUNICIPALITY_CIRCLE_MIN_RADIUS,
-							municipalityMax(),
+							maxSubmissions(),
 							MUNICIPALITY_CIRCLE_MAX_RADIUS,
 						],
 					},
@@ -205,9 +201,9 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							municipalityMin(),
+							minSubmissions(),
 							MUNICIPALITY_TEXT_MIN_SIZE,
-							municipalityMax(),
+							maxSubmissions(),
 							MUNICIPALITY_TEXT_MAX_SIZE,
 						],
 					},
@@ -234,9 +230,9 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							municipalityMin(),
+							minSubmissions(),
 							MUNICIPALITY_CIRCLE_MIN_RADIUS,
-							municipalityMax(),
+							maxSubmissions(),
 							MUNICIPALITY_CIRCLE_MAX_RADIUS,
 						],
 					},
@@ -257,9 +253,9 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 							"interpolate",
 							["linear"],
 							["get", "submissions"],
-							municipalityMin(),
+							minSubmissions(),
 							MUNICIPALITY_TEXT_MIN_SIZE,
-							municipalityMax(),
+							maxSubmissions(),
 							MUNICIPALITY_TEXT_MAX_SIZE,
 						],
 					},

@@ -50,18 +50,18 @@ export function geojsonSource<F extends FeatureCollection>(
 /**
  * Maps a value from one range to another.
  * @param value - The value to map.
- * @param x1 - The start of the first range.
- * @param y1 - The end of the first range.
- * @param x2 - The start of the second range.
- * @param y2 - The end of the second range.
+ * @param input1 - The start of the first range.
+ * @param input2 - The start of the second range.
+ * @param output1 - The end of the first range.
+ * @param output2 - The end of the second range.
  * @returns The mapped value.
  */
 export function interpolate(
 	value: number,
-	x1: number,
-	y1: number,
-	x2: number,
-	y2: number,
+	input1: number,
+	input2: number,
+	output1: number,
+	output2: number,
 ) {
-	return ((value - x1) * (y2 - x2)) / (y1 - x1) + x2;
+	return ((value - input1) * (output2 - input2)) / (output1 - input1) + input2;
 }
