@@ -1,9 +1,11 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
+import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
-import { geojsonSource } from "@/scripts/helpers";
+import { geojsonSource, interpolate } from "@/scripts/helpers";
 import type { HeatmapProps } from "@/scripts/types";
-import type { VoidComponent } from "solid-js";
+import { LngLat, type MapLayerMouseEvent } from "maplibre-gl";
+import { type VoidComponent, createMemo, createSignal } from "solid-js";
 
 const SCHOOL_SOURCE = "schools";
 const SCHOOL_CIRCLE_LAYER = "schools-circle";
@@ -12,26 +14,119 @@ const ZOOMS = {
 	minzoom: ZOOM_LEVELS.SCHOOL,
 	maxzoom: ZOOM_LEVELS.MAX,
 } as const;
+const SCHOOL_CIRCLE_MIN_RADIUS = 10;
+const SCHOOL_CIRCLE_MAX_RADIUS = 40;
+const SCHOOL_TEXT_MIN_SIZE = 12;
+const SCHOOL_TEXT_MAX_SIZE = 18;
 
 interface Props extends HeatmapProps {}
 
 export const SchoolLayers: VoidComponent<Props> = (props) => {
+	const [markerLngLat, setMarkerLngLat] = createSignal<LngLat>();
+	const [markerOffset, setMarkerOffset] = createSignal(0);
+	const [markerText, setMarkerText] = createSignal("");
+
+	const schoolMin = createMemo(() => {
+		return Math.min(
+			...props.schools.features.map((f) => f.properties.submissions),
+		);
+	});
+
+	const schoolMax = createMemo(() => {
+		return Math.max(
+			...props.schools.features.map((f) => f.properties.submissions),
+		);
+	});
+
+	const mouseenter = (event: MapLayerMouseEvent) => {
+		const feature = event.features?.[0];
+		if (feature?.geometry.type !== "Point") return;
+
+		const [lng, lat] = feature.geometry.coordinates;
+		if (!lng || !lat) return;
+
+		const lngLat = new LngLat(lng, lat);
+		setMarkerLngLat(lngLat);
+
+		const offset = interpolate(
+			feature.properties.submissions,
+			schoolMin(),
+			schoolMax(),
+			SCHOOL_CIRCLE_MIN_RADIUS,
+			SCHOOL_CIRCLE_MAX_RADIUS,
+		);
+		setMarkerOffset(offset);
+		setMarkerText(feature.properties.school_name);
+
+		props.map.setFeatureState(
+			{
+				id: feature.id,
+				source: SCHOOL_SOURCE,
+			},
+			{
+				hover: true,
+			},
+		);
+	};
+
+	const mouseleave = () => {
+		setMarkerLngLat();
+		setMarkerOffset(0);
+		setMarkerText("");
+
+		const features = props.map.querySourceFeatures(SCHOOL_SOURCE);
+		for (const feature of features) {
+			props.map.setFeatureState(
+				{
+					id: feature.id,
+					source: SCHOOL_SOURCE,
+				},
+				{
+					hover: false,
+				},
+			);
+		}
+	};
+
 	return (
 		<GeoJSONSource
 			id={SCHOOL_SOURCE}
 			map={props.map}
 			source={geojsonSource(props.schools)}
 		>
+			<TooltipMarker
+				map={props.map}
+				lngLat={markerLngLat()}
+				offset={markerOffset()}
+				text={markerText()}
+			/>
 			<Layer
 				map={props.map}
+				events={{
+					mouseenter,
+					mouseleave,
+				}}
 				layer={{
 					...ZOOMS,
 					id: SCHOOL_CIRCLE_LAYER,
 					type: "circle",
 					source: SCHOOL_SOURCE,
 					paint: {
-						"circle-color": COLORS["--color-primary-70"],
-						"circle-radius": ["+", ["/", ["get", "submissions"], 5], 10],
+						"circle-color": [
+							"case",
+							["boolean", ["feature-state", "hover"], false],
+							COLORS["--color-primary-70"],
+							COLORS["--color-primary"],
+						],
+						"circle-radius": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							schoolMin(),
+							SCHOOL_CIRCLE_MIN_RADIUS,
+							schoolMax(),
+							SCHOOL_CIRCLE_MAX_RADIUS,
+						],
 					},
 				}}
 			/>
@@ -45,10 +140,19 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 					layout: {
 						"text-field": ["get", "submissions"],
 						"text-font": FONT_STACK,
-						"text-size": 12,
+						"text-overlap": "always",
+						"text-size": [
+							"interpolate",
+							["linear"],
+							["get", "submissions"],
+							schoolMin(),
+							SCHOOL_TEXT_MIN_SIZE,
+							schoolMax(),
+							SCHOOL_TEXT_MAX_SIZE,
+						],
 					},
 					paint: {
-						"text-color": "#ffffff",
+						"text-color": COLORS["--color-container"],
 					},
 				}}
 			/>

@@ -1,5 +1,6 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
+import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
 import { geojsonSource, interpolate } from "@/scripts/helpers";
 import type { HeatmapProps } from "@/scripts/types";
@@ -8,7 +9,6 @@ import type { MultiPoint } from "geojson";
 import { LngLat, type MapLayerMouseEvent } from "maplibre-gl";
 import type { VoidComponent } from "solid-js";
 import { createMemo, createSignal } from "solid-js";
-import { Marker } from "../maplibre/marker";
 
 const REGION_SOURCE = "regions";
 const REGION_CIRCLE_LAYER = "regions-circle";
@@ -150,26 +150,12 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 			map={props.map}
 			source={geojsonSource(regions())}
 		>
-			<Marker
+			<TooltipMarker
 				map={props.map}
 				lngLat={markerLngLat()}
-				class="pointer-events-none"
-			>
-				<div
-					class="bg-primary-80 text-container relative rounded-xl px-3 py-2 text-sm"
-					style={{
-						transform: `translateY(calc(-${markerOffset()}px - 50% - 0.5rem))`,
-					}}
-				>
-					<span
-						class="bg-primary-80 absolute bottom-[1px] left-[50%] h-2 w-4 translate-x-[-50%] translate-y-full"
-						style={{
-							"clip-path": "polygon(0% 0%, 100% 0%, 50% 100%)",
-						}}
-					/>
-					<span>{markerText()}</span>
-				</div>
-			</Marker>
+				offset={markerOffset()}
+				text={markerText()}
+			/>
 			<Layer
 				map={props.map}
 				events={{
@@ -211,6 +197,7 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 					layout: {
 						"text-field": ["get", "submissions"],
 						"text-font": FONT_STACK,
+						"text-overlap": "always",
 						"text-size": [
 							"interpolate",
 							["linear"],
