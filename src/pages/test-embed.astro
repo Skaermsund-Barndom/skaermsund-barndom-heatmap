@@ -54,7 +54,7 @@ const navItems = [
 					))
 				}
 			</nav>
-			<div class="flex items-center gap-3">
+			<div class="hidden items-center gap-3 md:flex">
 				<!-- Placeholder for Social Icons -->
 				<a
 					href="#"
@@ -112,14 +112,29 @@ const navItems = [
 			</button>
 
 			<div class="mx-auto mb-24 w-full max-w-5xl">
-				<iframe
-					title="Skærmsund Barndom Heatmap"
-					style="border:none;aspect-ratio:5/4"
-					width="100%"
-					sandbox="allow-scripts allow-same-origin"
-					src="/"
-				>
-				</iframe>
+				<div class="heatmap-embed">
+					<style is:inline>
+						.heatmap-embed {
+							container-type: inline-size;
+						}
+						.heatmap-embed iframe {
+							border: none;
+							aspect-ratio: 16/9;
+						}
+						@container (max-width: 48rem) {
+							.heatmap-embed iframe {
+								aspect-ratio: 1/1;
+							}
+						}
+					</style>
+					<iframe
+						title="Skærmsund Barndom Heatmap"
+						width="100%"
+						sandbox="allow-scripts allow-same-origin"
+						src="/"
+					>
+					</iframe>
+				</div>
 			</div>
 
 			<section class="mx-auto max-w-5xl text-left">

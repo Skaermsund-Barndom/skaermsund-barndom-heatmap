@@ -50,7 +50,7 @@ const { title } = Astro.props;
 			spellcheck={false}
 		>
 			<article
-				class="grid h-full grid-cols-[25rem_1fr] rounded-[1.5rem] bg-white p-1"
+				class="grid h-full rounded-[1.5rem] bg-white p-1 md:grid-cols-[25rem_1fr]"
 			>
 				<UI client:load />
 				<Heatmap client:only="solid" />
