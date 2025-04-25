@@ -4,7 +4,7 @@ import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { COLORS, FONT_STACK } from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
-import type { MapProps } from "@/scripts/types";
+import type { MapProps, SchoolProperties } from "@/scripts/types";
 import { LngLat, type MapLayerMouseEvent } from "maplibre-gl";
 import {
 	type VoidComponent,
@@ -29,7 +29,7 @@ interface Props extends MapProps {
 		minzoom: number;
 		maxzoom: number;
 	};
-	name: string;
+	name: keyof SchoolProperties;
 	storeIdentifier: keyof typeof store;
 }
 
@@ -46,16 +46,10 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 	// Get the minimum and maximum submissions for the features
 	const minSubmissions = createMemo(() =>
-		Math.min(
-			0,
-			...props.source.data.features.map((f) => f.properties?.submissions),
-		),
+		Math.min(0, ...props.source.data.features.map((f) => f.properties?.subs)),
 	);
 	const maxSubmissions = createMemo(() =>
-		Math.max(
-			1,
-			...props.source.data.features.map((f) => f.properties?.submissions),
-		),
+		Math.max(1, ...props.source.data.features.map((f) => f.properties?.subs)),
 	);
 
 	// When the mouse moves over a feature, set the active feature id
@@ -68,8 +62,9 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 			setStore(props.storeIdentifier, undefined);
 		}
 
-		if (store[props.storeIdentifier] === feature.properties[props.name]) return;
-		setStore(props.storeIdentifier, feature.properties[props.name]);
+		if (store[props.storeIdentifier] === feature.properties?.[props.name])
+			return;
+		setStore(props.storeIdentifier, feature.properties?.[props.name]);
 	};
 
 	// When the active feature id changes, update the marker and the feature state
@@ -79,7 +74,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 		const feature = props.map
 			.querySourceFeatures(props.sourceId)
-			.find((f) => f.properties[props.name] === activeFeatureName);
+			.find((f) => f.properties?.[props.name] === activeFeatureName);
 		if (!feature?.id) return;
 
 		const [lng, lat] =
@@ -88,7 +83,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 		const lngLat = new LngLat(lng, lat);
 		const offset = interpolate(
-			feature.properties.submissions,
+			feature.properties?.subs,
 			minSubmissions(),
 			props.circleMinRadius,
 			maxSubmissions(),
@@ -98,7 +93,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		setMarker({
 			lngLat,
 			offset,
-			text: feature.properties[props.name],
+			text: feature.properties?.[props.name],
 		});
 
 		const featureIdentifier = {
@@ -162,7 +157,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 							"circle-radius": [
 								"interpolate",
 								["linear"],
-								["get", "submissions"],
+								["get", "subs"],
 								minSubmissions(),
 								props.circleMinRadius,
 								maxSubmissions(),
@@ -181,13 +176,13 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 						type: "symbol",
 						source: props.sourceId,
 						layout: {
-							"text-field": ["get", "submissions"],
+							"text-field": ["get", "subs"],
 							"text-font": FONT_STACK,
 							"text-overlap": "always",
 							"text-size": [
 								"interpolate",
 								["linear"],
-								["get", "submissions"],
+								["get", "subs"],
 								minSubmissions(),
 								props.textMinSize,
 								maxSubmissions(),
@@ -219,7 +214,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 							"circle-radius": [
 								"interpolate",
 								["linear"],
-								["get", "submissions"],
+								["get", "subs"],
 								minSubmissions(),
 								props.circleMinRadius,
 								maxSubmissions(),
@@ -238,13 +233,13 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 						type: "symbol",
 						source: props.sourceId,
 						layout: {
-							"text-field": ["get", "submissions"],
+							"text-field": ["get", "subs"],
 							"text-font": FONT_STACK,
 							"text-overlap": "always",
 							"text-size": [
 								"interpolate",
 								["linear"],
-								["get", "submissions"],
+								["get", "subs"],
 								minSubmissions(),
 								props.textMinSize,
 								maxSubmissions(),

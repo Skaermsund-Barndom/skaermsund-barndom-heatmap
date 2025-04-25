@@ -5,9 +5,12 @@ import Airtable from "airtable";
 import type { FeatureCollection, Point } from "geojson";
 
 const SUBMISSIONS = "skole-class-fn Rollup (from Submissions 2)";
-const INSTITUTION_NAME = "INST_NAVN";
 const REGION_NAME = "BEL_REGION_TEKST";
+const REGION_ID = "BEL_REGION";
 const MUNICIPALITY_NAME = "KOMMUNE";
+const MUNICIPALITY_ID = "BEL_KOMMUNE";
+const SCHOOL_NAME = "INST_NAVN";
+const SCHOOL_ID = "INST_NR";
 const LATITUDE = "GEO_BREDDE_GRAD";
 const LONGITUDE = "GEO_LAENGDE_GRAD";
 
@@ -59,23 +62,32 @@ export const getSchools = async () => {
 								continue;
 							}
 
-							const school_name = record.get(INSTITUTION_NAME);
-							const region_name = record.get(REGION_NAME);
-							const municipality_name = record.get(MUNICIPALITY_NAME);
+							const regionName = record.get(REGION_NAME);
+							const regionId = Number(record.get(REGION_ID));
+							const municipalityName = record.get(MUNICIPALITY_NAME);
+							const municipalityId = Number(record.get(MUNICIPALITY_ID));
+							const schoolName = record.get(SCHOOL_NAME);
+							const schoolId = Number(record.get(SCHOOL_ID));
 
 							if (
-								typeof school_name !== "string"
-								|| typeof region_name !== "string"
-								|| typeof municipality_name !== "string"
+								typeof regionName !== "string"
+								|| typeof regionId !== "number"
+								|| typeof municipalityName !== "string"
+								|| typeof municipalityId !== "number"
+								|| typeof schoolName !== "string"
+								|| typeof schoolId !== "number"
 							) {
 								continue;
 							}
 
 							const feature = point<SchoolProperties>([lng, lat], {
-								school_name,
-								submissions,
-								region_name,
-								municipality_name,
+								r_name: regionName,
+								r_id: regionId,
+								m_name: municipalityName,
+								m_id: municipalityId,
+								s_name: schoolName,
+								s_id: schoolId,
+								subs: submissions,
 							});
 
 							schools.features.push(feature);

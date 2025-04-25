@@ -19,7 +19,7 @@ export const Ui: VoidComponent = () => {
 	const regions = createMemo(() => {
 		const reducedRegions =
 			appStore?.schools?.features.reduce((acc, school) => {
-				const region = school.properties.region_name;
+				const region = school.properties.r_name;
 				if (!acc.includes(region)) {
 					acc.push(region);
 				}
@@ -32,10 +32,10 @@ export const Ui: VoidComponent = () => {
 	const municipalities = createMemo(() => {
 		const reducedMunicipalities =
 			appStore?.schools?.features.reduce((acc, school) => {
-				const municipality = school.properties.municipality_name;
+				const municipality = school.properties.m_name;
 				if (
 					!acc.includes(municipality)
-					&& store.activeRegionName === school.properties.region_name
+					&& store.activeRegionName === school.properties.r_name
 				) {
 					acc.push(municipality);
 				}
@@ -47,11 +47,10 @@ export const Ui: VoidComponent = () => {
 	const schools = createMemo(() => {
 		const reducedSchools =
 			appStore?.schools?.features.reduce((acc, school) => {
-				const schoolName = school.properties.school_name;
+				const schoolName = school.properties.s_name;
 				if (
 					!acc.includes(schoolName)
-					&& store.activeMunicipalityName
-						=== school.properties.municipality_name
+					&& store.activeMunicipalityName === school.properties.m_name
 				) {
 					acc.push(schoolName);
 				}

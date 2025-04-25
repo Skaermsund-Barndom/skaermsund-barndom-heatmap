@@ -8,13 +8,15 @@ import type { MultiPoint } from "geojson";
 import { type VoidComponent, createMemo, useContext } from "solid-js";
 
 interface RegionProperties {
-	submissions: number;
-	region_name: string;
+	subs: number;
+	r_name: string;
+	r_id: number;
 }
 
 interface MunicipalityProperties {
-	submissions: number;
-	municipality_name: string;
+	subs: number;
+	m_name: string;
+	m_id: number;
 }
 
 interface Props extends MapProps {}
@@ -30,19 +32,20 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 		const reducedCollection = features.reduce((collection, feature) => {
 			const {
 				geometry: { coordinates },
-				properties: { region_name, submissions },
+				properties: { r_name, r_id, subs },
 			} = feature;
 
 			// Find the index of the feature with the same region name
 			const index = collection.features.findIndex(
-				(feature) => feature.properties.region_name === region_name,
+				(feature) => feature.properties.r_name === r_name,
 			);
 
 			// If the feature does not exist, create a new one
 			if (index === -1) {
 				const feature = multiPoint([coordinates], {
-					region_name,
-					submissions,
+					r_name,
+					r_id,
+					subs,
 				});
 				collection.features.push(feature);
 
@@ -51,9 +54,9 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 
 			if (collection.features[index]) {
 				collection.features[index].properties = {
-					submissions:
-						collection.features[index].properties.submissions + submissions,
-					region_name,
+					subs: collection.features[index].properties.subs + subs,
+					r_name,
+					r_id,
 				};
 				collection.features[index].geometry.coordinates.push(coordinates);
 			}
@@ -86,19 +89,20 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 		const reducedCollection = features.reduce((collection, feature) => {
 			const {
 				geometry: { coordinates },
-				properties: { municipality_name, submissions },
+				properties: { m_name, m_id, subs },
 			} = feature;
 
 			// Find the index of the feature with the same municipality name
 			const index = collection.features.findIndex(
-				(feature) => feature.properties.municipality_name === municipality_name,
+				(feature) => feature.properties.m_name === m_name,
 			);
 
 			// If the feature does not exist, create a new one, add it to the collection and return the collection
 			if (index === -1) {
 				const feature = multiPoint([coordinates], {
-					municipality_name,
-					submissions,
+					m_name,
+					m_id,
+					subs,
 				});
 				collection.features.push(feature);
 
@@ -110,9 +114,9 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 
 			// If the feature exists, update the properties and coordinates
 			collection.features[index].properties = {
-				submissions:
-					submissions + collection.features[index].properties.submissions,
-				municipality_name,
+				subs: subs + collection.features[index].properties.subs,
+				m_name,
+				m_id,
 			};
 			collection.features[index].geometry.coordinates.push(coordinates);
 
@@ -140,7 +144,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 		<>
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(regionsCollection(), "region_name")}
+				source={geojsonSource(regionsCollection(), "r_name")}
 				sourceId="regions"
 				circleLayerId="regions-circle"
 				textLayerId="regions-text"
@@ -154,12 +158,12 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					minzoom: ZOOM_LEVELS.REGION,
 					maxzoom: ZOOM_LEVELS.MUNICIPALITY,
 				}}
-				name="region_name"
+				name="r_name"
 				storeIdentifier="hoverRegionName"
 			/>
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(municipalitiesCollection(), "municipality_name")}
+				source={geojsonSource(municipalitiesCollection(), "m_name")}
 				sourceId="municipalities"
 				circleLayerId="municipalities-circle"
 				textLayerId="municipalities-text"
@@ -173,12 +177,12 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					minzoom: ZOOM_LEVELS.MUNICIPALITY,
 					maxzoom: ZOOM_LEVELS.SCHOOL,
 				}}
-				name="municipality_name"
+				name="m_name"
 				storeIdentifier="hoverMunicipalityName"
 			/>
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(appStore?.schools, "school_name")}
+				source={geojsonSource(appStore?.schools, "s_name")}
 				sourceId="schools"
 				circleLayerId="schools-circle"
 				textLayerId="schools-text"
@@ -192,7 +196,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					minzoom: ZOOM_LEVELS.SCHOOL,
 					maxzoom: ZOOM_LEVELS.MAX,
 				}}
-				name="school_name"
+				name="s_name"
 				storeIdentifier="hoverSchoolName"
 			/>
 		</>
