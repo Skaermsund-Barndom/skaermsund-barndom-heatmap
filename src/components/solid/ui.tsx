@@ -9,12 +9,6 @@ import {
 	useContext,
 } from "solid-js";
 
-export interface UiStore {
-	activeRegion: string;
-	activeMunicipality: string;
-	activeSchool: string;
-}
-
 export const Ui: VoidComponent = () => {
 	const appStore = useContext(AppContext);
 
@@ -83,7 +77,7 @@ export const Ui: VoidComponent = () => {
 	});
 
 	createEffect(() => {
-		if (!municipalitiesOpen() && !schoolsDisabled()) {
+		if (!regionsOpen() && !municipalitiesOpen() && !schoolsDisabled()) {
 			setSchoolsOpen(true);
 		} else {
 			setSchoolsOpen(false);
