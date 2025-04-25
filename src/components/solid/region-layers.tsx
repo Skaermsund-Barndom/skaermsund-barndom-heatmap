@@ -225,11 +225,6 @@ export const RegionLayers: VoidComponent<Props> = (props) => {
 			/>
 			<Layer
 				map={props.map}
-				events={{
-					mousemove,
-					mouseleave,
-					click,
-				}}
 				layer={{
 					...ZOOMS,
 					id: REGION_CIRCLE_ACTIVE_LAYER,

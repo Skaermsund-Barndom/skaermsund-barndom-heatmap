@@ -214,10 +214,6 @@ export const MunicipalityLayers: VoidComponent<Props> = (props) => {
 			/>
 			<Layer
 				map={props.map}
-				events={{
-					mousemove,
-					mouseleave,
-				}}
 				layer={{
 					...ZOOMS,
 					id: MUNICIPALITY_CIRCLE_ACTIVE_LAYER,

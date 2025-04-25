@@ -2,8 +2,8 @@ import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
 import { hoverOpacity } from "@/components/solid/heatmap-layers";
 import { TooltipMarker } from "@/components/solid/tooltip-marker";
-import { COLORS, FONT_STACK, ZOOM_LEVELS } from "@/scripts/const";
-import { geojsonSource, interpolate } from "@/scripts/helpers";
+import { COLORS, FONT_STACK } from "@/scripts/const";
+import { type geojsonSource, interpolate } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
 import type { HeatmapProps } from "@/scripts/types";
 import { LngLat, type MapLayerMouseEvent } from "maplibre-gl";
@@ -15,24 +15,27 @@ import {
 } from "solid-js";
 import { createStore } from "solid-js/store";
 
-const SCHOOL_SOURCE = "schools";
-const SCHOOL_CIRCLE_LAYER = "schools-circle";
-const SCHOOL_CIRCLE_ACTIVE_LAYER = "schools-circle-active";
-const SCHOOL_TEXT_LAYER = "schools-text";
-const SCHOOL_TEXT_ACTIVE_LAYER = "schools-text-active";
-const SCHOOL_CIRCLE_MIN_RADIUS = 10;
-const SCHOOL_CIRCLE_MAX_RADIUS = 40;
-const SCHOOL_TEXT_MIN_SIZE = 12;
-const SCHOOL_TEXT_MAX_SIZE = 18;
-const ZOOMS = {
-	minzoom: ZOOM_LEVELS.SCHOOL,
-	maxzoom: ZOOM_LEVELS.MAX,
-} as const;
+interface Props extends HeatmapProps {
+	source: ReturnType<typeof geojsonSource>;
+	sourceId: string;
+	circleLayerId: string;
+	textLayerId: string;
+	circleActiveLayerId: string;
+	textActiveLayerId: string;
+	circleMinRadius: number;
+	circleMaxRadius: number;
+	textMinSize: number;
+	textMaxSize: number;
+	zoomLevels: {
+		minzoom: number;
+		maxzoom: number;
+	};
+	name: string;
+	storeIdentifier: keyof typeof store;
+}
 
-interface Props extends HeatmapProps {}
-
-export const SchoolLayers: VoidComponent<Props> = (props) => {
-	// Active school feature id (used to check if the active school has changed with mousemove)
+export const HeatmapLayer: VoidComponent<Props> = (props) => {
+	// Active feature id (used to check if the active feature has changed with mousemove)
 	const [activeFeatureId, setActiveFeatureId] = createSignal<number | string>();
 
 	// Marker store
@@ -42,36 +45,40 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 		text: "",
 	});
 
-	// Get the minimum and maximum submissions for the schools
+	// Get the minimum and maximum submissions for the features
 	const minSubmissions = createMemo(() =>
-		Math.min(...props.schools.features.map((f) => f.properties.submissions)),
+		Math.min(
+			...props.source.data.features.map((f) => f.properties?.submissions),
+		),
 	);
 	const maxSubmissions = createMemo(() =>
-		Math.max(...props.schools.features.map((f) => f.properties.submissions)),
+		Math.max(
+			...props.source.data.features.map((f) => f.properties?.submissions),
+		),
 	);
 
-	// When the mouse moves over a school, set the active school name
+	// When the mouse moves over a feature, set the active feature id
 	const mousemove = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
 		if (feature?.geometry.type !== "Point") return;
 
 		if (activeFeatureId() !== feature.id) {
 			setActiveFeatureId(feature.id);
-			setStore({ activeSchoolName: undefined });
+			setStore(props.storeIdentifier, undefined);
 		}
 
-		if (store.activeSchoolName === feature.properties.school_name) return;
-		setStore({ activeSchoolName: feature.properties.school_name });
+		if (store[props.storeIdentifier] === feature.properties[props.name]) return;
+		setStore(props.storeIdentifier, feature.properties[props.name]);
 	};
 
-	// When the active school name changes, update the marker and the feature state
+	// When the active feature id changes, update the marker and the feature state
 	createEffect(() => {
-		const activeSchoolName = store.activeSchoolName;
-		if (!activeSchoolName) return;
+		const activeFeatureName = store[props.storeIdentifier];
+		if (!activeFeatureName) return;
 
 		const feature = props.map
-			.querySourceFeatures(SCHOOL_SOURCE)
-			.find((f) => f.properties.school_name === activeSchoolName);
+			.querySourceFeatures(props.sourceId)
+			.find((f) => f.properties[props.name] === activeFeatureName);
 		if (!feature) return;
 
 		const [lng, lat] =
@@ -82,32 +89,32 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 		const offset = interpolate(
 			feature.properties.submissions,
 			minSubmissions(),
-			SCHOOL_CIRCLE_MIN_RADIUS,
+			props.circleMinRadius,
 			maxSubmissions(),
-			SCHOOL_CIRCLE_MAX_RADIUS,
+			props.circleMaxRadius,
 		);
 
 		setMarker({
 			lngLat,
 			offset,
-			text: feature.properties.school_name,
+			text: feature.properties[props.name],
 		});
 
 		const featureIdentifier = {
 			id: feature.id,
-			source: SCHOOL_SOURCE,
+			source: props.sourceId,
 		};
 		props.map.setFeatureState(featureIdentifier, { hover: true });
 	});
 
-	// When the mouse leaves a school, reset the active school name
+	// When the mouse leaves a feature, reset the active feature id
 	const mouseleave = () => {
-		setStore({ activeSchoolName: undefined });
+		setStore(props.storeIdentifier, undefined);
 	};
 
-	// When the active school name is undefined, reset the marker and the feature state
+	// When the active feature id is undefined, reset the marker and the feature state
 	createEffect(() => {
-		if (store.activeSchoolName) return;
+		if (store[props.storeIdentifier]) return;
 
 		setMarker({
 			lngLat: undefined,
@@ -115,11 +122,11 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 			text: "",
 		});
 
-		const features = props.map.querySourceFeatures(SCHOOL_SOURCE);
+		const features = props.map.querySourceFeatures(props.sourceId);
 		for (const feature of features) {
 			const featureIdentifier = {
 				id: feature.id,
-				source: SCHOOL_SOURCE,
+				source: props.sourceId,
 			};
 			props.map.setFeatureState(featureIdentifier, { hover: false });
 		}
@@ -127,7 +134,7 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 
 	return (
 		<>
-			{/* Tooltip marker with school name */}
+			{/* Tooltip marker with name */}
 			<TooltipMarker
 				map={props.map}
 				lngLat={marker.lngLat}
@@ -135,13 +142,9 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 				text={marker.text}
 			/>
 
-			{/* School source */}
-			<GeoJSONSource
-				id={SCHOOL_SOURCE}
-				map={props.map}
-				source={geojsonSource(props.schools, "school_name")}
-			>
-				{/* School circle layer */}
+			{/* Source */}
+			<GeoJSONSource id={props.sourceId} map={props.map} source={props.source}>
+				{/* Circle layer */}
 				<Layer
 					map={props.map}
 					events={{
@@ -149,10 +152,10 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 						mouseleave,
 					}}
 					layer={{
-						...ZOOMS,
-						id: SCHOOL_CIRCLE_LAYER,
+						...props.zoomLevels,
+						id: props.circleLayerId,
 						type: "circle",
-						source: SCHOOL_SOURCE,
+						source: props.sourceId,
 						paint: {
 							"circle-color": COLORS["--color-primary"],
 							"circle-radius": [
@@ -160,22 +163,22 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 								["linear"],
 								["get", "submissions"],
 								minSubmissions(),
-								SCHOOL_CIRCLE_MIN_RADIUS,
+								props.circleMinRadius,
 								maxSubmissions(),
-								SCHOOL_CIRCLE_MAX_RADIUS,
+								props.circleMaxRadius,
 							],
 						},
 					}}
 				/>
 
-				{/* School text layer */}
+				{/* Text layer */}
 				<Layer
 					map={props.map}
 					layer={{
-						...ZOOMS,
-						id: SCHOOL_TEXT_LAYER,
+						...props.zoomLevels,
+						id: props.textLayerId,
 						type: "symbol",
-						source: SCHOOL_SOURCE,
+						source: props.sourceId,
 						layout: {
 							"text-field": ["get", "submissions"],
 							"text-font": FONT_STACK,
@@ -185,9 +188,9 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 								["linear"],
 								["get", "submissions"],
 								minSubmissions(),
-								SCHOOL_TEXT_MIN_SIZE,
+								props.textMinSize,
 								maxSubmissions(),
-								SCHOOL_TEXT_MAX_SIZE,
+								props.textMaxSize,
 							],
 						},
 						paint: {
@@ -196,14 +199,14 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 					}}
 				/>
 
-				{/* Active school circle (renders on top) */}
+				{/* Active circle (renders on top) */}
 				<Layer
 					map={props.map}
 					layer={{
-						...ZOOMS,
-						id: SCHOOL_CIRCLE_ACTIVE_LAYER,
+						...props.zoomLevels,
+						id: props.circleActiveLayerId,
 						type: "circle",
-						source: SCHOOL_SOURCE,
+						source: props.sourceId,
 						paint: {
 							"circle-opacity": hoverOpacity,
 							"circle-color": COLORS["--color-primary-80"],
@@ -212,22 +215,22 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 								["linear"],
 								["get", "submissions"],
 								minSubmissions(),
-								SCHOOL_CIRCLE_MIN_RADIUS,
+								props.circleMinRadius,
 								maxSubmissions(),
-								SCHOOL_CIRCLE_MAX_RADIUS,
+								props.circleMaxRadius,
 							],
 						},
 					}}
 				/>
 
-				{/* Active school text (renders on top) */}
+				{/* Active text (renders on top) */}
 				<Layer
 					map={props.map}
 					layer={{
-						...ZOOMS,
-						id: SCHOOL_TEXT_ACTIVE_LAYER,
+						...props.zoomLevels,
+						id: props.textActiveLayerId,
 						type: "symbol",
-						source: SCHOOL_SOURCE,
+						source: props.sourceId,
 						layout: {
 							"text-field": ["get", "submissions"],
 							"text-font": FONT_STACK,
@@ -237,9 +240,9 @@ export const SchoolLayers: VoidComponent<Props> = (props) => {
 								["linear"],
 								["get", "submissions"],
 								minSubmissions(),
-								SCHOOL_TEXT_MIN_SIZE,
+								props.textMinSize,
 								maxSubmissions(),
-								SCHOOL_TEXT_MAX_SIZE,
+								props.textMaxSize,
 							],
 						},
 						paint: {
