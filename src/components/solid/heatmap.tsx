@@ -5,7 +5,6 @@ import { ZoomControls } from "@/components/solid/zoom-controls";
 import { INITIAL_ZOOM } from "@/scripts/const";
 import { setStore } from "@/scripts/store";
 import type { Map as MapGLType } from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
 import { Show, type VoidComponent, createEffect, createSignal } from "solid-js";
 
 export const Heatmap: VoidComponent = () => {
