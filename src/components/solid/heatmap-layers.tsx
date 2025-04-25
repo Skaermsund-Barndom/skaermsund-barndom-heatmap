@@ -1,10 +1,11 @@
 import { HeatmapLayer } from "@/components/solid/heatmap-layer";
+import { AppContext } from "@/scripts/app-context";
 import { ZOOM_LEVELS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
-import type { MapProps, SchoolCollection } from "@/scripts/types";
+import type { MapProps } from "@/scripts/types";
 import { centerMedian, featureCollection, multiPoint, point } from "@turf/turf";
 import type { MultiPoint } from "geojson";
-import { type VoidComponent, createMemo, createResource } from "solid-js";
+import { type VoidComponent, createMemo, useContext } from "solid-js";
 
 interface RegionProperties {
 	submissions: number;
@@ -19,14 +20,10 @@ interface MunicipalityProperties {
 interface Props extends MapProps {}
 
 export const HeatmapLayers: VoidComponent<Props> = (props) => {
-	const [schools] = createResource<SchoolCollection>(async () => {
-		const response = await fetch("/api/schools.json");
-		const data = await response.json();
-		return data;
-	});
+	const appStore = useContext(AppContext);
 
 	const regionsCollection = createMemo(() => {
-		const features = schools()?.features;
+		const features = appStore?.schools?.features;
 		if (!features) return;
 
 		// Reduce the features to a collection of multi-points based on the region name
@@ -82,7 +79,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 	});
 
 	const municipalitiesCollection = createMemo(() => {
-		const features = schools()?.features;
+		const features = appStore?.schools?.features;
 		if (!features) return undefined;
 
 		// Reduce the features to a collection of multi-points based on the municipality name
@@ -181,7 +178,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 			/>
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(schools(), "school_name")}
+				source={geojsonSource(appStore?.schools, "school_name")}
 				sourceId="schools"
 				circleLayerId="schools-circle"
 				textLayerId="schools-text"

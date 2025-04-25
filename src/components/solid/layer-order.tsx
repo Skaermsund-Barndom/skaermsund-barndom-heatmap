@@ -1,5 +1,6 @@
 import { Layer } from "@/components/maplibre/layer";
 import { Background } from "@/components/solid/background";
+import { HeatmapLayers } from "@/components/solid/heatmap-layers";
 import { MunicipalityMap } from "@/components/solid/municipality-map";
 import {
 	BG_GRADE_LEVELS_LAYER,
@@ -9,7 +10,6 @@ import {
 } from "@/scripts/const";
 import type { MapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
-import { HeatmapLayers } from "./heatmap-layers";
 
 interface Props extends MapProps {}
 

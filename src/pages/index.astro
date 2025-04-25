@@ -1,6 +1,9 @@
 ---
-import { Heatmap } from "@/components/solid/heatmap";
-import { UI } from "@/components/solid/ui";
+import { App } from "@/components/solid/app";
+import municipalitiesMapRaw from "@/data/municipality-map.json?raw";
+import schoolsRaw from "@/data/schools.json?raw";
+import { getMunicipalityMap } from "@/scripts/municipality-map";
+import { getSchools } from "@/scripts/schools";
 import "@/styles/global.css";
 import { SEO } from "astro-seo";
 
@@ -9,6 +12,13 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const municipalitiesMap =
+	import.meta.env.DEV ?
+		JSON.parse(municipalitiesMapRaw)
+	:	await getMunicipalityMap();
+const schools =
+	import.meta.env.DEV ? JSON.parse(schoolsRaw) : await getSchools();
 ---
 
 <!doctype html>
@@ -43,14 +53,15 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<main
-			class="fixed inset-0 overflow-hidden bg-transparent font-sans text-black antialiased selection:bg-black selection:fill-white selection:text-white"
+			class="overflow-hidden bg-transparent font-sans text-black antialiased selection:bg-black selection:fill-white selection:text-white"
 			spellcheck={false}
 		>
-			<article
-				class="grid h-full rounded-[1.5rem] bg-white p-1 md:grid-cols-[25rem_1fr]"
-			>
-				<UI client:load />
-				<Heatmap client:only="solid" />
+			<article>
+				<App
+					municipalitiesMap={municipalitiesMap}
+					schools={schools}
+					client:load
+				/>
 			</article>
 		</main>
 	</body>

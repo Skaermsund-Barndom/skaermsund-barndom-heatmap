@@ -1,11 +1,11 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
+import { AppContext } from "@/scripts/app-context";
 import { COLORS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import type { MapProps } from "@/scripts/types";
-import type { GeoJSONSourceSpecification } from "maplibre-gl";
 import type { VoidComponent } from "solid-js";
-import { createResource } from "solid-js";
+import { useContext } from "solid-js";
 
 const MUNICIPALITY_MAP_SOURCE = "municipalities-map";
 const MUNICIPALITY_MAP_HEATMAP_LAYER = "municipalities-map-heatmap";
@@ -16,22 +16,13 @@ interface Props extends MapProps {
 }
 
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
-	const [source] = createResource<GeoJSONSourceSpecification>(
-		async () => {
-			const response = await fetch("/api/municipality-map.json");
-			const data = await response.json();
-			return geojsonSource(data);
-		},
-		{
-			initialValue: geojsonSource(),
-		},
-	);
+	const appStore = useContext(AppContext);
 
 	return (
 		<GeoJSONSource
 			id={MUNICIPALITY_MAP_SOURCE}
 			map={props.map}
-			source={source()}
+			source={geojsonSource(appStore?.municipalitiesMap)}
 		>
 			<Layer
 				beforeId={props.beforeId}
