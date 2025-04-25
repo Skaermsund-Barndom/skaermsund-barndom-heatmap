@@ -3,6 +3,7 @@ import { MapGL } from "@/components/maplibre/map-gl";
 import { LayerOrder } from "@/components/solid/layer-order";
 import { ZoomControls } from "@/components/solid/zoom-controls";
 import { INITIAL_ZOOM } from "@/scripts/const";
+import { setStore } from "@/scripts/store";
 import type { Map as MapGLType } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { Show, type VoidComponent, createEffect, createSignal } from "solid-js";
@@ -14,8 +15,12 @@ export const Heatmap: VoidComponent = () => {
 		map()?.touchZoomRotate.disableRotation();
 		map()?.keyboard.disableRotation();
 
-		map()?.on("zoom", (event) => {
-			console.log(event.target.getZoom());
+		map()?.on("zoom", () => {
+			setStore({
+				activeMunicipalityName: undefined,
+				activeSchoolName: undefined,
+				activeRegionName: undefined,
+			});
 		});
 	});
 

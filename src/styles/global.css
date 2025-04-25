@@ -1,7 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+	font-family: "Figtree";
+	src: url("/fonts/Figtree-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Figtree";
+	src: url("/fonts/Figtree-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+}
+
 @theme {
-	--font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+	--font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
 
 	--color-container: #fafafa;
 	--color-text: #2b2b2b;

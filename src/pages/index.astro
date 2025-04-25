@@ -3,7 +3,6 @@ import { Heatmap } from "@/components/solid/heatmap";
 import { UI } from "@/components/solid/ui";
 import "@/styles/global.css";
 import { SEO } from "astro-seo";
-import { Font } from "astro:assets";
 
 interface Props {
 	title?: string | null;
@@ -18,8 +17,6 @@ const { title } = Astro.props;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-
-		<Font cssVariable="--font-figtree" preload />
 
 		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 

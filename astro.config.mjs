@@ -1,17 +1,11 @@
 import solidJs from "@astrojs/solid-js";
 import tailwindcss from "@tailwindcss/vite";
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-	experimental: {
-		fonts: [
-			{
-				provider: fontProviders.google(),
-				name: "Figtree",
-				cssVariable: "--font-figtree",
-			},
-		],
+	build: {
+		inlineStylesheets: "always",
 	},
 	integrations: [solidJs()],
 	vite: {

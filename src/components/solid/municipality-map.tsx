@@ -18,7 +18,7 @@ interface Props extends MapProps {
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
 	const [source] = createResource<GeoJSONSourceSpecification>(
 		async () => {
-			const response = await fetch("/api/municipality-map.geojson");
+			const response = await fetch("/api/municipality-map.json");
 			const data = await response.json();
 			return geojsonSource(data);
 		},

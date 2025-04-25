@@ -2,7 +2,7 @@ export const INITIAL_ZOOM = 3;
 export const MIN_ZOOM = 4;
 export const MAX_ZOOM = 10;
 
-export const FONT_STACK = ["figtree"];
+export const FONT_STACK = ["Figtree Light"];
 
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
