@@ -1,11 +1,10 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
-import { hoverOpacity } from "@/components/solid/heatmap-layers";
 import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { COLORS, FONT_STACK } from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
-import type { HeatmapProps } from "@/scripts/types";
+import type { MapProps } from "@/scripts/types";
 import { LngLat, type MapLayerMouseEvent } from "maplibre-gl";
 import {
 	type VoidComponent,
@@ -15,7 +14,7 @@ import {
 } from "solid-js";
 import { createStore } from "solid-js/store";
 
-interface Props extends HeatmapProps {
+interface Props extends MapProps {
 	source: ReturnType<typeof geojsonSource>;
 	sourceId: string;
 	circleLayerId: string;
@@ -48,11 +47,13 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	// Get the minimum and maximum submissions for the features
 	const minSubmissions = createMemo(() =>
 		Math.min(
+			0,
 			...props.source.data.features.map((f) => f.properties?.submissions),
 		),
 	);
 	const maxSubmissions = createMemo(() =>
 		Math.max(
+			1,
 			...props.source.data.features.map((f) => f.properties?.submissions),
 		),
 	);
@@ -79,7 +80,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		const feature = props.map
 			.querySourceFeatures(props.sourceId)
 			.find((f) => f.properties[props.name] === activeFeatureName);
-		if (!feature) return;
+		if (!feature?.id) return;
 
 		const [lng, lat] =
 			feature.geometry.type === "Point" ? feature.geometry.coordinates : [0, 0];
@@ -208,7 +209,12 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 						type: "circle",
 						source: props.sourceId,
 						paint: {
-							"circle-opacity": hoverOpacity,
+							"circle-opacity": [
+								"case",
+								["boolean", ["feature-state", "hover"], false],
+								1,
+								0,
+							],
 							"circle-color": COLORS["--color-primary-80"],
 							"circle-radius": [
 								"interpolate",
@@ -246,7 +252,12 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 							],
 						},
 						paint: {
-							"text-opacity": hoverOpacity,
+							"text-opacity": [
+								"case",
+								["boolean", ["feature-state", "hover"], false],
+								1,
+								0,
+							],
 							"text-color": COLORS["--color-container"],
 						},
 					}}
