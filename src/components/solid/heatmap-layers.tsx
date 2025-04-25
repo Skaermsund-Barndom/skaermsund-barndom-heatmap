@@ -155,7 +155,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					maxzoom: ZOOM_LEVELS.MUNICIPALITY,
 				}}
 				name="region_name"
-				storeIdentifier="activeRegionName"
+				storeIdentifier="hoverRegionName"
 			/>
 			<HeatmapLayer
 				map={props.map}
@@ -174,7 +174,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					maxzoom: ZOOM_LEVELS.SCHOOL,
 				}}
 				name="municipality_name"
-				storeIdentifier="activeMunicipalityName"
+				storeIdentifier="hoverMunicipalityName"
 			/>
 			<HeatmapLayer
 				map={props.map}
@@ -193,7 +193,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					maxzoom: ZOOM_LEVELS.MAX,
 				}}
 				name="school_name"
-				storeIdentifier="activeSchoolName"
+				storeIdentifier="hoverSchoolName"
 			/>
 		</>
 	);

@@ -1,8 +1,13 @@
 import { AccordionList } from "@/components/solid/accordion-list";
 import { AppContext } from "@/scripts/app-context";
-import { UiContext } from "@/scripts/ui-context";
-import { type VoidComponent, createMemo, useContext } from "solid-js";
-import { createStore } from "solid-js/store";
+import { store } from "@/scripts/store";
+import {
+	type VoidComponent,
+	createEffect,
+	createMemo,
+	createSignal,
+	useContext,
+} from "solid-js";
 
 export interface UiStore {
 	activeRegion: string;
@@ -13,11 +18,9 @@ export interface UiStore {
 export const Ui: VoidComponent = () => {
 	const appStore = useContext(AppContext);
 
-	const [uiStore, setUiStore] = createStore<UiStore>({
-		activeRegion: "",
-		activeMunicipality: "",
-		activeSchool: "",
-	});
+	const [regionsOpen, setRegionsOpen] = createSignal(true);
+	const [municipalitiesOpen, setMunicipalitiesOpen] = createSignal(false);
+	const [schoolsOpen, setSchoolsOpen] = createSignal(false);
 
 	const regions = createMemo(() => {
 		const reducedRegions =
@@ -38,7 +41,7 @@ export const Ui: VoidComponent = () => {
 				const municipality = school.properties.municipality_name;
 				if (
 					!acc.includes(municipality)
-					&& uiStore.activeRegion === school.properties.region_name
+					&& store.activeRegionName === school.properties.region_name
 				) {
 					acc.push(municipality);
 				}
@@ -53,7 +56,8 @@ export const Ui: VoidComponent = () => {
 				const schoolName = school.properties.school_name;
 				if (
 					!acc.includes(schoolName)
-					&& uiStore.activeMunicipality === school.properties.municipality_name
+					&& store.activeMunicipalityName
+						=== school.properties.municipality_name
 				) {
 					acc.push(schoolName);
 				}
@@ -62,30 +66,62 @@ export const Ui: VoidComponent = () => {
 		return reducedSchools;
 	});
 
+	const municipalitiesDisabled = createMemo(
+		() => !regions().find((r) => r === store.activeRegionName),
+	);
+
+	const schoolsDisabled = createMemo(
+		() => !municipalities().find((m) => m === store.activeMunicipalityName),
+	);
+
+	createEffect(() => {
+		const isRegionOpen = regionsOpen();
+
+		if (!isRegionOpen && !municipalitiesDisabled()) {
+			setMunicipalitiesOpen(true);
+		} else {
+		}
+	});
+
+	createEffect(() => {
+		const isMunicipalityOpen = municipalitiesOpen();
+
+		if (!isMunicipalityOpen && !schoolsDisabled()) {
+			setSchoolsOpen(true);
+		}
+	});
+
 	return (
 		<div class="hidden h-fit max-h-full w-full grid-cols-1 items-start gap-6 overflow-hidden p-6 md:grid">
-			<UiContext.Provider value={[uiStore, setUiStore]}>
-				<AccordionList
-					items={regions()}
-					storeKey="activeRegion"
-					title="Region"
-					placeholder="Vælg region"
-				/>
-				<AccordionList
-					items={municipalities()}
-					storeKey="activeMunicipality"
-					title="Municipalities"
-					placeholder="Vælg kommune"
-					disabled={!uiStore.activeRegion}
-				/>
-				<AccordionList
-					items={schools()}
-					storeKey="activeSchool"
-					title="Schools"
-					placeholder="Vælg skole"
-					disabled={!uiStore.activeMunicipality}
-				/>
-			</UiContext.Provider>
+			<AccordionList
+				items={regions()}
+				storeActiveKey="activeRegionName"
+				storeHoverKey="hoverRegionName"
+				title="Region"
+				placeholder="Vælg region"
+				open={regionsOpen}
+				setOpen={setRegionsOpen}
+			/>
+			<AccordionList
+				items={municipalities()}
+				storeActiveKey="activeMunicipalityName"
+				storeHoverKey="hoverMunicipalityName"
+				title="Municipalities"
+				placeholder="Vælg kommune"
+				open={municipalitiesOpen}
+				setOpen={setMunicipalitiesOpen}
+				disabled={municipalitiesDisabled()}
+			/>
+			<AccordionList
+				items={schools()}
+				storeActiveKey="activeSchoolName"
+				storeHoverKey="hoverSchoolName"
+				title="Schools"
+				placeholder="Vælg skole"
+				open={schoolsOpen}
+				setOpen={setSchoolsOpen}
+				disabled={schoolsDisabled()}
+			/>
 		</div>
 	);
 };

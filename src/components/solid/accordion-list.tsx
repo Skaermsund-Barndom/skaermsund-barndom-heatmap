@@ -1,12 +1,12 @@
-import type { UiStore } from "@/components/solid/ui";
-import { UiContext } from "@/scripts/ui-context";
+import { setStore, type store } from "@/scripts/store";
 import {
+	type Accessor,
 	For,
+	type Setter,
 	type VoidComponent,
 	createEffect,
 	createMemo,
 	createSignal,
-	useContext,
 } from "solid-js";
 
 interface Props {
@@ -14,18 +14,19 @@ interface Props {
 	placeholder: string;
 	items: string[];
 	disabled?: boolean;
-	storeKey: keyof UiStore;
+	storeActiveKey: keyof typeof store;
+	storeHoverKey: keyof typeof store;
+	open: Accessor<boolean>;
+	setOpen: Setter<boolean>;
 }
 
 export const AccordionList: VoidComponent<Props> = (props) => {
 	let parentRef: HTMLDivElement | undefined;
 
 	const [search, setSearch] = createSignal("");
-	const [isOpen, setIsOpen] = createSignal(false);
-	const [uiStore, setUiStore] = useContext(UiContext) ?? [];
 
 	const filteredItems = createMemo(() => {
-		return isOpen() ?
+		return props.open() ?
 				props.items.filter((item) =>
 					item.toLowerCase().includes(search().toLowerCase()),
 				)
@@ -33,7 +34,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 	});
 
 	createEffect(() => {
-		const open = isOpen();
+		const open = props.open();
 		if (!parentRef) return;
 
 		const input = parentRef.querySelector("input[type='text']");
@@ -48,6 +49,19 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		}
 	});
 
+	createEffect(() => {
+		if (!props.disabled || !parentRef) return;
+
+		const input = parentRef.querySelector("input[type='text']");
+		if (!(input instanceof HTMLInputElement)) return;
+
+		input.value = "";
+		setStore(props.storeActiveKey, "");
+		setStore(props.storeHoverKey, "");
+		setSearch("");
+		props.setOpen(false);
+	});
+
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (event.key === "ArrowDown") {
 			if (!parentRef) return;
@@ -60,7 +74,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		}
 
 		if (event.key === "Escape") {
-			setIsOpen(false);
+			props.setOpen(false);
 		}
 	};
 
@@ -71,27 +85,32 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		if (!(input instanceof HTMLInputElement)) return;
 
 		input.value = item;
-		setUiStore?.(props.storeKey, item);
+		setStore(props.storeActiveKey, item);
 		setSearch(item);
-		setIsOpen(false);
+		props.setOpen(false);
+	};
+
+	const handleInput = (event: InputEvent) => {
+		if (!(event.currentTarget instanceof HTMLInputElement)) return;
+
+		const value = event.currentTarget.value;
+		setSearch(value);
+		setStore(props.storeActiveKey, value);
 	};
 
 	return (
 		<div
 			class="bg-primary-10 group overflow-hidden rounded-xl data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50"
 			data-disabled={props.disabled}
-			data-open={isOpen()}
+			data-open={props.open()}
 			ref={parentRef}
 		>
 			<label class="relative grid w-full cursor-pointer grid-cols-[2fr_1rem] items-center p-3.5 text-left">
 				<input
 					type="text"
 					placeholder={props.placeholder}
-					onInput={(event) => {
-						const value = event.currentTarget.value;
-						setSearch(value);
-					}}
-					onFocus={() => setIsOpen(true)}
+					onInput={handleInput}
+					onFocus={() => props.setOpen(true)}
 					onKeyDown={handleKeyDown}
 					class="pe-2 focus:outline-none"
 					tabIndex={props.disabled ? -1 : 0}
@@ -119,6 +138,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 									type="button"
 									class="hover:bg-primary focus:bg-primary w-full p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
+									onMouseEnter={() => setStore(props.storeHoverKey, item)}
+									onMouseLeave={() => setStore(props.storeHoverKey, undefined)}
 								>
 									{item}
 								</button>
