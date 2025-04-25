@@ -142,9 +142,10 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 
 	return (
 		<>
+			{/* Regions */}
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(regionsCollection(), "r_name")}
+				source={geojsonSource(regionsCollection(), "r_id")}
 				sourceId="regions"
 				circleLayerId="regions-circle"
 				textLayerId="regions-text"
@@ -159,11 +160,14 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					maxzoom: ZOOM_LEVELS.MUNICIPALITY,
 				}}
 				name="r_name"
-				storeIdentifier="hoverRegionName"
+				id="r_id"
+				storeIdentifier="hoverRegionId"
 			/>
+
+			{/* Municipalities */}
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(municipalitiesCollection(), "m_name")}
+				source={geojsonSource(municipalitiesCollection(), "m_id")}
 				sourceId="municipalities"
 				circleLayerId="municipalities-circle"
 				textLayerId="municipalities-text"
@@ -178,11 +182,14 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					maxzoom: ZOOM_LEVELS.SCHOOL,
 				}}
 				name="m_name"
-				storeIdentifier="hoverMunicipalityName"
+				id="m_id"
+				storeIdentifier="hoverMunicipalityId"
 			/>
+
+			{/* Schools */}
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(appStore?.schools, "s_name")}
+				source={geojsonSource(appStore?.schools, "s_id")}
 				sourceId="schools"
 				circleLayerId="schools-circle"
 				textLayerId="schools-text"
@@ -197,7 +204,8 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					maxzoom: ZOOM_LEVELS.MAX,
 				}}
 				name="s_name"
-				storeIdentifier="hoverSchoolName"
+				id="s_id"
+				storeIdentifier="hoverSchoolId"
 			/>
 		</>
 	);

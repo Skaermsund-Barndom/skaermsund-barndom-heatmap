@@ -6913,7 +6913,7 @@
 				"m_id": 390,
 				"s_name": "Rudolf Steiner skolen i Vordingborg",
 				"s_id": 397010,
-				"subs": 18
+				"subs": 19
 			},
 			"geometry": { "type": "Point", "coordinates": [11.89296, 55.00095] }
 		},
@@ -9841,19 +9841,6 @@
 				"subs": 3
 			},
 			"geometry": { "type": "Point", "coordinates": [12.63529, 55.6486] }
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"r_name": "Region Hovedstaden",
-				"r_id": null,
-				"m_name": "Københavns Kommune",
-				"m_id": null,
-				"s_name": "Skolen ved Sorte Hest",
-				"s_id": 101594,
-				"subs": 2
-			},
-			"geometry": { "type": "Point", "coordinates": [12.5404, 55.67012] }
 		},
 		{
 			"type": "Feature",

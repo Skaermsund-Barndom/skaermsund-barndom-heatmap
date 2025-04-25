@@ -63,11 +63,11 @@ export const getSchools = async () => {
 							}
 
 							const regionName = record.get(REGION_NAME);
-							const regionId = Number(record.get(REGION_ID));
+							const regionId = record.get(REGION_ID);
 							const municipalityName = record.get(MUNICIPALITY_NAME);
-							const municipalityId = Number(record.get(MUNICIPALITY_ID));
+							const municipalityId = record.get(MUNICIPALITY_ID);
 							const schoolName = record.get(SCHOOL_NAME);
-							const schoolId = Number(record.get(SCHOOL_ID));
+							const schoolId = record.get(SCHOOL_ID);
 
 							if (
 								typeof regionName !== "string"

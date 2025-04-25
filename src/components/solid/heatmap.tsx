@@ -16,9 +16,9 @@ export const Heatmap: VoidComponent = () => {
 
 		map()?.on("zoom", () => {
 			setStore({
-				activeMunicipalityName: undefined,
-				activeSchoolName: undefined,
-				activeRegionName: undefined,
+				activeMunicipalityId: undefined,
+				activeSchoolId: undefined,
+				activeRegionId: undefined,
 			});
 		});
 	});

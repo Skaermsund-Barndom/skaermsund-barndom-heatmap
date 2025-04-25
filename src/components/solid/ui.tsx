@@ -18,53 +18,65 @@ export const Ui: VoidComponent = () => {
 
 	const regions = createMemo(() => {
 		const reducedRegions =
-			appStore?.schools?.features.reduce((acc, school) => {
-				const region = school.properties.r_name;
-				if (!acc.includes(region)) {
-					acc.push(region);
-				}
-				return acc;
-			}, [] as string[]) ?? [];
+			appStore?.schools?.features.reduce(
+				(acc, school) => {
+					const regionId = school.properties.r_id;
+					const regionName = school.properties.r_name;
+					if (!acc.find((r) => r.id === regionId)) {
+						acc.push({ id: regionId, name: regionName });
+					}
+					return acc;
+				},
+				[] as { id: number; name: string }[],
+			) ?? [];
 
 		return reducedRegions;
 	});
 
 	const municipalities = createMemo(() => {
 		const reducedMunicipalities =
-			appStore?.schools?.features.reduce((acc, school) => {
-				const municipality = school.properties.m_name;
-				if (
-					!acc.includes(municipality)
-					&& store.activeRegionName === school.properties.r_name
-				) {
-					acc.push(municipality);
-				}
-				return acc;
-			}, [] as string[]) ?? [];
+			appStore?.schools?.features.reduce(
+				(acc, school) => {
+					const municipalityId = school.properties.m_id;
+					const municipalityName = school.properties.m_name;
+					if (
+						!acc.find((m) => m.id === municipalityId)
+						&& store.activeRegionId === school.properties.r_id
+					) {
+						acc.push({ id: municipalityId, name: municipalityName });
+					}
+					return acc;
+				},
+				[] as { id: number; name: string }[],
+			) ?? [];
 		return reducedMunicipalities;
 	});
 
 	const schools = createMemo(() => {
 		const reducedSchools =
-			appStore?.schools?.features.reduce((acc, school) => {
-				const schoolName = school.properties.s_name;
-				if (
-					!acc.includes(schoolName)
-					&& store.activeMunicipalityName === school.properties.m_name
-				) {
-					acc.push(schoolName);
-				}
-				return acc;
-			}, [] as string[]) ?? [];
+			appStore?.schools?.features.reduce(
+				(acc, school) => {
+					const schoolId = school.properties.s_id;
+					const schoolName = school.properties.s_name;
+					if (
+						!acc.find((s) => s.id === schoolId)
+						&& store.activeMunicipalityId === school.properties.m_id
+					) {
+						acc.push({ id: schoolId, name: schoolName });
+					}
+					return acc;
+				},
+				[] as { id: number; name: string }[],
+			) ?? [];
 		return reducedSchools;
 	});
 
 	const municipalitiesDisabled = createMemo(
-		() => !regions().find((r) => r === store.activeRegionName),
+		() => !regions().find((r) => r.id === store.activeRegionId),
 	);
 
 	const schoolsDisabled = createMemo(
-		() => !municipalities().find((m) => m === store.activeMunicipalityName),
+		() => !municipalities().find((m) => m.id === store.activeMunicipalityId),
 	);
 
 	createEffect(() => {
@@ -87,8 +99,8 @@ export const Ui: VoidComponent = () => {
 		<div class="hidden h-fit max-h-full w-full grid-cols-1 items-start gap-6 overflow-hidden p-6 md:grid">
 			<AccordionList
 				items={regions()}
-				storeActiveKey="activeRegionName"
-				storeHoverKey="hoverRegionName"
+				storeActiveKey="activeRegionId"
+				storeHoverKey="hoverRegionId"
 				title="Region"
 				placeholder="Vælg region"
 				open={regionsOpen()}
@@ -96,8 +108,8 @@ export const Ui: VoidComponent = () => {
 			/>
 			<AccordionList
 				items={municipalities()}
-				storeActiveKey="activeMunicipalityName"
-				storeHoverKey="hoverMunicipalityName"
+				storeActiveKey="activeMunicipalityId"
+				storeHoverKey="hoverMunicipalityId"
 				title="Municipalities"
 				placeholder="Vælg kommune"
 				open={municipalitiesOpen()}
@@ -106,8 +118,8 @@ export const Ui: VoidComponent = () => {
 			/>
 			<AccordionList
 				items={schools()}
-				storeActiveKey="activeSchoolName"
-				storeHoverKey="hoverSchoolName"
+				storeActiveKey="activeSchoolId"
+				storeHoverKey="hoverSchoolId"
 				title="Schools"
 				placeholder="Vælg skole"
 				open={schoolsOpen()}

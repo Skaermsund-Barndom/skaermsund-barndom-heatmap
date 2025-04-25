@@ -30,6 +30,7 @@ interface Props extends MapProps {
 		maxzoom: number;
 	};
 	name: keyof SchoolProperties;
+	id: keyof SchoolProperties;
 	storeIdentifier: keyof typeof store;
 }
 
@@ -62,19 +63,18 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 			setStore(props.storeIdentifier, undefined);
 		}
 
-		if (store[props.storeIdentifier] === feature.properties?.[props.name])
-			return;
-		setStore(props.storeIdentifier, feature.properties?.[props.name]);
+		if (store[props.storeIdentifier] === feature.properties?.[props.id]) return;
+		setStore(props.storeIdentifier, feature.properties?.[props.id]);
 	};
 
 	// When the active feature id changes, update the marker and the feature state
 	createEffect(() => {
-		const activeFeatureName = store[props.storeIdentifier];
-		if (!activeFeatureName) return;
+		const activeFeatureId = store[props.storeIdentifier];
+		if (!activeFeatureId) return;
 
 		const feature = props.map
 			.querySourceFeatures(props.sourceId)
-			.find((f) => f.properties?.[props.name] === activeFeatureName);
+			.find((f) => f.properties?.[props.id] === activeFeatureId);
 		if (!feature?.id) return;
 
 		const [lng, lat] =
@@ -120,6 +120,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 		const features = props.map.querySourceFeatures(props.sourceId);
 		for (const feature of features) {
+			if (!feature.id) continue;
 			const featureIdentifier = {
 				id: feature.id,
 				source: props.sourceId,

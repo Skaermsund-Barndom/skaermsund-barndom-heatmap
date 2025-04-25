@@ -1,13 +1,19 @@
 import { Heatmap } from "@/components/solid/heatmap";
 import { Ui } from "@/components/solid/ui";
 import { AppContext } from "@/scripts/app-context";
-import type { SchoolProperties } from "@/scripts/types";
+import type {
+	MunicipalityMapProperties,
+	SchoolProperties,
+} from "@/scripts/types";
 import type { FeatureCollection, MultiPolygon, Point, Polygon } from "geojson";
 import type { ParentComponent } from "solid-js";
 import { createStore } from "solid-js/store";
 
 export interface AppProps {
-	municipalitiesMap?: FeatureCollection<Polygon | MultiPolygon>;
+	municipalitiesMap?: FeatureCollection<
+		Polygon | MultiPolygon,
+		MunicipalityMapProperties
+	>;
 	schools?: FeatureCollection<Point, SchoolProperties>;
 }
 

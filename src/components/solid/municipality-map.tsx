@@ -3,9 +3,10 @@ import { Layer } from "@/components/maplibre/layer";
 import { AppContext } from "@/scripts/app-context";
 import { COLORS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
+import { store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
-import { useContext } from "solid-js";
+import { createEffect, useContext } from "solid-js";
 
 const MUNICIPALITY_MAP_SOURCE = "municipalities-map";
 const MUNICIPALITY_MAP_HEATMAP_LAYER = "municipalities-map-heatmap";
@@ -18,11 +19,58 @@ interface Props extends MapProps {
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
 	const appStore = useContext(AppContext);
 
+	createEffect(() => {
+		if (store.activeMunicipalityId) {
+			const activeMunicipalityFeatures =
+				props.map
+					.querySourceFeatures(MUNICIPALITY_MAP_SOURCE)
+					.map((feature) => ({
+						active:
+							Number(feature.properties?.kommunekod)
+							=== store.activeMunicipalityId,
+						feature,
+					})) ?? [];
+			if (!activeMunicipalityFeatures.length) return;
+
+			for (const { feature, active } of activeMunicipalityFeatures) {
+				if (!feature.id) continue;
+				const featureIdentifier = {
+					id: feature.id,
+					source: MUNICIPALITY_MAP_SOURCE,
+				};
+				props.map.setFeatureState(featureIdentifier, { active });
+			}
+		}
+	});
+
+	createEffect(() => {
+		if (store.activeRegionId) {
+			const activeRegionFeatures =
+				props.map
+					.querySourceFeatures(MUNICIPALITY_MAP_SOURCE)
+					.map((feature) => ({
+						active:
+							Number(feature.properties?.regionskod) === store.activeRegionId,
+						feature,
+					})) ?? [];
+			if (!activeRegionFeatures.length) return;
+
+			for (const { feature, active } of activeRegionFeatures) {
+				if (!feature.id) continue;
+				const featureIdentifier = {
+					id: feature.id,
+					source: MUNICIPALITY_MAP_SOURCE,
+				};
+				props.map.setFeatureState(featureIdentifier, { active });
+			}
+		}
+	});
+
 	return (
 		<GeoJSONSource
 			id={MUNICIPALITY_MAP_SOURCE}
 			map={props.map}
-			source={geojsonSource(appStore?.municipalitiesMap)}
+			source={geojsonSource(appStore?.municipalitiesMap, "kommunekod")}
 		>
 			<Layer
 				beforeId={props.beforeId}
@@ -32,7 +80,12 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					type: "fill",
 					source: MUNICIPALITY_MAP_SOURCE,
 					paint: {
-						"fill-color": COLORS["--color-primary-10"],
+						"fill-color": [
+							"case",
+							["boolean", ["feature-state", "active"], false],
+							COLORS["--color-container"],
+							COLORS["--color-primary-10"],
+						],
 					},
 				}}
 			/>

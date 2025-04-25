@@ -11,7 +11,10 @@ import {
 interface Props {
 	title: string;
 	placeholder: string;
-	items: string[];
+	items: {
+		id: number;
+		name: string;
+	}[];
 	disabled?: boolean;
 	storeActiveKey: keyof typeof store;
 	storeHoverKey: keyof typeof store;
@@ -27,7 +30,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 	const filteredItems = createMemo(() => {
 		return props.open ?
 				props.items.filter((item) =>
-					item.toLowerCase().includes(search().toLowerCase()),
+					item.name.toLowerCase().includes(search().toLowerCase()),
 				)
 			:	[];
 	});
@@ -55,8 +58,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		if (!(input instanceof HTMLInputElement)) return;
 
 		input.value = "";
-		setStore(props.storeActiveKey, "");
-		setStore(props.storeHoverKey, "");
+		setStore(props.storeActiveKey, undefined);
+		setStore(props.storeHoverKey, undefined);
 		setSearch("");
 		props.setOpen(false);
 	});
@@ -77,15 +80,15 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		}
 	};
 
-	const handleSetActiveItem = (item: string) => {
+	const handleSetActiveItem = (item: { id: number; name: string }) => {
 		if (!parentRef) return;
 
 		const input = parentRef.querySelector("input[type='text']");
 		if (!(input instanceof HTMLInputElement)) return;
 
-		input.value = item;
-		setStore(props.storeActiveKey, item);
-		setSearch(item);
+		input.value = item.name;
+		setStore(props.storeActiveKey, item.id);
+		setSearch(item.name);
 		props.setOpen(false);
 	};
 
@@ -94,7 +97,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		const value = event.currentTarget.value;
 		setSearch(value);
-		setStore(props.storeActiveKey, value);
+		setStore(props.storeActiveKey, undefined);
+		setStore(props.storeHoverKey, undefined);
 	};
 
 	return (
@@ -137,10 +141,10 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 									type="button"
 									class="hover:bg-primary focus:bg-primary w-full p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
-									onMouseEnter={() => setStore(props.storeHoverKey, item)}
+									onMouseEnter={() => setStore(props.storeHoverKey, item.id)}
 									onMouseLeave={() => setStore(props.storeHoverKey, undefined)}
 								>
-									{item}
+									{item.name}
 								</button>
 							</li>
 						)}
