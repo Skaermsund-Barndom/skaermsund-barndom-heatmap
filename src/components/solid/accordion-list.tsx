@@ -1,0 +1,132 @@
+import type { UiStore } from "@/components/solid/ui";
+import { UiContext } from "@/scripts/ui-context";
+import {
+	For,
+	type VoidComponent,
+	createEffect,
+	createMemo,
+	createSignal,
+	useContext,
+} from "solid-js";
+
+interface Props {
+	title: string;
+	placeholder: string;
+	items: string[];
+	disabled?: boolean;
+	storeKey: keyof UiStore;
+}
+
+export const AccordionList: VoidComponent<Props> = (props) => {
+	let parentRef: HTMLDivElement | undefined;
+
+	const [search, setSearch] = createSignal("");
+	const [isOpen, setIsOpen] = createSignal(false);
+	const [uiStore, setUiStore] = useContext(UiContext) ?? [];
+
+	const filteredItems = createMemo(() => {
+		return isOpen() ?
+				props.items.filter((item) =>
+					item.toLowerCase().includes(search().toLowerCase()),
+				)
+			:	[];
+	});
+
+	createEffect(() => {
+		const open = isOpen();
+		if (!parentRef) return;
+
+		const input = parentRef.querySelector("input[type='text']");
+		if (!(input instanceof HTMLInputElement)) return;
+
+		if (open) {
+			input.focus();
+			input.setSelectionRange(0, input.value.length);
+		} else {
+			input.blur();
+			setSearch("");
+		}
+	});
+
+	const handleKeyDown = (event: KeyboardEvent) => {
+		if (event.key === "ArrowDown") {
+			if (!parentRef) return;
+			event.preventDefault();
+
+			const firstButton = parentRef.querySelector("ul li button");
+			if (!(firstButton instanceof HTMLButtonElement)) return;
+
+			firstButton.focus();
+		}
+
+		if (event.key === "Escape") {
+			setIsOpen(false);
+		}
+	};
+
+	const handleSetActiveItem = (item: string) => {
+		if (!parentRef) return;
+
+		const input = parentRef.querySelector("input[type='text']");
+		if (!(input instanceof HTMLInputElement)) return;
+
+		input.value = item;
+		setUiStore?.(props.storeKey, item);
+		setSearch(item);
+		setIsOpen(false);
+	};
+
+	return (
+		<div
+			class="bg-primary-10 group overflow-hidden rounded-xl data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50"
+			data-disabled={props.disabled}
+			data-open={isOpen()}
+			ref={parentRef}
+		>
+			<label class="relative grid w-full cursor-pointer grid-cols-[2fr_1rem] items-center p-3.5 text-left">
+				<input
+					type="text"
+					placeholder={props.placeholder}
+					onInput={(event) => {
+						const value = event.currentTarget.value;
+						setSearch(value);
+					}}
+					onFocus={() => setIsOpen(true)}
+					onKeyDown={handleKeyDown}
+					class="pe-2 focus:outline-none"
+					tabIndex={props.disabled ? -1 : 0}
+				/>
+				<svg
+					width="14"
+					height="14"
+					viewBox="0 0 14 14"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<title>Toggle</title>
+					<path
+						d="M7 7.65L3.19 3.84L1.89355 5.1288L7 10.2353L12.1 5.124L10.8184 3.836L7 7.65Z"
+						fill="currentColor"
+					/>
+				</svg>
+				<div class="border-text absolute -bottom-px left-0 h-px w-full border-t" />
+			</label>
+			<div class="h-0 overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(.3,.2,0,1)] group-data-[open=true]:h-96">
+				<ul class="h-96 overflow-x-hidden overflow-y-auto">
+					<For each={filteredItems()}>
+						{(item) => (
+							<li class="flex">
+								<button
+									type="button"
+									class="hover:bg-primary focus:bg-primary w-full p-3.5 text-left focus:outline-none"
+									onClick={() => handleSetActiveItem(item)}
+								>
+									{item}
+								</button>
+							</li>
+						)}
+					</For>
+				</ul>
+			</div>
+		</div>
+	);
+};
