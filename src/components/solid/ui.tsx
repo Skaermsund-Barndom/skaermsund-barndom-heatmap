@@ -75,19 +75,18 @@ export const Ui: VoidComponent = () => {
 	);
 
 	createEffect(() => {
-		const isRegionOpen = regionsOpen();
-
-		if (!isRegionOpen && !municipalitiesDisabled()) {
+		if (!regionsOpen() && !municipalitiesDisabled()) {
 			setMunicipalitiesOpen(true);
 		} else {
+			setMunicipalitiesOpen(false);
 		}
 	});
 
 	createEffect(() => {
-		const isMunicipalityOpen = municipalitiesOpen();
-
-		if (!isMunicipalityOpen && !schoolsDisabled()) {
+		if (!municipalitiesOpen() && !schoolsDisabled()) {
 			setSchoolsOpen(true);
+		} else {
+			setSchoolsOpen(false);
 		}
 	});
 
@@ -99,7 +98,7 @@ export const Ui: VoidComponent = () => {
 				storeHoverKey="hoverRegionName"
 				title="Region"
 				placeholder="Vælg region"
-				open={regionsOpen}
+				open={regionsOpen()}
 				setOpen={setRegionsOpen}
 			/>
 			<AccordionList
@@ -108,7 +107,7 @@ export const Ui: VoidComponent = () => {
 				storeHoverKey="hoverMunicipalityName"
 				title="Municipalities"
 				placeholder="Vælg kommune"
-				open={municipalitiesOpen}
+				open={municipalitiesOpen()}
 				setOpen={setMunicipalitiesOpen}
 				disabled={municipalitiesDisabled()}
 			/>
@@ -118,7 +117,7 @@ export const Ui: VoidComponent = () => {
 				storeHoverKey="hoverSchoolName"
 				title="Schools"
 				placeholder="Vælg skole"
-				open={schoolsOpen}
+				open={schoolsOpen()}
 				setOpen={setSchoolsOpen}
 				disabled={schoolsDisabled()}
 			/>

@@ -1,6 +1,5 @@
 import { setStore, type store } from "@/scripts/store";
 import {
-	type Accessor,
 	For,
 	type Setter,
 	type VoidComponent,
@@ -16,7 +15,7 @@ interface Props {
 	disabled?: boolean;
 	storeActiveKey: keyof typeof store;
 	storeHoverKey: keyof typeof store;
-	open: Accessor<boolean>;
+	open: boolean;
 	setOpen: Setter<boolean>;
 }
 
@@ -26,7 +25,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 	const [search, setSearch] = createSignal("");
 
 	const filteredItems = createMemo(() => {
-		return props.open() ?
+		return props.open ?
 				props.items.filter((item) =>
 					item.toLowerCase().includes(search().toLowerCase()),
 				)
@@ -34,7 +33,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 	});
 
 	createEffect(() => {
-		const open = props.open();
+		const open = props.open;
 		if (!parentRef) return;
 
 		const input = parentRef.querySelector("input[type='text']");
@@ -102,7 +101,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		<div
 			class="bg-primary-10 group overflow-hidden rounded-xl data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50"
 			data-disabled={props.disabled}
-			data-open={props.open()}
+			data-open={props.open}
 			ref={parentRef}
 		>
 			<label class="relative grid w-full cursor-pointer grid-cols-[2fr_1rem] items-center p-3.5 text-left">
