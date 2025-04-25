@@ -1,6 +1,10 @@
 import type { FeatureCollection } from "geojson";
 import type { GeoJSONSourceSpecification } from "maplibre-gl";
 
+/**
+ * Returns the maximum of the client width or the window width.
+ * @returns The maximum of the client width or the window width.
+ */
 export function vw() {
 	return typeof window !== "undefined" ?
 			Math.max(
@@ -10,6 +14,10 @@ export function vw() {
 		:	0;
 }
 
+/**
+ * Returns the maximum of the client width or the window width.
+ * @returns The maximum of the client width or the window width.
+ */
 export function vh() {
 	return typeof window !== "undefined" ?
 			Math.max(
@@ -19,6 +27,11 @@ export function vh() {
 		:	0;
 }
 
+/**
+ * Converts a pixel value to rem.
+ * @param px - The pixel value to convert.
+ * @returns The converted value in rem.
+ */
 export function pxToRem(px: number) {
 	return typeof document !== "undefined" ?
 			px
@@ -26,6 +39,11 @@ export function pxToRem(px: number) {
 		:	px / 16;
 }
 
+/**
+ * Converts a rem value to pixels.
+ * @param rem - The rem value to convert.
+ * @returns The converted value in pixels.
+ */
 export function remToPx(rem: number) {
 	return typeof document !== "undefined" ?
 			rem
@@ -33,6 +51,12 @@ export function remToPx(rem: number) {
 		:	rem * 16;
 }
 
+/**
+ * Creates a geojson source with type inference.
+ * @param data - The data to create the source from.
+ * @param promoteId - The id to promote.
+ * @returns The geojson source.
+ */
 export function geojsonSource<F extends FeatureCollection>(
 	data?: F,
 	promoteId?: keyof F["features"][number]["properties"],

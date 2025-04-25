@@ -25,10 +25,11 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 		return data;
 	});
 
-	const regions = createMemo(() => {
+	const regionsCollection = createMemo(() => {
 		const features = schools()?.features;
 		if (!features) return;
 
+		// Reduce the features to a collection of multi-points based on the region name
 		const reducedCollection = features.reduce((collection, feature) => {
 			const {
 				geometry: { coordinates },
@@ -63,26 +64,28 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 			return collection;
 		}, featureCollection<MultiPoint, RegionProperties>([]));
 
-		// Create a collection of centroids
-		const centroidCollection = featureCollection(
+		// Return a collection of centroids
+		return featureCollection(
 			reducedCollection.features.map((feature) => {
 				const { geometry, properties } = feature;
 
+				// Calculate the centroid from a collection of points
 				const collection = featureCollection(
 					geometry.coordinates.map((c) => point(c)),
 				);
 				const centroid = centerMedian(collection);
+
+				// Return the centroid point with the properties
 				return point(centroid.geometry.coordinates, properties);
 			}),
 		);
-
-		return centroidCollection;
 	});
 
-	const municipalities = createMemo(() => {
+	const municipalitiesCollection = createMemo(() => {
 		const features = schools()?.features;
 		if (!features) return undefined;
 
+		// Reduce the features to a collection of multi-points based on the municipality name
 		const reducedCollection = features.reduce((collection, feature) => {
 			const {
 				geometry: { coordinates },
@@ -119,33 +122,28 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 			return collection;
 		}, featureCollection<MultiPoint, MunicipalityProperties>([]));
 
-		// Create a collection of centroids
-		const centroidCollection = featureCollection(
+		// Return a collection of centroids
+		return featureCollection(
 			reducedCollection.features.map((feature) => {
 				const { geometry, properties } = feature;
 
-				// Create a collection of points
+				// Calculate the centroid from a collection of points
 				const collection = featureCollection(
 					geometry.coordinates.map((c) => point(c)),
 				);
-
-				// Calculate the centroid
 				const centroid = centerMedian(collection);
 
 				// Return the centroid point with the properties
-				const centroidPoint = point(centroid.geometry.coordinates, properties);
-				return centroidPoint;
+				return point(centroid.geometry.coordinates, properties);
 			}),
 		);
-
-		return centroidCollection;
 	});
 
 	return (
 		<>
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(regions(), "region_name")}
+				source={geojsonSource(regionsCollection(), "region_name")}
 				sourceId="regions"
 				circleLayerId="regions-circle"
 				textLayerId="regions-text"
@@ -164,7 +162,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 			/>
 			<HeatmapLayer
 				map={props.map}
-				source={geojsonSource(municipalities(), "municipality_name")}
+				source={geojsonSource(municipalitiesCollection(), "municipality_name")}
 				sourceId="municipalities"
 				circleLayerId="municipalities-circle"
 				textLayerId="municipalities-text"
