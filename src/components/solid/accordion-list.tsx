@@ -1,5 +1,4 @@
 import { setStore, type store } from "@/scripts/store";
-import type { SchoolProperties } from "@/scripts/types";
 import {
 	For,
 	type Setter,
@@ -18,7 +17,6 @@ interface Item {
 interface Props {
 	title: string;
 	placeholder: string;
-	name: keyof SchoolProperties;
 	items: Item[];
 	disabled?: boolean;
 	storeActiveKey: keyof typeof store;

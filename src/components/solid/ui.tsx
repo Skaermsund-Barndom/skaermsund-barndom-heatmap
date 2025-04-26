@@ -16,28 +16,28 @@ export const Ui: VoidComponent = () => {
 	const [municipalitiesOpen, setMunicipalitiesOpen] = createSignal(false);
 	const [schoolsOpen, setSchoolsOpen] = createSignal(false);
 
-	const regions = createMemo(
+	const regionItems = createMemo(
 		() =>
-			appStore?.regionsCollection?.features.map((r) => ({
-				id: r.properties.r_id,
-				name: r.properties.r_name,
-				subs: r.properties.subs,
+			appStore?.regionsCollection?.features.map((f) => ({
+				id: f.properties.r_id,
+				name: f.properties.r_name,
+				subs: f.properties.subs,
 			})) ?? [],
 	);
-	const municipalities = createMemo(
+	const municipalityItems = createMemo(
 		() =>
-			appStore?.municipalitiesCollection?.features.map((m) => ({
-				id: m.properties.m_id,
-				name: m.properties.m_name,
-				subs: m.properties.subs,
+			appStore?.municipalitiesCollection?.features.map((f) => ({
+				id: f.properties.m_id,
+				name: f.properties.m_name,
+				subs: f.properties.subs,
 			})) ?? [],
 	);
-	const schools = createMemo(
+	const schoolItems = createMemo(
 		() =>
-			appStore?.schools?.features.map((s) => ({
-				id: s.properties.s_id,
-				name: s.properties.s_name,
-				subs: s.properties.subs,
+			appStore?.schools?.features.map((f) => ({
+				id: f.properties.s_id,
+				name: f.properties.s_name,
+				subs: f.properties.subs,
 			})) ?? [],
 	);
 
@@ -74,8 +74,7 @@ export const Ui: VoidComponent = () => {
 	return (
 		<div class="hidden h-fit max-h-full w-full grid-cols-1 items-start gap-6 overflow-hidden p-6 md:grid">
 			<AccordionList
-				items={regions()}
-				name="r_name"
+				items={regionItems()}
 				storeActiveKey="activeRegionId"
 				storeHoverKey="hoverRegionId"
 				title="Region"
@@ -84,8 +83,7 @@ export const Ui: VoidComponent = () => {
 				setOpen={setRegionsOpen}
 			/>
 			<AccordionList
-				items={municipalities()}
-				name="m_name"
+				items={municipalityItems()}
 				storeActiveKey="activeMunicipalityId"
 				storeHoverKey="hoverMunicipalityId"
 				title="Municipalities"
@@ -95,8 +93,7 @@ export const Ui: VoidComponent = () => {
 				disabled={municipalitiesDisabled()}
 			/>
 			<AccordionList
-				items={schools()}
-				name="s_name"
+				items={schoolItems()}
 				storeActiveKey="activeSchoolId"
 				storeHoverKey="hoverSchoolId"
 				title="Schools"
