@@ -10,14 +10,20 @@ export interface HeatmapProps extends MapProps {
 	schools: SchoolCollection;
 }
 
-export interface SchoolProperties {
+export interface RegionProperties {
+	subs: number;
 	r_name: string;
 	r_id: number;
+}
+
+export interface MunicipalityProperties extends RegionProperties {
 	m_name: string;
 	m_id: number;
+}
+
+export interface SchoolProperties extends MunicipalityProperties {
 	s_name: string;
 	s_id: number;
-	subs: number;
 }
 
 export type SchoolCollection = FeatureCollection<Point, SchoolProperties>;

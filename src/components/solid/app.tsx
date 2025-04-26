@@ -1,6 +1,10 @@
 import { Heatmap } from "@/components/solid/heatmap";
 import { Ui } from "@/components/solid/ui";
 import { AppContext } from "@/scripts/app-context";
+import {
+	municipalitiesCollection,
+	regionsCollection,
+} from "@/scripts/collections";
 import type {
 	MunicipalityMapProperties,
 	SchoolProperties,
@@ -9,7 +13,7 @@ import type { FeatureCollection, MultiPolygon, Point, Polygon } from "geojson";
 import type { ParentComponent } from "solid-js";
 import { createStore } from "solid-js/store";
 
-export interface AppProps {
+interface Props {
 	municipalitiesMap?: FeatureCollection<
 		Polygon | MultiPolygon,
 		MunicipalityMapProperties
@@ -17,10 +21,17 @@ export interface AppProps {
 	schools?: FeatureCollection<Point, SchoolProperties>;
 }
 
-export const App: ParentComponent<AppProps> = (props) => {
+export interface AppProps extends Props {
+	regionsCollection: ReturnType<typeof regionsCollection>;
+	municipalitiesCollection: ReturnType<typeof municipalitiesCollection>;
+}
+
+export const App: ParentComponent<Props> = (props) => {
 	const [appStore] = createStore<AppProps>({
-		schools: props.schools,
 		municipalitiesMap: props.municipalitiesMap,
+		schools: props.schools,
+		regionsCollection: regionsCollection(props.schools),
+		municipalitiesCollection: municipalitiesCollection(props.schools),
 	});
 
 	return (

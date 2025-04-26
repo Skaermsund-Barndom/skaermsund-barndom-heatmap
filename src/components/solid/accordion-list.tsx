@@ -1,4 +1,5 @@
 import { setStore, type store } from "@/scripts/store";
+import type { SchoolProperties } from "@/scripts/types";
 import {
 	For,
 	type Setter,
@@ -8,13 +9,17 @@ import {
 	createSignal,
 } from "solid-js";
 
+interface Item {
+	id: number;
+	name: string;
+	subs: number;
+}
+
 interface Props {
 	title: string;
 	placeholder: string;
-	items: {
-		id: number;
-		name: string;
-	}[];
+	name: keyof SchoolProperties;
+	items: Item[];
 	disabled?: boolean;
 	storeActiveKey: keyof typeof store;
 	storeHoverKey: keyof typeof store;
@@ -80,7 +85,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		}
 	};
 
-	const handleSetActiveItem = (item: { id: number; name: string }) => {
+	const handleSetActiveItem = (item: Item) => {
 		if (!parentRef) return;
 
 		const input = parentRef.querySelector("input[type='text']");
@@ -108,7 +113,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 			data-open={props.open}
 			ref={parentRef}
 		>
-			<label class="relative grid w-full cursor-pointer grid-cols-[2fr_1rem] items-center p-3.5 text-left">
+			<label class="relative grid w-full cursor-pointer grid-cols-2 items-center p-3.5 text-left">
 				<input
 					type="text"
 					placeholder={props.placeholder}
@@ -118,33 +123,40 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 					class="pe-2 focus:outline-none"
 					tabIndex={props.disabled ? -1 : 0}
 				/>
-				<svg
-					width="14"
-					height="14"
-					viewBox="0 0 14 14"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<title>Toggle</title>
-					<path
-						d="M7 7.65L3.19 3.84L1.89355 5.1288L7 10.2353L12.1 5.124L10.8184 3.836L7 7.65Z"
-						fill="currentColor"
-					/>
-				</svg>
+				<div class="flex items-center justify-between gap-2">
+					<p class="opacity-0 transition-opacity duration-300 ease-[cubic-bezier(.3,.2,0,1)] group-data-[open=true]:opacity-100">
+						Løfter
+					</p>
+					<svg
+						width="14"
+						height="14"
+						viewBox="0 0 14 14"
+						xmlns="http://www.w3.org/2000/svg"
+						class="transition-transform duration-300 ease-[cubic-bezier(.3,.2,0,1)] group-data-[open=true]:rotate-180"
+					>
+						<title>Toggle</title>
+						<path
+							d="M7 7.65L3.19 3.84L1.89355 5.1288L7 10.2353L12.1 5.124L10.8184 3.836L7 7.65Z"
+							fill="currentColor"
+						/>
+					</svg>
+				</div>
 				<div class="border-text absolute -bottom-px left-0 h-px w-full border-t" />
 			</label>
 			<div class="h-0 overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(.3,.2,0,1)] group-data-[open=true]:h-96">
 				<ul class="h-96 overflow-x-hidden overflow-y-auto">
 					<For each={filteredItems()}>
 						{(item) => (
-							<li class="flex">
+							<li class="flex font-light">
 								<button
 									type="button"
-									class="hover:bg-primary focus:bg-primary w-full p-3.5 text-left focus:outline-none"
+									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-2 p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
 									onMouseEnter={() => setStore(props.storeHoverKey, item.id)}
 									onMouseLeave={() => setStore(props.storeHoverKey, undefined)}
 								>
-									{item.name}
+									<span>{item.name}</span>
+									<span>{item.subs}</span>
 								</button>
 							</li>
 						)}
