@@ -3,7 +3,7 @@ import { Layer } from "@/components/maplibre/layer";
 import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { BG_HEATMAP_LEVELS_LAYER, COLORS, FONT_STACK } from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
-import { hoverStore, setHoverStore, store } from "@/scripts/store";
+import { hoverStore, setHoverStore, setStore, store } from "@/scripts/store";
 import type { MapProps, SchoolProperties } from "@/scripts/types";
 import {
 	type FilterSpecification,
@@ -132,6 +132,14 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		}
 	});
 
+	const click = (event: MapLayerMouseEvent) => {
+		const feature = event.features?.[0];
+		if (feature?.geometry.type !== "Point") return;
+
+		props.setLevel();
+		setStore(props.activeId, feature.properties?.[props.id]);
+	};
+
 	return (
 		<>
 			{/* Tooltip marker with name */}
@@ -151,7 +159,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 					events={{
 						mousemove,
 						mouseleave,
-						click: props.setLevel,
+						click,
 					}}
 					layer={{
 						id: `${props.sourceId}-circle`,
