@@ -1,10 +1,18 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
-import { TooltipMarker } from "@/components/solid/tooltip-marker";
-import { BG_HEATMAP_LEVELS_LAYER, COLORS, FONT_STACK } from "@/scripts/const";
+import {
+	TooltipMarker,
+	type TooltipMarkerStore,
+} from "@/components/solid/tooltip-marker";
+import {
+	ALL_ID,
+	BG_HEATMAP_LEVELS_LAYER,
+	COLORS,
+	FONT_STACK,
+} from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
 import { hoverStore, setHoverStore, setStore, store } from "@/scripts/store";
-import type { MapProps, SchoolProperties } from "@/scripts/types";
+import type { Item, MapProps } from "@/scripts/types";
 import {
 	type FilterSpecification,
 	LngLat,
@@ -25,8 +33,6 @@ interface Props extends MapProps {
 	circleMaxRadius: number;
 	textMinSize: number;
 	textMaxSize: number;
-	name: keyof SchoolProperties;
-	id: keyof SchoolProperties;
 	activeId: keyof typeof store;
 	hoverId: keyof typeof hoverStore;
 	level: 0 | 1 | 2;
@@ -42,10 +48,10 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	});
 
 	// Marker store
-	const [marker, setMarker] = createStore({
-		lngLat: undefined as LngLat | undefined,
+	const [marker, setMarker] = createStore<TooltipMarkerStore>({
+		lngLat: undefined,
 		offset: 0,
-		text: "",
+		name: "",
 	});
 
 	// Get the minimum and maximum submissions for the features
@@ -63,11 +69,11 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 		if (activeFeatureId() !== feature.id) {
 			setActiveFeatureId(feature.id);
-			setHoverStore(props.hoverId, undefined);
+			setHoverStore(props.hoverId, ALL_ID);
 		}
 
-		if (hoverStore[props.hoverId] === feature.properties?.[props.id]) return;
-		setHoverStore(props.hoverId, feature.properties?.[props.id]);
+		if (hoverStore[props.hoverId] === feature.properties?.id) return;
+		setHoverStore(props.hoverId, feature.properties?.id);
 	};
 
 	// When the active feature id changes, update the marker and the feature state
@@ -77,16 +83,17 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 		const feature = props.map
 			.querySourceFeatures(props.sourceId)
-			.find((f) => f.properties?.[props.id] === activeFeatureId);
+			.find((f) => f.properties?.id === activeFeatureId);
 		if (!feature?.id) return;
 
 		const [lng, lat] =
 			feature.geometry.type === "Point" ? feature.geometry.coordinates : [0, 0];
 		if (!lng || !lat) return;
 
+		const { name, subs } = feature.properties as Item;
 		const lngLat = new LngLat(lng, lat);
 		const offset = interpolate(
-			feature.properties?.subs,
+			subs,
 			minSubmissions(),
 			props.circleMinRadius,
 			maxSubmissions(),
@@ -96,29 +103,33 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		setMarker({
 			lngLat,
 			offset,
-			text: feature.properties?.[props.name],
+			name,
 		});
 
-		const featureIdentifier = {
-			id: feature.id,
-			source: props.sourceId,
-		};
-		props.map.setFeatureState(featureIdentifier, { hover: true });
+		props.map.setFeatureState(
+			{
+				id: feature.id,
+				source: props.sourceId,
+			},
+			{
+				hover: true,
+			},
+		);
 	});
 
 	// When the mouse leaves a feature, reset the active feature id
 	const mouseleave = () => {
-		setHoverStore(props.hoverId, undefined);
+		setHoverStore(props.hoverId, ALL_ID);
 	};
 
-	// When the active feature id is undefined, reset the marker and the feature state
+	// When the active feature id is the all id, reset the marker and the feature state
 	createEffect(() => {
-		if (hoverStore[props.hoverId]) return;
+		if (hoverStore[props.hoverId] !== ALL_ID) return;
 
 		setMarker({
 			lngLat: undefined,
 			offset: 0,
-			text: "",
+			name: "",
 		});
 
 		const features = props.map.querySourceFeatures(props.sourceId);
@@ -137,7 +148,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		if (feature?.geometry.type !== "Point") return;
 
 		props.setLevel();
-		setStore(props.activeId, feature.properties?.[props.id]);
+		setStore(props.activeId, feature.properties?.id);
 	};
 
 	return (
@@ -147,7 +158,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				map={props.map}
 				lngLat={marker.lngLat}
 				offset={marker.offset}
-				text={marker.text}
+				name={marker.name}
 			/>
 
 			{/* Source */}

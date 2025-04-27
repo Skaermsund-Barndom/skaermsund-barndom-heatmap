@@ -1,9 +1,5 @@
-import {
-	type hoverStore,
-	setHoverStore,
-	setStore,
-	type store,
-} from "@/scripts/store";
+import { ALL_ID } from "@/scripts/const";
+import type { Item } from "@/scripts/types";
 import {
 	For,
 	type Setter,
@@ -13,21 +9,16 @@ import {
 	createSignal,
 } from "solid-js";
 
-interface Item {
-	id: number;
-	name: string;
-	subs: number;
-}
-
 interface Props {
 	placeholder: string;
 	items: Item[];
 	disabled?: boolean;
-	storeActiveKey: keyof typeof store;
-	storeHoverKey: keyof typeof hoverStore;
 	open: boolean;
 	setOpen: Setter<boolean>;
 	setLevel: () => void;
+	setActive: (id: number) => void;
+	setHover: (id: number) => void;
+	hoverId: number;
 }
 
 export const AccordionList: VoidComponent<Props> = (props) => {
@@ -66,10 +57,26 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		if (!(input instanceof HTMLInputElement)) return;
 
 		input.value = "";
-		setStore(props.storeActiveKey, undefined);
-		setHoverStore(props.storeHoverKey, undefined);
 		setSearch("");
+		props.setActive(ALL_ID);
+		props.setHover(ALL_ID);
 		props.setOpen(false);
+	});
+
+	createEffect(() => {
+		const hoverId = props.hoverId;
+		const buttons = parentRef?.querySelectorAll("button");
+		if (!buttons) return;
+
+		for (const button of buttons) {
+			if (Number(button.dataset.id) === hoverId) {
+				button.focus();
+			}
+
+			if (hoverId === ALL_ID) {
+				button.blur();
+			}
+		}
 	});
 
 	const handleKeyDown = (event: KeyboardEvent) => {
@@ -95,11 +102,11 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		if (!(input instanceof HTMLInputElement)) return;
 
 		input.value = item.name;
-		setStore(props.storeActiveKey, item.id);
 		setSearch(item.name);
 		props.setOpen(false);
 		props.setLevel();
-		setHoverStore(props.storeHoverKey, undefined);
+		props.setActive(item.id);
+		props.setHover(ALL_ID);
 	};
 
 	const handleInput = (event: InputEvent) => {
@@ -107,8 +114,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		const value = event.currentTarget.value;
 		setSearch(value);
-		setStore(props.storeActiveKey, undefined);
-		setHoverStore(props.storeHoverKey, undefined);
+		props.setActive(ALL_ID);
+		props.setHover(ALL_ID);
 	};
 
 	return (
@@ -154,15 +161,12 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 						{(item) => (
 							<li class="flex font-light">
 								<button
+									data-id={item.id}
 									type="button"
 									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-2 p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
-									onMouseEnter={() =>
-										setHoverStore(props.storeHoverKey, item.id)
-									}
-									onMouseLeave={() =>
-										setHoverStore(props.storeHoverKey, undefined)
-									}
+									onMouseEnter={() => props.setHover(item.id)}
+									onMouseLeave={() => props.setHover(ALL_ID)}
 								>
 									<span>{item.name}</span>
 									<span>{item.subs}</span>

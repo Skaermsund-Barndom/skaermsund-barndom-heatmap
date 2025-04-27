@@ -4,12 +4,14 @@ export const MAX_ZOOM = 10;
 
 export const FONT_STACK = ["Figtree Light"];
 
-export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_WIDTH = 1_200;
 export const OG_IMAGE_HEIGHT = 630;
 export const OG_IMAGE_FORMAT = "jpg";
 export const OG_IMAGE_MIME_TYPE = `image/${OG_IMAGE_FORMAT}`;
 export const OG_IMAGE_QUALITY = 90;
 export const OG_IMAGE_PATH = "/api/images/og-image.jpg";
+
+export const ALL_ID = 1_234_567;
 
 export const TOP_LAYER = "top-layer";
 export const BOTTOM_LAYER = "bottom-layer";

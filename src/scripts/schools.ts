@@ -81,12 +81,12 @@ export const getSchools = async () => {
 							}
 
 							const feature = point<SchoolProperties>([lng, lat], {
-								r_name: regionName,
-								r_id: regionId,
+								id: schoolId,
+								name: schoolName,
 								m_name: municipalityName,
 								m_id: municipalityId,
-								s_name: schoolName,
-								s_id: schoolId,
+								r_name: regionName,
+								r_id: regionId,
 								subs: submissions,
 							});
 

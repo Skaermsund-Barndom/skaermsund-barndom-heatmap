@@ -1,6 +1,6 @@
 import { Control } from "@/components/maplibre/control";
-import { LEVELS } from "@/scripts/const";
-import { setStore, store } from "@/scripts/store";
+import { ALL_ID, LEVELS } from "@/scripts/const";
+import { setHoverStore, setStore, store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import type { IControl } from "maplibre-gl";
 import { type VoidComponent, createSignal, onMount } from "solid-js";
@@ -40,6 +40,21 @@ export const BackControls: VoidComponent<Props> = (props) => {
 			: store.level === 1 ? 0
 			: 0,
 		);
+
+		if (store.level === 0) {
+			setStore("activeMunicipalityId", ALL_ID);
+			setStore("activeRegionId", ALL_ID);
+		}
+
+		if (store.level === 1) {
+			setStore("activeMunicipalityId", ALL_ID);
+		}
+
+		setHoverStore({
+			municipalityId: ALL_ID,
+			regionId: ALL_ID,
+			schoolId: ALL_ID,
+		});
 	};
 
 	return (

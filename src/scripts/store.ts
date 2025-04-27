@@ -3,6 +3,7 @@ import type {
 	regionsCollection,
 	schoolsCollection,
 } from "@/scripts/collections";
+import { ALL_ID } from "@/scripts/const";
 import type {
 	MunicipalityMapProperties,
 	SchoolProperties,
@@ -11,9 +12,9 @@ import type { FeatureCollection, MultiPolygon, Point, Polygon } from "geojson";
 import { createStore } from "solid-js/store";
 
 export const [store, setStore] = createStore({
-	activeSchoolId: undefined as number | undefined,
-	activeMunicipalityId: undefined as number | undefined,
-	activeRegionId: undefined as number | undefined,
+	activeSchoolId: ALL_ID,
+	activeMunicipalityId: ALL_ID,
+	activeRegionId: ALL_ID,
 	level: 0 as 0 | 1 | 2,
 	municipalitiesMap: undefined as
 		| FeatureCollection<Polygon | MultiPolygon, MunicipalityMapProperties>
@@ -26,7 +27,7 @@ export const [store, setStore] = createStore({
 });
 
 export const [hoverStore, setHoverStore] = createStore({
-	schoolId: undefined as number | undefined,
-	municipalityId: undefined as number | undefined,
-	regionId: undefined as number | undefined,
+	schoolId: ALL_ID,
+	municipalityId: ALL_ID,
+	regionId: ALL_ID,
 });

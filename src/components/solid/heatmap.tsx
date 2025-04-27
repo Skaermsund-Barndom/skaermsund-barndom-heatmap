@@ -3,7 +3,6 @@ import { MapGL } from "@/components/maplibre/map-gl";
 import { BackControls } from "@/components/solid/back-controls";
 import { LayerOrder } from "@/components/solid/layer-order";
 import { ZoomControls } from "@/components/solid/zoom-controls";
-import { ZoomHandler } from "@/components/solid/zoom-handler";
 import { INITIAL_ZOOM } from "@/scripts/const";
 import { setHoverStore } from "@/scripts/store";
 import type { Map as MapGLType } from "maplibre-gl";
@@ -60,7 +59,6 @@ export const Heatmap: VoidComponent = () => {
 					{(map) => (
 						<>
 							<LayerOrder map={map()} />
-							<ZoomHandler map={map()} />
 							<AttributionControl
 								options={{
 									customAttribution: `<a href="https://maplibre.org/" target="_blank" rel="noopener noreferrer" class="bg-primary-80/50 rounded-full px-2 py-1 m-1.5 text-container flex">© MapLibre</a>`,

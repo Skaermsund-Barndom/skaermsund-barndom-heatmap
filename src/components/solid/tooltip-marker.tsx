@@ -3,11 +3,13 @@ import type { MapProps } from "@/scripts/types";
 import type { LngLat } from "maplibre-gl";
 import type { VoidComponent } from "solid-js";
 
-interface Props extends MapProps {
+export interface TooltipMarkerStore {
 	lngLat?: LngLat;
 	offset?: number;
-	text?: string;
+	name?: string;
 }
+
+interface Props extends MapProps, TooltipMarkerStore {}
 
 export const TooltipMarker: VoidComponent<Props> = (props) => {
 	return (
@@ -24,7 +26,7 @@ export const TooltipMarker: VoidComponent<Props> = (props) => {
 						"clip-path": "polygon(0% 0%, 100% 0%, 50% 100%)",
 					}}
 				/>
-				<span>{props.text}</span>
+				<span>{props.name}</span>
 			</div>
 		</Marker>
 	);
