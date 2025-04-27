@@ -63,14 +63,11 @@ export const Ui: VoidComponent = () => {
 			/>
 			<AccordionList
 				items={
-					store
-						.municipalitiesCollection()
-						?.features.filter((f) => f.properties.r_id === store.activeRegionId)
-						.map((f) => ({
-							id: f.properties.m_id,
-							name: f.properties.m_name,
-							subs: f.properties.subs,
-						})) ?? []
+					store.municipalitiesCollection()?.features.map((f) => ({
+						id: f.properties.m_id,
+						name: f.properties.m_name,
+						subs: f.properties.subs,
+					})) ?? []
 				}
 				storeActiveKey="activeMunicipalityId"
 				storeHoverKey="municipalityId"
@@ -82,16 +79,11 @@ export const Ui: VoidComponent = () => {
 			/>
 			<AccordionList
 				items={
-					store
-						.schoolsCollection()
-						?.features.filter(
-							(f) => f.properties.m_id === store.activeMunicipalityId,
-						)
-						.map((f) => ({
-							id: f.properties.s_id,
-							name: f.properties.s_name,
-							subs: f.properties.subs,
-						})) ?? []
+					store.schoolsCollection()?.features.map((f) => ({
+						id: f.properties.s_id,
+						name: f.properties.s_name,
+						subs: f.properties.subs,
+					})) ?? []
 				}
 				storeActiveKey="activeSchoolId"
 				storeHoverKey="schoolId"
