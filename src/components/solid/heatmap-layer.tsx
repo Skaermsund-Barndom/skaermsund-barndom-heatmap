@@ -1,7 +1,7 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
 import { TooltipMarker } from "@/components/solid/tooltip-marker";
-import { COLORS, FONT_STACK } from "@/scripts/const";
+import { BG_HEATMAP_LEVELS_LAYER, COLORS, FONT_STACK } from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
 import { hoverStore, setHoverStore, store } from "@/scripts/store";
 import type { MapProps, SchoolProperties } from "@/scripts/types";
@@ -147,6 +147,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				{/* Circle layer */}
 				<Layer
 					map={props.map}
+					beforeId={`${props.sourceId}-text`}
 					events={{
 						mousemove,
 						mouseleave,
@@ -175,6 +176,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				{/* Text layer */}
 				<Layer
 					map={props.map}
+					beforeId={`${props.sourceId}-circle-active`}
 					layer={{
 						id: `${props.sourceId}-text`,
 						type: "symbol",
@@ -203,6 +205,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				{/* Active circle (renders on top) */}
 				<Layer
 					map={props.map}
+					beforeId={`${props.sourceId}-text-active`}
 					layer={{
 						id: `${props.sourceId}-circle-active`,
 						type: "circle",
@@ -232,6 +235,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				{/* Active text (renders on top) */}
 				<Layer
 					map={props.map}
+					beforeId={BG_HEATMAP_LEVELS_LAYER}
 					layer={{
 						id: `${props.sourceId}-text-active`,
 						type: "symbol",

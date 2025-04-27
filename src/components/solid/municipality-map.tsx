@@ -1,6 +1,6 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
-import { COLORS } from "@/scripts/const";
+import { BG_MUNICIPALITIES_LAYER, COLORS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import { store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
@@ -11,9 +11,7 @@ const MUNICIPALITY_MAP_SOURCE = "municipalities-map";
 const MUNICIPALITY_MAP_FILL = "municipalities-map-heatmap";
 const MUNICIPALITY_MAP_BORDER = "municipalities-map-border";
 
-interface Props extends MapProps {
-	beforeId?: string;
-}
+interface Props extends MapProps {}
 
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
 	createEffect(() => {
@@ -81,7 +79,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 		>
 			{/* Municipality map layer */}
 			<Layer
-				beforeId={props.beforeId}
+				beforeId={BG_MUNICIPALITIES_LAYER}
 				map={props.map}
 				layer={{
 					id: MUNICIPALITY_MAP_FILL,
@@ -100,7 +98,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 			{/* Border layer */}
 			<Layer
-				beforeId={props.beforeId}
+				beforeId={BG_MUNICIPALITIES_LAYER}
 				map={props.map}
 				layer={{
 					id: MUNICIPALITY_MAP_BORDER,

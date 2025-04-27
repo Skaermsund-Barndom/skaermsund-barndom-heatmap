@@ -14,7 +14,7 @@ export const OG_IMAGE_PATH = "/api/images/og-image.jpg";
 export const TOP_LAYER = "top-layer";
 export const BOTTOM_LAYER = "bottom-layer";
 export const BG_MUNICIPALITIES_LAYER = "municipalities-background-layer";
-export const BG_GRADE_LEVELS_LAYER = "grade-levels-background-layer";
+export const BG_HEATMAP_LEVELS_LAYER = "grade-levels-background-layer";
 export const BG_LAYER = "background-layer";
 
 export const COLORS = {
