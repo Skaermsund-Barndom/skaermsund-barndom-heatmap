@@ -1,12 +1,11 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
-import { AppContext } from "@/scripts/app-context";
 import { COLORS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import { store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
-import { createEffect, useContext } from "solid-js";
+import { createEffect } from "solid-js";
 
 const MUNICIPALITY_MAP_SOURCE = "municipalities-map";
 const MUNICIPALITY_MAP_HEATMAP_LAYER = "municipalities-map-heatmap";
@@ -17,8 +16,6 @@ interface Props extends MapProps {
 }
 
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
-	const appStore = useContext(AppContext);
-
 	createEffect(() => {
 		if (store.activeMunicipalityId) {
 			const activeMunicipalityFeatures =
@@ -70,7 +67,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 		<GeoJSONSource
 			id={MUNICIPALITY_MAP_SOURCE}
 			map={props.map}
-			source={geojsonSource(appStore?.municipalitiesMap, "kommunekod")}
+			source={geojsonSource(store.municipalitiesMap, "kommunekod")}
 		>
 			<Layer
 				beforeId={props.beforeId}

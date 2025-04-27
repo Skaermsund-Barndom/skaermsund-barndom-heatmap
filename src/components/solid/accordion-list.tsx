@@ -15,7 +15,6 @@ interface Item {
 }
 
 interface Props {
-	title: string;
 	placeholder: string;
 	items: Item[];
 	disabled?: boolean;

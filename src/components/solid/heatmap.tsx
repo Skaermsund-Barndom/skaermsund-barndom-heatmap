@@ -1,5 +1,6 @@
 import { AttributionControl } from "@/components/maplibre/attribution-control";
 import { MapGL } from "@/components/maplibre/map-gl";
+import { BackControls } from "@/components/solid/back-controls";
 import { LayerOrder } from "@/components/solid/layer-order";
 import { ZoomControls } from "@/components/solid/zoom-controls";
 import { INITIAL_ZOOM } from "@/scripts/const";
@@ -67,6 +68,7 @@ export const Heatmap: VoidComponent = () => {
 								map={map()}
 							/>
 							<ZoomControls map={map()} />
+							<BackControls map={map()} />
 						</>
 					)}
 				</Show>
