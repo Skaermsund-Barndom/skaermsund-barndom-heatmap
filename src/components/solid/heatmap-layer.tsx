@@ -21,10 +21,6 @@ import { createStore } from "solid-js/store";
 interface Props extends MapProps {
 	source: ReturnType<typeof geojsonSource>;
 	sourceId: string;
-	circleLayerId: string;
-	textLayerId: string;
-	circleActiveLayerId: string;
-	textActiveLayerId: string;
 	circleMinRadius: number;
 	circleMaxRadius: number;
 	textMinSize: number;
@@ -157,7 +153,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 						click: props.setLevel,
 					}}
 					layer={{
-						id: props.circleLayerId,
+						id: `${props.sourceId}-circle`,
 						type: "circle",
 						source: props.sourceId,
 						filter: filter(),
@@ -180,7 +176,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				<Layer
 					map={props.map}
 					layer={{
-						id: props.textLayerId,
+						id: `${props.sourceId}-text`,
 						type: "symbol",
 						source: props.sourceId,
 						filter: filter(),
@@ -208,7 +204,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				<Layer
 					map={props.map}
 					layer={{
-						id: props.circleActiveLayerId,
+						id: `${props.sourceId}-circle-active`,
 						type: "circle",
 						source: props.sourceId,
 						filter: filter(),
@@ -237,7 +233,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				<Layer
 					map={props.map}
 					layer={{
-						id: props.textActiveLayerId,
+						id: `${props.sourceId}-text-active`,
 						type: "symbol",
 						source: props.sourceId,
 						filter: filter(),

@@ -112,8 +112,10 @@ export function municipalitiesCollection() {
 
 	// Return the filtered centroid collection
 	return featureCollection(
-		centroidFeatures?.filter((f) => f.properties.r_id === store.activeRegionId)
-			?? [],
+		centroidFeatures?.filter(
+			(f) =>
+				!store.activeRegionId || f.properties.r_id === store.activeRegionId,
+		) ?? [],
 	);
 }
 
@@ -121,7 +123,10 @@ export function schoolsCollection() {
 	// Return the filtered schools collection
 	return featureCollection(
 		store.schools?.features.filter(
-			(f) => f.properties.m_id === store.activeMunicipalityId,
+			(f) =>
+				(!store.activeRegionId || f.properties.r_id === store.activeRegionId)
+				&& (!store.activeMunicipalityId
+					|| f.properties.m_id === store.activeMunicipalityId),
 		) ?? [],
 	);
 }

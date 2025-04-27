@@ -8,8 +8,8 @@ import type { VoidComponent } from "solid-js";
 import { createEffect } from "solid-js";
 
 const MUNICIPALITY_MAP_SOURCE = "municipalities-map";
-const MUNICIPALITY_MAP_HEATMAP_LAYER = "municipalities-map-heatmap";
-const MUNICIPALITY_MAP_BORDER_LAYER = "municipalities-map-border";
+const MUNICIPALITY_MAP_FILL = "municipalities-map-heatmap";
+const MUNICIPALITY_MAP_BORDER = "municipalities-map-border";
 
 interface Props extends MapProps {
 	beforeId?: string;
@@ -17,49 +17,59 @@ interface Props extends MapProps {
 
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
 	createEffect(() => {
-		if (store.activeMunicipalityId) {
-			const activeMunicipalityFeatures =
-				props.map
-					.querySourceFeatures(MUNICIPALITY_MAP_SOURCE)
-					.map((feature) => ({
-						active:
-							Number(feature.properties?.kommunekod)
-							=== store.activeMunicipalityId,
-						feature,
-					})) ?? [];
-			if (!activeMunicipalityFeatures.length) return;
+		// Store the store value to ensure reactive updates
+		const activeId = store.activeMunicipalityId;
 
-			for (const { feature, active } of activeMunicipalityFeatures) {
-				if (!feature.id) continue;
-				const featureIdentifier = {
-					id: feature.id,
+		// If no active municipality, don't update the map
+		if (!activeId) return;
+
+		// If the map source is not ready, don't update the map
+		if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
+
+		// Update the map's feature state for the active municipality
+		for (const feature of store.municipalitiesMap?.features ?? []) {
+			if (!feature.properties?.kommunekod) continue;
+			props.map.setFeatureState(
+				{
+					id: feature.properties.kommunekod,
 					source: MUNICIPALITY_MAP_SOURCE,
-				};
-				props.map.setFeatureState(featureIdentifier, { active });
-			}
+				},
+				{
+					active:
+						// If no active municipality, set all municipalities to active
+						!activeId
+						// Or if the municipality is the active municipality, set it to active
+						|| feature.properties.kommunekod
+							=== activeId?.toString().padStart(4, "0"),
+				},
+			);
 		}
 	});
 
 	createEffect(() => {
-		if (store.activeRegionId) {
-			const activeRegionFeatures =
-				props.map
-					.querySourceFeatures(MUNICIPALITY_MAP_SOURCE)
-					.map((feature) => ({
-						active:
-							Number(feature.properties?.regionskod) === store.activeRegionId,
-						feature,
-					})) ?? [];
-			if (!activeRegionFeatures.length) return;
+		// Store the store value to ensure reactive updates
+		// If the active region is undefined we still want to update the map
+		const activeId = store.activeRegionId;
 
-			for (const { feature, active } of activeRegionFeatures) {
-				if (!feature.id) continue;
-				const featureIdentifier = {
-					id: feature.id,
+		// If the map source is not ready, don't update the map
+		if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
+
+		// Update the map's feature state for the municipalities in the active region
+		for (const feature of store.municipalitiesMap?.features ?? []) {
+			if (!feature.properties?.kommunekod) continue;
+			props.map.setFeatureState(
+				{
+					id: feature.properties.kommunekod,
 					source: MUNICIPALITY_MAP_SOURCE,
-				};
-				props.map.setFeatureState(featureIdentifier, { active });
-			}
+				},
+				{
+					active:
+						// If no active region, set all municipalities to active
+						!activeId
+						// Or if the municipality is in the active region, set it to active
+						|| feature.properties?.regionskod === activeId?.toString(),
+				},
+			);
 		}
 	});
 
@@ -69,11 +79,12 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			map={props.map}
 			source={geojsonSource(store.municipalitiesMap, "kommunekod")}
 		>
+			{/* Municipality map layer */}
 			<Layer
 				beforeId={props.beforeId}
 				map={props.map}
 				layer={{
-					id: MUNICIPALITY_MAP_HEATMAP_LAYER,
+					id: MUNICIPALITY_MAP_FILL,
 					type: "fill",
 					source: MUNICIPALITY_MAP_SOURCE,
 					paint: {
@@ -86,11 +97,13 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					},
 				}}
 			/>
+
+			{/* Border layer */}
 			<Layer
 				beforeId={props.beforeId}
 				map={props.map}
 				layer={{
-					id: MUNICIPALITY_MAP_BORDER_LAYER,
+					id: MUNICIPALITY_MAP_BORDER,
 					type: "line",
 					source: MUNICIPALITY_MAP_SOURCE,
 					paint: {

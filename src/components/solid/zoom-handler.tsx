@@ -21,7 +21,9 @@ export const ZoomHandler: VoidComponent<Props> = (props) => {
 				});
 			}
 		}
+	});
 
+	createEffect(() => {
 		if (store.activeMunicipalityId) {
 			const filteredMap = featureCollection(
 				store.municipalitiesMap?.features.filter(
@@ -38,19 +40,22 @@ export const ZoomHandler: VoidComponent<Props> = (props) => {
 				});
 			}
 		}
+	});
 
-		// if (store.activeSchoolId) {
-		// 	const [lng, lat] = store
-		// 		.schoolsCollection()
-		// 		?.features.find((f) => f.properties.s_id === store.activeSchoolId)
-		// 		?.geometry.coordinates ?? [0, 0];
-		// 	if (lng && lat) {
-		// 		props.map.flyTo({
-		// 			center: [lng, lat],
-		// 			duration: 1000,
-		// 		});
-		// 	}
-		// }
+	createEffect(() => {
+		if (store.activeSchoolId) {
+			const [lng, lat] = store
+				.schoolsCollection()
+				?.features.find((f) => f.properties.s_id === store.activeSchoolId)
+				?.geometry.coordinates ?? [0, 0];
+			if (lng && lat) {
+				props.map.flyTo({
+					center: [lng, lat],
+					duration: 1000,
+					zoom: 10,
+				});
+			}
+		}
 	});
 
 	return null;
