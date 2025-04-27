@@ -3,9 +3,13 @@ import { Layer } from "@/components/maplibre/layer";
 import { TooltipMarker } from "@/components/solid/tooltip-marker";
 import { COLORS, FONT_STACK } from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
-import { setStore, store } from "@/scripts/store";
+import { hoverStore, setHoverStore, store } from "@/scripts/store";
 import type { MapProps, SchoolProperties } from "@/scripts/types";
-import { LngLat, type MapLayerMouseEvent } from "maplibre-gl";
+import {
+	type FilterSpecification,
+	LngLat,
+	type MapLayerMouseEvent,
+} from "maplibre-gl";
 import {
 	type VoidComponent,
 	createEffect,
@@ -25,18 +29,21 @@ interface Props extends MapProps {
 	circleMaxRadius: number;
 	textMinSize: number;
 	textMaxSize: number;
-	zoomLevels: {
-		minzoom: number;
-		maxzoom: number;
-	};
 	name: keyof SchoolProperties;
 	id: keyof SchoolProperties;
-	storeIdentifier: keyof typeof store;
+	activeId: keyof typeof store;
+	hoverId: keyof typeof hoverStore;
+	level: 0 | 1 | 2;
+	setLevel: () => void;
 }
 
 export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	// Active feature id (used to check if the active feature has changed with mousemove)
 	const [activeFeatureId, setActiveFeatureId] = createSignal<number | string>();
+
+	const filter = createMemo<FilterSpecification>(() => {
+		return ["==", ["number", props.level], ["number", store.level]];
+	});
 
 	// Marker store
 	const [marker, setMarker] = createStore({
@@ -60,16 +67,16 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 		if (activeFeatureId() !== feature.id) {
 			setActiveFeatureId(feature.id);
-			setStore(props.storeIdentifier, undefined);
+			setHoverStore(props.hoverId, undefined);
 		}
 
-		if (store[props.storeIdentifier] === feature.properties?.[props.id]) return;
-		setStore(props.storeIdentifier, feature.properties?.[props.id]);
+		if (hoverStore[props.hoverId] === feature.properties?.[props.id]) return;
+		setHoverStore(props.hoverId, feature.properties?.[props.id]);
 	};
 
 	// When the active feature id changes, update the marker and the feature state
 	createEffect(() => {
-		const activeFeatureId = store[props.storeIdentifier];
+		const activeFeatureId = hoverStore[props.hoverId];
 		if (!activeFeatureId) return;
 
 		const feature = props.map
@@ -105,12 +112,12 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 	// When the mouse leaves a feature, reset the active feature id
 	const mouseleave = () => {
-		setStore(props.storeIdentifier, undefined);
+		setHoverStore(props.hoverId, undefined);
 	};
 
 	// When the active feature id is undefined, reset the marker and the feature state
 	createEffect(() => {
-		if (store[props.storeIdentifier]) return;
+		if (hoverStore[props.hoverId]) return;
 
 		setMarker({
 			lngLat: undefined,
@@ -147,12 +154,13 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 					events={{
 						mousemove,
 						mouseleave,
+						click: props.setLevel,
 					}}
 					layer={{
-						...props.zoomLevels,
 						id: props.circleLayerId,
 						type: "circle",
 						source: props.sourceId,
+						filter: filter(),
 						paint: {
 							"circle-color": COLORS["--color-primary"],
 							"circle-radius": [
@@ -172,10 +180,10 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				<Layer
 					map={props.map}
 					layer={{
-						...props.zoomLevels,
 						id: props.textLayerId,
 						type: "symbol",
 						source: props.sourceId,
+						filter: filter(),
 						layout: {
 							"text-field": ["get", "subs"],
 							"text-font": FONT_STACK,
@@ -200,10 +208,10 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				<Layer
 					map={props.map}
 					layer={{
-						...props.zoomLevels,
 						id: props.circleActiveLayerId,
 						type: "circle",
 						source: props.sourceId,
+						filter: filter(),
 						paint: {
 							"circle-opacity": [
 								"case",
@@ -229,10 +237,10 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				<Layer
 					map={props.map}
 					layer={{
-						...props.zoomLevels,
 						id: props.textActiveLayerId,
 						type: "symbol",
 						source: props.sourceId,
+						filter: filter(),
 						layout: {
 							"text-field": ["get", "subs"],
 							"text-font": FONT_STACK,

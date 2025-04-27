@@ -1,55 +1,47 @@
-import type {
-	MunicipalityProperties,
-	RegionProperties,
-	SchoolProperties,
-} from "@/scripts/types";
+import { store } from "@/scripts/store";
+import type { MunicipalityProperties, RegionProperties } from "@/scripts/types";
 import { centerMedian, featureCollection, multiPoint, point } from "@turf/turf";
-import type { FeatureCollection, MultiPoint, Point } from "geojson";
 
-export function regionsCollection(
-	schools?: FeatureCollection<Point, SchoolProperties>,
-) {
-	if (!schools) return undefined;
+export function regionsCollection() {
+	// Reduce the features to an array of multi-points based on the region name
+	const reducedFeatures = store.schools?.features.reduce(
+		(features, feature) => {
+			const {
+				geometry: { coordinates },
+				properties: { r_name, r_id, subs },
+			} = feature;
 
-	// Reduce the features to a collection of multi-points based on the region name
-	const reducedCollection = schools.features.reduce((collection, feature) => {
-		const {
-			geometry: { coordinates },
-			properties: { r_name, r_id, subs },
-		} = feature;
+			// Find the index of the feature with the same region name
+			const index = features.findIndex(
+				(feature) => feature.properties.r_name === r_name,
+			);
 
-		// Find the index of the feature with the same region name
-		const index = collection.features.findIndex(
-			(feature) => feature.properties.r_name === r_name,
-		);
+			// If the feature does not exist, create a new one
+			if (index === -1) {
+				const feature = multiPoint([coordinates], {
+					r_name,
+					r_id,
+					subs,
+				});
+				features.push(feature);
 
-		// If the feature does not exist, create a new one
-		if (index === -1) {
-			const feature = multiPoint([coordinates], {
-				r_name,
-				r_id,
-				subs,
-			});
-			collection.features.push(feature);
+				return features;
+			}
 
-			return collection;
-		}
+			if (features[index]) {
+				features[index].properties.subs =
+					features[index].properties.subs + subs;
+				features[index].geometry.coordinates.push(coordinates);
+			}
 
-		if (collection.features[index]) {
-			collection.features[index].properties = {
-				subs: collection.features[index].properties.subs + subs,
-				r_name,
-				r_id,
-			};
-			collection.features[index].geometry.coordinates.push(coordinates);
-		}
-
-		return collection;
-	}, featureCollection<MultiPoint, RegionProperties>([]));
+			return features;
+		},
+		[] as ReturnType<typeof multiPoint<RegionProperties>>[],
+	);
 
 	// Return a collection of centroids
 	return featureCollection(
-		reducedCollection.features.map((feature) => {
+		reducedFeatures?.map((feature) => {
 			const { geometry, properties } = feature;
 
 			// Calculate the centroid from a collection of points
@@ -60,70 +52,76 @@ export function regionsCollection(
 
 			// Return the centroid point with the properties
 			return point(centroid.geometry.coordinates, properties);
-		}),
+		}) ?? [],
 	);
 }
 
-export function municipalitiesCollection(
-	schools?: FeatureCollection<Point, SchoolProperties>,
-) {
-	if (!schools) return undefined;
+export function municipalitiesCollection() {
+	// Reduce the features to an array of multi-points based on the municipality name
+	const reducedFeatures = store.schools?.features.reduce(
+		(features, feature) => {
+			const {
+				geometry: { coordinates },
+				properties: { m_name, m_id, r_name, r_id, subs },
+			} = feature;
 
-	// Reduce the features to a collection of multi-points based on the municipality name
-	const reducedCollection = schools.features.reduce((collection, feature) => {
-		const {
-			geometry: { coordinates },
-			properties: { m_name, m_id, r_name, r_id, subs },
-		} = feature;
-
-		// Find the index of the feature with the same municipality name
-		const index = collection.features.findIndex(
-			(feature) => feature.properties.m_name === m_name,
-		);
-
-		// If the feature does not exist, create a new one, add it to the collection and return the collection
-		if (index === -1) {
-			const feature = multiPoint([coordinates], {
-				m_name,
-				m_id,
-				r_name,
-				r_id,
-				subs,
-			});
-			collection.features.push(feature);
-
-			return collection;
-		}
-
-		// If the feature does not exist, return the collection
-		if (!collection.features[index]) return collection;
-
-		// If the feature exists, update the properties and coordinates
-		collection.features[index].properties = {
-			subs: subs + collection.features[index].properties.subs,
-			m_name,
-			m_id,
-			r_name,
-			r_id,
-		};
-		collection.features[index].geometry.coordinates.push(coordinates);
-
-		return collection;
-	}, featureCollection<MultiPoint, MunicipalityProperties>([]));
-
-	// Return a collection of centroids
-	return featureCollection(
-		reducedCollection.features.map((feature) => {
-			const { geometry, properties } = feature;
-
-			// Calculate the centroid from a collection of points
-			const collection = featureCollection(
-				geometry.coordinates.map((c) => point(c)),
+			// Find the index of the feature with the same municipality name
+			const index = features.findIndex(
+				(feature) => feature.properties.m_name === m_name,
 			);
-			const centroid = centerMedian(collection);
 
-			// Return the centroid point with the properties
-			return point(centroid.geometry.coordinates, properties);
-		}),
+			// If the feature does not exist, create a new one, add it to the collection and return the collection
+			if (index === -1) {
+				const feature = multiPoint([coordinates], {
+					m_name,
+					m_id,
+					r_name,
+					r_id,
+					subs,
+				});
+				features.push(feature);
+
+				return features;
+			}
+
+			// If the feature does not exist, return the collection
+			if (!features[index]) return features;
+
+			// If the feature exists, update the properties and coordinates
+			features[index].properties.subs = subs + features[index].properties.subs;
+			features[index].geometry.coordinates.push(coordinates);
+
+			return features;
+		},
+		[] as ReturnType<typeof multiPoint<MunicipalityProperties>>[],
+	);
+
+	// Map the features to an array of centroids
+	const centroidFeatures = reducedFeatures?.map((feature) => {
+		const { geometry, properties } = feature;
+
+		// Calculate the centroid from a collection of points
+		const collection = featureCollection(
+			geometry.coordinates.map((c) => point(c)),
+		);
+		const centroid = centerMedian(collection);
+
+		// Return the centroid point with the properties
+		return point(centroid.geometry.coordinates, properties);
+	});
+
+	// Return the filtered centroid collection
+	return featureCollection(
+		centroidFeatures?.filter((f) => f.properties.r_id === store.activeRegionId)
+			?? [],
+	);
+}
+
+export function schoolsCollection() {
+	// Return the filtered schools collection
+	return featureCollection(
+		store.schools?.features.filter(
+			(f) => f.properties.m_id === store.activeMunicipalityId,
+		) ?? [],
 	);
 }

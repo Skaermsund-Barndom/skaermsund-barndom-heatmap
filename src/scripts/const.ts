@@ -35,6 +35,24 @@ export const COLORS = {
 	"--color-tertiary": "#02321c",
 };
 
+export const LEVELS = [
+	{
+		id: "region",
+		name: "Region",
+		backTitle: "",
+	},
+	{
+		id: "municipality",
+		name: "Kommune",
+		backTitle: "Regioner",
+	},
+	{
+		id: "school",
+		name: "Skole",
+		backTitle: "Kommuner",
+	},
+] as const;
+
 export const ZOOM_LEVELS = {
 	REGION: 0,
 	MUNICIPALITY: 8,

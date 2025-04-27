@@ -1,5 +1,5 @@
 import { AccordionList } from "@/components/solid/accordion-list";
-import { store } from "@/scripts/store";
+import { setStore, store } from "@/scripts/store";
 import {
 	type VoidComponent,
 	createEffect,
@@ -14,16 +14,18 @@ export const Ui: VoidComponent = () => {
 
 	const municipalitiesDisabled = createMemo(
 		() =>
-			!store.regionsCollection?.features.find(
-				(f) => f.properties.r_id === store.activeRegionId,
-			),
+			!store
+				.regionsCollection()
+				?.features.find((f) => f.properties.r_id === store.activeRegionId),
 	);
 
 	const schoolsDisabled = createMemo(
 		() =>
-			!store.municipalitiesCollection?.features.find(
-				(f) => f.properties.m_id === store.activeMunicipalityId,
-			),
+			!store
+				.municipalitiesCollection()
+				?.features.find(
+					(f) => f.properties.m_id === store.activeMunicipalityId,
+				),
 	);
 
 	createEffect(() => {
@@ -46,22 +48,24 @@ export const Ui: VoidComponent = () => {
 		<div class="hidden h-fit max-h-full w-full grid-cols-1 items-start gap-6 overflow-hidden p-6 md:grid">
 			<AccordionList
 				items={
-					store.regionsCollection?.features.map((f) => ({
+					store.regionsCollection()?.features.map((f) => ({
 						id: f.properties.r_id,
 						name: f.properties.r_name,
 						subs: f.properties.subs,
 					})) ?? []
 				}
 				storeActiveKey="activeRegionId"
-				storeHoverKey="hoverRegionId"
+				storeHoverKey="regionId"
 				placeholder="Vælg region"
 				open={regionsOpen()}
 				setOpen={setRegionsOpen}
+				setLevel={() => setStore("level", 1)}
 			/>
 			<AccordionList
 				items={
-					store.municipalitiesCollection?.features
-						.filter((f) => f.properties.r_id === store.activeRegionId)
+					store
+						.municipalitiesCollection()
+						?.features.filter((f) => f.properties.r_id === store.activeRegionId)
 						.map((f) => ({
 							id: f.properties.m_id,
 							name: f.properties.m_name,
@@ -69,16 +73,20 @@ export const Ui: VoidComponent = () => {
 						})) ?? []
 				}
 				storeActiveKey="activeMunicipalityId"
-				storeHoverKey="hoverMunicipalityId"
+				storeHoverKey="municipalityId"
 				placeholder="Vælg kommune"
 				open={municipalitiesOpen()}
 				setOpen={setMunicipalitiesOpen}
 				disabled={municipalitiesDisabled()}
+				setLevel={() => setStore("level", 2)}
 			/>
 			<AccordionList
 				items={
-					store.schools?.features
-						.filter((f) => f.properties.m_id === store.activeMunicipalityId)
+					store
+						.schoolsCollection()
+						?.features.filter(
+							(f) => f.properties.m_id === store.activeMunicipalityId,
+						)
 						.map((f) => ({
 							id: f.properties.s_id,
 							name: f.properties.s_name,
@@ -86,11 +94,12 @@ export const Ui: VoidComponent = () => {
 						})) ?? []
 				}
 				storeActiveKey="activeSchoolId"
-				storeHoverKey="hoverSchoolId"
+				storeHoverKey="schoolId"
 				placeholder="Vælg skole"
 				open={schoolsOpen()}
 				setOpen={setSchoolsOpen}
 				disabled={schoolsDisabled()}
+				setLevel={() => {}}
 			/>
 		</div>
 	);

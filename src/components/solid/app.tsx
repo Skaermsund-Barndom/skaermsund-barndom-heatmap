@@ -3,6 +3,7 @@ import { Ui } from "@/components/solid/ui";
 import {
 	municipalitiesCollection,
 	regionsCollection,
+	schoolsCollection,
 } from "@/scripts/collections";
 import { setStore, type store } from "@/scripts/store";
 import type { ParentComponent } from "solid-js";
@@ -18,8 +19,9 @@ export const App: ParentComponent<Props> = (props) => {
 		setStore({
 			municipalitiesMap: props.municipalitiesMap,
 			schools: props.schools,
-			regionsCollection: regionsCollection(props.schools),
-			municipalitiesCollection: municipalitiesCollection(props.schools),
+			schoolsCollection,
+			regionsCollection,
+			municipalitiesCollection,
 		});
 	});
 

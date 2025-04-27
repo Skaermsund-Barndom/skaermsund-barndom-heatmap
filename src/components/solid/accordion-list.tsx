@@ -1,4 +1,9 @@
-import { setStore, type store } from "@/scripts/store";
+import {
+	type hoverStore,
+	setHoverStore,
+	setStore,
+	type store,
+} from "@/scripts/store";
 import {
 	For,
 	type Setter,
@@ -19,9 +24,10 @@ interface Props {
 	items: Item[];
 	disabled?: boolean;
 	storeActiveKey: keyof typeof store;
-	storeHoverKey: keyof typeof store;
+	storeHoverKey: keyof typeof hoverStore;
 	open: boolean;
 	setOpen: Setter<boolean>;
+	setLevel: () => void;
 }
 
 export const AccordionList: VoidComponent<Props> = (props) => {
@@ -61,7 +67,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		input.value = "";
 		setStore(props.storeActiveKey, undefined);
-		setStore(props.storeHoverKey, undefined);
+		setHoverStore(props.storeHoverKey, undefined);
 		setSearch("");
 		props.setOpen(false);
 	});
@@ -92,6 +98,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		setStore(props.storeActiveKey, item.id);
 		setSearch(item.name);
 		props.setOpen(false);
+		props.setLevel();
+		setHoverStore(props.storeHoverKey, undefined);
 	};
 
 	const handleInput = (event: InputEvent) => {
@@ -100,7 +108,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		const value = event.currentTarget.value;
 		setSearch(value);
 		setStore(props.storeActiveKey, undefined);
-		setStore(props.storeHoverKey, undefined);
+		setHoverStore(props.storeHoverKey, undefined);
 	};
 
 	return (
@@ -149,8 +157,12 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 									type="button"
 									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-2 p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
-									onMouseEnter={() => setStore(props.storeHoverKey, item.id)}
-									onMouseLeave={() => setStore(props.storeHoverKey, undefined)}
+									onMouseEnter={() =>
+										setHoverStore(props.storeHoverKey, item.id)
+									}
+									onMouseLeave={() =>
+										setHoverStore(props.storeHoverKey, undefined)
+									}
 								>
 									<span>{item.name}</span>
 									<span>{item.subs}</span>

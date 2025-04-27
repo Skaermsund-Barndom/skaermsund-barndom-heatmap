@@ -1,5 +1,6 @@
 import { Control } from "@/components/maplibre/control";
-import { store } from "@/scripts/store";
+import { LEVELS } from "@/scripts/const";
+import { setStore, store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import type { IControl } from "maplibre-gl";
 import { type VoidComponent, createSignal, onMount } from "solid-js";
@@ -33,7 +34,12 @@ export const BackControls: VoidComponent<Props> = (props) => {
 	});
 
 	const handleBack = () => {
-		console.log("handleBack");
+		setStore(
+			"level",
+			store.level === 2 ? 1
+			: store.level === 1 ? 0
+			: 0,
+		);
 	};
 
 	return (
@@ -45,7 +51,7 @@ export const BackControls: VoidComponent<Props> = (props) => {
 				<button
 					type="button"
 					class="flex items-center gap-1 px-2 py-1 transition-opacity duration-300 ease-[cubic-bezier(.3,.2,0,1)] data-[visible=false]:opacity-0 data-[visible=true]:opacity-100"
-					data-visible={!!store.backTitle}
+					data-visible={!!LEVELS[store.level].backTitle}
 					onClick={handleBack}
 				>
 					<svg
@@ -61,7 +67,7 @@ export const BackControls: VoidComponent<Props> = (props) => {
 							fill="currentColor"
 						/>
 					</svg>
-					<span>{store.backTitle}</span>
+					<span>{LEVELS[store.level].backTitle}</span>
 				</button>
 			</div>
 		</Control>
