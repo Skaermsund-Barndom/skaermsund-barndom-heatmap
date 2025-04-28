@@ -27,6 +27,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 				padding: 16,
 			});
 
+			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
 			for (const feature of store.municipalitiesMap.features) {
 				props.map.setFeatureState(
 					{
@@ -57,6 +58,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 				padding: 32,
 			});
 
+			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
 			for (const feature of store.municipalitiesMap.features) {
 				props.map.setFeatureState(
 					{
@@ -104,6 +106,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 				padding: 64,
 			});
 
+			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
 			for (const feature of store.municipalitiesMap.features) {
 				props.map.setFeatureState(
 					{
