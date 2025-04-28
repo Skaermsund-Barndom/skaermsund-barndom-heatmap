@@ -153,6 +153,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-[2fr_1fr] p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
 									onMouseEnter={() => setStore({ hoverId: item.id })}
+									onFocus={() => setStore({ hoverId: item.id })}
 									onMouseLeave={() => setStore({ hoverId: undefined })}
 								>
 									<span>{item.name}</span>
