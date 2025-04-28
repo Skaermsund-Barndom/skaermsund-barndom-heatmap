@@ -4,14 +4,9 @@ import {
 	TooltipMarker,
 	type TooltipMarkerStore,
 } from "@/components/solid/tooltip-marker";
-import {
-	ALL_ID,
-	BG_HEATMAP_LEVELS_LAYER,
-	COLORS,
-	FONT_STACK,
-} from "@/scripts/const";
+import { BG_HEATMAP_LEVELS_LAYER, COLORS, FONT_STACK } from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
-import { hoverStore, setHoverStore, setStore, store } from "@/scripts/store";
+import { setStore, store } from "@/scripts/store";
 import type { Item, MapProps } from "@/scripts/types";
 import {
 	type FilterSpecification,
@@ -29,12 +24,12 @@ import { createStore } from "solid-js/store";
 interface Props extends MapProps {
 	source: ReturnType<typeof geojsonSource>;
 	sourceId: string;
-	circleMinRadius: number;
-	circleMaxRadius: number;
-	textMinSize: number;
-	textMaxSize: number;
-	activeId: keyof typeof store;
-	hoverId: keyof typeof hoverStore;
+	size: {
+		circleMin: number;
+		circleMax: number;
+		textMin: number;
+		textMax: number;
+	};
 	level: 0 | 1 | 2;
 	setLevel: () => void;
 }
@@ -69,86 +64,67 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 		if (activeFeatureId() !== feature.id) {
 			setActiveFeatureId(feature.id);
-			setHoverStore(props.hoverId, ALL_ID);
+			setStore("hoverId", Number(feature.id));
 		}
 
-		if (hoverStore[props.hoverId] === feature.properties?.id) return;
-		setHoverStore(props.hoverId, feature.properties?.id);
+		if (store.hoverId === feature.properties?.id) return;
+		setStore("hoverId", feature.properties?.id);
 	};
 
-	// When the active feature id changes, update the marker and the feature state
+	// When the hover id changes, update the marker and the feature state
 	createEffect(() => {
-		const activeFeatureId = hoverStore[props.hoverId];
-		if (!activeFeatureId) return;
+		const hoverId = store.hoverId;
+		if (!props.map.getSource(props.sourceId)) return;
 
-		const feature = props.map
-			.querySourceFeatures(props.sourceId)
-			.find((f) => f.properties?.id === activeFeatureId);
-		if (!feature?.id) return;
+		setMarker({ lngLat: undefined, offset: 0, name: "" });
 
-		const [lng, lat] =
-			feature.geometry.type === "Point" ? feature.geometry.coordinates : [0, 0];
-		if (!lng || !lat) return;
+		for (const feature of props.source.data.features) {
+			if (!feature.properties?.id) continue;
 
-		const { name, subs } = feature.properties as Item;
-		const lngLat = new LngLat(lng, lat);
-		const offset = interpolate(
-			subs,
-			minSubmissions(),
-			props.circleMinRadius,
-			maxSubmissions(),
-			props.circleMaxRadius,
-		);
+			const hover = feature.properties?.id === hoverId;
+			props.map.setFeatureState(
+				{
+					id: feature.properties?.id,
+					source: props.sourceId,
+				},
+				{
+					hover,
+				},
+			);
 
-		setMarker({
-			lngLat,
-			offset,
-			name,
-		});
+			if (!hover) continue;
 
-		props.map.setFeatureState(
-			{
-				id: feature.id,
-				source: props.sourceId,
-			},
-			{
-				hover: true,
-			},
-		);
+			const [lng, lat] =
+				feature.geometry.type === "Point" ?
+					feature.geometry.coordinates
+				:	[0, 0];
+			if (!lng || !lat) return;
+
+			const { name, subs } = feature.properties as Item;
+			const lngLat = new LngLat(lng, lat);
+			const offset = interpolate(
+				subs,
+				minSubmissions(),
+				props.size.circleMin,
+				maxSubmissions(),
+				props.size.circleMax,
+			);
+
+			setMarker({ lngLat, offset, name });
+		}
 	});
 
 	// When the mouse leaves a feature, reset the active feature id
 	const mouseleave = () => {
-		setHoverStore(props.hoverId, ALL_ID);
+		setStore("hoverId", undefined);
 	};
-
-	// When the active feature id is the all id, reset the marker and the feature state
-	createEffect(() => {
-		if (hoverStore[props.hoverId] !== ALL_ID) return;
-
-		setMarker({
-			lngLat: undefined,
-			offset: 0,
-			name: "",
-		});
-
-		const features = props.map.querySourceFeatures(props.sourceId);
-		for (const feature of features) {
-			if (!feature.id) continue;
-			const featureIdentifier = {
-				id: feature.id,
-				source: props.sourceId,
-			};
-			props.map.setFeatureState(featureIdentifier, { hover: false });
-		}
-	});
 
 	const click = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
 		if (feature?.geometry.type !== "Point") return;
 
 		props.setLevel();
-		setStore(props.activeId, feature.properties?.id);
+		setStore({ filter: [feature.properties?.id] });
 	};
 
 	return (
@@ -184,9 +160,9 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 								["linear"],
 								["get", "subs"],
 								minSubmissions(),
-								props.circleMinRadius,
+								props.size.circleMin,
 								maxSubmissions(),
-								props.circleMaxRadius,
+								props.size.circleMax,
 							],
 						},
 					}}
@@ -210,9 +186,9 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 								["linear"],
 								["get", "subs"],
 								minSubmissions(),
-								props.textMinSize,
+								props.size.textMin,
 								maxSubmissions(),
-								props.textMaxSize,
+								props.size.textMax,
 							],
 						},
 						paint: {
@@ -243,9 +219,9 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 								["linear"],
 								["get", "subs"],
 								minSubmissions(),
-								props.circleMinRadius,
+								props.size.circleMin,
 								maxSubmissions(),
-								props.circleMaxRadius,
+								props.size.circleMax,
 							],
 						},
 					}}
@@ -269,9 +245,9 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 								["linear"],
 								["get", "subs"],
 								minSubmissions(),
-								props.textMinSize,
+								props.size.textMin,
 								maxSubmissions(),
-								props.textMaxSize,
+								props.size.textMax,
 							],
 						},
 						paint: {

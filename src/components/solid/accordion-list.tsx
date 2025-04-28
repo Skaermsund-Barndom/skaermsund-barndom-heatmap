@@ -1,4 +1,4 @@
-import { ALL_ID } from "@/scripts/const";
+import { setStore, store } from "@/scripts/store";
 import type { Item } from "@/scripts/types";
 import {
 	For,
@@ -16,9 +16,6 @@ interface Props {
 	open: boolean;
 	setOpen: Setter<boolean>;
 	setLevel: () => void;
-	setActive: (id: number) => void;
-	setHover: (id: number) => void;
-	hoverId: number;
 }
 
 export const AccordionList: VoidComponent<Props> = (props) => {
@@ -43,7 +40,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		if (open) {
 			input.focus();
-			input.setSelectionRange(0, input.value.length);
+			input.value = "";
+			setSearch("");
 		} else {
 			input.blur();
 			setSearch("");
@@ -58,13 +56,11 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		input.value = "";
 		setSearch("");
-		props.setActive(ALL_ID);
-		props.setHover(ALL_ID);
 		props.setOpen(false);
 	});
 
 	createEffect(() => {
-		const hoverId = props.hoverId;
+		const hoverId = store.hoverId;
 		const buttons = parentRef?.querySelectorAll("button");
 		if (!buttons) return;
 
@@ -73,7 +69,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 				button.focus();
 			}
 
-			if (hoverId === ALL_ID) {
+			if (!hoverId) {
 				button.blur();
 			}
 		}
@@ -105,8 +101,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		setSearch(item.name);
 		props.setOpen(false);
 		props.setLevel();
-		props.setActive(item.id);
-		props.setHover(ALL_ID);
+		setStore("hoverId", undefined);
+		setStore({ filter: item.filter });
 	};
 
 	const handleInput = (event: InputEvent) => {
@@ -114,8 +110,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		const value = event.currentTarget.value;
 		setSearch(value);
-		props.setActive(ALL_ID);
-		props.setHover(ALL_ID);
+		setStore("hoverId", undefined);
 	};
 
 	return (
@@ -165,8 +160,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 									type="button"
 									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-2 p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
-									onMouseEnter={() => props.setHover(item.id)}
-									onMouseLeave={() => props.setHover(ALL_ID)}
+									onMouseEnter={() => setStore("hoverId", item.id)}
+									onMouseLeave={() => setStore("hoverId", undefined)}
 								>
 									<span>{item.name}</span>
 									<span>{item.subs}</span>

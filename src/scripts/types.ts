@@ -12,6 +12,7 @@ export interface HeatmapProps extends MapProps {
 
 export interface Item {
 	id: number;
+	filter: number[];
 	name: string;
 	subs: number;
 }

@@ -1,4 +1,3 @@
-import { ALL_ID } from "@/scripts/const";
 import { store } from "@/scripts/store";
 import type { MunicipalityProperties, RegionProperties } from "@/scripts/types";
 import { centerMedian, featureCollection, multiPoint, point } from "@turf/turf";
@@ -24,8 +23,9 @@ export function regionsCollection() {
 		// If the feature does not exist, create a new one
 		if (index === -1) {
 			const feature = multiPoint([coordinates], {
-				name: r_name,
 				id: r_id,
+				filter: [r_id],
+				name: r_name,
 				subs,
 				r_name,
 				r_id,
@@ -81,6 +81,7 @@ export function municipalitiesCollection() {
 		if (index === -1) {
 			const feature = multiPoint([coordinates], {
 				id: m_id,
+				filter: [m_id],
 				name: m_name,
 				subs,
 				m_id,
@@ -119,11 +120,7 @@ export function municipalitiesCollection() {
 
 	// Return the filtered centroid collection
 	return featureCollection(
-		centroidFeatures?.filter(
-			(f) =>
-				store.activeRegionId === ALL_ID
-				|| f.properties.r_id === store.activeRegionId,
-		),
+		centroidFeatures?.filter((f) => store.filter.includes(f.properties.r_id)),
 	);
 }
 
@@ -132,10 +129,8 @@ export function schoolsCollection() {
 
 	// Return the filtered schools collection
 	return featureCollection(
-		store.schools.features.filter(
-			(f) =>
-				store.activeMunicipalityId === ALL_ID
-				|| f.properties.m_id === store.activeMunicipalityId,
+		store.schools.features.filter((f) =>
+			store.filter.includes(f.properties.m_id),
 		),
 	);
 }

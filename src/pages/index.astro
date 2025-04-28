@@ -3,23 +3,13 @@ import { App } from "@/components/solid/app";
 import municipalitiesMapRaw from "@/data/municipality-map.json?raw";
 import schoolsRaw from "@/data/schools.json?raw";
 import { getMunicipalityMap } from "@/scripts/municipality-map";
-import { getSchools } from "@/scripts/schools";
+import { schools } from "@/scripts/schools";
 import "@/styles/global.css";
 import { SEO } from "astro-seo";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-interface Props {
-	title?: string | null;
-}
-
-const { title } = Astro.props;
-
-const municipalitiesMap =
-	import.meta.env.DEV ?
-		JSON.parse(municipalitiesMapRaw)
-	:	await getMunicipalityMap();
-const schools =
-	import.meta.env.DEV ? JSON.parse(schoolsRaw) : await getSchools();
+const title = "Skærmsund Barndom Heatmap";
+const description = "Interaktivt heatmap over løfter i Skærmsund Barndom.";
 ---
 
 <!doctype html>
@@ -32,17 +22,17 @@ const schools =
 		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 
 		<SEO
-			description="Skærmsund Barndom Heatmap"
+			description={description}
 			canonical={Astro.url.href}
 			openGraph={{
 				basic: {
 					url: Astro.url.href,
-					title: title ?? "",
+					title,
 					type: "website",
 					image: `${Astro.url.origin}/og-image.png`,
 				},
 				image: {
-					alt: "Skærmsund Barndom Heatmap",
+					alt: description,
 					height: 630,
 					url: `${Astro.url.origin}/og-image.png`,
 					width: 1200,
@@ -59,8 +49,12 @@ const schools =
 		>
 			<article>
 				<App
-					municipalitiesMap={municipalitiesMap}
-					schools={schools}
+					municipalitiesMap={import.meta.env.DEV ?
+						JSON.parse(municipalitiesMapRaw)
+					:	await getMunicipalityMap()}
+					schools={import.meta.env.DEV ?
+						JSON.parse(schoolsRaw)
+					:	await schools()}
 					client:load
 				/>
 			</article>

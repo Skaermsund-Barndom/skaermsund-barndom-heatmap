@@ -11,8 +11,6 @@ export const OG_IMAGE_MIME_TYPE = `image/${OG_IMAGE_FORMAT}`;
 export const OG_IMAGE_QUALITY = 90;
 export const OG_IMAGE_PATH = "/api/images/og-image.jpg";
 
-export const ALL_ID = 1_234_567;
-
 export const TOP_LAYER = "top-layer";
 export const BOTTOM_LAYER = "bottom-layer";
 export const BG_MUNICIPALITIES_LAYER = "municipalities-background-layer";
@@ -54,10 +52,3 @@ export const LEVELS = [
 		backTitle: "Kommuner",
 	},
 ] as const;
-
-export const ZOOM_LEVELS = {
-	REGION: 0,
-	MUNICIPALITY: 8,
-	SCHOOL: 10,
-	MAX: 24,
-} as const;

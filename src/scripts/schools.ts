@@ -23,7 +23,7 @@ const base = new Airtable({ apiKey: import.meta.env.AIRTABLE_API_KEY }).base(
 	"appFpQHfnl4TDWh4c",
 );
 
-export const getSchools = async () => {
+export const schools = async () => {
 	const schools: FeatureCollection<Point, SchoolProperties> = featureCollection(
 		[],
 	);
@@ -82,6 +82,7 @@ export const getSchools = async () => {
 
 							const feature = point<SchoolProperties>([lng, lat], {
 								id: schoolId,
+								filter: [],
 								name: schoolName,
 								m_name: municipalityName,
 								m_id: municipalityId,

@@ -1,10 +1,5 @@
 import { Heatmap } from "@/components/solid/heatmap";
 import { Ui } from "@/components/solid/ui";
-import {
-	municipalitiesCollection,
-	regionsCollection,
-	schoolsCollection,
-} from "@/scripts/collections";
 import { setStore, type store } from "@/scripts/store";
 import type { ParentComponent } from "solid-js";
 import { createEffect } from "solid-js";
@@ -19,9 +14,13 @@ export const App: ParentComponent<Props> = (props) => {
 		setStore({
 			municipalitiesMap: props.municipalitiesMap,
 			schools: props.schools,
-			schoolsCollection,
-			regionsCollection,
-			municipalitiesCollection,
+			filter: props.schools?.features.reduce<number[]>((filter, f) => {
+				if (filter.includes(f.properties.r_id)) {
+					return filter;
+				}
+				filter.push(f.properties.r_id);
+				return filter;
+			}, []),
 		});
 	});
 

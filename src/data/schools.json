@@ -5,6 +5,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 495005,
+				"filter": [],
 				"name": "4kløverskolen",
 				"m_name": "Nyborg Kommune",
 				"m_id": 450,
@@ -18,6 +19,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 849005,
+				"filter": [],
 				"name": "Aabybro Skole",
 				"m_name": "Jammerbugt Kommune",
 				"m_id": 849,
@@ -31,6 +33,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851070,
+				"filter": [],
 				"name": "Aalborg Friskole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -44,6 +47,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621017,
+				"filter": [],
 				"name": "Aalykkeskolen",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -57,6 +61,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 499004,
+				"filter": [],
 				"name": "Aarupskolen",
 				"m_name": "Assens Kommune",
 				"m_id": 420,
@@ -70,6 +75,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265001,
+				"filter": [],
 				"name": "Absalons Skole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -83,6 +89,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280496,
+				"filter": [],
 				"name": "Ådal Skole, afd. Ganløse",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -96,6 +103,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280496,
+				"filter": [],
 				"name": "Ådal Skole afd. Slagslunde",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -109,6 +117,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 183008,
+				"filter": [],
 				"name": "Ådalens Privatskole",
 				"m_name": "Ishøj Kommune",
 				"m_id": 183,
@@ -122,6 +131,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280222,
+				"filter": [],
 				"name": "Ådalens Skole, Frederikssund",
 				"m_name": "Frederikssund Kommune",
 				"m_id": 250,
@@ -135,6 +145,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 779011,
+				"filter": [],
 				"name": "Ådalskolen",
 				"m_name": "Skive Kommune",
 				"m_id": 779,
@@ -148,6 +159,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461001,
+				"filter": [],
 				"name": "Agedrup Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -161,6 +173,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 315009,
+				"filter": [],
 				"name": "Ågerup Skole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -174,6 +187,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101172,
+				"filter": [],
 				"name": "Ahi International School",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -187,6 +201,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 165011,
+				"filter": [],
 				"name": "Albertslund Lille Skole",
 				"m_name": "Albertslund Kommune",
 				"m_id": 165,
@@ -200,6 +215,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101076,
+				"filter": [],
 				"name": "Ålholm Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -213,6 +229,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259001,
+				"filter": [],
 				"name": "Alkestrupskolen",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -226,6 +243,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280792,
+				"filter": [],
 				"name": "Allerød Privatskole",
 				"m_name": "Allerød Kommune",
 				"m_id": 201,
@@ -239,6 +257,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 261001,
+				"filter": [],
 				"name": "Allerslev Skole",
 				"m_name": "Lejre Kommune",
 				"m_id": 350,
@@ -252,6 +271,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461037,
+				"filter": [],
 				"name": "Åløkkeskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -265,6 +285,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 573001,
+				"filter": [],
 				"name": "Alslev Skole",
 				"m_name": "Varde Kommune",
 				"m_id": 573,
@@ -278,6 +299,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101174,
+				"filter": [],
 				"name": "Amager Fælled Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -291,6 +313,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 315013,
+				"filter": [],
 				"name": "Andreasskolen",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -304,6 +327,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 707001,
+				"filter": [],
 				"name": "Anholt Skole",
 				"m_name": "Norddjurs Kommune",
 				"m_id": 707,
@@ -317,6 +341,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 577001,
+				"filter": [],
 				"name": "Ansager Skole",
 				"m_name": "Varde Kommune",
 				"m_id": 573,
@@ -330,6 +355,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 801001,
+				"filter": [],
 				"name": "Arden Skole",
 				"m_name": "Mariagerfjord Kommune",
 				"m_id": 846,
@@ -343,6 +369,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281349,
+				"filter": [],
 				"name": "Arena Skole og Fritid",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -356,6 +383,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 253008,
+				"filter": [],
 				"name": "Arenaskolen",
 				"m_name": "Greve Kommune",
 				"m_id": 253,
@@ -369,6 +397,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751064,
+				"filter": [],
 				"name": "Århus Friskole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -382,6 +411,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751114,
+				"filter": [],
 				"name": "Århus Privatskole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -395,6 +425,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259025,
+				"filter": [],
 				"name": "Asgård Skole",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -408,6 +439,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 575002,
+				"filter": [],
 				"name": "Askov-Malt Skole",
 				"m_name": "Vejen Kommune",
 				"m_id": 575,
@@ -421,6 +453,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 305002,
+				"filter": [],
 				"name": "Asnæs Skole",
 				"m_name": "Odsherred Kommune",
 				"m_id": 306,
@@ -434,6 +467,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159040,
+				"filter": [],
 				"name": "Atheneskolen",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -447,6 +481,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280679,
+				"filter": [],
 				"name": "Aulum-Hodsager Skole",
 				"m_name": "Herning Kommune",
 				"m_id": 657,
@@ -460,6 +495,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 747001,
+				"filter": [],
 				"name": "Auning Skole",
 				"m_name": "Norddjurs Kommune",
 				"m_id": 707,
@@ -473,6 +509,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 167009,
+				"filter": [],
 				"name": "Avedøre Skole",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -486,6 +523,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 237007,
+				"filter": [],
 				"name": "Bækkegårdsskolen",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -499,6 +537,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159018,
+				"filter": [],
 				"name": "Bagsværd Friskole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -512,6 +551,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159034,
+				"filter": [],
 				"name": "Bagsværd Kostskole og Gymnasium",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -525,6 +565,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159001,
+				"filter": [],
 				"name": "Bagsværd Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -538,6 +579,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 821001,
+				"filter": [],
 				"name": "Bagterp undervisningssted",
 				"m_name": "Hjørring Kommune",
 				"m_id": 860,
@@ -551,6 +593,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157001,
+				"filter": [],
 				"name": "Bakkegårdsskolen, Gentofte",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -564,6 +607,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751002,
+				"filter": [],
 				"name": "Bakkegårdsskolen, Trige",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -577,6 +621,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 715001,
+				"filter": [],
 				"name": "Bakkeskolen",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -590,6 +635,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 151018,
+				"filter": [],
 				"name": "Ballerup Ny Skole",
 				"m_name": "Ballerup Kommune",
 				"m_id": 151,
@@ -603,6 +649,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 743014,
+				"filter": [],
 				"name": "Balleskolen",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -616,6 +663,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281986,
+				"filter": [],
 				"name": "Balsmoseskolen",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -629,6 +677,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 615015,
+				"filter": [],
 				"name": "Bankagerskolen",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -642,6 +691,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 845003,
+				"filter": [],
 				"name": "Bavnebakkeskolen",
 				"m_name": "Rebild Kommune",
 				"m_id": 840,
@@ -655,6 +705,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101062,
+				"filter": [],
 				"name": "Bavnehøj Skole, København SV",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -668,6 +719,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 709005,
+				"filter": [],
 				"name": "Bavnehøjskolen",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -681,6 +733,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751004,
+				"filter": [],
 				"name": "Beder Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -694,6 +747,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101011,
+				"filter": [],
 				"name": "Bellahøj Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -707,6 +761,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157013,
+				"filter": [],
 				"name": "Bernadotteskolen",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -720,6 +775,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259021,
+				"filter": [],
 				"name": "Billesborgskolen",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -733,6 +789,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173012,
+				"filter": [],
 				"name": "Billums Privatskole",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -746,6 +803,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280316,
+				"filter": [],
 				"name": "BillundSkolen",
 				"m_name": "Billund Kommune",
 				"m_id": 530,
@@ -759,6 +817,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 205006,
+				"filter": [],
 				"name": "Birkerød Privatskole",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -772,6 +831,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280327,
+				"filter": [],
 				"name": "Birkerød Skole",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -785,6 +845,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 449002,
+				"filter": [],
 				"name": "Birkhovedskolen",
 				"m_name": "Nyborg Kommune",
 				"m_id": 450,
@@ -798,6 +859,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 737002,
+				"filter": [],
 				"name": "Bjedstrup Skole",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -811,6 +873,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 821002,
+				"filter": [],
 				"name": "Bjergby undervisningssted",
 				"m_name": "Hjørring Kommune",
 				"m_id": 860,
@@ -824,6 +887,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280295,
+				"filter": [],
 				"name": "Bjergmarkskolen",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -837,6 +901,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 791028,
+				"filter": [],
 				"name": "Bjerregrav Friskole",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -850,6 +915,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 215001,
+				"filter": [],
 				"name": "Bjørnehøjskolen",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -863,6 +929,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281013,
+				"filter": [],
 				"name": "Blåbjergskolen",
 				"m_name": "Varde Kommune",
 				"m_id": 573,
@@ -876,6 +943,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101008,
+				"filter": [],
 				"name": "Blågård Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -889,6 +957,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281966,
+				"filter": [],
 				"name": "Blåhøj Friskole",
 				"m_name": "Ikast-Brande Kommune",
 				"m_id": 756,
@@ -902,6 +971,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 729002,
+				"filter": [],
 				"name": "Blicherskolen",
 				"m_name": "Randers Kommune",
 				"m_id": 730,
@@ -915,6 +985,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 201001,
+				"filter": [],
 				"name": "Blovstrød Skole",
 				"m_name": "Allerød Kommune",
 				"m_id": 201,
@@ -928,6 +999,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 171002,
+				"filter": [],
 				"name": "Boesagerskolen, Smørum",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -941,6 +1013,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 365008,
+				"filter": [],
 				"name": "Bogø Kostskole",
 				"m_name": "Vordingborg Kommune",
 				"m_id": 390,
@@ -954,6 +1027,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101086,
+				"filter": [],
 				"name": "Bordings Friskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -967,6 +1041,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 169007,
+				"filter": [],
 				"name": "Borgerskolen",
 				"m_name": "Høje-Taastrup Kommune",
 				"m_id": 169,
@@ -980,6 +1055,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281071,
+				"filter": [],
 				"name": "Børneby Midt",
 				"m_name": "Norddjurs Kommune",
 				"m_id": 707,
@@ -993,6 +1069,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751089,
+				"filter": [],
 				"name": "Børnenes Friskole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -1006,6 +1083,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 657037,
+				"filter": [],
 				"name": "Børneskolen Bifrost",
 				"m_name": "Herning Kommune",
 				"m_id": 657,
@@ -1019,6 +1097,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101191,
+				"filter": [],
 				"name": "Børneuniversitetet på Vesterbro",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1032,6 +1111,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 267002,
+				"filter": [],
 				"name": "Borup Skole",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -1045,6 +1125,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621003,
+				"filter": [],
 				"name": "Brændkjærskolen",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -1058,6 +1139,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 527009,
+				"filter": [],
 				"name": "Brændstrup Kristne Friskole",
 				"m_name": "Vejen Kommune",
 				"m_id": 575,
@@ -1071,6 +1153,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 251001,
+				"filter": [],
 				"name": "Bramsnæsvigskolen",
 				"m_name": "Lejre Kommune",
 				"m_id": 350,
@@ -1084,6 +1167,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 550001,
+				"filter": [],
 				"name": "Branderup Friskole",
 				"m_name": "Tønder Kommune",
 				"m_id": 550,
@@ -1097,6 +1181,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 543001,
+				"filter": [],
 				"name": "Bregnbjergskolen",
 				"m_name": "Haderslev Kommune",
 				"m_id": 510,
@@ -1110,6 +1195,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 425005,
+				"filter": [],
 				"name": "Broby Fri- og Efterskole (friskole)",
 				"m_name": "Faaborg-Midtfyn Kommune",
 				"m_id": 430,
@@ -1123,6 +1209,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 153018,
+				"filter": [],
 				"name": "Brøndbyøster Skole",
 				"m_name": "Brøndby Kommune",
 				"m_id": 153,
@@ -1136,6 +1223,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101012,
+				"filter": [],
 				"name": "Brønshøj Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1149,6 +1237,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281721,
+				"filter": [],
 				"name": "Broskolen, Afdeling Bøgehøj",
 				"m_name": "Faaborg-Midtfyn Kommune",
 				"m_id": 430,
@@ -1162,6 +1251,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 325001,
+				"filter": [],
 				"name": "Broskolen, Korsør",
 				"m_name": "Slagelse Kommune",
 				"m_id": 330,
@@ -1175,6 +1265,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 749001,
+				"filter": [],
 				"name": "Bryrup Skole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -1188,6 +1279,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159002,
+				"filter": [],
 				"name": "Buddinge Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -1201,6 +1293,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851066,
+				"filter": [],
 				"name": "Bundgaardsskolen",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -1214,6 +1307,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157015,
+				"filter": [],
 				"name": "Busses Skole",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -1227,6 +1321,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101111,
+				"filter": [],
 				"name": "Byens Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1240,6 +1335,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281242,
+				"filter": [],
 				"name": "Byens Steinerskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1253,6 +1349,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 823008,
+				"filter": [],
 				"name": "Bymarkskolen",
 				"m_name": "Mariagerfjord Kommune",
 				"m_id": 846,
@@ -1266,6 +1363,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280341,
+				"filter": [],
 				"name": "Byskovskolen",
 				"m_name": "Ringsted Kommune",
 				"m_id": 329,
@@ -1279,6 +1377,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 731015,
+				"filter": [],
 				"name": "C. la Cours Skole",
 				"m_name": "Randers Kommune",
 				"m_id": 730,
@@ -1292,6 +1391,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280342,
+				"filter": [],
 				"name": "Campusskolen",
 				"m_name": "Ringsted Kommune",
 				"m_id": 329,
@@ -1305,6 +1405,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101078,
+				"filter": [],
 				"name": "Carolineskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1318,6 +1419,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101079,
+				"filter": [],
 				"name": "Christianshavns Døttreskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1331,6 +1433,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101047,
+				"filter": [],
 				"name": "Christianshavns Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1344,6 +1447,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 665002,
+				"filter": [],
 				"name": "Christinelystskolen",
 				"m_name": "Lemvig Kommune",
 				"m_id": 665,
@@ -1357,6 +1461,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101188,
+				"filter": [],
 				"name": "Copenhagen City School",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1370,6 +1475,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 615002,
+				"filter": [],
 				"name": "Dagnæsskolen",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -1383,6 +1489,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621004,
+				"filter": [],
 				"name": "Dalby Skole",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -1396,6 +1503,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461003,
+				"filter": [],
 				"name": "Dalumskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -1409,6 +1517,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280825,
+				"filter": [],
 				"name": "Damhusengens Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1422,6 +1531,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 167001,
+				"filter": [],
 				"name": "Dansborgskolen",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -1435,6 +1545,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 557002,
+				"filter": [],
 				"name": "Darum Børneby",
 				"m_name": "Esbjerg Kommune",
 				"m_id": 561,
@@ -1448,6 +1559,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 613007,
+				"filter": [],
 				"name": "Daugård Skole",
 				"m_name": "Hedensted Kommune",
 				"m_id": 766,
@@ -1461,6 +1573,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101001,
+				"filter": [],
 				"name": "Den Classenske Legatskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1474,6 +1587,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 703007,
+				"filter": [],
 				"name": "Den Fri Hestehaveskole",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -1487,6 +1601,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281003,
+				"filter": [],
 				"name": "Den Frie Fakkel",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1500,6 +1615,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280553,
+				"filter": [],
 				"name": "Den Grønne Friskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1513,6 +1629,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 661016,
+				"filter": [],
 				"name": "Den Kristne Friskole i Holstebro",
 				"m_name": "Holstebro Kommune",
 				"m_id": 661,
@@ -1526,6 +1643,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159015,
+				"filter": [],
 				"name": "Den Lille Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -1539,6 +1657,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101087,
+				"filter": [],
 				"name": "Den Lille Skole i København",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1552,6 +1671,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101080,
+				"filter": [],
 				"name": "Det Kgl Vajsenhus Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1565,6 +1685,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 545006,
+				"filter": [],
 				"name": "Deutsche Privatschule Apenrade",
 				"m_name": "Aabenraa Kommune",
 				"m_id": 580,
@@ -1578,6 +1699,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 503006,
+				"filter": [],
 				"name": "Deutsche Schule Pattburg",
 				"m_name": "Aabenraa Kommune",
 				"m_id": 580,
@@ -1591,6 +1713,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 539012,
+				"filter": [],
 				"name": "Deutsche Schule Tingleff",
 				"m_name": "Aabenraa Kommune",
 				"m_id": 580,
@@ -1604,6 +1727,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280187,
+				"filter": [],
 				"name": "Dragør Skole",
 				"m_name": "Dragør Kommune",
 				"m_id": 155,
@@ -1617,6 +1741,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 537007,
+				"filter": [],
 				"name": "Dybbøl-Skolen",
 				"m_name": "Sønderborg Kommune",
 				"m_id": 540,
@@ -1630,6 +1755,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 743002,
+				"filter": [],
 				"name": "Dybkærskolen",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -1643,6 +1769,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157002,
+				"filter": [],
 				"name": "Dyssegårdsskolen",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -1656,6 +1783,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101049,
+				"filter": [],
 				"name": "Dyvekeskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1669,6 +1797,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 701001,
+				"filter": [],
 				"name": "Ebeltoft Skole",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -1682,6 +1811,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280918,
+				"filter": [],
 				"name": "Åskolen - friskolen i Hørning",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -1695,6 +1825,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751095,
+				"filter": [],
 				"name": "Egebakkeskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -1708,6 +1839,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 343001,
+				"filter": [],
 				"name": "Egebjerg Skole",
 				"m_name": "Odsherred Kommune",
 				"m_id": 306,
@@ -1721,6 +1853,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 615003,
+				"filter": [],
 				"name": "Egebjergskolen",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -1734,6 +1867,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 187001,
+				"filter": [],
 				"name": "Egholmskolen",
 				"m_name": "Vallensbæk Kommune",
 				"m_id": 187,
@@ -1747,6 +1881,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751006,
+				"filter": [],
 				"name": "Elev Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -1760,6 +1895,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751058,
+				"filter": [],
 				"name": "Elise Smiths Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -1773,6 +1909,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101063,
+				"filter": [],
 				"name": "Ellebjerg Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1786,6 +1923,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751003,
+				"filter": [],
 				"name": "Ellevangskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -1799,6 +1937,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751007,
+				"filter": [],
 				"name": "Elsted Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -1812,6 +1951,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621006,
+				"filter": [],
 				"name": "Eltang Skole og Børnehave",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -1825,6 +1965,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 208007,
+				"filter": [],
 				"name": "Endrupskolen",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -1838,6 +1979,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751008,
+				"filter": [],
 				"name": "Engdalskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -1851,6 +1993,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173002,
+				"filter": [],
 				"name": "Engelsborgskolen",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -1864,6 +2007,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159004,
+				"filter": [],
 				"name": "Enghavegård Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -1877,6 +2021,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 431011,
+				"filter": [],
 				"name": "Enghaveskolen - Faaborg Friskole",
 				"m_name": "Faaborg-Midtfyn Kommune",
 				"m_id": 430,
@@ -1890,6 +2035,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280804,
+				"filter": [],
 				"name": "Engholmskolerne",
 				"m_name": "Allerød Kommune",
 				"m_id": 201,
@@ -1903,6 +2049,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 603005,
+				"filter": [],
 				"name": "Englystskolen",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -1916,6 +2063,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631002,
+				"filter": [],
 				"name": "Engum Skole",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -1929,6 +2077,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 167013,
+				"filter": [],
 				"name": "Esajasskolen",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -1942,6 +2091,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 561026,
+				"filter": [],
 				"name": "Esbjerg Realskole",
 				"m_name": "Esbjerg Kommune",
 				"m_id": 561,
@@ -1955,6 +2105,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280409,
+				"filter": [],
 				"name": "Espergærde Skole",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -1968,6 +2119,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217001,
+				"filter": [],
 				"name": "Espergærdeskolen",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -1981,6 +2133,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280524,
+				"filter": [],
 				"name": "European School Copenhagen - Primary and Secondary",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -1994,6 +2147,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280333,
+				"filter": [],
 				"name": "Fælleshåbsskolen",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -2007,6 +2161,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280240,
+				"filter": [],
 				"name": "Fællesskolen Favrdal-Fjelstrup",
 				"m_name": "Haderslev Kommune",
 				"m_id": 510,
@@ -2020,6 +2175,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 445010,
+				"filter": [],
 				"name": "Fænøsund Friskole",
 				"m_name": "Middelfart Kommune",
 				"m_id": 410,
@@ -2033,6 +2189,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 563001,
+				"filter": [],
 				"name": "Fanø Skole",
 				"m_name": "Fanø Kommune",
 				"m_id": 563,
@@ -2046,6 +2203,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281276,
+				"filter": [],
 				"name": "Farum Lilleskole",
 				"m_name": "Furesø Kommune",
 				"m_id": 190,
@@ -2059,6 +2217,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280053,
+				"filter": [],
 				"name": "Feldballe Friskole",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -2072,6 +2231,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851068,
+				"filter": [],
 				"name": "Filipskolen Ålborg",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -2085,6 +2245,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280334,
+				"filter": [],
 				"name": "Firkløverskolen, Ikær",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -2098,6 +2259,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 811001,
+				"filter": [],
 				"name": "Fjerritslev Skole",
 				"m_name": "Jammerbugt Kommune",
 				"m_id": 849,
@@ -2111,6 +2273,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280418,
+				"filter": [],
 				"name": "Fjordbakkeskolen",
 				"m_name": "Fredericia Kommune",
 				"m_id": 607,
@@ -2124,6 +2287,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 607009,
+				"filter": [],
 				"name": "Fjordbakkeskolen, Skærbæk",
 				"m_name": "Fredericia Kommune",
 				"m_id": 607,
@@ -2137,6 +2301,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 225001,
+				"filter": [],
 				"name": "Fjordlandsskolen, afd. Dalby",
 				"m_name": "Frederikssund Kommune",
 				"m_id": 250,
@@ -2150,6 +2315,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 370003,
+				"filter": [],
 				"name": "Fladsåskolen, afd. Mogenstrup",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -2163,6 +2329,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 169001,
+				"filter": [],
 				"name": "Fløng Skole",
 				"m_name": "Høje-Taastrup Kommune",
 				"m_id": 169,
@@ -2176,6 +2343,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 511005,
+				"filter": [],
 				"name": "Fole Friskole",
 				"m_name": "Haderslev Kommune",
 				"m_id": 510,
@@ -2189,6 +2357,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751059,
+				"filter": [],
 				"name": "Forældreskolen Aarhus",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -2202,6 +2371,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 561006,
+				"filter": [],
 				"name": "Fourfeldtskolen",
 				"m_name": "Esbjerg Kommune",
 				"m_id": 561,
@@ -2215,6 +2385,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280119,
+				"filter": [],
 				"name": "Fredensborg Skole",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -2228,6 +2399,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 227001,
+				"filter": [],
 				"name": "Fredensborg Skole, afd. Karlebo",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -2241,6 +2413,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 208001,
+				"filter": [],
 				"name": "Fredensborg Skole, Benediktevej",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -2254,6 +2427,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 607015,
+				"filter": [],
 				"name": "Fredericia Realskole",
 				"m_name": "Fredericia Kommune",
 				"m_id": 607,
@@ -2267,6 +2441,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147017,
+				"filter": [],
 				"name": "Frederik Barfods Skole",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -2280,6 +2455,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147031,
+				"filter": [],
 				"name": "Frederiksberg Friskole",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -2293,6 +2469,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 335002,
+				"filter": [],
 				"name": "Frederiksberg Skole",
 				"m_name": "Sorø Kommune",
 				"m_id": 340,
@@ -2306,6 +2483,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751027,
+				"filter": [],
 				"name": "Frederiksbjerg Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -2319,6 +2497,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 219002,
+				"filter": [],
 				"name": "Frederiksborg Byskole",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -2332,6 +2511,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280808,
+				"filter": [],
 				"name": "Frederikshavn Friskole",
 				"m_name": "Frederikshavn Kommune",
 				"m_id": 813,
@@ -2345,6 +2525,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 209005,
+				"filter": [],
 				"name": "Frederikssund Private Realskole",
 				"m_name": "Frederikssund Kommune",
 				"m_id": 250,
@@ -2358,6 +2539,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101133,
+				"filter": [],
 				"name": "Freinetskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -2371,6 +2553,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 345009,
+				"filter": [],
 				"name": "Freja Skolen - Rudolf Steiner Skolen på Midtsjælland",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -2384,6 +2567,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 749003,
+				"filter": [],
 				"name": "Frisholm Skole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -2397,6 +2581,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281633,
+				"filter": [],
 				"name": "Friskolen Højmark Børneverden",
 				"m_name": "Ringkøbing-Skjern Kommune",
 				"m_id": 760,
@@ -2410,6 +2595,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 713005,
+				"filter": [],
 				"name": "Friskolen i Hinnerup",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -2423,6 +2609,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 779015,
+				"filter": [],
 				"name": "Friskolen i Skive",
 				"m_name": "Skive Kommune",
 				"m_id": 779,
@@ -2436,6 +2623,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 791015,
+				"filter": [],
 				"name": "Friskolen i Viborg",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -2449,6 +2637,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 400006,
+				"filter": [],
 				"name": "Friskolen Østerlars",
 				"m_name": "Bornholms Regionskommune",
 				"m_id": 400,
@@ -2462,6 +2651,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281004,
+				"filter": [],
 				"name": "Friskolen på Røsnæs",
 				"m_name": "Kalundborg Kommune",
 				"m_id": 326,
@@ -2475,6 +2665,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280207,
+				"filter": [],
 				"name": "Friskolen Skallerup",
 				"m_name": "Hjørring Kommune",
 				"m_id": 860,
@@ -2488,6 +2679,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 167011,
+				"filter": [],
 				"name": "Frydenhøjskolen",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -2501,6 +2693,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173003,
+				"filter": [],
 				"name": "Fuglsanggårdsskolen",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -2514,6 +2707,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280534,
+				"filter": [],
 				"name": "Fur Friskole",
 				"m_name": "Skive Kommune",
 				"m_id": 779,
@@ -2527,6 +2721,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 729006,
+				"filter": [],
 				"name": "Fussingø-egnens Friskole",
 				"m_name": "Randers Kommune",
 				"m_id": 730,
@@ -2540,6 +2735,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 263001,
+				"filter": [],
 				"name": "Gadstrup Skole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -2553,6 +2749,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751013,
+				"filter": [],
 				"name": "Gammelgaardsskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -2566,6 +2763,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 817001,
+				"filter": [],
 				"name": "Gandrup Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -2579,6 +2777,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 235001,
+				"filter": [],
 				"name": "Ganløse Skole",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -2592,6 +2791,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101586,
+				"filter": [],
 				"name": "Gasværksvejens Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -2605,6 +2805,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 609004,
+				"filter": [],
 				"name": "Gedved Skole",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -2618,6 +2819,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157003,
+				"filter": [],
 				"name": "Gentofte Skole",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -2631,6 +2833,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101051,
+				"filter": [],
 				"name": "Gerbrandskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -2644,6 +2847,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461040,
+				"filter": [],
 				"name": "Giersings Realskole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -2657,6 +2861,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281898,
+				"filter": [],
 				"name": "Gilbjergskolen",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -2670,6 +2875,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 213001,
+				"filter": [],
 				"name": "Gilbjergskolen, Blistrup afdeling",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -2683,6 +2889,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280270,
+				"filter": [],
 				"name": "Gilbjergskolen, Gilleleje",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -2696,6 +2903,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 339005,
+				"filter": [],
 				"name": "Gislinge Skole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -2709,6 +2917,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281767,
+				"filter": [],
 				"name": "Gistrup Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -2722,6 +2931,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 705001,
+				"filter": [],
 				"name": "Gjern Skole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -2735,6 +2945,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 749002,
+				"filter": [],
 				"name": "Gjessø Skole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -2748,6 +2959,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851011,
+				"filter": [],
 				"name": "Gl Lindholm Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -2761,6 +2973,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 737005,
+				"filter": [],
 				"name": "Gl Rye Skole",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -2774,6 +2987,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159005,
+				"filter": [],
 				"name": "Gladsaxe Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -2787,6 +3001,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 483004,
+				"filter": [],
 				"name": "Glavendrupskolen",
 				"m_name": "Nordfyns Kommune",
 				"m_id": 480,
@@ -2800,6 +3015,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281815,
+				"filter": [],
 				"name": "Glostrup Skole, Ejby",
 				"m_name": "Glostrup Kommune",
 				"m_id": 161,
@@ -2813,6 +3029,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 161002,
+				"filter": [],
 				"name": "Glostrup skole, Nordvang",
 				"m_name": "Glostrup Kommune",
 				"m_id": 161,
@@ -2826,6 +3043,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 161010,
+				"filter": [],
 				"name": "Glostrup Skole, Skovvang",
 				"m_name": "Glostrup Kommune",
 				"m_id": 161,
@@ -2839,6 +3057,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 777002,
+				"filter": [],
 				"name": "Glyngøre Skole",
 				"m_name": "Skive Kommune",
 				"m_id": 779,
@@ -2852,6 +3071,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 743021,
+				"filter": [],
 				"name": "Gødvadskolen",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -2865,6 +3085,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 705002,
+				"filter": [],
 				"name": "Grauballe Skole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -2878,6 +3099,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 845013,
+				"filter": [],
 				"name": "Gregers Krabbe Friskolen",
 				"m_name": "Rebild Kommune",
 				"m_id": 840,
@@ -2891,6 +3113,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631003,
+				"filter": [],
 				"name": "Grejsdal Skole",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -2904,6 +3127,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 215008,
+				"filter": [],
 				"name": "Gribskov Lilleskole",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -2917,6 +3141,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851014,
+				"filter": [],
 				"name": "Grindsted Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -2930,6 +3155,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101015,
+				"filter": [],
 				"name": "Grøndalsvængets Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -2943,6 +3169,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159006,
+				"filter": [],
 				"name": "Grønnemose Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -2956,6 +3183,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280164,
+				"filter": [],
 				"name": "Grønnevang Skole, afd. Nødebo Skole",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -2969,6 +3197,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217021,
+				"filter": [],
 				"name": "Grydemoseskolen",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -2982,6 +3211,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 761011,
+				"filter": [],
 				"name": "Gudenådalens Friskole",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -2995,6 +3225,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 737006,
+				"filter": [],
 				"name": "Gudenåskolen",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -3008,6 +3239,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851015,
+				"filter": [],
 				"name": "Gug Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -3021,6 +3253,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101035,
+				"filter": [],
 				"name": "Guldberg Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -3034,6 +3267,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 167002,
+				"filter": [],
 				"name": "Gungehusskolen",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -3047,6 +3281,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 703001,
+				"filter": [],
 				"name": "Gyvelhøjskolen",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -3060,6 +3295,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 479013,
+				"filter": [],
 				"name": "Haahrs Skole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -3073,6 +3309,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 709003,
+				"filter": [],
 				"name": "Hadbjerg Skole",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -3086,6 +3323,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 515014,
+				"filter": [],
 				"name": "Haderslev Realskole",
 				"m_name": "Haderslev Kommune",
 				"m_id": 510,
@@ -3099,6 +3337,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 709001,
+				"filter": [],
 				"name": "Hadsten Skole",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -3112,6 +3351,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 815002,
+				"filter": [],
 				"name": "Hadsund Skole",
 				"m_name": "Mariagerfjord Kommune",
 				"m_id": 846,
@@ -3125,6 +3365,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631017,
+				"filter": [],
 				"name": "Hældagerskolen",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -3138,6 +3379,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280320,
+				"filter": [],
 				"name": "Hærvejsskolen",
 				"m_name": "Aabenraa Kommune",
 				"m_id": 580,
@@ -3151,6 +3393,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 791003,
+				"filter": [],
 				"name": "Hald Ege Skole",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -3164,6 +3407,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 713001,
+				"filter": [],
 				"name": "Haldum-Hinnerup Skolen",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -3177,6 +3421,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 661003,
+				"filter": [],
 				"name": "Halgård Skole",
 				"m_name": "Holstebro Kommune",
 				"m_id": 661,
@@ -3190,6 +3435,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 221004,
+				"filter": [],
 				"name": "Halsnæs Lilleskole",
 				"m_name": "Halsnæs Kommune",
 				"m_id": 260,
@@ -3203,6 +3449,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101070,
+				"filter": [],
 				"name": "Hanssted Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -3216,6 +3463,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 189001,
+				"filter": [],
 				"name": "Hareskov Skole",
 				"m_name": "Furesø Kommune",
 				"m_id": 190,
@@ -3229,6 +3477,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 151014,
+				"filter": [],
 				"name": "Hareskovens Lilleskole",
 				"m_name": "Ballerup Kommune",
 				"m_id": 151,
@@ -3242,6 +3491,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281628,
+				"filter": [],
 				"name": "Harrestrup Å Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -3255,6 +3505,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621007,
+				"filter": [],
 				"name": "Harte Skole",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -3268,6 +3519,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 311003,
+				"filter": [],
 				"name": "Hashøjskolen",
 				"m_name": "Slagelse Kommune",
 				"m_id": 330,
@@ -3281,6 +3533,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751015,
+				"filter": [],
 				"name": "Hasle Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -3294,6 +3547,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 313007,
+				"filter": [],
 				"name": "Haslev Privatskole",
 				"m_name": "Faxe Kommune",
 				"m_id": 320,
@@ -3307,6 +3561,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259011,
+				"filter": [],
 				"name": "Hastrupskolen",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -3320,6 +3575,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 269001,
+				"filter": [],
 				"name": "Havdrup Skole",
 				"m_name": "Solrød Kommune",
 				"m_id": 269,
@@ -3333,6 +3589,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 483002,
+				"filter": [],
 				"name": "Havrehedskolen",
 				"m_name": "Nordfyns Kommune",
 				"m_id": 480,
@@ -3346,6 +3603,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265005,
+				"filter": [],
 				"name": "Hedegårdenes Skole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -3359,6 +3617,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 805014,
+				"filter": [],
 				"name": "Hedegårdsskolen, Brønderslev",
 				"m_name": "Brønderslev Kommune",
 				"m_id": 810,
@@ -3372,6 +3631,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 253001,
+				"filter": [],
 				"name": "Hedelyskolen",
 				"m_name": "Greve Kommune",
 				"m_id": 253,
@@ -3385,6 +3645,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 613002,
+				"filter": [],
 				"name": "Hedensted Skole",
 				"m_name": "Hedensted Kommune",
 				"m_id": 766,
@@ -3398,6 +3659,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101537,
+				"filter": [],
 				"name": "Heibergskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -3411,6 +3673,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217002,
+				"filter": [],
 				"name": "Hellebækskolen",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -3424,6 +3687,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157047,
+				"filter": [],
 				"name": "Hellerup Skole",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -3437,6 +3701,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 215007,
+				"filter": [],
 				"name": "Helsinge Realskole",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -3450,6 +3715,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217016,
+				"filter": [],
 				"name": "Helsingør Lille Skole",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -3463,6 +3729,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280407,
+				"filter": [],
 				"name": "Helsingør Skole",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -3476,6 +3743,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 175001,
+				"filter": [],
 				"name": "Hendriksholm Skole",
 				"m_name": "Rødovre Kommune",
 				"m_id": 175,
@@ -3489,6 +3757,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461042,
+				"filter": [],
 				"name": "Henriette Hørlücks Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -3502,6 +3771,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259020,
+				"filter": [],
 				"name": "Herfølge Friskole",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -3515,6 +3785,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281791,
+				"filter": [],
 				"name": "Herlev Byskole",
 				"m_name": "Herlev Kommune",
 				"m_id": 163,
@@ -3528,6 +3799,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 657025,
+				"filter": [],
 				"name": "Herning Friskole",
 				"m_name": "Herning Kommune",
 				"m_id": 657,
@@ -3541,6 +3813,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 165019,
+				"filter": [],
 				"name": "Herstedøster Skole",
 				"m_name": "Albertslund Kommune",
 				"m_id": 165,
@@ -3554,6 +3827,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 165020,
+				"filter": [],
 				"name": "Herstedvester Skole",
 				"m_name": "Albertslund Kommune",
 				"m_id": 165,
@@ -3567,6 +3841,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 219009,
+				"filter": [],
 				"name": "Hillerød Lilleskole",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -3580,6 +3855,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280163,
+				"filter": [],
 				"name": "Hillerød Vest Skolen (Alsønderup Skole)",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -3593,6 +3869,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 219003,
+				"filter": [],
 				"name": "Hillerødsholmskolen",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -3606,6 +3883,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265006,
+				"filter": [],
 				"name": "Himmelev Skole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -3619,6 +3897,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 307004,
+				"filter": [],
 				"name": "Hindholm Privatskole",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -3632,6 +3911,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 439001,
+				"filter": [],
 				"name": "Hindsholmskolen",
 				"m_name": "Kerteminde Kommune",
 				"m_id": 440,
@@ -3645,6 +3925,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 561011,
+				"filter": [],
 				"name": "Hjerting Skole",
 				"m_name": "Esbjerg Kommune",
 				"m_id": 561,
@@ -3658,6 +3939,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461041,
+				"filter": [],
 				"name": "Højby Friskole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -3671,6 +3953,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 343002,
+				"filter": [],
 				"name": "Højby Skole, Højby",
 				"m_name": "Odsherred Kommune",
 				"m_id": 306,
@@ -3684,6 +3967,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 545009,
+				"filter": [],
 				"name": "Høje Kolstrup Skole",
 				"m_name": "Aabenraa Kommune",
 				"m_id": 580,
@@ -3697,6 +3981,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259005,
+				"filter": [],
 				"name": "Højelse Skole",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -3710,6 +3995,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631005,
+				"filter": [],
 				"name": "Højen Skole",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -3723,6 +4009,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 779004,
+				"filter": [],
 				"name": "Højslev Skole",
 				"m_name": "Skive Kommune",
 				"m_id": 779,
@@ -3736,6 +4023,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851064,
+				"filter": [],
 				"name": "Højvangskolen",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -3749,6 +4037,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 615032,
+				"filter": [],
 				"name": "Højvangskolen, Horsens",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -3762,6 +4051,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 315017,
+				"filter": [],
 				"name": "Holbæk Lilleskole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -3775,6 +4065,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 303001,
+				"filter": [],
 				"name": "Holbergskolen, Dianalund",
 				"m_name": "Sorø Kommune",
 				"m_id": 340,
@@ -3788,6 +4079,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101030,
+				"filter": [],
 				"name": "Holbergskolen, København NV",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -3801,6 +4093,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461064,
+				"filter": [],
 				"name": "Holluf Pile Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -3814,6 +4107,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751017,
+				"filter": [],
 				"name": "Holme Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -3827,6 +4121,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 253015,
+				"filter": [],
 				"name": "Holmeagerskolen",
 				"m_name": "Greve Kommune",
 				"m_id": 253,
@@ -3840,6 +4135,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281825,
+				"filter": [],
 				"name": "Holmegaardskolen",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -3853,6 +4149,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280748,
+				"filter": [],
 				"name": "Holmegaardskolen, afd. Fensmark",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -3866,6 +4163,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281826,
+				"filter": [],
 				"name": "Holmegaardskolen, afd. Toksværd",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -3879,6 +4177,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 167003,
+				"filter": [],
 				"name": "Holmegårdsskolen",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -3892,6 +4191,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 661018,
+				"filter": [],
 				"name": "Holstebro Friskole",
 				"m_name": "Holstebro Kommune",
 				"m_id": 661,
@@ -3905,6 +4205,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281407,
+				"filter": [],
 				"name": "Holte Skole",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -3918,6 +4219,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217003,
+				"filter": [],
 				"name": "Hornbæk Skole, Hornbæk",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -3931,6 +4233,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 731003,
+				"filter": [],
 				"name": "Hornbæk Skole, Randers NV",
 				"m_name": "Randers Kommune",
 				"m_id": 730,
@@ -3944,6 +4247,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 573004,
+				"filter": [],
 				"name": "Horne Skole",
 				"m_name": "Varde Kommune",
 				"m_id": 573,
@@ -3957,6 +4261,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 733001,
+				"filter": [],
 				"name": "Hornslet Skole",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -3970,6 +4275,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 223007,
+				"filter": [],
 				"name": "Hørsholm Lille Skole",
 				"m_name": "Hørsholm Kommune",
 				"m_id": 223,
@@ -3983,6 +4289,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 223001,
+				"filter": [],
 				"name": "Hørsholm Skole",
 				"m_name": "Hørsholm Kommune",
 				"m_id": 223,
@@ -3996,6 +4303,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 535001,
+				"filter": [],
 				"name": "Hørup Centralskole",
 				"m_name": "Sønderborg Kommune",
 				"m_id": 540,
@@ -4009,6 +4317,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101091,
+				"filter": [],
 				"name": "Hovedstadens Privatskoler, Filipskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4022,6 +4331,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 208005,
+				"filter": [],
 				"name": "Humlebæk Lille Skole",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -4035,6 +4345,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280120,
+				"filter": [],
 				"name": "Humlebæk Skole",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -4048,6 +4359,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173004,
+				"filter": [],
 				"name": "Hummeltofteskolen",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -4061,6 +4373,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461008,
+				"filter": [],
 				"name": "Hunderupskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -4074,6 +4387,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 253009,
+				"filter": [],
 				"name": "Hundige Lille Skole",
 				"m_name": "Greve Kommune",
 				"m_id": 253,
@@ -4087,6 +4401,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 785006,
+				"filter": [],
 				"name": "Hurup Skole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -4100,6 +4415,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101017,
+				"filter": [],
 				"name": "Husum Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4113,6 +4429,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 257001,
+				"filter": [],
 				"name": "Hvalsø Skole",
 				"m_name": "Lejre Kommune",
 				"m_id": 350,
@@ -4126,6 +4443,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280643,
+				"filter": [],
 				"name": "Hvidovre Privatskole",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -4139,6 +4457,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 663008,
+				"filter": [],
 				"name": "Hyldgårdsskolen",
 				"m_name": "Ikast-Brande Kommune",
 				"m_id": 756,
@@ -4152,6 +4471,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 445002,
+				"filter": [],
 				"name": "Hyllehøjskolen",
 				"m_name": "Middelfart Kommune",
 				"m_id": 410,
@@ -4165,6 +4485,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 479014,
+				"filter": [],
 				"name": "Ida Holsts Skole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -4178,6 +4499,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280210,
+				"filter": [],
 				"name": "Idestrup Privatskole",
 				"m_name": "Guldborgsund Kommune",
 				"m_id": 376,
@@ -4191,6 +4513,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 663003,
+				"filter": [],
 				"name": "Ikast Østre Skole",
 				"m_name": "Ikast-Brande Kommune",
 				"m_id": 756,
@@ -4204,6 +4527,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101153,
+				"filter": [],
 				"name": "Ingrid Jespersens Gymnasieskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4217,6 +4541,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101081,
+				"filter": [],
 				"name": "Institut Sankt Joseph",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4230,6 +4555,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751081,
+				"filter": [],
 				"name": "Interskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -4243,6 +4569,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 183001,
+				"filter": [],
 				"name": "Ishøj Skole",
 				"m_name": "Ishøj Kommune",
 				"m_id": 183,
@@ -4256,6 +4583,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280136,
+				"filter": [],
 				"name": "Issø-skolen",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -4269,6 +4597,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147034,
+				"filter": [],
 				"name": "Johannesskolen, Frederiskberg",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -4282,6 +4611,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 219011,
+				"filter": [],
 				"name": "Johannesskolen, Hillerød",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -4295,6 +4625,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280491,
+				"filter": [],
 				"name": "Kalvebod Fælled Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4308,6 +4639,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147018,
+				"filter": [],
 				"name": "Kaptajn Johnsens Skole",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -4321,6 +4653,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 253002,
+				"filter": [],
 				"name": "Karlslunde Skole",
 				"m_name": "Greve Kommune",
 				"m_id": 253,
@@ -4334,6 +4667,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 475004,
+				"filter": [],
 				"name": "Kassebølle Friskole",
 				"m_name": "Langeland Kommune",
 				"m_id": 482,
@@ -4347,6 +4681,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 185010,
+				"filter": [],
 				"name": "Kastrupgårdsskolen",
 				"m_name": "Tårnby Kommune",
 				"m_id": 185,
@@ -4360,6 +4695,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751019,
+				"filter": [],
 				"name": "Katrinebjergskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -4373,6 +4709,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101019,
+				"filter": [],
 				"name": "Katrinedals Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4386,6 +4723,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 439007,
+				"filter": [],
 				"name": "Kertemindeegnens Friskole",
 				"m_name": "Kerteminde Kommune",
 				"m_id": 440,
@@ -4399,6 +4737,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 685001,
+				"filter": [],
 				"name": "Kibæk Skole",
 				"m_name": "Herning Kommune",
 				"m_id": 657,
@@ -4412,6 +4751,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157040,
+				"filter": [],
 				"name": "Kildegård Privatskole",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -4425,6 +4765,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281798,
+				"filter": [],
 				"name": "Kildegårdskolen",
 				"m_name": "Herlev Kommune",
 				"m_id": 163,
@@ -4438,6 +4779,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280934,
+				"filter": [],
 				"name": "KILDEN (Bælum)",
 				"m_name": "Rebild Kommune",
 				"m_id": 840,
@@ -4451,6 +4793,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 309002,
+				"filter": [],
 				"name": "Kirke Helsinge Skole",
 				"m_name": "Kalundborg Kommune",
 				"m_id": 326,
@@ -4464,6 +4807,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 257002,
+				"filter": [],
 				"name": "Kirke Saaby Skole",
 				"m_name": "Lejre Kommune",
 				"m_id": 350,
@@ -4477,6 +4821,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631006,
+				"filter": [],
 				"name": "Kirkebakkeskolen",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -4490,6 +4835,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101020,
+				"filter": [],
 				"name": "Kirkebjerg Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4503,6 +4849,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631018,
+				"filter": [],
 				"name": "Kirstine Seligmanns Skole",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -4516,6 +4863,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 607013,
+				"filter": [],
 				"name": "Kirstinebjergskolen, Bøgeskovvej",
 				"m_name": "Fredericia Kommune",
 				"m_id": 607,
@@ -4529,6 +4877,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259006,
+				"filter": [],
 				"name": "Kirstinedalsskolen",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -4542,6 +4891,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851024,
+				"filter": [],
 				"name": "Klarup Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -4555,6 +4905,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 705006,
+				"filter": [],
 				"name": "Klippen, Den Kristne Friskole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -4568,6 +4919,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280215,
+				"filter": [],
 				"name": "Klitmøller Friskole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -4581,6 +4933,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265007,
+				"filter": [],
 				"name": "Klostermarksskolen, Roskilde",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -4594,6 +4947,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 341004,
+				"filter": [],
 				"name": "Knabstrup Skole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -4607,6 +4961,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 737001,
+				"filter": [],
 				"name": "Knudsøskolen",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -4620,6 +4975,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259013,
+				"filter": [],
 				"name": "Køge Lille Skole",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -4633,6 +4989,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259022,
+				"filter": [],
 				"name": "Køge Private Realskole",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -4646,6 +5003,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280122,
+				"filter": [],
 				"name": "Kokkedal Skole",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -4659,6 +5017,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621024,
+				"filter": [],
 				"name": "Kolding Friskole",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -4672,6 +5031,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 721002,
+				"filter": [],
 				"name": "Kolind skole",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -4685,6 +5045,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 219022,
+				"filter": [],
 				"name": "Kon Tiki - Børnenes Skole",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -4698,6 +5059,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 400001,
+				"filter": [],
 				"name": "Kongeskærskolen",
 				"m_name": "Bornholms Regionskommune",
 				"m_id": 400,
@@ -4711,6 +5073,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173005,
+				"filter": [],
 				"name": "Kongevejens Skole",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -4724,6 +5087,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280166,
+				"filter": [],
 				"name": "Kornmarkskolen",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -4737,6 +5101,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 743015,
+				"filter": [],
 				"name": "Kornmod Realskole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -4750,6 +5115,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101021,
+				"filter": [],
 				"name": "Korsager Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4763,6 +5129,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 713002,
+				"filter": [],
 				"name": "Korsholm Skole",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -4776,6 +5143,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 185002,
+				"filter": [],
 				"name": "Korsvejens Skole",
 				"m_name": "Tårnby Kommune",
 				"m_id": 185,
@@ -4789,6 +5157,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461013,
+				"filter": [],
 				"name": "Korup Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -4802,6 +5171,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751021,
+				"filter": [],
 				"name": "Kragelundskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -4815,6 +5185,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461053,
+				"filter": [],
 				"name": "Kratholmskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -4828,6 +5199,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101083,
+				"filter": [],
 				"name": "Krebs' Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4841,6 +5213,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265030,
+				"filter": [],
 				"name": "Kristofferskolen",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -4854,6 +5227,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 397006,
+				"filter": [],
 				"name": "Kulsbjerg Skole, Nyråd",
 				"m_name": "Vordingborg Kommune",
 				"m_id": 390,
@@ -4867,6 +5241,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281496,
+				"filter": [],
 				"name": "Læringshuset",
 				"m_name": "Høje-Taastrup Kommune",
 				"m_id": 169,
@@ -4880,6 +5255,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 717002,
+				"filter": [],
 				"name": "Langå Skole",
 				"m_name": "Randers Kommune",
 				"m_id": 730,
@@ -4893,6 +5269,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 208008,
+				"filter": [],
 				"name": "Langebjergskolen",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -4906,6 +5283,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101175,
+				"filter": [],
 				"name": "Langelinieskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4919,6 +5297,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 167004,
+				"filter": [],
 				"name": "Langhøjskolen, Hvidovre",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -4932,6 +5311,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 737003,
+				"filter": [],
 				"name": "Låsby Skole",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -4945,6 +5325,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751060,
+				"filter": [],
 				"name": "Laursens Realskole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -4958,6 +5339,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101058,
+				"filter": [],
 				"name": "Lergravsparkens Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -4971,6 +5353,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 331008,
+				"filter": [],
 				"name": "Lille Egede Friskole",
 				"m_name": "Slagelse Kommune",
 				"m_id": 330,
@@ -4984,6 +5367,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280794,
+				"filter": [],
 				"name": "Lille Næstved Skole, afd. Digtervej",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -4997,6 +5381,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 373005,
+				"filter": [],
 				"name": "Lille Næstved Skole, afd. Herlufsholmvej",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -5010,6 +5395,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 189002,
+				"filter": [],
 				"name": "Lille Værløse Skole",
 				"m_name": "Furesø Kommune",
 				"m_id": 190,
@@ -5023,6 +5409,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281756,
+				"filter": [],
 				"name": "Lille Værløse Skole, Jonstrup-afdelingen",
 				"m_name": "Furesø Kommune",
 				"m_id": 190,
@@ -5036,6 +5423,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 445008,
+				"filter": [],
 				"name": "Lillebæltskolen",
 				"m_name": "Middelfart Kommune",
 				"m_id": 410,
@@ -5049,6 +5437,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461068,
+				"filter": [],
 				"name": "Lilleskolen Odense",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -5062,6 +5451,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281845,
+				"filter": [],
 				"name": "Lillesyd Friskole",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -5075,6 +5465,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280805,
+				"filter": [],
 				"name": "Lillevang Skole",
 				"m_name": "Allerød Kommune",
 				"m_id": 201,
@@ -5088,6 +5479,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 201003,
+				"filter": [],
 				"name": "LIllevang Skole afdeling Skovvang",
 				"m_name": "Allerød Kommune",
 				"m_id": 201,
@@ -5101,6 +5493,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280686,
+				"filter": [],
 				"name": "Limfjordsskolen Struer",
 				"m_name": "Struer Kommune",
 				"m_id": 671,
@@ -5114,6 +5507,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281054,
+				"filter": [],
 				"name": "Lindbjergskolen",
 				"m_name": "Herning Kommune",
 				"m_id": 657,
@@ -5127,6 +5521,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 255001,
+				"filter": [],
 				"name": "Lindebjergskolen",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -5140,6 +5535,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 163001,
+				"filter": [],
 				"name": "Lindehøjskolen",
 				"m_name": "Herlev Kommune",
 				"m_id": 163,
@@ -5153,6 +5549,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147002,
+				"filter": [],
 				"name": "Lindevangskolen",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -5166,6 +5563,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751022,
+				"filter": [],
 				"name": "Lisbjergskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -5179,6 +5577,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 185003,
+				"filter": [],
 				"name": "Løjtegårdsskolen",
 				"m_name": "Tårnby Kommune",
 				"m_id": 185,
@@ -5192,6 +5591,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461016,
+				"filter": [],
 				"name": "Lumby Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -5205,6 +5605,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101138,
+				"filter": [],
 				"name": "Lundehusskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -5218,6 +5619,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 821010,
+				"filter": [],
 				"name": "Lundergård undervisningssted",
 				"m_name": "Hjørring Kommune",
 				"m_id": 860,
@@ -5231,6 +5633,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 657022,
+				"filter": [],
 				"name": "Lundgårdskolen",
 				"m_name": "Herning Kommune",
 				"m_id": 657,
@@ -5244,6 +5647,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 615012,
+				"filter": [],
 				"name": "Lundskolen",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -5257,6 +5661,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173007,
+				"filter": [],
 				"name": "Lundtofte Skole",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -5270,6 +5675,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101178,
+				"filter": [],
 				"name": "Lygten Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -5283,6 +5689,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621025,
+				"filter": [],
 				"name": "Lykkegårdskolen",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -5296,6 +5703,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173020,
+				"filter": [],
 				"name": "Lyngby Friskole",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -5309,6 +5717,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173013,
+				"filter": [],
 				"name": "Lyngby Private Skole",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -5322,6 +5731,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 201002,
+				"filter": [],
 				"name": "Lynge Skole",
 				"m_name": "Allerød Kommune",
 				"m_id": 201,
@@ -5335,6 +5745,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265008,
+				"filter": [],
 				"name": "Lynghøjskolen",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -5348,6 +5759,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280321,
+				"filter": [],
 				"name": "Lyreskovskolen",
 				"m_name": "Aabenraa Kommune",
 				"m_id": 580,
@@ -5361,6 +5773,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621013,
+				"filter": [],
 				"name": "Lyshøjskolen",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -5374,6 +5787,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751066,
+				"filter": [],
 				"name": "Lystrup Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -5387,6 +5801,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157005,
+				"filter": [],
 				"name": "Maglegårdsskolen",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -5400,6 +5815,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751024,
+				"filter": [],
 				"name": "Malling Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -5413,6 +5829,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281859,
+				"filter": [],
 				"name": "Måløvhøj Skole - Østerhøj",
 				"m_name": "Ballerup Kommune",
 				"m_id": 151,
@@ -5426,6 +5843,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 719003,
+				"filter": [],
 				"name": "Mariager Skole",
 				"m_name": "Mariagerfjord Kommune",
 				"m_id": 846,
@@ -5439,6 +5857,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 207007,
+				"filter": [],
 				"name": "Marie Kruses Skole",
 				"m_name": "Furesø Kommune",
 				"m_id": 190,
@@ -5452,6 +5871,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 219010,
+				"filter": [],
 				"name": "Marie Mørks Skole",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -5465,6 +5885,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 721004,
+				"filter": [],
 				"name": "Marienhoffskolen",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -5478,6 +5899,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751026,
+				"filter": [],
 				"name": "Mårslet Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -5491,6 +5913,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 443002,
+				"filter": [],
 				"name": "Marstal Skole",
 				"m_name": "Ærø Kommune",
 				"m_id": 492,
@@ -5504,6 +5927,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 151022,
+				"filter": [],
 				"name": "Michael skolen Rudolf Steiner i Hjortespring",
 				"m_name": "Ballerup Kommune",
 				"m_id": 151,
@@ -5517,6 +5941,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 445009,
+				"filter": [],
 				"name": "Middelfart Friskole",
 				"m_name": "Middelfart Kommune",
 				"m_id": 410,
@@ -5530,6 +5955,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631009,
+				"filter": [],
 				"name": "Mølholm Skole",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -5543,6 +5969,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 791002,
+				"filter": [],
 				"name": "Møllehøjskolen",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -5556,6 +5983,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 737004,
+				"filter": [],
 				"name": "Mølleskolen",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -5569,6 +5997,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751025,
+				"filter": [],
 				"name": "Møllevangskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -5582,6 +6011,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 701003,
+				"filter": [],
 				"name": "Molsskolen",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -5595,6 +6025,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 365012,
+				"filter": [],
 				"name": "Møn Friskole",
 				"m_name": "Vordingborg Kommune",
 				"m_id": 390,
@@ -5608,6 +6039,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217004,
+				"filter": [],
 				"name": "Mørdrupskolen",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -5621,6 +6053,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159008,
+				"filter": [],
 				"name": "Mørkhøj Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -5634,6 +6067,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 745002,
+				"filter": [],
 				"name": "Morten Børup Skolen",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -5647,6 +6081,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 253004,
+				"filter": [],
 				"name": "Mosedeskolen",
 				"m_name": "Greve Kommune",
 				"m_id": 253,
@@ -5660,6 +6095,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461017,
+				"filter": [],
 				"name": "Munkebjergskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -5673,6 +6109,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157007,
+				"filter": [],
 				"name": "Munkegårdsskolen",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -5686,6 +6123,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 269007,
+				"filter": [],
 				"name": "Munkekærskolen",
 				"m_name": "Solrød Kommune",
 				"m_id": 269,
@@ -5699,6 +6137,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751061,
+				"filter": [],
 				"name": "N. Kochs Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -5712,6 +6151,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101155,
+				"filter": [],
 				"name": "N. Zahles Gymnasieskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -5725,6 +6165,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101088,
+				"filter": [],
 				"name": "N. Zahles Seminarieskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -5738,6 +6179,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 181010,
+				"filter": [],
 				"name": "Nærum Privatskole",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -5751,6 +6193,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 567003,
+				"filter": [],
 				"name": "Næsbjerg afdeling",
 				"m_name": "Varde Kommune",
 				"m_id": 573,
@@ -5764,6 +6207,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461018,
+				"filter": [],
 				"name": "Næsby Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -5777,6 +6221,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 831003,
+				"filter": [],
 				"name": "Nibe Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -5790,6 +6235,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 745005,
+				"filter": [],
 				"name": "Niels Ebbesen Skolen",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -5803,6 +6249,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280121,
+				"filter": [],
 				"name": "Nivå Skole",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -5816,6 +6263,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 473020,
+				"filter": [],
 				"name": "Nordagerskolen",
 				"m_name": "Faaborg-Midtfyn Kommune",
 				"m_id": 430,
@@ -5829,6 +6277,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 329008,
+				"filter": [],
 				"name": "Nordbakkeskolen",
 				"m_name": "Ringsted Kommune",
 				"m_id": 329,
@@ -5842,6 +6291,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281053,
+				"filter": [],
 				"name": "Nordøstamager Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -5855,6 +6305,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 791005,
+				"filter": [],
 				"name": "Nordre Skole, Viborg",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -5868,6 +6319,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 185004,
+				"filter": [],
 				"name": "Nordregårdsskolen",
 				"m_name": "Tårnby Kommune",
 				"m_id": 185,
@@ -5881,6 +6333,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 227008,
+				"filter": [],
 				"name": "Nordsjællands Grundskole og Gymnasium samt HF",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -5894,6 +6347,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 255006,
+				"filter": [],
 				"name": "Nordskolen, afdeling Baunehøj",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -5907,6 +6361,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280272,
+				"filter": [],
 				"name": "Nordstjerneskolen, Helsinge",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -5920,6 +6375,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 155004,
+				"filter": [],
 				"name": "Nordstrandskolen",
 				"m_name": "Dragør Kommune",
 				"m_id": 155,
@@ -5933,6 +6389,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101132,
+				"filter": [],
 				"name": "Nørrebro Lilleskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -5946,6 +6403,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101007,
+				"filter": [],
 				"name": "Nørrebro Park Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -5959,6 +6417,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280055,
+				"filter": [],
 				"name": "Nr. Asmindrup Friskole",
 				"m_name": "Odsherred Kommune",
 				"m_id": 306,
@@ -5972,6 +6431,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 375003,
+				"filter": [],
 				"name": "Nr. Vedby Skole & Børnehus",
 				"m_name": "Guldborgsund Kommune",
 				"m_id": 376,
@@ -5985,6 +6445,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147044,
+				"filter": [],
 				"name": "Ny Hollænderskolen",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -5998,6 +6459,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 175003,
+				"filter": [],
 				"name": "Nyager Skole",
 				"m_name": "Rødovre Kommune",
 				"m_id": 175,
@@ -6011,6 +6473,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101003,
+				"filter": [],
 				"name": "Nyboder Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6024,6 +6487,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 449009,
+				"filter": [],
 				"name": "Nyborg Friskole",
 				"m_name": "Nyborg Kommune",
 				"m_id": 450,
@@ -6037,6 +6501,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 449008,
+				"filter": [],
 				"name": "Nyborg Private Realskole",
 				"m_name": "Nyborg Kommune",
 				"m_id": 450,
@@ -6050,6 +6515,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 351003,
+				"filter": [],
 				"name": "Ny-Øst, Karise Skole",
 				"m_name": "Faxe Kommune",
 				"m_id": 320,
@@ -6063,6 +6529,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 323001,
+				"filter": [],
 				"name": "Nyrupskolen",
 				"m_name": "Kalundborg Kommune",
 				"m_id": 326,
@@ -6076,6 +6543,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280366,
+				"filter": [],
 				"name": "Ny-Vest, Vibeengskolen",
 				"m_name": "Faxe Kommune",
 				"m_id": 320,
@@ -6089,6 +6557,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101127,
+				"filter": [],
 				"name": "Øbro Fri Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6102,6 +6571,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 727013,
+				"filter": [],
 				"name": "Odder Lille Friskole",
 				"m_name": "Odder Kommune",
 				"m_id": 727,
@@ -6115,6 +6585,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461044,
+				"filter": [],
 				"name": "Odense Friskole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -6128,6 +6599,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101069,
+				"filter": [],
 				"name": "Oehlenschlægersgades Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6141,6 +6613,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 427009,
+				"filter": [],
 				"name": "Ollerup Friskole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -6154,6 +6627,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157008,
+				"filter": [],
 				"name": "Ordrup Skole",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -6167,6 +6641,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101585,
+				"filter": [],
 				"name": "Ørestad Friskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6180,6 +6655,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280047,
+				"filter": [],
 				"name": "Ørestad Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6193,6 +6669,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280284,
+				"filter": [],
 				"name": "Ørkildskolen, afd. Østre",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -6206,6 +6683,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 789008,
+				"filter": [],
 				"name": "Ørum Skole",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -6219,6 +6697,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 609003,
+				"filter": [],
 				"name": "Østbirk Skole",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -6232,6 +6711,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 261005,
+				"filter": [],
 				"name": "Osted Fri- og Efterskole (friskolen)",
 				"m_name": "Lejre Kommune",
 				"m_id": 350,
@@ -6245,6 +6725,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 479016,
+				"filter": [],
 				"name": "Øster Åby Friskole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -6258,6 +6739,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101043,
+				"filter": [],
 				"name": "Øster Farimagsgades Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6271,6 +6753,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 615014,
+				"filter": [],
 				"name": "Østerhåbskolen, afd. Torsted og Hatting",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -6284,6 +6767,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 709004,
+				"filter": [],
 				"name": "Østervangskolen, Hadsten",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -6297,6 +6781,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 731013,
+				"filter": [],
 				"name": "Østervangsskolen, Randers NØ",
 				"m_name": "Randers Kommune",
 				"m_id": 730,
@@ -6310,6 +6795,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265013,
+				"filter": [],
 				"name": "Østervangsskolen, Roskilde",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -6323,6 +6809,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 363008,
+				"filter": [],
 				"name": "Østofte Landsbyordning",
 				"m_name": "Lolland Kommune",
 				"m_id": 360,
@@ -6336,6 +6823,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 791006,
+				"filter": [],
 				"name": "Overlund Skole",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -6349,6 +6837,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280542,
+				"filter": [],
 				"name": "Park Allé Privatskole",
 				"m_name": "Brøndby Kommune",
 				"m_id": 153,
@@ -6362,6 +6851,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 671009,
+				"filter": [],
 				"name": "Parkskolen, Stuer",
 				"m_name": "Struer Kommune",
 				"m_id": 671,
@@ -6375,6 +6865,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 727004,
+				"filter": [],
 				"name": "Parkvejens Skole",
 				"m_name": "Odder Kommune",
 				"m_id": 727,
@@ -6388,6 +6879,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101060,
+				"filter": [],
 				"name": "Peder Lykke Skolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6401,6 +6893,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280638,
+				"filter": [],
 				"name": "Per Gyrum Skolen",
 				"m_name": "Fredensborg Kommune",
 				"m_id": 210,
@@ -6414,6 +6907,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 400024,
+				"filter": [],
 				"name": "Peterskolen, Rønne Kristne Friskole",
 				"m_name": "Bornholms Regionskommune",
 				"m_id": 400,
@@ -6427,6 +6921,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631012,
+				"filter": [],
 				"name": "Petersmindeskolen",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -6440,6 +6935,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 185005,
+				"filter": [],
 				"name": "Pilegårdsskolen",
 				"m_name": "Tårnby Kommune",
 				"m_id": 185,
@@ -6453,6 +6949,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 187002,
+				"filter": [],
 				"name": "Pilehaveskolen",
 				"m_name": "Vallensbæk Kommune",
 				"m_id": 187,
@@ -6466,6 +6963,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280653,
+				"filter": [],
 				"name": "Poulstrup Friskole og Børnehus",
 				"m_name": "Hjørring Kommune",
 				"m_id": 860,
@@ -6479,6 +6977,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280532,
+				"filter": [],
 				"name": "Præstø Privatskole",
 				"m_name": "Vordingborg Kommune",
 				"m_id": 390,
@@ -6492,6 +6991,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280351,
+				"filter": [],
 				"name": "Præstø skole",
 				"m_name": "Vordingborg Kommune",
 				"m_id": 390,
@@ -6505,6 +7005,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147019,
+				"filter": [],
 				"name": "Prins Henriks Skole, Lycee Francais De Copenhague",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -6518,6 +7019,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 537015,
+				"filter": [],
 				"name": "Privatskolen Als",
 				"m_name": "Sønderborg Kommune",
 				"m_id": 540,
@@ -6531,6 +7033,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 813010,
+				"filter": [],
 				"name": "Privatskolen i Frederikshavn",
 				"m_name": "Frederikshavn Kommune",
 				"m_id": 813,
@@ -6544,6 +7047,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101034,
+				"filter": [],
 				"name": "Rådmandsgades Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6557,6 +7061,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101039,
+				"filter": [],
 				"name": "Randersgades Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6570,6 +7075,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 479008,
+				"filter": [],
 				"name": "Rantzausminde Skole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -6583,6 +7089,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 727011,
+				"filter": [],
 				"name": "Rathlouskolen",
 				"m_name": "Odder Kommune",
 				"m_id": 727,
@@ -6596,6 +7103,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281405,
+				"filter": [],
 				"name": "Ravnholm Skole",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -6609,6 +7117,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 201006,
+				"filter": [],
 				"name": "Ravnsholtskolen",
 				"m_name": "Allerød Kommune",
 				"m_id": 201,
@@ -6622,6 +7131,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 169006,
+				"filter": [],
 				"name": "Reerslev Skole",
 				"m_name": "Høje-Taastrup Kommune",
 				"m_id": 169,
@@ -6635,6 +7145,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 495006,
+				"filter": [],
 				"name": "Refsvindinge Friskole",
 				"m_name": "Nyborg Kommune",
 				"m_id": 450,
@@ -6648,6 +7159,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 711005,
+				"filter": [],
 				"name": "Regnbueskolen",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -6661,6 +7173,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 779006,
+				"filter": [],
 				"name": "Resen Skole",
 				"m_name": "Skive Kommune",
 				"m_id": 779,
@@ -6674,6 +7187,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 167006,
+				"filter": [],
 				"name": "Risbjergskolen",
 				"m_name": "Hvidovre Kommune",
 				"m_id": 167,
@@ -6687,6 +7201,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461022,
+				"filter": [],
 				"name": "Risingskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -6700,6 +7215,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751032,
+				"filter": [],
 				"name": "Risskov Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -6713,6 +7229,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 527004,
+				"filter": [],
 				"name": "Rødding Skole",
 				"m_name": "Vejen Kommune",
 				"m_id": 575,
@@ -6726,6 +7243,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101022,
+				"filter": [],
 				"name": "Rødkilde Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -6739,6 +7257,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 175004,
+				"filter": [],
 				"name": "Rødovre Skole",
 				"m_name": "Rødovre Kommune",
 				"m_id": 175,
@@ -6752,6 +7271,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 661002,
+				"filter": [],
 				"name": "Rolf Krake Skolen",
 				"m_name": "Holstebro Kommune",
 				"m_id": 661,
@@ -6765,6 +7285,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 713003,
+				"filter": [],
 				"name": "Rønbækskolen",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -6778,6 +7299,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 739002,
+				"filter": [],
 				"name": "Rønde Skole",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -6791,6 +7313,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 400021,
+				"filter": [],
 				"name": "Rønne Privatskole",
 				"m_name": "Bornholms Regionskommune",
 				"m_id": 400,
@@ -6804,6 +7327,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 327002,
+				"filter": [],
 				"name": "Rørvig Friskole",
 				"m_name": "Odsherred Kommune",
 				"m_id": 306,
@@ -6817,6 +7341,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 255005,
+				"filter": [],
 				"name": "Roskilde Lille Skole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -6830,6 +7355,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265017,
+				"filter": [],
 				"name": "Roskilde private Realskole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -6843,6 +7369,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281408,
+				"filter": [],
 				"name": "Rude Skov Skole, afd. Høsterkøb",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -6856,6 +7383,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 181017,
+				"filter": [],
 				"name": "Rudersdal Lilleskole",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -6869,6 +7397,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 473015,
+				"filter": [],
 				"name": "Rudme Friskole",
 				"m_name": "Faaborg-Midtfyn Kommune",
 				"m_id": 430,
@@ -6882,6 +7411,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157020,
+				"filter": [],
 				"name": "Rudolf Steiner skolen i Gentofte, Vidar Skolen",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -6895,6 +7425,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 743026,
+				"filter": [],
 				"name": "Rudolf Steiner skolen i Silkeborg",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -6908,6 +7439,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 397010,
+				"filter": [],
 				"name": "Rudolf Steiner skolen i Vordingborg",
 				"m_name": "Vordingborg Kommune",
 				"m_id": 390,
@@ -6921,6 +7453,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217020,
+				"filter": [],
 				"name": "Rudolf Steiner Skolen Kvistgård",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -6934,6 +7467,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 745008,
+				"filter": [],
 				"name": "Rudolf Steiner Skolen, Skanderborg",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -6947,6 +7481,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751062,
+				"filter": [],
 				"name": "Rudolf Steiner-Skolen i Århus",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -6960,6 +7495,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461054,
+				"filter": [],
 				"name": "Rudolf Steiner-Skolen i Odense",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -6973,6 +7509,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 223006,
+				"filter": [],
 				"name": "Rungsted Private Realskole",
 				"m_name": "Hørsholm Kommune",
 				"m_id": 223,
@@ -6986,6 +7523,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 223002,
+				"filter": [],
 				"name": "Rungsted Skole",
 				"m_name": "Hørsholm Kommune",
 				"m_id": 223,
@@ -6999,6 +7537,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157018,
+				"filter": [],
 				"name": "Rygaards Skole, afd. International",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -7012,6 +7551,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101145,
+				"filter": [],
 				"name": "Ryparken Lille Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7025,6 +7565,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281002,
+				"filter": [],
 				"name": "Sæby Friskole",
 				"m_name": "Frederikshavn Kommune",
 				"m_id": 813,
@@ -7038,6 +7579,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 847003,
+				"filter": [],
 				"name": "Sæby Skole",
 				"m_name": "Frederikshavn Kommune",
 				"m_id": 813,
@@ -7051,6 +7593,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 835006,
+				"filter": [],
 				"name": "Saltum Skole",
 				"m_name": "Jammerbugt Kommune",
 				"m_id": 849,
@@ -7064,6 +7607,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 741007,
+				"filter": [],
 				"name": "Samsø Frie Skole",
 				"m_name": "Samsø Kommune",
 				"m_id": 741,
@@ -7077,6 +7621,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 741004,
+				"filter": [],
 				"name": "Samsø Skole",
 				"m_name": "Samsø Kommune",
 				"m_id": 741,
@@ -7090,6 +7635,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751036,
+				"filter": [],
 				"name": "Samsøgades Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -7103,6 +7649,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461023,
+				"filter": [],
 				"name": "Sanderumskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -7116,6 +7663,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101158,
+				"filter": [],
 				"name": "Sankt Annæ Gymnasiums Grundskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7129,6 +7677,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101084,
+				"filter": [],
 				"name": "Sankt Annæ Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7142,6 +7691,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101082,
+				"filter": [],
 				"name": "Sankt Ansgars Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7155,6 +7705,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281897,
+				"filter": [],
 				"name": "Sankt Helene",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -7168,6 +7719,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 215005,
+				"filter": [],
 				"name": "Sankt Helene Skole, Tisvilde afdeling",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -7181,6 +7733,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 270002,
+				"filter": [],
 				"name": "Sankt Helene Vejby",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -7194,6 +7747,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101089,
+				"filter": [],
 				"name": "Sankt Petri Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7207,6 +7761,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461024,
+				"filter": [],
 				"name": "Sct Hans Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -7220,6 +7775,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461045,
+				"filter": [],
 				"name": "Sct. Albani Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -7233,6 +7789,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 615017,
+				"filter": [],
 				"name": "Sct. Ib Skole & Børnehave",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -7246,6 +7803,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281385,
+				"filter": [],
 				"name": "Sct. Jacobi skole- og dagtilbud",
 				"m_name": "Varde Kommune",
 				"m_id": 573,
@@ -7259,6 +7817,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265010,
+				"filter": [],
 				"name": "Sct. Jørgens Skole, Roskilde",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -7272,6 +7831,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 369011,
+				"filter": [],
 				"name": "Sct. Joseph Søstrenes Skole",
 				"m_name": "Guldborgsund Kommune",
 				"m_id": 376,
@@ -7285,6 +7845,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157019,
+				"filter": [],
 				"name": "Sct. Joseph Søstrenes Skole S/I",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -7298,6 +7859,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 607018,
+				"filter": [],
 				"name": "Sct. Knuds Skole",
 				"m_name": "Fredericia Kommune",
 				"m_id": 607,
@@ -7311,6 +7873,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851053,
+				"filter": [],
 				"name": "Sct. Mariæ Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -7324,6 +7887,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621020,
+				"filter": [],
 				"name": "Sct. Michaels Skole",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -7337,6 +7901,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259019,
+				"filter": [],
 				"name": "Sct. Nicolai Skole",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -7350,6 +7915,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631019,
+				"filter": [],
 				"name": "Sct. Norberts Skole",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -7363,6 +7929,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621014,
+				"filter": [],
 				"name": "Sdr. Bjert Skole",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -7376,6 +7943,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 321005,
+				"filter": [],
 				"name": "Sdr. Jernløse Lilleskole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -7389,6 +7957,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 497007,
+				"filter": [],
 				"name": "Sdr. Nærå Fri- og Efterskole (Friskolen)",
 				"m_name": "Faaborg-Midtfyn Kommune",
 				"m_id": 430,
@@ -7402,6 +7971,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461025,
+				"filter": [],
 				"name": "Seden Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -7415,6 +7985,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 345007,
+				"filter": [],
 				"name": "Sejergaardsskolen Grundskole og efterskole (Grundskole)",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -7428,6 +7999,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 743010,
+				"filter": [],
 				"name": "Sejs Skole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -7441,6 +8013,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 169010,
+				"filter": [],
 				"name": "Sengeløse Skole",
 				"m_name": "Høje-Taastrup Kommune",
 				"m_id": 169,
@@ -7454,6 +8027,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 787005,
+				"filter": [],
 				"name": "Sennels Skole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -7467,6 +8041,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751040,
+				"filter": [],
 				"name": "Skåde Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -7480,6 +8055,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 531005,
+				"filter": [],
 				"name": "Skærbæk Distriktsskole",
 				"m_name": "Tønder Kommune",
 				"m_id": 550,
@@ -7493,6 +8069,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 531007,
+				"filter": [],
 				"name": "Skærbæk Realskole",
 				"m_name": "Tønder Kommune",
 				"m_id": 550,
@@ -7506,6 +8083,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751056,
+				"filter": [],
 				"name": "Skæring Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -7519,6 +8097,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851026,
+				"filter": [],
 				"name": "Skansevejens Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -7532,6 +8111,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280138,
+				"filter": [],
 				"name": "Skårup Skole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -7545,6 +8125,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 185006,
+				"filter": [],
 				"name": "Skelgårdsskolen",
 				"m_name": "Tårnby Kommune",
 				"m_id": 185,
@@ -7558,6 +8139,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631013,
+				"filter": [],
 				"name": "Skibet Skole",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -7571,6 +8153,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 669010,
+				"filter": [],
 				"name": "Skjern Kristne Friskole",
 				"m_name": "Ringkøbing-Skjern Kommune",
 				"m_id": 760,
@@ -7584,6 +8167,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751065,
+				"filter": [],
 				"name": "Skjoldhøjskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -7597,6 +8181,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751039,
+				"filter": [],
 				"name": "Skødstrup Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -7610,6 +8195,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217024,
+				"filter": [],
 				"name": "Skolen i Bymidten",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -7623,6 +8209,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280129,
+				"filter": [],
 				"name": "Skolen i Sydhavnen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7636,6 +8223,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101050,
+				"filter": [],
 				"name": "Skolen på Amagerbro",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7649,6 +8237,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147007,
+				"filter": [],
 				"name": "Skolen på Duevej",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -7662,6 +8251,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280091,
+				"filter": [],
 				"name": "Skolen på Grundtvigsvej",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -7675,6 +8265,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101059,
+				"filter": [],
 				"name": "Skolen på Islands Brygge",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7688,6 +8279,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147010,
+				"filter": [],
 				"name": "Skolen på La Cours Vej",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -7701,6 +8293,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147012,
+				"filter": [],
 				"name": "Skolen på Nyelandsvej",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -7714,6 +8307,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280425,
+				"filter": [],
 				"name": "Skolen på Strandboulevarden",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7727,6 +8321,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147008,
+				"filter": [],
 				"name": "Skolen ved Bulowsvej",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -7740,6 +8335,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 217008,
+				"filter": [],
 				"name": "Skolen ved Gurrevej",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -7753,6 +8349,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280931,
+				"filter": [],
 				"name": "Skolen ved Havet",
 				"m_name": "Halsnæs Kommune",
 				"m_id": 260,
@@ -7766,6 +8363,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147052,
+				"filter": [],
 				"name": "Skolen ved Søerne",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -7779,6 +8377,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101053,
+				"filter": [],
 				"name": "Skolen ved Sundet",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -7792,6 +8391,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280505,
+				"filter": [],
 				"name": "Skolerne i Egebjerg, Nykøbing og Odden",
 				"m_name": "Odsherred Kommune",
 				"m_id": 306,
@@ -7805,6 +8405,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 843004,
+				"filter": [],
 				"name": "Skørping Skole",
 				"m_name": "Rebild Kommune",
 				"m_id": 840,
@@ -7818,6 +8419,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 185014,
+				"filter": [],
 				"name": "Skottegårdsskolen",
 				"m_name": "Tårnby Kommune",
 				"m_id": 185,
@@ -7831,6 +8433,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 267001,
+				"filter": [],
 				"name": "Skovboskolen",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -7844,6 +8447,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 375005,
+				"filter": [],
 				"name": "Skovby Friskole",
 				"m_name": "Guldborgsund Kommune",
 				"m_id": 376,
@@ -7857,6 +8461,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 703004,
+				"filter": [],
 				"name": "Skovbyskolen",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -7870,6 +8475,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157009,
+				"filter": [],
 				"name": "Skovgårdsskolen",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -7883,6 +8489,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281856,
+				"filter": [],
 				"name": "Skovlunde Skole - Distriktsskole",
 				"m_name": "Ballerup Kommune",
 				"m_id": 151,
@@ -7896,6 +8503,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280564,
+				"filter": [],
 				"name": "Skovlunde Skole – Rosenlund",
 				"m_name": "Ballerup Kommune",
 				"m_id": 151,
@@ -7909,6 +8517,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 181008,
+				"filter": [],
 				"name": "Skovlyskolen",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -7922,6 +8531,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157010,
+				"filter": [],
 				"name": "Skovshoved Skole",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,
@@ -7935,6 +8545,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751038,
+				"filter": [],
 				"name": "Skovvangskolen, Aarhus N",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -7948,6 +8559,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 711001,
+				"filter": [],
 				"name": "Skovvangskolen, Hammel",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -7961,6 +8573,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281854,
+				"filter": [],
 				"name": "Skovvejens Skole - Distriktsskole",
 				"m_name": "Ballerup Kommune",
 				"m_id": 151,
@@ -7974,6 +8587,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280563,
+				"filter": [],
 				"name": "Skovvejens Skole - Øst",
 				"m_name": "Ballerup Kommune",
 				"m_id": 151,
@@ -7987,6 +8601,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461026,
+				"filter": [],
 				"name": "Skt Klemensskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -8000,6 +8615,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751063,
+				"filter": [],
 				"name": "Skt Knuds Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -8013,6 +8629,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265019,
+				"filter": [],
 				"name": "Skt. Josefs Skole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -8026,6 +8643,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173014,
+				"filter": [],
 				"name": "Skt. Knud Lavard Skole",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -8039,6 +8657,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 235004,
+				"filter": [],
 				"name": "Slagslunde Skole",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -8052,6 +8671,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 471008,
+				"filter": [],
 				"name": "Sletten Skole",
 				"m_name": "Nordfyns Kommune",
 				"m_id": 480,
@@ -8065,6 +8685,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281060,
+				"filter": [],
 				"name": "Sluseholmen Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -8078,6 +8699,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280430,
+				"filter": [],
 				"name": "Snekkersten Skole",
 				"m_name": "Helsingør Kommune",
 				"m_id": 217,
@@ -8091,6 +8713,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 213007,
+				"filter": [],
 				"name": "Søborg Privatskole & Skovbørnehave",
 				"m_name": "Gribskov Kommune",
 				"m_id": 270,
@@ -8104,6 +8727,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159010,
+				"filter": [],
 				"name": "Søborg Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -8117,6 +8741,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280379,
+				"filter": [],
 				"name": "Sofiehøj Friskole",
 				"m_name": "Lejre Kommune",
 				"m_id": 350,
@@ -8130,6 +8755,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851027,
+				"filter": [],
 				"name": "Sofiendalskolen",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -8143,6 +8769,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 237006,
+				"filter": [],
 				"name": "Søhøjskolen",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -8156,6 +8783,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281406,
+				"filter": [],
 				"name": "Søholmskolen, afd. Toftevang",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -8169,6 +8797,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751041,
+				"filter": [],
 				"name": "Solbjergskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -8182,6 +8811,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 207002,
+				"filter": [],
 				"name": "Solvangskolen",
 				"m_name": "Furesø Kommune",
 				"m_id": 190,
@@ -8195,6 +8825,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101005,
+				"filter": [],
 				"name": "Sølvgades Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -8208,6 +8839,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 740005,
+				"filter": [],
 				"name": "Sølystskolen, Silkeborg",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -8221,6 +8853,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851031,
+				"filter": [],
 				"name": "Sønderbroskolen",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -8234,6 +8867,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147006,
+				"filter": [],
 				"name": "Søndermarkskolen, Frederiksberg",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -8247,6 +8881,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 189003,
+				"filter": [],
 				"name": "Søndersøskolen",
 				"m_name": "Furesø Kommune",
 				"m_id": 190,
@@ -8260,6 +8895,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 711004,
+				"filter": [],
 				"name": "Søndervangskolen, Hammel",
 				"m_name": "Favrskov Kommune",
 				"m_id": 710,
@@ -8273,6 +8909,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 259008,
+				"filter": [],
 				"name": "Søndre Skole, Køge",
 				"m_name": "Køge Kommune",
 				"m_id": 259,
@@ -8286,6 +8923,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 219030,
+				"filter": [],
 				"name": "Sophienborgskolen",
 				"m_name": "Hillerød Kommune",
 				"m_id": 219,
@@ -8299,6 +8937,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 335005,
+				"filter": [],
 				"name": "Sorø Borgerskole",
 				"m_name": "Sorø Kommune",
 				"m_id": 340,
@@ -8312,6 +8951,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 335006,
+				"filter": [],
 				"name": "Sorø Privatskole",
 				"m_name": "Sorø Kommune",
 				"m_id": 340,
@@ -8325,6 +8965,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 705004,
+				"filter": [],
 				"name": "Sorring Skole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -8338,6 +8979,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101157,
+				"filter": [],
 				"name": "Sortedamskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -8351,6 +8993,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280038,
+				"filter": [],
 				"name": "Spjellerup Friskole",
 				"m_name": "Faxe Kommune",
 				"m_id": 320,
@@ -8364,6 +9007,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280186,
+				"filter": [],
 				"name": "St. Magleby Skole",
 				"m_name": "Dragør Kommune",
 				"m_id": 155,
@@ -8377,6 +9021,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 345003,
+				"filter": [],
 				"name": "St. Merløse Skole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -8390,6 +9035,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 567005,
+				"filter": [],
 				"name": "Starup Skole",
 				"m_name": "Varde Kommune",
 				"m_id": 573,
@@ -8403,6 +9049,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 631024,
+				"filter": [],
 				"name": "Steiner Skolen i Vejle",
 				"m_name": "Vejle Kommune",
 				"m_id": 630,
@@ -8416,6 +9063,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159009,
+				"filter": [],
 				"name": "Stengård Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -8429,6 +9077,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 315012,
+				"filter": [],
 				"name": "Stenhus Kostskole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -8442,6 +9091,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 235006,
+				"filter": [],
 				"name": "Stenløse Privatskole",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -8455,6 +9105,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 367007,
+				"filter": [],
 				"name": "Stenoskolen",
 				"m_name": "Lolland Kommune",
 				"m_id": 360,
@@ -8468,6 +9119,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 615011,
+				"filter": [],
 				"name": "Stensballeskolen",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -8481,6 +9133,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 389009,
+				"filter": [],
 				"name": "Stevns Friskole",
 				"m_name": "Stevns Kommune",
 				"m_id": 336,
@@ -8494,6 +9147,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 745003,
+				"filter": [],
 				"name": "Stilling Skole",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -8507,6 +9161,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 763006,
+				"filter": [],
 				"name": "Stoholm Skole",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -8520,6 +9175,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851028,
+				"filter": [],
 				"name": "Stolpedalsskolen",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -8533,6 +9189,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 389008,
+				"filter": [],
 				"name": "Store Heddinge Skole",
 				"m_name": "Stevns Kommune",
 				"m_id": 336,
@@ -8546,6 +9203,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 813006,
+				"filter": [],
 				"name": "Strandby Skole",
 				"m_name": "Frederikshavn Kommune",
 				"m_id": 813,
@@ -8559,6 +9217,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 421007,
+				"filter": [],
 				"name": "Strandmølleskolen",
 				"m_name": "Assens Kommune",
 				"m_id": 420,
@@ -8572,6 +9231,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751042,
+				"filter": [],
 				"name": "Strandskolen, Risskov",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -8585,6 +9245,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101041,
+				"filter": [],
 				"name": "Strandvejsskolen",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -8598,6 +9259,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 271002,
+				"filter": [],
 				"name": "Strøbyskolen",
 				"m_name": "Stevns Kommune",
 				"m_id": 336,
@@ -8611,6 +9273,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 545005,
+				"filter": [],
 				"name": "Stubbæk Skole",
 				"m_name": "Aabenraa Kommune",
 				"m_id": 580,
@@ -8624,6 +9287,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101055,
+				"filter": [],
 				"name": "Sundbyøster Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -8637,6 +9301,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280680,
+				"filter": [],
 				"name": "Sunds Skole",
 				"m_name": "Herning Kommune",
 				"m_id": 657,
@@ -8650,6 +9315,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 370005,
+				"filter": [],
 				"name": "Susåskolen, afd. Glumsø",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -8663,6 +9329,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280641,
+				"filter": [],
 				"name": "Svaneke Friskole",
 				"m_name": "Bornholms Regionskommune",
 				"m_id": 400,
@@ -8676,6 +9343,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 301007,
+				"filter": [],
 				"name": "Svebølle Skole",
 				"m_name": "Kalundborg Kommune",
 				"m_id": 326,
@@ -8689,6 +9357,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 495007,
+				"filter": [],
 				"name": "Svindinge Friskole",
 				"m_name": "Nyborg Kommune",
 				"m_id": 450,
@@ -8702,6 +9371,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 339004,
+				"filter": [],
 				"name": "Svinninge Skole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -8715,6 +9385,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 701006,
+				"filter": [],
 				"name": "Syddjurs Friskole",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -8728,6 +9399,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 785013,
+				"filter": [],
 				"name": "Sydthy Friskole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -8741,6 +9413,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 189004,
+				"filter": [],
 				"name": "Syvstjerneskolen",
 				"m_name": "Furesø Kommune",
 				"m_id": 190,
@@ -8754,6 +9427,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173008,
+				"filter": [],
 				"name": "Taarbæk Skole",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -8767,6 +9441,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 169012,
+				"filter": [],
 				"name": "Taastrup Realskole",
 				"m_name": "Høje-Taastrup Kommune",
 				"m_id": 169,
@@ -8780,6 +9455,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101029,
+				"filter": [],
 				"name": "Tagensbo Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -8793,6 +9469,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 485003,
+				"filter": [],
 				"name": "Tallerupskolen",
 				"m_name": "Assens Kommune",
 				"m_id": 420,
@@ -8806,6 +9483,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461030,
+				"filter": [],
 				"name": "Tarup Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -8819,6 +9497,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280139,
+				"filter": [],
 				"name": "Tåsingeskolen",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -8832,6 +9511,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280462,
+				"filter": [],
 				"name": "The International School of Billund",
 				"m_name": "Billund Kommune",
 				"m_id": 530,
@@ -8845,6 +9525,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 787030,
+				"filter": [],
 				"name": "Thisted Friskole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -8858,6 +9539,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 787022,
+				"filter": [],
 				"name": "Thorsted Friskole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -8871,6 +9553,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 479009,
+				"filter": [],
 				"name": "Thurø Skole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -8884,6 +9567,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280811,
+				"filter": [],
 				"name": "Thy Privatskole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -8897,6 +9581,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751045,
+				"filter": [],
 				"name": "Tilst Skole",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -8910,6 +9595,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 787012,
+				"filter": [],
 				"name": "Tilsted Skole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -8923,6 +9609,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461031,
+				"filter": [],
 				"name": "Tingkærskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -8936,6 +9623,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461032,
+				"filter": [],
 				"name": "Tingløkkeskolen",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -8949,6 +9637,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 561022,
+				"filter": [],
 				"name": "Tjæreborg Skole",
 				"m_name": "Esbjerg Kommune",
 				"m_id": 561,
@@ -8962,6 +9651,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265015,
+				"filter": [],
 				"name": "Tjørnegårdskolen, Roskilde",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -8975,6 +9665,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 345004,
+				"filter": [],
 				"name": "Tølløse Skole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -8988,6 +9679,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 517001,
+				"filter": [],
 				"name": "Tønder Distriktsskole - Digeskolen",
 				"m_name": "Tønder Kommune",
 				"m_id": 550,
@@ -9001,6 +9693,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 601008,
+				"filter": [],
 				"name": "Tønning-Træden Friskole",
 				"m_name": "Horsens Kommune",
 				"m_id": 615,
@@ -9014,6 +9707,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 819004,
+				"filter": [],
 				"name": "Tornby undervisningssted",
 				"m_name": "Hjørring Kommune",
 				"m_id": 860,
@@ -9027,6 +9721,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101064,
+				"filter": [],
 				"name": "Tove Ditlevsens Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9040,6 +9735,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 261004,
+				"filter": [],
 				"name": "Trællerupskolen",
 				"m_name": "Lejre Kommune",
 				"m_id": 350,
@@ -9053,6 +9749,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280458,
+				"filter": [],
 				"name": "Tranbjergskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -9066,6 +9763,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 147051,
+				"filter": [],
 				"name": "Tre Falke Skolen",
 				"m_name": "Frederiksberg Kommune",
 				"m_id": 147,
@@ -9079,6 +9777,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101140,
+				"filter": [],
 				"name": "Trekronergade Freinetskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9092,6 +9791,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265032,
+				"filter": [],
 				"name": "Trekronerskolen, Roskilde",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -9105,6 +9805,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173009,
+				"filter": [],
 				"name": "Trongårdsskolen",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -9118,6 +9819,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 181009,
+				"filter": [],
 				"name": "Trørødskolen",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -9131,6 +9833,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 253006,
+				"filter": [],
 				"name": "Tune Skole",
 				"m_name": "Greve Kommune",
 				"m_id": 253,
@@ -9144,6 +9847,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 479010,
+				"filter": [],
 				"name": "Tved Skole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -9157,6 +9861,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 461034,
+				"filter": [],
 				"name": "Ubberud Skole",
 				"m_name": "Odense Kommune",
 				"m_id": 461,
@@ -9170,6 +9875,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 315006,
+				"filter": [],
 				"name": "Udby Skole",
 				"m_name": "Holbæk Kommune",
 				"m_id": 316,
@@ -9183,6 +9889,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280033,
+				"filter": [],
 				"name": "Ugelbølle Friskole",
 				"m_name": "Syddjurs Kommune",
 				"m_id": 706,
@@ -9196,6 +9903,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 269005,
+				"filter": [],
 				"name": "Uglegårdsskolen",
 				"m_name": "Solrød Kommune",
 				"m_id": 269,
@@ -9209,6 +9917,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 537006,
+				"filter": [],
 				"name": "Ulkebøl Skole",
 				"m_name": "Sønderborg Kommune",
 				"m_id": 540,
@@ -9222,6 +9931,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101540,
+				"filter": [],
 				"name": "Utterslev Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9235,6 +9945,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 159012,
+				"filter": [],
 				"name": "Vadgård Skole",
 				"m_name": "Gladsaxe Kommune",
 				"m_id": 159,
@@ -9248,6 +9959,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101074,
+				"filter": [],
 				"name": "Valby Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9261,6 +9973,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 175007,
+				"filter": [],
 				"name": "Valhøj Skole",
 				"m_name": "Rødovre Kommune",
 				"m_id": 175,
@@ -9274,6 +9987,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 187003,
+				"filter": [],
 				"name": "Vallensbæk Skole",
 				"m_name": "Vallensbæk Kommune",
 				"m_id": 187,
@@ -9287,6 +10001,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 223004,
+				"filter": [],
 				"name": "Vallerødskolen",
 				"m_name": "Hørsholm Kommune",
 				"m_id": 223,
@@ -9300,6 +10015,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101135,
+				"filter": [],
 				"name": "Vanløse Privatskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9313,6 +10029,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 181007,
+				"filter": [],
 				"name": "Vedbæk Skole",
 				"m_name": "Rudersdal Kommune",
 				"m_id": 230,
@@ -9326,6 +10043,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 575013,
+				"filter": [],
 				"name": "Vejen Friskole",
 				"m_name": "Vejen Kommune",
 				"m_id": 575,
@@ -9339,6 +10057,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851037,
+				"filter": [],
 				"name": "Vejgaard Østre Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -9352,6 +10071,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280220,
+				"filter": [],
 				"name": "Vejlernes NaturFriskole",
 				"m_name": "Thisted Kommune",
 				"m_id": 787,
@@ -9365,6 +10085,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 235007,
+				"filter": [],
 				"name": "Veksø Skole",
 				"m_name": "Egedal Kommune",
 				"m_id": 240,
@@ -9378,6 +10099,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280657,
+				"filter": [],
 				"name": "VerdensBørn Grundskole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9391,6 +10113,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851039,
+				"filter": [],
 				"name": "Vestbjerg Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -9404,6 +10127,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280928,
+				"filter": [],
 				"name": "Vestbyen Friskole",
 				"m_name": "Holstebro Kommune",
 				"m_id": 661,
@@ -9417,6 +10141,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 169018,
+				"filter": [],
 				"name": "Vestegnens Privatskole",
 				"m_name": "Høje-Taastrup Kommune",
 				"m_id": 169,
@@ -9430,6 +10155,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 817005,
+				"filter": [],
 				"name": "Vester Hassing Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -9443,6 +10169,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 427010,
+				"filter": [],
 				"name": "Vester Skerninge Friskole",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -9456,6 +10183,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101572,
+				"filter": [],
 				"name": "Vesterbro Ny Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9469,6 +10197,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751050,
+				"filter": [],
 				"name": "Vestergårdsskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -9482,6 +10211,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851041,
+				"filter": [],
 				"name": "Vesterkærets Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -9495,6 +10225,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 373001,
+				"filter": [],
 				"name": "Vesterlandsskolen, afd. Hyllinge",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -9508,6 +10239,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280135,
+				"filter": [],
 				"name": "Vestermarkskolen",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -9521,6 +10253,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 657019,
+				"filter": [],
 				"name": "Vestervangskolen, Herning",
 				"m_name": "Herning Kommune",
 				"m_id": 657,
@@ -9534,6 +10267,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 791010,
+				"filter": [],
 				"name": "Vestre Skole",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -9547,6 +10281,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281802,
+				"filter": [],
 				"name": "Vestskolen, afd. Vestermarken",
 				"m_name": "Odder Kommune",
 				"m_id": 727,
@@ -9560,6 +10295,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101042,
+				"filter": [],
 				"name": "Vibenshus Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9573,6 +10309,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 791014,
+				"filter": [],
 				"name": "Viborg private Realskole",
 				"m_name": "Viborg Kommune",
 				"m_id": 791,
@@ -9586,6 +10323,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 263003,
+				"filter": [],
 				"name": "Viby Friskole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -9599,6 +10337,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751051,
+				"filter": [],
 				"name": "Viby Skole, Viby J",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -9612,6 +10351,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 281211,
+				"filter": [],
 				"name": "Viby Skole, Viby Sjælland",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -9625,6 +10365,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 343007,
+				"filter": [],
 				"name": "Vig Skole",
 				"m_name": "Odsherred Kommune",
 				"m_id": 306,
@@ -9638,6 +10379,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101075,
+				"filter": [],
 				"name": "Vigerslev Allés Skole",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9651,6 +10393,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 329012,
+				"filter": [],
 				"name": "Vigersted Skole",
 				"m_name": "Ringsted Kommune",
 				"m_id": 329,
@@ -9664,6 +10407,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280650,
+				"filter": [],
 				"name": "Vinderød Privatskole",
 				"m_name": "Halsnæs Kommune",
 				"m_id": 260,
@@ -9677,6 +10421,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 265011,
+				"filter": [],
 				"name": "Vindinge Skole",
 				"m_name": "Roskilde Kommune",
 				"m_id": 265,
@@ -9690,6 +10435,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 743013,
+				"filter": [],
 				"name": "Virklund Skole",
 				"m_name": "Silkeborg Kommune",
 				"m_id": 740,
@@ -9703,6 +10449,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 173011,
+				"filter": [],
 				"name": "Virum Skole",
 				"m_name": "Lyngby-Taarbæk Kommune",
 				"m_id": 173,
@@ -9716,6 +10463,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 751052,
+				"filter": [],
 				"name": "Virupskolen",
 				"m_name": "Aarhus Kommune",
 				"m_id": 751,
@@ -9729,6 +10477,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280502,
+				"filter": [],
 				"name": "Vitaskolen",
 				"m_name": "Esbjerg Kommune",
 				"m_id": 561,
@@ -9742,6 +10491,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 571017,
+				"filter": [],
 				"name": "Vittenbergskolen",
 				"m_name": "Esbjerg Kommune",
 				"m_id": 561,
@@ -9755,6 +10505,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 851042,
+				"filter": [],
 				"name": "Vodskov Skole",
 				"m_name": "Aalborg Kommune",
 				"m_id": 851,
@@ -9768,6 +10519,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 601007,
+				"filter": [],
 				"name": "Voerladegård Skole",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -9781,6 +10533,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 621016,
+				"filter": [],
 				"name": "Vonsild Skole",
 				"m_name": "Kolding Kommune",
 				"m_id": 621,
@@ -9794,6 +10547,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 373018,
+				"filter": [],
 				"name": "Vor Frue Skole, Næstved",
 				"m_name": "Næstved Kommune",
 				"m_id": 370,
@@ -9807,6 +10561,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 551003,
+				"filter": [],
 				"name": "Vorbasse Skole",
 				"m_name": "Billund Kommune",
 				"m_id": 530,
@@ -9820,6 +10575,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 681008,
+				"filter": [],
 				"name": "Vorgod-Barde Skole",
 				"m_name": "Ringkøbing-Skjern Kommune",
 				"m_id": 760,
@@ -9833,6 +10589,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 101533,
+				"filter": [],
 				"name": "Waldorf Skolen i København",
 				"m_name": "Københavns Kommune",
 				"m_id": 101,
@@ -9846,6 +10603,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 715001,
+				"filter": [],
 				"name": "Bakkeskolen, afd. Sommerbæk Skole",
 				"m_name": "Skanderborg Kommune",
 				"m_id": 746,
@@ -9859,6 +10617,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 280284,
+				"filter": [],
 				"name": "Ørkildskolen, afd. Byen",
 				"m_name": "Svendborg Kommune",
 				"m_id": 479,
@@ -9872,6 +10631,7 @@
 			"type": "Feature",
 			"properties": {
 				"id": 157018,
+				"filter": [],
 				"name": "Rygaards Skole, afd. Dansk",
 				"m_name": "Gentofte Kommune",
 				"m_id": 157,

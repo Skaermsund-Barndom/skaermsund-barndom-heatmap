@@ -14,12 +14,12 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 				map={props.map}
 				source={geojsonSource(store.regionsCollection(), "id")}
 				sourceId="regions"
-				circleMinRadius={16}
-				circleMaxRadius={32}
-				textMinSize={14}
-				textMaxSize={20}
-				hoverId="regionId"
-				activeId="activeRegionId"
+				size={{
+					circleMin: 16,
+					circleMax: 32,
+					textMin: 14,
+					textMax: 20,
+				}}
 				level={0}
 				setLevel={() => setStore("level", 1)}
 			/>
@@ -29,12 +29,12 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 				map={props.map}
 				source={geojsonSource(store.municipalitiesCollection(), "id")}
 				sourceId="municipalities"
-				circleMinRadius={14}
-				circleMaxRadius={28}
-				textMinSize={14}
-				textMaxSize={20}
-				hoverId="municipalityId"
-				activeId="activeMunicipalityId"
+				size={{
+					circleMin: 14,
+					circleMax: 28,
+					textMin: 14,
+					textMax: 20,
+				}}
 				level={1}
 				setLevel={() => setStore("level", 2)}
 			/>
@@ -44,12 +44,12 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 				map={props.map}
 				source={geojsonSource(store.schoolsCollection(), "id")}
 				sourceId="schools"
-				circleMinRadius={10}
-				circleMaxRadius={20}
-				textMinSize={12}
-				textMaxSize={18}
-				hoverId="schoolId"
-				activeId="activeSchoolId"
+				size={{
+					circleMin: 10,
+					circleMax: 20,
+					textMin: 12,
+					textMax: 18,
+				}}
 				level={2}
 				setLevel={() => {}}
 			/>

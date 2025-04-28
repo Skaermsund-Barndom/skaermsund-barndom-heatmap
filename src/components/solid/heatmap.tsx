@@ -4,9 +4,15 @@ import { BackControls } from "@/components/solid/back-controls";
 import { LayerOrder } from "@/components/solid/layer-order";
 import { ZoomControls } from "@/components/solid/zoom-controls";
 import { INITIAL_ZOOM } from "@/scripts/const";
-import { setHoverStore } from "@/scripts/store";
+import { setStore } from "@/scripts/store";
 import type { Map as MapGLType } from "maplibre-gl";
-import { Show, type VoidComponent, createEffect, createSignal } from "solid-js";
+import {
+	Show,
+	type VoidComponent,
+	createEffect,
+	createSignal,
+	onCleanup,
+} from "solid-js";
 
 export const Heatmap: VoidComponent = () => {
 	const [map, setMap] = createSignal<MapGLType>();
@@ -15,14 +21,16 @@ export const Heatmap: VoidComponent = () => {
 		map()?.touchZoomRotate.disableRotation();
 		map()?.keyboard.disableRotation();
 
-		map()?.on("zoom", () => {
-			setHoverStore({
-				municipalityId: undefined,
-				schoolId: undefined,
-				regionId: undefined,
-			});
+		map()?.on("zoom", handleZoom);
+
+		onCleanup(() => {
+			map()?.off("zoom", handleZoom);
 		});
 	});
+
+	const handleZoom = () => {
+		setStore("hoverId", undefined);
+	};
 
 	return (
 		<div class="h-full w-full overflow-hidden rounded-[1.25rem]">
