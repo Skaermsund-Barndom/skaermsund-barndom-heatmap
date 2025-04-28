@@ -34,11 +34,13 @@ export const BackControls: VoidComponent<Props> = (props) => {
 	});
 
 	const handleClick = (level: (typeof LEVELS)[number]) => {
-		setStore({
-			levelId: level.id,
-			hoverId: undefined,
-			filter: [],
-		});
+		const filter =
+			level.id === "region" ? store.allRegions()
+			: level.id === "municipality" ? store.allMunicipalities()
+			: level.id === "school" ? store.allSchools()
+			: [];
+
+		setStore({ levelId: level.id, hoverId: undefined, filter });
 	};
 
 	return (

@@ -36,7 +36,7 @@ interface Props extends MapProps {
 		textMax: number;
 	};
 	levelId: (typeof LEVELS)[number]["id"];
-	click: (filter?: number[]) => void;
+	click?: () => void;
 }
 
 export const HeatmapLayer: VoidComponent<Props> = (props) => {
@@ -44,7 +44,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	const [activeFeatureId, setActiveFeatureId] = createSignal<number | string>();
 
 	const filter = createMemo<FilterSpecification>(() => {
-		return ["in", ["string", props.levelId], ["string", store.levelId]];
+		return ["in", ["get", "id"], ["literal", store.filter]];
 	});
 
 	// Marker store
@@ -69,11 +69,10 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 		if (activeFeatureId() !== feature.id) {
 			setActiveFeatureId(feature.id);
-			setStore("hoverId", Number(feature.id));
 		}
 
-		if (store.hoverId === feature.properties?.id) return;
-		setStore("hoverId", feature.properties?.id);
+		if (store.hoverId === Number(feature.id)) return;
+		setStore({ hoverId: Number(feature.id) });
 	};
 
 	// When the hover id changes, update the marker and the feature state
@@ -121,18 +120,18 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 	// When the mouse leaves a feature, reset the active feature id
 	const mouseleave = () => {
-		setStore("hoverId", undefined);
+		setStore({ hoverId: undefined });
 	};
 
 	const click = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
 		if (feature?.geometry.type !== "Point") return;
 
-		const ids = store.schoolCollection?.features.reduce((acc, feature) => {
-			if (feature.properties?.id) acc.push(feature.properties.id);
-			return acc;
-		}, [] as number[]);
-		props.click(ids);
+		if (!props.click) return;
+		props.click();
+
+		const filter = JSON.parse(feature.properties?.filter);
+		setStore({ hoverId: undefined, filter });
 	};
 
 	return (

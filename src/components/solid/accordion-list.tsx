@@ -2,7 +2,6 @@ import { setStore, store } from "@/scripts/store";
 import type { Item } from "@/scripts/types";
 import {
 	For,
-	type Setter,
 	type VoidComponent,
 	createEffect,
 	createMemo,
@@ -13,18 +12,18 @@ interface Props {
 	placeholder: string;
 	items: Item[];
 	disabled?: boolean;
-	open: boolean;
-	setOpen: Setter<boolean>;
-	setLevel: () => void;
+	isOpen: boolean;
+	onClickAccordion: () => void;
+	onClickItem?: () => void;
 }
 
 export const AccordionList: VoidComponent<Props> = (props) => {
 	let parentRef: HTMLDivElement | undefined;
 
-	const [search, setSearch] = createSignal("");
+	const [search, setSearch] = createSignal(props.items[0]?.name ?? "");
 
 	const filteredItems = createMemo(() => {
-		return props.open ?
+		return props.isOpen ?
 				props.items.filter((item) =>
 					item.name.toLowerCase().includes(search().toLowerCase()),
 				)
@@ -32,7 +31,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 	});
 
 	createEffect(() => {
-		const open = props.open;
+		const open = props.isOpen;
 		if (!parentRef) return;
 
 		const input = parentRef.querySelector("input[type='text']");
@@ -56,7 +55,6 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		input.value = "";
 		setSearch("");
-		props.setOpen(false);
 	});
 
 	createEffect(() => {
@@ -85,13 +83,10 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 			firstButton.focus();
 		}
-
-		if (event.key === "Escape") {
-			props.setOpen(false);
-		}
 	};
 
 	const handleSetActiveItem = (item: Item) => {
+		if (!props.onClickItem) return;
 		if (!parentRef) return;
 
 		const input = parentRef.querySelector("input[type='text']");
@@ -99,10 +94,9 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		input.value = item.name;
 		setSearch(item.name);
-		props.setOpen(false);
-		props.setLevel();
-		setStore("hoverId", undefined);
-		setStore({ filter: item.filter });
+
+		props.onClickItem();
+		setStore({ hoverId: undefined, filter: item.filter });
 	};
 
 	const handleInput = (event: InputEvent) => {
@@ -110,14 +104,14 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 		const value = event.currentTarget.value;
 		setSearch(value);
-		setStore("hoverId", undefined);
+		setStore({ hoverId: undefined });
 	};
 
 	return (
 		<div
 			class="bg-primary-10 group overflow-hidden rounded-xl data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50"
 			data-disabled={props.disabled}
-			data-open={props.open}
+			data-open={props.isOpen}
 			ref={parentRef}
 		>
 			<label class="relative grid w-full cursor-pointer grid-cols-2 items-center p-3.5 text-left">
@@ -125,7 +119,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 					type="text"
 					placeholder={props.placeholder}
 					onInput={handleInput}
-					onFocus={() => props.setOpen(true)}
+					onFocus={props.onClickAccordion}
 					onKeyDown={handleKeyDown}
 					class="pe-2 focus:outline-none"
 					tabIndex={props.disabled ? -1 : 0}
@@ -160,8 +154,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 									type="button"
 									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-2 p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
-									onMouseEnter={() => setStore("hoverId", item.id)}
-									onMouseLeave={() => setStore("hoverId", undefined)}
+									onMouseEnter={() => setStore({ hoverId: item.id })}
+									onMouseLeave={() => setStore({ hoverId: undefined })}
 								>
 									<span>{item.name}</span>
 									<span>{item.subs}</span>

@@ -29,7 +29,7 @@ export const Heatmap: VoidComponent = () => {
 	});
 
 	const handleZoom = () => {
-		setStore("hoverId", undefined);
+		setStore({ hoverId: undefined });
 	};
 
 	return (

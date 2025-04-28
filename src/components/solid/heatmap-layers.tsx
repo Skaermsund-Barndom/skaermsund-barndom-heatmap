@@ -22,11 +22,8 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					textMax: 20,
 				}}
 				levelId={LEVELS[0].id}
-				click={(filter?: number[]) => {
-					setStore({
-						levelId: LEVELS[1].id,
-						filter,
-					});
+				click={() => {
+					setStore({ levelId: LEVELS[1].id });
 				}}
 			/>
 
@@ -42,11 +39,8 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					textMax: 20,
 				}}
 				levelId={LEVELS[1].id}
-				click={(filter?: number[]) => {
-					setStore({
-						levelId: LEVELS[2].id,
-						filter,
-					});
+				click={() => {
+					setStore({ levelId: LEVELS[2].id });
 				}}
 			/>
 
@@ -62,7 +56,6 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					textMax: 18,
 				}}
 				levelId={LEVELS[2].id}
-				click={() => {}}
 			/>
 		</>
 	);

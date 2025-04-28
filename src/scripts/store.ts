@@ -22,4 +22,32 @@ export const [store, setStore] = createStore({
 	municipalitiesMap: undefined as
 		| FeatureCollection<Polygon | MultiPolygon, MunicipalityMapProperties>
 		| undefined,
+
+	allSubs: () =>
+		store.schoolCollection?.features.reduce(
+			(acc, f) => acc + f.properties.subs,
+			0,
+		) ?? 0,
+
+	allRegions: () =>
+		Array.from(
+			store.schoolCollection?.features.reduce<Set<number>>(
+				(set, f) => set.add(f.properties.r_id),
+				new Set(),
+			) ?? [],
+		),
+	allMunicipalities: () =>
+		Array.from(
+			store.schoolCollection?.features.reduce<Set<number>>(
+				(set, f) => set.add(f.properties.m_id),
+				new Set(),
+			) ?? [],
+		),
+	allSchools: () =>
+		Array.from(
+			store.schoolCollection?.features.reduce<Set<number>>(
+				(set, f) => set.add(f.properties.id),
+				new Set(),
+			) ?? [],
+		),
 });
