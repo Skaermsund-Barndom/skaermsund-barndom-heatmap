@@ -18,13 +18,6 @@ export const Ui: VoidComponent = () => {
 		subs: store.allSubs(),
 	}));
 
-	const allSchoolsItem = createMemo(() => ({
-		id: 0,
-		filter: [],
-		name: "Alle skoler",
-		subs: store.allSubs(),
-	}));
-
 	return (
 		<div class="hidden h-fit max-h-full w-full grid-cols-1 items-start gap-6 overflow-hidden p-6 md:grid">
 			{/* Region list */}
@@ -33,7 +26,7 @@ export const Ui: VoidComponent = () => {
 					allRegionsItem(),
 					...(store.regionCollection?.features.map((f) => f.properties) ?? []),
 				]}
-				placeholder="Vælg region"
+				placeholder="Region"
 				isOpen={store.levelId === LEVELS[0].id}
 				onClickAccordion={() =>
 					setStore({ levelId: LEVELS[0].id, filter: store.allRegions() })
@@ -49,7 +42,7 @@ export const Ui: VoidComponent = () => {
 						.filter((f) => store.filter.includes(f.properties.id))
 						.map((f) => f.properties) ?? []),
 				]}
-				placeholder="Vælg kommune"
+				placeholder="Kommune"
 				isOpen={store.levelId === LEVELS[1].id}
 				onClickAccordion={() =>
 					setStore({ levelId: LEVELS[1].id, filter: store.allMunicipalities() })
@@ -59,12 +52,12 @@ export const Ui: VoidComponent = () => {
 
 			{/* School list */}
 			<AccordionList
-				items={[
-					...(store.schoolCollection?.features
+				items={
+					store.schoolCollection?.features
 						.filter((f) => store.filter.includes(f.properties.id))
-						.map((f) => f.properties) ?? []),
-				]}
-				placeholder="Vælg skole"
+						.map((f) => f.properties) ?? []
+				}
+				placeholder="Skole"
 				isOpen={store.levelId === LEVELS[2].id}
 				onClickAccordion={() =>
 					setStore({ levelId: LEVELS[2].id, filter: store.allSchools() })

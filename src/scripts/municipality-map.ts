@@ -5,7 +5,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const getMunicipalityMap = async () => {
-	const DETAIL = "0.004";
+	const DETAIL = "0.01";
 
 	// Create temp directory if it doesn't exist
 	const tempDir = join(process.cwd(), ".temp");
@@ -33,7 +33,7 @@ export const getMunicipalityMap = async () => {
 			"planar",
 
 			"-o",
-			"precision=0.001",
+			"precision=0.0001",
 			"format=geojson",
 			outputPath,
 		]);

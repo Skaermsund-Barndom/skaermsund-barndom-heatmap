@@ -40,11 +40,11 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		if (open) {
 			input.focus();
 			input.value = "";
-			setSearch("");
 		} else {
 			input.blur();
-			setSearch("");
 		}
+
+		setSearch("");
 	});
 
 	createEffect(() => {
@@ -92,11 +92,11 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		const input = parentRef.querySelector("input[type='text']");
 		if (!(input instanceof HTMLInputElement)) return;
 
-		input.value = item.name;
-		setSearch(item.name);
-
 		props.onClickItem();
 		setStore({ hoverId: undefined, filter: item.filter });
+
+		input.value = item.name;
+		setSearch(item.name);
 	};
 
 	const handleInput = (event: InputEvent) => {
@@ -114,7 +114,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 			data-open={props.isOpen}
 			ref={parentRef}
 		>
-			<label class="relative grid w-full cursor-pointer grid-cols-2 items-center p-3.5 text-left">
+			<label class="relative grid w-full cursor-pointer grid-cols-[2fr_1fr] items-center p-3.5 text-left">
 				<input
 					type="text"
 					placeholder={props.placeholder}
@@ -125,9 +125,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 					tabIndex={props.disabled ? -1 : 0}
 				/>
 				<div class="flex items-center justify-between gap-2">
-					<p class="opacity-0 transition-opacity duration-300 ease-[cubic-bezier(.3,.2,0,1)] group-data-[open=true]:opacity-100">
-						Løfter
-					</p>
+					<p>{props.isOpen ? "Løfter" : ""}</p>
 					<svg
 						width="14"
 						height="14"
@@ -152,7 +150,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 								<button
 									data-id={item.id}
 									type="button"
-									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-2 p-3.5 text-left focus:outline-none"
+									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-[2fr_1fr] p-3.5 text-left focus:outline-none"
 									onClick={() => handleSetActiveItem(item)}
 									onMouseEnter={() => setStore({ hoverId: item.id })}
 									onMouseLeave={() => setStore({ hoverId: undefined })}
