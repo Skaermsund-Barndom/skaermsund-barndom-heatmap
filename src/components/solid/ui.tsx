@@ -1,4 +1,5 @@
 import { AccordionList } from "@/components/solid/accordion-list";
+import { LEVELS } from "@/scripts/const";
 import { setStore, store } from "@/scripts/store";
 import { type VoidComponent, createSignal } from "solid-js";
 
@@ -28,7 +29,7 @@ export const Ui: VoidComponent = () => {
 				placeholder="Vælg region"
 				open={regionsOpen()}
 				setOpen={setRegionsOpen}
-				setLevel={() => setStore("level", 1)}
+				setLevel={() => setStore("levelId", LEVELS[1].id)}
 			/>
 			<AccordionList
 				items={[
@@ -51,7 +52,7 @@ export const Ui: VoidComponent = () => {
 				placeholder="Vælg kommune"
 				open={municipalitiesOpen()}
 				setOpen={setMunicipalitiesOpen}
-				setLevel={() => setStore("level", 2)}
+				setLevel={() => setStore("levelId", LEVELS[2].id)}
 			/>
 			<AccordionList
 				items={[

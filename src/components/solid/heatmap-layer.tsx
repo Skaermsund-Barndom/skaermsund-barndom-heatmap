@@ -4,7 +4,12 @@ import {
 	TooltipMarker,
 	type TooltipMarkerStore,
 } from "@/components/solid/tooltip-marker";
-import { BG_HEATMAP_LEVELS_LAYER, COLORS, FONT_STACK } from "@/scripts/const";
+import {
+	BG_HEATMAP_LEVELS_LAYER,
+	COLORS,
+	FONT_STACK,
+	type LEVELS,
+} from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
 import type { Item, MapProps } from "@/scripts/types";
@@ -30,8 +35,8 @@ interface Props extends MapProps {
 		textMin: number;
 		textMax: number;
 	};
-	level: 0 | 1 | 2;
-	setLevel: () => void;
+	levelId: (typeof LEVELS)[number]["id"];
+	click: (filter?: number[]) => void;
 }
 
 export const HeatmapLayer: VoidComponent<Props> = (props) => {
@@ -39,7 +44,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	const [activeFeatureId, setActiveFeatureId] = createSignal<number | string>();
 
 	const filter = createMemo<FilterSpecification>(() => {
-		return ["==", ["number", props.level], ["number", store.level]];
+		return ["==", ["string", props.levelId], ["string", store.levelId]];
 	});
 
 	// Marker store
@@ -122,9 +127,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	const click = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
 		if (feature?.geometry.type !== "Point") return;
-
-		props.setLevel();
-		setStore({ filter: [feature.properties?.id] });
+		props.click([feature.properties?.id]);
 	};
 
 	return (

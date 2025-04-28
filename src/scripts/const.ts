@@ -38,17 +38,17 @@ export const COLORS = {
 export const LEVELS = [
 	{
 		id: "region",
-		name: "Region",
+		name: "Regioner",
 		backTitle: "",
 	},
 	{
 		id: "municipality",
-		name: "Kommune",
+		name: "Kommuner",
 		backTitle: "Regioner",
 	},
 	{
 		id: "school",
-		name: "Skole",
+		name: "Skoler",
 		backTitle: "Kommuner",
 	},
 ] as const;

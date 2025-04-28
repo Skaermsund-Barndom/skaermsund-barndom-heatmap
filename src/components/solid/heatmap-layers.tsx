@@ -1,4 +1,5 @@
 import { HeatmapLayer } from "@/components/solid/heatmap-layer";
+import { LEVELS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
@@ -20,8 +21,13 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					textMin: 14,
 					textMax: 20,
 				}}
-				level={0}
-				setLevel={() => setStore("level", 1)}
+				levelId={LEVELS[0].id}
+				click={(filter?: number[]) => {
+					setStore({
+						levelId: LEVELS[1].id,
+						filter,
+					});
+				}}
 			/>
 
 			{/* Municipalities */}
@@ -35,8 +41,13 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					textMin: 14,
 					textMax: 20,
 				}}
-				level={1}
-				setLevel={() => setStore("level", 2)}
+				levelId={LEVELS[1].id}
+				click={(filter?: number[]) => {
+					setStore({
+						levelId: LEVELS[2].id,
+						filter,
+					});
+				}}
 			/>
 
 			{/* Schools */}
@@ -50,8 +61,8 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 					textMin: 12,
 					textMax: 18,
 				}}
-				level={2}
-				setLevel={() => {}}
+				levelId={LEVELS[2].id}
+				click={() => {}}
 			/>
 		</>
 	);
