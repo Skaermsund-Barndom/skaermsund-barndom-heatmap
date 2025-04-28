@@ -19,7 +19,7 @@ export const Ui: VoidComponent = () => {
 	}));
 
 	return (
-		<div class="hidden h-fit max-h-full w-full grid-cols-1 items-start gap-6 overflow-hidden p-6 md:grid">
+		<div class="hidden h-fit max-h-full w-full grid-cols-1 items-start gap-6 overflow-hidden overflow-y-auto p-6 md:grid">
 			{/* Region list */}
 			<AccordionList
 				items={[

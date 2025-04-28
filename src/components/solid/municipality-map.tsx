@@ -6,7 +6,7 @@ import { store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import { bbox, featureCollection } from "@turf/turf";
 import type { VoidComponent } from "solid-js";
-import { createEffect } from "solid-js";
+import { createEffect, createMemo } from "solid-js";
 
 const MUNICIPALITY_MAP_SOURCE = "municipalities-map";
 const MUNICIPALITY_MAP_FILL = "municipalities-map-heatmap";
@@ -15,6 +15,14 @@ const MUNICIPALITY_MAP_BORDER = "municipalities-map-border";
 interface Props extends MapProps {}
 
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
+	const totalMunicipalitiesLength = createMemo(
+		() =>
+			store.schoolCollection?.features.reduce(
+				(set, f) => set.add(Number(f.properties.m_id)),
+				new Set<number>(),
+			)?.size,
+	);
+
 	createEffect(() => {
 		if (store.levelId === LEVELS[0].id) {
 			if (!store.municipalitiesMap) return;
@@ -43,9 +51,9 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 		if (store.levelId === LEVELS[1].id) {
 			if (!store.municipalitiesMap?.features) return;
-			const activeMunicipalityCodes = new Set(store.filter);
+			const activeMunicipalitySet = new Set(store.filter);
 			const activeMunicipalities = store.municipalitiesMap.features.filter(
-				(f) => activeMunicipalityCodes.has(Number(f.properties.kommunekod)),
+				(f) => activeMunicipalitySet.has(Number(f.properties.kommunekod)),
 			);
 
 			if (!activeMunicipalities?.length) return;
@@ -66,9 +74,11 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 						source: MUNICIPALITY_MAP_SOURCE,
 					},
 					{
-						active: activeMunicipalityCodes.has(
-							Number(feature.properties.kommunekod),
-						),
+						active:
+							activeMunicipalities.length !== totalMunicipalitiesLength()
+							&& activeMunicipalitySet.has(
+								Number(feature.properties.kommunekod),
+							),
 					},
 				);
 			}
@@ -114,9 +124,12 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 						source: MUNICIPALITY_MAP_SOURCE,
 					},
 					{
-						active: activeMunicipalities.some(
-							(m) => m.properties.kommunekod === feature.properties.kommunekod,
-						),
+						active:
+							activeMunicipalities.length !== totalMunicipalitiesLength()
+							&& activeMunicipalities.some(
+								(m) =>
+									m.properties.kommunekod === feature.properties.kommunekod,
+							),
 					},
 				);
 			}
