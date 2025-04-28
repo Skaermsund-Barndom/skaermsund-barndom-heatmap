@@ -1,16 +1,16 @@
-import { schools } from "@/scripts/schools";
+import { schoolCollection } from "@/scripts/collections";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
-	const schoolsCollection = await schools();
+	const collection = await schoolCollection();
 
-	if (!schoolsCollection) {
+	if (!collection) {
 		return new Response(JSON.stringify({ error: "No schools found" }), {
 			status: 500,
 		});
 	}
 
-	return new Response(JSON.stringify(schoolsCollection), {
+	return new Response(JSON.stringify(collection), {
 		headers: {
 			"Content-Type": "application/json",
 			"Cache-Control": "public, max-age=31536000", // Cache for 1 year since this is static

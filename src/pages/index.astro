@@ -1,15 +1,20 @@
 ---
 import { App } from "@/components/solid/app";
-import municipalitiesMapRaw from "@/data/municipality-map.json?raw";
-import schoolsRaw from "@/data/schools.json?raw";
-import { getMunicipalityMap } from "@/scripts/municipality-map";
-import { schools } from "@/scripts/schools";
+import { GET as getMunicipalityCollection } from "@/pages/api/municipality-collection.json";
+import { GET as getMunicipalityMap } from "@/pages/api/municipality-map.json";
+import { GET as getRegionCollection } from "@/pages/api/region-collection.json";
+import { GET as getSchoolCollection } from "@/pages/api/school-collection.json";
 import "@/styles/global.css";
 import { SEO } from "astro-seo";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 const title = "Skærmsund Barndom Heatmap";
 const description = "Interaktivt heatmap over løfter i Skærmsund Barndom.";
+
+const municipalityMap = await getMunicipalityMap(Astro);
+const municipalityCollection = await getMunicipalityCollection(Astro);
+const regionCollection = await getRegionCollection(Astro);
+const schoolCollection = await getSchoolCollection(Astro);
 ---
 
 <!doctype html>
@@ -49,12 +54,10 @@ const description = "Interaktivt heatmap over løfter i Skærmsund Barndom.";
 		>
 			<article>
 				<App
-					municipalitiesMap={import.meta.env.DEV ?
-						JSON.parse(municipalitiesMapRaw)
-					:	await getMunicipalityMap()}
-					schools={import.meta.env.DEV ?
-						JSON.parse(schoolsRaw)
-					:	await schools()}
+					municipalitiesMap={await municipalityMap.json()}
+					schoolCollection={await schoolCollection.json()}
+					municipalityCollection={await municipalityCollection.json()}
+					regionCollection={await regionCollection.json()}
 					client:load
 				/>
 			</article>

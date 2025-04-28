@@ -6,15 +6,19 @@ import { createEffect } from "solid-js";
 
 interface Props {
 	municipalitiesMap?: typeof store.municipalitiesMap;
-	schools?: typeof store.schools;
+	schoolCollection?: typeof store.schoolCollection;
+	municipalityCollection?: typeof store.municipalityCollection;
+	regionCollection?: typeof store.regionCollection;
 }
 
 export const App: ParentComponent<Props> = (props) => {
 	createEffect(() => {
 		setStore({
 			municipalitiesMap: props.municipalitiesMap,
-			schools: props.schools,
-			filter: props.schools?.features.reduce<number[]>((filter, f) => {
+			schoolCollection: props.schoolCollection,
+			municipalityCollection: props.municipalityCollection,
+			regionCollection: props.regionCollection,
+			filter: props.schoolCollection?.features.reduce<number[]>((filter, f) => {
 				if (filter.includes(f.properties.r_id)) {
 					return filter;
 				}

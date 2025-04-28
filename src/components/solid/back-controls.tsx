@@ -34,23 +34,25 @@ export const BackControls: VoidComponent<Props> = (props) => {
 	});
 
 	const handleClick = (level: (typeof LEVELS)[number]) => {
-		setStore("levelId", level.id);
-		setStore("hoverId", undefined);
+		setStore({
+			levelId: level.id,
+			hoverId: undefined,
+			filter: [],
+		});
 	};
 
 	return (
 		<Control map={props.map} control={control()} position="top-left">
 			<div
 				ref={element}
-				class="zoom-control *:bg-primary *:text-text pointer-events-auto m-1.5 flex gap-1 *:cursor-pointer *:rounded-full"
+				class="zoom-control text-text pointer-events-auto m-1.5 flex gap-1"
 			>
 				<For each={LEVELS}>
 					{(level) => (
 						<button
 							type="button"
-							class="flex items-center gap-1 px-2 py-1 transition-opacity duration-300 ease-[cubic-bezier(.3,.2,0,1)] data-[active=false]:opacity-50 data-[active=true]:opacity-100"
+							class="bg-primary flex items-center gap-1 rounded-full px-3 py-1 transition-opacity duration-300 ease-[cubic-bezier(.3,.2,0,1)] data-[active=false]:cursor-pointer data-[active=false]:opacity-50 data-[active=true]:opacity-100"
 							data-active={store.levelId === level.id}
-							data-id={level.id}
 							onClick={() => handleClick(level)}
 						>
 							{level.name}

@@ -15,16 +15,16 @@ export const Ui: VoidComponent = () => {
 					{
 						id: 0,
 						filter:
-							store.regionsCollection()?.features.map((f) => f.properties.id)
+							store.regionCollection?.features.map((f) => f.properties.id)
 							?? [],
 						name: "Alle regioner",
 						subs:
-							store
-								.regionsCollection()
-								?.features.reduce((acc, f) => acc + f.properties.subs, 0) ?? 0,
+							store.regionCollection?.features.reduce(
+								(acc, f) => acc + f.properties.subs,
+								0,
+							) ?? 0,
 					},
-					...(store.regionsCollection()?.features.map((f) => f.properties)
-						?? []),
+					...(store.regionCollection?.features.map((f) => f.properties) ?? []),
 				]}
 				placeholder="Vælg region"
 				open={regionsOpen()}
@@ -36,18 +36,17 @@ export const Ui: VoidComponent = () => {
 					{
 						id: 0,
 						filter:
-							store
-								.municipalitiesCollection()
-								?.features.map((f) => f.properties.id) ?? [],
+							store.municipalityCollection?.features.map((f) => f.properties.id)
+							?? [],
 						name: "Alle kommuner",
 						subs:
-							store
-								.municipalitiesCollection()
-								?.features.reduce((acc, f) => acc + f.properties.subs, 0) ?? 0,
+							store.municipalityCollection?.features.reduce(
+								(acc, f) => acc + f.properties.subs,
+								0,
+							) ?? 0,
 					},
-					...(store
-						.municipalitiesCollection()
-						?.features.map((f) => f.properties) ?? []),
+					...(store.municipalityCollection?.features.map((f) => f.properties)
+						?? []),
 				]}
 				placeholder="Vælg kommune"
 				open={municipalitiesOpen()}
@@ -59,16 +58,16 @@ export const Ui: VoidComponent = () => {
 					{
 						id: 0,
 						filter:
-							store.schoolsCollection()?.features.map((f) => f.properties.id)
+							store.schoolCollection?.features.map((f) => f.properties.id)
 							?? [],
 						name: "Alle skoler",
 						subs:
-							store
-								.schoolsCollection()
-								?.features.reduce((acc, f) => acc + f.properties.subs, 0) ?? 0,
+							store.schoolCollection?.features.reduce(
+								(acc, f) => acc + f.properties.subs,
+								0,
+							) ?? 0,
 					},
-					...(store.schoolsCollection()?.features.map((f) => f.properties)
-						?? []),
+					...(store.schoolCollection?.features.map((f) => f.properties) ?? []),
 				]}
 				placeholder="Vælg skole"
 				open={schoolsOpen()}

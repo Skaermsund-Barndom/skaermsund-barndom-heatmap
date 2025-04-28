@@ -44,7 +44,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	const [activeFeatureId, setActiveFeatureId] = createSignal<number | string>();
 
 	const filter = createMemo<FilterSpecification>(() => {
-		return ["==", ["string", props.levelId], ["string", store.levelId]];
+		return ["in", ["string", props.levelId], ["string", store.levelId]];
 	});
 
 	// Marker store
@@ -127,7 +127,12 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	const click = (event: MapLayerMouseEvent) => {
 		const feature = event.features?.[0];
 		if (feature?.geometry.type !== "Point") return;
-		props.click([feature.properties?.id]);
+
+		const ids = store.schoolCollection?.features.reduce((acc, feature) => {
+			if (feature.properties?.id) acc.push(feature.properties.id);
+			return acc;
+		}, [] as number[]);
+		props.click(ids);
 	};
 
 	return (
