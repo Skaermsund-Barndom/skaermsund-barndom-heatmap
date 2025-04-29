@@ -55,3 +55,5 @@ export const municipalityMapCollection = async () => {
 
 	return json;
 };
+
+export const municipalityMapCollectionPromise = municipalityMapCollection();
