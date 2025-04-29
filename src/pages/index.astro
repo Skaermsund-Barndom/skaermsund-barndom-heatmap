@@ -24,11 +24,8 @@ const [
 	(await getSchoolCollection(Astro)).json(),
 ]);
 
-console.log("municipalityMap", municipalityMap);
-
 const bounds = bbox(municipalityMap);
 const initialBounds = bounds.length === 4 ? bounds : undefined;
-console.log("initialBounds", initialBounds);
 ---
 
 <!doctype html>
