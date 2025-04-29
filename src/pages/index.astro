@@ -1,5 +1,5 @@
 ---
-import { App } from "@/components/solid/app";
+import { App, type AppProps } from "@/components/solid/app";
 import { GET as getMunicipalityCollection } from "@/pages/api/municipality-collection.json";
 import { GET as getMunicipalityMap } from "@/pages/api/municipality-map.json";
 import { GET as getRegionCollection } from "@/pages/api/region-collection.json";
@@ -7,25 +7,34 @@ import { GET as getSchoolCollection } from "@/pages/api/school-collection.json";
 import "@/styles/global.css";
 import { bbox } from "@turf/turf";
 import { SEO } from "astro-seo";
-import "maplibre-gl/dist/maplibre-gl.css";
 
 const title = "Skærmsund Barndom Heatmap";
 const description = "Interaktivt heatmap over løfter i Skærmsund Barndom.";
 
+// Fetch the data from the file endpoints
 const [
+	schoolCollection,
+	municipalityCollection,
+	regionCollection,
+	municipalityMap,
+] = await Promise.all([
+	(await getSchoolCollection(Astro)).json(),
+	(await getMunicipalityCollection(Astro)).json(),
+	(await getRegionCollection(Astro)).json(),
+	(await getMunicipalityMap(Astro)).json(),
+]);
+
+// Calculate the initial bounds of the map
+const bounds = bbox(municipalityMap);
+const initialBounds = bounds.length === 4 ? bounds : undefined;
+
+const props = {
 	municipalityMap,
 	municipalityCollection,
 	regionCollection,
 	schoolCollection,
-] = await Promise.all([
-	(await getMunicipalityMap(Astro)).json(),
-	(await getMunicipalityCollection(Astro)).json(),
-	(await getRegionCollection(Astro)).json(),
-	(await getSchoolCollection(Astro)).json(),
-]);
-
-const bounds = bbox(municipalityMap);
-const initialBounds = bounds.length === 4 ? bounds : undefined;
+	initialBounds,
+} satisfies AppProps;
 ---
 
 <!doctype html>
@@ -64,14 +73,7 @@ const initialBounds = bounds.length === 4 ? bounds : undefined;
 			spellcheck={false}
 		>
 			<article>
-				<App
-					municipalitiesMap={municipalityMap}
-					schoolCollection={schoolCollection}
-					municipalityCollection={municipalityCollection}
-					regionCollection={regionCollection}
-					initialBounds={initialBounds}
-					client:load
-				/>
+				<App {...props} client:load />
 			</article>
 		</main>
 	</body>

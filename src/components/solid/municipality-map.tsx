@@ -25,9 +25,9 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 	createEffect(() => {
 		if (store.levelId === LEVELS[0].id) {
-			if (!store.municipalitiesMap) return;
+			if (!store.municipalityMap) return;
 
-			const bounds = bbox(store.municipalitiesMap);
+			const bounds = bbox(store.municipalityMap);
 			if (bounds.length !== 4) return;
 
 			props.map.fitBounds(bounds, {
@@ -36,7 +36,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
-			for (const feature of store.municipalitiesMap.features) {
+			for (const feature of store.municipalityMap.features) {
 				props.map.setFeatureState(
 					{
 						id: feature.properties.kommunekod,
@@ -50,10 +50,10 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 		}
 
 		if (store.levelId === LEVELS[1].id) {
-			if (!store.municipalitiesMap?.features) return;
+			if (!store.municipalityMap?.features) return;
 			const activeMunicipalitySet = new Set(store.filter);
-			const activeMunicipalities = store.municipalitiesMap.features.filter(
-				(f) => activeMunicipalitySet.has(Number(f.properties.kommunekod)),
+			const activeMunicipalities = store.municipalityMap.features.filter((f) =>
+				activeMunicipalitySet.has(Number(f.properties.kommunekod)),
 			);
 
 			if (!activeMunicipalities?.length) return;
@@ -67,7 +67,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
-			for (const feature of store.municipalitiesMap.features) {
+			for (const feature of store.municipalityMap.features) {
 				props.map.setFeatureState(
 					{
 						id: feature.properties.kommunekod,
@@ -85,10 +85,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 		}
 
 		if (store.levelId === LEVELS[2].id) {
-			if (
-				!store.municipalitiesMap?.features
-				|| !store.schoolCollection?.features
-			)
+			if (!store.municipalityMap?.features || !store.schoolCollection?.features)
 				return;
 
 			// Pre-compute the set of municipality IDs for the active schools
@@ -99,7 +96,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			);
 
 			// Filter municipalities based on the pre-computed set
-			const activeMunicipalities = store.municipalitiesMap.features.filter(
+			const activeMunicipalities = store.municipalityMap.features.filter(
 				(municipality) =>
 					activeSchoolMunicipalityIds.has(
 						Number(municipality.properties.kommunekod),
@@ -117,7 +114,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
-			for (const feature of store.municipalitiesMap.features) {
+			for (const feature of store.municipalityMap.features) {
 				props.map.setFeatureState(
 					{
 						id: feature.properties.kommunekod,
@@ -140,7 +137,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 		<GeoJSONSource
 			id={MUNICIPALITY_MAP_SOURCE}
 			map={props.map}
-			source={geojsonSource(store.municipalitiesMap, "kommunekod")}
+			source={geojsonSource(store.municipalityMap, "kommunekod")}
 		>
 			{/* Municipality map layer */}
 			<Layer

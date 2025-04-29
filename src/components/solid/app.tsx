@@ -1,32 +1,26 @@
 import { Heatmap } from "@/components/solid/heatmap";
 import { Ui } from "@/components/solid/ui";
-import { setStore, type store } from "@/scripts/store";
+import { setStore, store } from "@/scripts/store";
 import type { ParentComponent } from "solid-js";
 import { createEffect } from "solid-js";
 
-interface Props {
-	municipalitiesMap?: typeof store.municipalitiesMap;
+export interface AppProps {
+	municipalityMap?: typeof store.municipalityMap;
 	schoolCollection?: typeof store.schoolCollection;
 	municipalityCollection?: typeof store.municipalityCollection;
 	regionCollection?: typeof store.regionCollection;
 	initialBounds?: [number, number, number, number];
 }
 
-export const App: ParentComponent<Props> = (props) => {
+export const App: ParentComponent<AppProps> = (props) => {
 	createEffect(() => {
 		setStore({
-			municipalitiesMap: props.municipalitiesMap,
+			municipalityMap: props.municipalityMap,
 			schoolCollection: props.schoolCollection,
 			municipalityCollection: props.municipalityCollection,
 			regionCollection: props.regionCollection,
 			initialBounds: props.initialBounds,
-			filter: props.schoolCollection?.features.reduce<number[]>((filter, f) => {
-				if (filter.includes(f.properties.r_id)) {
-					return filter;
-				}
-				filter.push(f.properties.r_id);
-				return filter;
-			}, []),
+			filter: store.allRegions(),
 		});
 	});
 

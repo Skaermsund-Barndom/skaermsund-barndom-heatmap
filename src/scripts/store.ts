@@ -20,7 +20,7 @@ export const [store, setStore] = createStore({
 		ReturnType<typeof municipalityCollection>
 	>,
 
-	municipalitiesMap: undefined as
+	municipalityMap: undefined as
 		| FeatureCollection<Polygon | MultiPolygon, MunicipalityMapProperties>
 		| undefined,
 
