@@ -4,13 +4,12 @@ import type {
 	schoolCollection,
 } from "@/scripts/collections";
 import { LEVELS } from "@/scripts/const";
-import type { initialBounds } from "@/scripts/initial-bounds";
 import type { MunicipalityMapProperties } from "@/scripts/types";
 import type { FeatureCollection, MultiPolygon, Polygon } from "geojson";
 import { createStore } from "solid-js/store";
 
 export const [store, setStore] = createStore({
-	initialBounds: undefined as Awaited<ReturnType<typeof initialBounds>>,
+	initialBounds: undefined as [number, number, number, number] | undefined,
 	filter: [] as number[],
 	levelId: LEVELS[0].id as (typeof LEVELS)[number]["id"],
 	hoverId: undefined as number | undefined,
@@ -30,7 +29,6 @@ export const [store, setStore] = createStore({
 			(acc, f) => acc + f.properties.subs,
 			0,
 		) ?? 0,
-
 	allRegions: () =>
 		Array.from(
 			store.schoolCollection?.features.reduce<Set<number>>(
