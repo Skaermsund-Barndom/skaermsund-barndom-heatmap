@@ -43,13 +43,11 @@ Use the iframe in custom code like so:
 
 ## Development
 
-1. Clone repo.
-2. Make sure you have Bun installed.
-
-### Install dependencies
+Clone repo and make sure you have Bun installed then
 
 ```sh
 bun install
+bun run dev
 ```
 
 ## Commands
