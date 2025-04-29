@@ -27,7 +27,7 @@ export const Heatmap: VoidComponent = () => {
 		if (store.initialBounds?.length === 4) {
 			map()?.fitBounds(store.initialBounds, {
 				duration: 0,
-				padding: remToPx(1),
+				padding: remToPx(2),
 			});
 		}
 
