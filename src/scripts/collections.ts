@@ -8,7 +8,7 @@ import { centerMedian, featureCollection, multiPoint, point } from "@turf/turf";
 import Airtable from "airtable";
 import type { Feature, FeatureCollection, MultiPoint, Point } from "geojson";
 
-const SUBMISSIONS = "skole-class-fn Rollup (from Submissions 2)";
+const SUBMISSION_IDS = "Submissions 2";
 const REGION_NAME = "BEL_REGION_TEKST";
 const REGION_ID = "BEL_REGION";
 const MUNICIPALITY_NAME = "KOMMUNE";
@@ -32,6 +32,46 @@ export const getSchools = async () => {
 		[],
 	);
 
+	const submissions: Record<string, number> = {};
+	const { error: submissionsError } = await tryCatch(
+		new Promise<boolean>((resolve, reject) => {
+			base("Submissions")
+				.select({
+					fields: ["Record ID", "Startyear_static"],
+				})
+				.eachPage(
+					(records, processNextPage) => {
+						for (const record of records) {
+							const submissionId = record.get("Record ID");
+							const startYear = Number(record.get("Startyear_static"));
+
+							if (typeof submissionId !== "string" || Number.isNaN(startYear)) {
+								continue;
+							}
+
+							submissions[submissionId] = startYear;
+						}
+
+						processNextPage();
+					},
+					(error) => {
+						if (error) {
+							console.error(error);
+							reject(error);
+							return;
+						}
+
+						resolve(true);
+					},
+				);
+		}),
+	);
+
+	if (submissionsError) {
+		console.error("Error fetching submissions:", submissionsError);
+		return schools;
+	}
+
 	const { error } = await tryCatch(
 		new Promise<boolean>((resolve, reject) => {
 			// If the request takes longer than a minute, reject the promise
@@ -47,11 +87,33 @@ export const getSchools = async () => {
 					// This function (`page`) will get called for each page of records.
 					(records, processNextPage) => {
 						for (const record of records) {
-							const submissions = Number(record.get(SUBMISSIONS));
-
-							if (Number.isNaN(submissions) || submissions === 0) {
+							const submissionIds = record.get(SUBMISSION_IDS);
+							if (
+								!Array.isArray(submissionIds)
+								|| !submissionIds.every((item) => typeof item === "string")
+								|| !submissionIds.length
+							) {
 								continue;
 							}
+
+							const grades = submissionIds
+								.map((id) => {
+									const startYear = submissions[id];
+									if (!startYear || Number.isNaN(startYear)) return undefined;
+
+									const grade = new Date().getFullYear() - startYear;
+									if (grade < 0 || grade > 9) return undefined;
+									return `${grade}. klasse`;
+								})
+								.filter((grade) => typeof grade === "string")
+								.reduce<Record<string, number>>((grades, grade) => {
+									if (grades[grade]) {
+										grades[grade] = grades[grade] + 1;
+									} else {
+										grades[grade] = 1;
+									}
+									return grades;
+								}, {});
 
 							const lng = fixGeo(Number(record.get(LONGITUDE)), [
 								MIN_LNG,
@@ -88,11 +150,12 @@ export const getSchools = async () => {
 								id: schoolId,
 								filter: [],
 								name: schoolName,
+								subs: submissionIds.length,
+								grades,
 								m_name: municipalityName,
 								m_id: municipalityId,
 								r_name: regionName,
 								r_id: regionId,
-								subs: submissions,
 							});
 
 							schools.features.push(feature);

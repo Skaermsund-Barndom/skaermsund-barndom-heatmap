@@ -18,6 +18,7 @@ export interface Item {
 }
 
 export interface SchoolProperties extends Item {
+	grades: Record<string, number>;
 	m_name: string;
 	m_id: number;
 	r_name: string;

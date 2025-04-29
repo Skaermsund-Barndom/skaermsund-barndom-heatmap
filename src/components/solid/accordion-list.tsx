@@ -40,8 +40,6 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		if (open) {
 			input.focus();
 			input.value = "";
-		} else {
-			input.blur();
 		}
 
 		setSearch("");
@@ -85,6 +83,11 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		}
 	};
 
+	const handleFocus = () => {
+		if (props.isOpen) return;
+		props.onClickAccordion();
+	};
+
 	const handleSetActiveItem = (item: Item) => {
 		if (!props.onClickItem) return;
 		if (!parentRef) return;
@@ -119,7 +122,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 					type="text"
 					placeholder={props.placeholder}
 					onInput={handleInput}
-					onFocus={props.onClickAccordion}
+					onFocus={handleFocus}
 					onKeyDown={handleKeyDown}
 					class="pe-2 focus:outline-none"
 					tabIndex={props.disabled ? -1 : 0}

@@ -12,8 +12,9 @@ import {
 } from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
-import type { Item, MapProps } from "@/scripts/types";
+import type { MapProps } from "@/scripts/types";
 import {
+	type DataDrivenPropertyValueSpecification,
 	type FilterSpecification,
 	LngLat,
 	type MapLayerMouseEvent,
@@ -52,6 +53,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		lngLat: undefined,
 		offset: 0,
 		name: "",
+		grades: {},
 	});
 
 	// Get the minimum and maximum submissions for the features
@@ -61,6 +63,20 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	const maxSubmissions = createMemo(() =>
 		Math.max(1, ...props.source.data.features.map((f) => f.properties?.subs)),
 	);
+
+	// Size
+	const size = (
+		min: number,
+		max: number,
+	): DataDrivenPropertyValueSpecification<number> => [
+		"interpolate",
+		["linear"],
+		["get", "subs"],
+		minSubmissions(),
+		min,
+		maxSubmissions(),
+		max,
+	];
 
 	// When the mouse moves over a feature, set the active feature id
 	const mousemove = (event: MapLayerMouseEvent) => {
@@ -80,7 +96,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		const hoverId = store.hoverId;
 		if (!props.map.getSource(props.sourceId)) return;
 
-		setMarker({ lngLat: undefined, offset: 0, name: "" });
+		setMarker({ lngLat: undefined, offset: 0, name: "", grades: {} });
 
 		for (const feature of props.source.data.features) {
 			if (!feature.properties?.id) continue;
@@ -104,7 +120,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				:	[0, 0];
 			if (!lng || !lat) return;
 
-			const { name, subs } = feature.properties as Item;
+			const { name, subs, grades } = feature.properties;
 			const lngLat = new LngLat(lng, lat);
 			const offset = interpolate(
 				subs,
@@ -114,7 +130,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				props.size.circleMax,
 			);
 
-			setMarker({ lngLat, offset, name });
+			setMarker({ lngLat, offset, name, grades });
 		}
 	});
 
@@ -142,6 +158,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				lngLat={marker.lngLat}
 				offset={marker.offset}
 				name={marker.name}
+				grades={marker.grades}
 			/>
 
 			{/* Source */}
@@ -162,15 +179,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 						filter: filter(),
 						paint: {
 							"circle-color": COLORS["--color-primary"],
-							"circle-radius": [
-								"interpolate",
-								["linear"],
-								["get", "subs"],
-								minSubmissions(),
-								props.size.circleMin,
-								maxSubmissions(),
-								props.size.circleMax,
-							],
+							"circle-radius": size(props.size.circleMin, props.size.circleMax),
 						},
 					}}
 				/>
@@ -188,15 +197,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 							"text-field": ["get", "subs"],
 							"text-font": FONT_STACK,
 							"text-overlap": "always",
-							"text-size": [
-								"interpolate",
-								["linear"],
-								["get", "subs"],
-								minSubmissions(),
-								props.size.textMin,
-								maxSubmissions(),
-								props.size.textMax,
-							],
+							"text-size": size(props.size.textMin, props.size.textMax),
 						},
 						paint: {
 							"text-color": COLORS["--color-container"],
@@ -221,15 +222,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 								0,
 							],
 							"circle-color": COLORS["--color-primary-80"],
-							"circle-radius": [
-								"interpolate",
-								["linear"],
-								["get", "subs"],
-								minSubmissions(),
-								props.size.circleMin,
-								maxSubmissions(),
-								props.size.circleMax,
-							],
+							"circle-radius": size(props.size.circleMin, props.size.circleMax),
 						},
 					}}
 				/>
@@ -247,15 +240,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 							"text-field": ["get", "subs"],
 							"text-font": FONT_STACK,
 							"text-overlap": "always",
-							"text-size": [
-								"interpolate",
-								["linear"],
-								["get", "subs"],
-								minSubmissions(),
-								props.size.textMin,
-								maxSubmissions(),
-								props.size.textMax,
-							],
+							"text-size": size(props.size.textMin, props.size.textMax),
 						},
 						paint: {
 							"text-opacity": [

@@ -32,7 +32,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 			props.map.fitBounds(bounds, {
 				duration: 1000,
-				padding: remToPx(1),
+				padding: remToPx(2),
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
@@ -113,7 +113,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 			props.map.fitBounds(bounds, {
 				duration: 1000,
-				padding: remToPx(4),
+				padding: remToPx(2),
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
