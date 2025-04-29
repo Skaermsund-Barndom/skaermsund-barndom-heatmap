@@ -9,7 +9,7 @@ interface Props {
 	schoolCollection?: typeof store.schoolCollection;
 	municipalityCollection?: typeof store.municipalityCollection;
 	regionCollection?: typeof store.regionCollection;
-	initialBounds?: typeof store.initialBounds;
+	initialBounds?: [number, number, number, number];
 }
 
 export const App: ParentComponent<Props> = (props) => {

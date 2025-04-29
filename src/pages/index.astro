@@ -1,22 +1,28 @@
 ---
 import { App } from "@/components/solid/app";
-import { GET as getInitialBounds } from "@/pages/api/initial-bounds.json";
 import { GET as getMunicipalityCollection } from "@/pages/api/municipality-collection.json";
 import { GET as getMunicipalityMap } from "@/pages/api/municipality-map.json";
 import { GET as getRegionCollection } from "@/pages/api/region-collection.json";
 import { GET as getSchoolCollection } from "@/pages/api/school-collection.json";
 import "@/styles/global.css";
+import { bbox } from "@turf/turf";
 import { SEO } from "astro-seo";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 const title = "Skærmsund Barndom Heatmap";
 const description = "Interaktivt heatmap over løfter i Skærmsund Barndom.";
 
-const municipalityMap = await getMunicipalityMap(Astro);
-const municipalityCollection = await getMunicipalityCollection(Astro);
-const regionCollection = await getRegionCollection(Astro);
-const schoolCollection = await getSchoolCollection(Astro);
-const initialBounds = await getInitialBounds(Astro);
+const [
+	municipalityMap,
+	municipalityCollection,
+	regionCollection,
+	schoolCollection,
+] = await Promise.all([
+	(await getMunicipalityMap(Astro)).json(),
+	(await getMunicipalityCollection(Astro)).json(),
+	(await getRegionCollection(Astro)).json(),
+	(await getSchoolCollection(Astro)).json(),
+]);
 ---
 
 <!doctype html>
@@ -56,11 +62,16 @@ const initialBounds = await getInitialBounds(Astro);
 		>
 			<article>
 				<App
-					municipalitiesMap={await municipalityMap.json()}
-					schoolCollection={await schoolCollection.json()}
-					municipalityCollection={await municipalityCollection.json()}
-					regionCollection={await regionCollection.json()}
-					initialBounds={await initialBounds.json()}
+					municipalitiesMap={municipalityMap}
+					schoolCollection={schoolCollection}
+					municipalityCollection={municipalityCollection}
+					regionCollection={regionCollection}
+					initialBounds={bbox(municipalityMap) as [
+						number,
+						number,
+						number,
+						number,
+					]}
 					client:load
 				/>
 			</article>
