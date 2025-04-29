@@ -16,26 +16,26 @@ interface Props extends MapProps {}
 export const LayerOrder: VoidComponent<Props> = (props) => {
 	return (
 		<>
-			<Background map={props.map} />
-			<MunicipalityMap map={props.map} />
-			<HeatmapLayers map={props.map} />
+			<Background {...props} />
+			<MunicipalityMap {...props} />
+			<HeatmapLayers {...props} />
 
 			<EmptyLayer
+				{...props}
 				id={BOTTOM_LAYER}
 				beforeId={BG_MUNICIPALITIES_LAYER}
-				map={props.map}
 			/>
 			<EmptyLayer
+				{...props}
 				id={BG_MUNICIPALITIES_LAYER}
 				beforeId={BG_HEATMAP_LEVELS_LAYER}
-				map={props.map}
 			/>
 			<EmptyLayer
+				{...props}
 				id={BG_HEATMAP_LEVELS_LAYER}
 				beforeId={TOP_LAYER}
-				map={props.map}
 			/>
-			<EmptyLayer id={TOP_LAYER} map={props.map} />
+			<EmptyLayer {...props} id={TOP_LAYER} />
 		</>
 	);
 };
@@ -48,7 +48,7 @@ interface EmptyLayerProps extends MapProps {
 function EmptyLayer(props: EmptyLayerProps) {
 	return (
 		<Layer
-			map={props.map}
+			{...props}
 			layer={{
 				id: props.id,
 				type: "background",

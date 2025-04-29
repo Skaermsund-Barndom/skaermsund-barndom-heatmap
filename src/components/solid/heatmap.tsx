@@ -1,8 +1,6 @@
-import { AttributionControl } from "@/components/maplibre/attribution-control";
 import { MapGL } from "@/components/maplibre/map-gl";
-import { BackControls } from "@/components/solid/back-controls";
-import { LayerOrder } from "@/components/solid/layer-order";
-import { ZoomControls } from "@/components/solid/zoom-controls";
+import type { AppProps } from "@/components/solid/app";
+import { LoadedMap } from "@/components/solid/loaded-map";
 import { INITIAL_ZOOM } from "@/scripts/const";
 import { remToPx } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
@@ -15,7 +13,9 @@ import {
 	onCleanup,
 } from "solid-js";
 
-export const Heatmap: VoidComponent = () => {
+interface Props extends AppProps {}
+
+export const Heatmap: VoidComponent<Props> = (props) => {
 	const [map, setMap] = createSignal<MapGLType>();
 
 	createEffect(() => {
@@ -72,21 +72,7 @@ export const Heatmap: VoidComponent = () => {
 				}}
 			>
 				<Show when={map()}>
-					{(map) => (
-						<>
-							<LayerOrder map={map()} />
-							<AttributionControl
-								options={{
-									customAttribution: `<a href="https://maplibre.org/" target="_blank" rel="noopener noreferrer" class="bg-primary-80/50 rounded-full px-2 py-1 m-1.5 text-container flex">© MapLibre</a>`,
-									compact: false,
-								}}
-								position="bottom-left"
-								map={map()}
-							/>
-							<ZoomControls map={map()} />
-							<BackControls map={map()} />
-						</>
-					)}
+					{(map) => <LoadedMap {...props} map={map()} />}
 				</Show>
 			</MapGL>
 		</div>

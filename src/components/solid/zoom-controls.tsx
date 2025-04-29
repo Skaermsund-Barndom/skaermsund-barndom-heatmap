@@ -44,7 +44,7 @@ export const ZoomControls: VoidComponent<Props> = (props) => {
 	};
 
 	return (
-		<Control map={props.map} control={control()} position="bottom-right">
+		<Control {...props} control={control()} position="bottom-right">
 			<div
 				ref={element}
 				class="zoom-control *:bg-primary *:text-text pointer-events-auto m-1.5 flex gap-1 *:cursor-pointer *:rounded-full"

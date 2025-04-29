@@ -1,3 +1,4 @@
+import type { AppProps } from "@/components/solid/app";
 import { setStore, store } from "@/scripts/store";
 import type { Item } from "@/scripts/types";
 import {
@@ -8,7 +9,7 @@ import {
 	createSignal,
 } from "solid-js";
 
-interface Props {
+interface Props extends AppProps {
 	placeholder: string;
 	items: Item[];
 	disabled?: boolean;
@@ -20,7 +21,7 @@ interface Props {
 export const AccordionList: VoidComponent<Props> = (props) => {
 	let parentRef: HTMLDivElement | undefined;
 
-	const [search, setSearch] = createSignal(props.items[0]?.name ?? "");
+	const [search, setSearch] = createSignal("");
 
 	const filteredItems = createMemo(() => {
 		return props.isOpen ?

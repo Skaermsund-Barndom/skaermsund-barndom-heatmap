@@ -1,4 +1,5 @@
 import municipalitiesRaw from "@/data/kommune-granser-geojson.json";
+import type { MunicipalityMapProperties } from "@/scripts/types";
 import type { FeatureCollection, MultiPolygon, Polygon } from "geojson";
 import { spawn } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -51,7 +52,10 @@ export const municipalityMapCollection = async () => {
 
 	// Read and parse the output file
 	const output = await readFile(outputPath, "utf-8");
-	const json = JSON.parse(output) as FeatureCollection<Polygon | MultiPolygon>;
+	const json = JSON.parse(output) as FeatureCollection<
+		Polygon | MultiPolygon,
+		MunicipalityMapProperties
+	>;
 
 	return json;
 };

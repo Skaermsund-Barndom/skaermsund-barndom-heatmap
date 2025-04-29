@@ -17,7 +17,7 @@ interface Props extends MapProps {}
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
 	const totalMunicipalitiesLength = createMemo(
 		() =>
-			store.schoolCollection?.features.reduce(
+			props.schoolCollection?.features.reduce(
 				(set, f) => set.add(Number(f.properties.m_id)),
 				new Set<number>(),
 			)?.size,
@@ -25,9 +25,9 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 	createEffect(() => {
 		if (store.levelId === LEVELS[0].id) {
-			if (!store.municipalityMap) return;
+			if (!props.municipalityMap) return;
 
-			const bounds = bbox(store.municipalityMap);
+			const bounds = bbox(props.municipalityMap);
 			if (bounds.length !== 4) return;
 
 			props.map.fitBounds(bounds, {
@@ -36,7 +36,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
-			for (const feature of store.municipalityMap.features) {
+			for (const feature of props.municipalityMap.features) {
 				props.map.setFeatureState(
 					{
 						id: feature.properties.kommunekod,
@@ -50,9 +50,9 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 		}
 
 		if (store.levelId === LEVELS[1].id) {
-			if (!store.municipalityMap?.features) return;
+			if (!props.municipalityMap?.features) return;
 			const activeMunicipalitySet = new Set(store.filter);
-			const activeMunicipalities = store.municipalityMap.features.filter((f) =>
+			const activeMunicipalities = props.municipalityMap.features.filter((f) =>
 				activeMunicipalitySet.has(Number(f.properties.kommunekod)),
 			);
 
@@ -67,7 +67,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
-			for (const feature of store.municipalityMap.features) {
+			for (const feature of props.municipalityMap.features) {
 				props.map.setFeatureState(
 					{
 						id: feature.properties.kommunekod,
@@ -85,18 +85,18 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 		}
 
 		if (store.levelId === LEVELS[2].id) {
-			if (!store.municipalityMap?.features || !store.schoolCollection?.features)
+			if (!props.municipalityMap?.features || !props.schoolCollection?.features)
 				return;
 
 			// Pre-compute the set of municipality IDs for the active schools
 			const activeSchoolMunicipalityIds = new Set(
-				store.schoolCollection.features
+				props.schoolCollection.features
 					.filter((school) => store.filter.includes(school.properties.id))
 					.map((school) => Number(school.properties.m_id)),
 			);
 
 			// Filter municipalities based on the pre-computed set
-			const activeMunicipalities = store.municipalityMap.features.filter(
+			const activeMunicipalities = props.municipalityMap.features.filter(
 				(municipality) =>
 					activeSchoolMunicipalityIds.has(
 						Number(municipality.properties.kommunekod),
@@ -114,7 +114,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
-			for (const feature of store.municipalityMap.features) {
+			for (const feature of props.municipalityMap.features) {
 				props.map.setFeatureState(
 					{
 						id: feature.properties.kommunekod,
@@ -135,14 +135,14 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 	return (
 		<GeoJSONSource
+			{...props}
 			id={MUNICIPALITY_MAP_SOURCE}
-			map={props.map}
-			source={geojsonSource(store.municipalityMap, "kommunekod")}
+			source={geojsonSource(props.municipalityMap, "kommunekod")}
 		>
 			{/* Municipality map layer */}
 			<Layer
+				{...props}
 				beforeId={BG_MUNICIPALITIES_LAYER}
-				map={props.map}
 				layer={{
 					id: MUNICIPALITY_MAP_FILL,
 					type: "fill",
@@ -160,8 +160,8 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 			{/* Border layer */}
 			<Layer
+				{...props}
 				beforeId={BG_MUNICIPALITIES_LAYER}
-				map={props.map}
 				layer={{
 					id: MUNICIPALITY_MAP_BORDER,
 					type: "line",

@@ -1,7 +1,8 @@
+import type { AppProps } from "@/components/solid/app";
 import type { FeatureCollection, Point } from "geojson";
 import type { Map as MaplibreMap } from "maplibre-gl";
 
-export interface MapProps {
+export interface MapProps extends AppProps {
 	map: MaplibreMap;
 	beforeId?: string;
 }

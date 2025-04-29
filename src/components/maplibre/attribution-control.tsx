@@ -15,7 +15,7 @@ interface Props extends MapProps {
 export const AttributionControl: VoidComponent<Props> = (props) => {
 	return (
 		<Control
-			map={props.map}
+			{...props}
 			control={new MaplibreAttributionControl(props.options)}
 			position={props.position}
 		/>

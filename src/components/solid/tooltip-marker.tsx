@@ -21,7 +21,7 @@ export const TooltipMarker: VoidComponent<Props> = (props) => {
 	);
 
 	return (
-		<Marker map={props.map} lngLat={props.lngLat} class="pointer-events-none">
+		<Marker {...props} lngLat={props.lngLat} class="pointer-events-none">
 			<div
 				class="bg-primary-80 text-container relative max-w-64 rounded-xl px-3 py-2 text-sm"
 				style={{

@@ -154,7 +154,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		<>
 			{/* Tooltip marker with name */}
 			<TooltipMarker
-				map={props.map}
+				{...props}
 				lngLat={marker.lngLat}
 				offset={marker.offset}
 				name={marker.name}
@@ -165,7 +165,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 			<GeoJSONSource id={props.sourceId} map={props.map} source={props.source}>
 				{/* Circle layer */}
 				<Layer
-					map={props.map}
+					{...props}
 					beforeId={`${props.sourceId}-text`}
 					events={{
 						mousemove,
@@ -186,7 +186,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 				{/* Text layer */}
 				<Layer
-					map={props.map}
+					{...props}
 					beforeId={`${props.sourceId}-circle-active`}
 					layer={{
 						id: `${props.sourceId}-text`,
@@ -207,7 +207,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 				{/* Active circle (renders on top) */}
 				<Layer
-					map={props.map}
+					{...props}
 					beforeId={`${props.sourceId}-text-active`}
 					layer={{
 						id: `${props.sourceId}-circle-active`,
@@ -229,7 +229,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 
 				{/* Active text (renders on top) */}
 				<Layer
-					map={props.map}
+					{...props}
 					beforeId={BG_HEATMAP_LEVELS_LAYER}
 					layer={{
 						id: `${props.sourceId}-text-active`,

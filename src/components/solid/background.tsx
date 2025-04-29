@@ -8,7 +8,7 @@ interface Props extends MapProps {}
 export const Background: VoidComponent<Props> = (props) => {
 	return (
 		<Layer
-			map={props.map}
+			{...props}
 			beforeId={BOTTOM_LAYER}
 			layer={{
 				id: BG_LAYER,
