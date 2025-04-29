@@ -35,11 +35,11 @@ Use the iframe in custom code like so:
 
 ## Deploy
 
-1. Deploy to this GitHub repo to Netlify.
-2. Use the standard settings for Astro as recommended by Netlify.
-3. Add a new build hook in "Site configuration" -> "Build & deploy" -> "Build hooks"
-4. Update the action secret with the build hook in the GitHub repo in "Settings" -> "Secrets and variables" -> "Actions" -> "Secrets" -> "Repository secrets" -> "NETLIFY_BUILD_HOOK_URL"
-5. Check the connection by running the "Trigger Netlify Build" action in the "Actions" tab in the GitHub repo to see if Netlify start the new build.
+1. Netlify: Deploy to this GitHub repo with the recommended settings for Astro.
+3. Netlify: Add a new build hook in "Site configuration" -> "Build & deploy" -> "Build hooks"
+4. Github: Update the action secret with the build hook in "Settings" -> "Secrets and variables" -> "Actions" -> "Secrets" -> "Repository secrets" -> "NETLIFY_BUILD_HOOK_URL"
+5. Github: Check the connection by running the "Trigger Netlify Build" action in the "Actions" tab in the GitHub repo to see if Netlify start the new build.
+6. Squarespace: Use the iframe code from above in a custom code block.
 
 ## Development
 
