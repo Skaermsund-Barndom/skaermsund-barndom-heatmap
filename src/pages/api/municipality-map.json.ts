@@ -1,12 +1,12 @@
-import { municipalityMapCollectionPromise } from "@/scripts/municipality-map";
+import { municipalityMapCollection } from "@/scripts/municipality-map";
 import { tryCatch } from "@/scripts/try-catch";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
-	const { error, data } = await tryCatch(municipalityMapCollectionPromise);
+	const { error, data } = await tryCatch(municipalityMapCollection);
 
 	if (error) {
-		return new Response(JSON.stringify({ error: "No schools found" }), {
+		return new Response(JSON.stringify({ error }), {
 			status: 500,
 		});
 	}

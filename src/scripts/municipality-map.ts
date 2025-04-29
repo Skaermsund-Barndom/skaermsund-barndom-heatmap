@@ -4,7 +4,7 @@ import { spawn } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-const municipalityMapCollection = async () => {
+export const municipalityMapCollection = async () => {
 	const DETAIL = "0.01";
 
 	// Create temp directory if it doesn't exist
@@ -18,9 +18,12 @@ const municipalityMapCollection = async () => {
 	// Write input GeoJSON to temp file
 	await writeFile(inputPath, JSON.stringify(municipalitiesRaw));
 
+	console.log("inputPath", inputPath);
+	console.log("outputPath", outputPath);
+
 	// Run mapshaper CLI command
 	await new Promise((resolve, reject) => {
-		const process = spawn("npx", [
+		const process = spawn("bunx", [
 			"mapshaper",
 			inputPath,
 
@@ -38,6 +41,8 @@ const municipalityMapCollection = async () => {
 			outputPath,
 		]);
 
+		console.log("process", process);
+
 		process.on("close", (code) => {
 			if (code === 0) {
 				resolve(code);
@@ -51,9 +56,10 @@ const municipalityMapCollection = async () => {
 
 	// Read and parse the output file
 	const output = await readFile(outputPath, "utf-8");
+	console.log("output", output);
+
 	const json = JSON.parse(output) as FeatureCollection<Polygon | MultiPolygon>;
+	console.log("json", json);
 
 	return json;
 };
-
-export const municipalityMapCollectionPromise = municipalityMapCollection();

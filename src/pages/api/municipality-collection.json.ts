@@ -6,7 +6,7 @@ export const GET: APIRoute = async () => {
 	const { error, data } = await tryCatch(municipalityCollection);
 
 	if (error) {
-		return new Response(JSON.stringify({ error: "No schools found" }), {
+		return new Response(JSON.stringify({ error }), {
 			status: 500,
 		});
 	}
