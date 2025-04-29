@@ -1,16 +1,17 @@
 import { regionCollection } from "@/scripts/collections";
+import { tryCatch } from "@/scripts/try-catch";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
-	const collection = await regionCollection();
+	const { error, data } = await tryCatch(regionCollection);
 
-	if (!collection) {
+	if (error) {
 		return new Response(JSON.stringify({ error: "No schools found" }), {
 			status: 500,
 		});
 	}
 
-	return new Response(JSON.stringify(collection), {
+	return new Response(JSON.stringify(data), {
 		headers: {
 			"Content-Type": "application/json",
 			"Cache-Control": "public, max-age=31536000", // Cache for 1 year since this is static

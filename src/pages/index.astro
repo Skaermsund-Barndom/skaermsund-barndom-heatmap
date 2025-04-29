@@ -1,5 +1,6 @@
 ---
 import { App } from "@/components/solid/app";
+import { GET as getInitialBounds } from "@/pages/api/initial-bounds.json";
 import { GET as getMunicipalityCollection } from "@/pages/api/municipality-collection.json";
 import { GET as getMunicipalityMap } from "@/pages/api/municipality-map.json";
 import { GET as getRegionCollection } from "@/pages/api/region-collection.json";
@@ -15,6 +16,7 @@ const municipalityMap = await getMunicipalityMap(Astro);
 const municipalityCollection = await getMunicipalityCollection(Astro);
 const regionCollection = await getRegionCollection(Astro);
 const schoolCollection = await getSchoolCollection(Astro);
+const initialBounds = await getInitialBounds(Astro);
 ---
 
 <!doctype html>
@@ -34,13 +36,13 @@ const schoolCollection = await getSchoolCollection(Astro);
 					url: Astro.url.href,
 					title,
 					type: "website",
-					image: `${Astro.url.origin}/og-image.png`,
+					image: `${Astro.url.origin}/og-image.jpg`,
 				},
 				image: {
 					alt: description,
-					height: 630,
-					url: `${Astro.url.origin}/og-image.png`,
-					width: 1200,
+					height: 544,
+					url: `${Astro.url.origin}/og-image.jpg`,
+					width: 966,
 				},
 			}}
 		/>
@@ -58,6 +60,7 @@ const schoolCollection = await getSchoolCollection(Astro);
 					schoolCollection={await schoolCollection.json()}
 					municipalityCollection={await municipalityCollection.json()}
 					regionCollection={await regionCollection.json()}
+					initialBounds={await initialBounds.json()}
 					client:load
 				/>
 			</article>

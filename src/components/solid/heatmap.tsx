@@ -4,7 +4,8 @@ import { BackControls } from "@/components/solid/back-controls";
 import { LayerOrder } from "@/components/solid/layer-order";
 import { ZoomControls } from "@/components/solid/zoom-controls";
 import { INITIAL_ZOOM } from "@/scripts/const";
-import { setStore } from "@/scripts/store";
+import { remToPx } from "@/scripts/helpers";
+import { setStore, store } from "@/scripts/store";
 import type { Map as MapGLType } from "maplibre-gl";
 import {
 	Show,
@@ -22,6 +23,13 @@ export const Heatmap: VoidComponent = () => {
 		map()?.keyboard.disableRotation();
 
 		map()?.on("zoom", handleZoom);
+
+		if (store.initialBounds?.length === 4) {
+			map()?.fitBounds(store.initialBounds, {
+				duration: 0,
+				padding: remToPx(1),
+			});
+		}
 
 		onCleanup(() => {
 			map()?.off("zoom", handleZoom);

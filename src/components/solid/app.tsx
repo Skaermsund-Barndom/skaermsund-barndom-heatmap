@@ -9,6 +9,7 @@ interface Props {
 	schoolCollection?: typeof store.schoolCollection;
 	municipalityCollection?: typeof store.municipalityCollection;
 	regionCollection?: typeof store.regionCollection;
+	initialBounds?: typeof store.initialBounds;
 }
 
 export const App: ParentComponent<Props> = (props) => {
@@ -18,6 +19,7 @@ export const App: ParentComponent<Props> = (props) => {
 			schoolCollection: props.schoolCollection,
 			municipalityCollection: props.municipalityCollection,
 			regionCollection: props.regionCollection,
+			initialBounds: props.initialBounds,
 			filter: props.schoolCollection?.features.reduce<number[]>((filter, f) => {
 				if (filter.includes(f.properties.r_id)) {
 					return filter;

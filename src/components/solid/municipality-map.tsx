@@ -1,7 +1,7 @@
 import { GeoJSONSource } from "@/components/maplibre/geojson-source";
 import { Layer } from "@/components/maplibre/layer";
 import { BG_MUNICIPALITIES_LAYER, COLORS, LEVELS } from "@/scripts/const";
-import { geojsonSource } from "@/scripts/helpers";
+import { geojsonSource, remToPx } from "@/scripts/helpers";
 import { store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import { bbox, featureCollection } from "@turf/turf";
@@ -32,7 +32,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 			props.map.fitBounds(bounds, {
 				duration: 1000,
-				padding: 16,
+				padding: remToPx(1),
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
@@ -63,7 +63,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 			props.map.fitBounds(bounds, {
 				duration: 1000,
-				padding: 32,
+				padding: remToPx(2),
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;
@@ -113,7 +113,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 
 			props.map.fitBounds(bounds, {
 				duration: 1000,
-				padding: 64,
+				padding: remToPx(4),
 			});
 
 			if (!props.map.getSource(MUNICIPALITY_MAP_SOURCE)) return;

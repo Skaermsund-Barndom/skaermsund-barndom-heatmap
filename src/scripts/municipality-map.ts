@@ -4,7 +4,7 @@ import { spawn } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const getMunicipalityMap = async () => {
+export const municipalityMapCollection = async () => {
 	const DETAIL = "0.01";
 
 	// Create temp directory if it doesn't exist

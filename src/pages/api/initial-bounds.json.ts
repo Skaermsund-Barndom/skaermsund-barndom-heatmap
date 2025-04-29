@@ -1,9 +1,9 @@
-import { municipalityCollection } from "@/scripts/collections";
+import { initialBounds } from "@/scripts/initial-bounds";
 import { tryCatch } from "@/scripts/try-catch";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
-	const { error, data } = await tryCatch(municipalityCollection);
+	const { error, data } = await tryCatch(initialBounds);
 
 	if (error) {
 		return new Response(JSON.stringify({ error: "No schools found" }), {

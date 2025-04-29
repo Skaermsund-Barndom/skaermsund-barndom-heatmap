@@ -1,61 +1,53 @@
 {
-  "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/netlify": "6.3.1",
-    "@astrojs/solid-js": "^5.0.9",
-    "@biomejs/biome": "^1.9.4",
-    "@tailwindcss/vite": "^4.1.4",
-    "@turf/turf": "^7.2.0",
-    "@types/bun": "^1.2.10",
-    "@types/geojson": "^7946.0.16",
-    "airtable": "^0.12.2",
-    "astro": "5.7.7",
-    "astro-seo": "^0.8.4",
-    "maplibre-gl": "^5.4.0",
-    "mapshaper": "^0.6.102",
-    "motion": "^12.9.2",
-    "prettier": "^3.5.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "solid-js": "^1.9.5",
-    "tailwindcss": "^4.1.4",
-    "typescript": "^5.8.3"
-  },
-  "name": "skaermsund-barndom-heatmap",
-  "packageManager": "bun@1.2.10",
-  "prettier": {
-    "experimentalOperatorPosition": "start",
-    "experimentalTernaries": true,
-    "overrides": [
-      {
-        "files": "*.astro",
-        "options": {
-          "parser": "astro"
-        }
-      }
-    ],
-    "plugins": [
-      "prettier-plugin-astro",
-      "prettier-plugin-tailwindcss"
-    ],
-    "useTabs": true
-  },
-  "private": true,
-  "scripts": {
-    "astro": "astro",
-    "build": "bun run check && bunx --bun astro build",
-    "check": "bunx --bun astro check",
-    "dev": "bunx --bun astro dev",
-    "preview": "bun run build && bunx --bun astro preview",
-    "reinstall": "rm -rf node_modules && rm bun.lock && bun install",
-    "update:deps": "bunx npm-check-updates -u --format group -i"
-  },
-  "trustedDependencies": [
-    "@biomejs/biome",
-    "esbuild",
-    "msgpackr-extract",
-    "sharp"
-  ],
-  "type": "module",
-  "version": "1.0.0"
+	"dependencies": {
+		"@astrojs/check": "^0.9.4",
+		"@astrojs/solid-js": "^5.0.9",
+		"@biomejs/biome": "^1.9.4",
+		"@tailwindcss/vite": "^4.1.4",
+		"@turf/turf": "^7.2.0",
+		"@types/bun": "^1.2.10",
+		"@types/geojson": "^7946.0.16",
+		"airtable": "^0.12.2",
+		"astro": "5.7.7",
+		"astro-seo": "^0.8.4",
+		"maplibre-gl": "^5.4.0",
+		"mapshaper": "^0.6.102",
+		"motion": "^12.9.2",
+		"prettier": "^3.5.3",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"solid-js": "^1.9.5",
+		"tailwindcss": "^4.1.4",
+		"typescript": "^5.8.3"
+	},
+	"name": "skaermsund-barndom-heatmap",
+	"packageManager": "bun@1.2.10",
+	"prettier": {
+		"experimentalOperatorPosition": "start",
+		"experimentalTernaries": true,
+		"overrides": [
+			{
+				"files": "*.astro",
+				"options": {
+					"parser": "astro"
+				}
+			}
+		],
+		"plugins": [
+			"prettier-plugin-astro",
+			"prettier-plugin-tailwindcss"
+		],
+		"useTabs": true
+	},
+	"private": true,
+	"scripts": {
+		"build": "bun run check && bunx --bun astro build",
+		"check": "bunx --bun astro check",
+		"dev": "bunx --bun astro dev",
+		"preview": "bun run build && bunx --bun astro preview",
+		"reinstall": "rm -rf node_modules && rm bun.lock && bun install",
+		"update:deps": "bunx npm-check-updates -u --format group -i"
+	},
+	"type": "module",
+	"version": "1.0.0"
 }

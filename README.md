@@ -39,11 +39,11 @@ X-Frame-Options: ALLOW-FROM https://allowed-parent.com/
 Use the iframe like so:
 
 ```html
-<iframe 
-    title="Skærmsund Barndom Heatmap" 
-    style="border:none;aspect-ratio:5/4" 
-    width="100%" 
-    sandbox="allow-scripts"
-    src="LINK_TO_DEPLOYED_SITE"
+<iframe
+	title="Skærmsund Barndom Heatmap"
+	style="border:none;aspect-ratio:5/4"
+	width="100%"
+	sandbox="allow-scripts"
+	src="LINK_TO_DEPLOYED_SITE"
 ></iframe>
 ```

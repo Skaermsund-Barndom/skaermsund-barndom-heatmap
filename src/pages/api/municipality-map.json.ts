@@ -1,10 +1,17 @@
-import { getMunicipalityMap } from "@/scripts/municipality-map";
+import { municipalityMapCollection } from "@/scripts/municipality-map";
+import { tryCatch } from "@/scripts/try-catch";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
-	const output = await getMunicipalityMap();
+	const { error, data } = await tryCatch(municipalityMapCollection);
 
-	return new Response(JSON.stringify(output), {
+	if (error) {
+		return new Response(JSON.stringify({ error: "No schools found" }), {
+			status: 500,
+		});
+	}
+
+	return new Response(JSON.stringify(data), {
 		headers: {
 			"content-type": "application/json",
 			"Cache-Control": "public, max-age=31536000", // Cache for 1 year since this is static
