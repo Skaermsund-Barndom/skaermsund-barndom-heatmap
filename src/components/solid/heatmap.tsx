@@ -41,7 +41,7 @@ export const Heatmap: VoidComponent = () => {
 	};
 
 	return (
-		<div class="h-full w-full overflow-hidden rounded-[1.25rem]">
+		<div class="bg-secondary h-full w-full overflow-hidden rounded-[1.25rem]">
 			<MapGL
 				mapOptions={{
 					style: {
