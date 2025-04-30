@@ -1,8 +1,6 @@
 import { tryCatch } from "@/scripts/try-catch";
-import type { SchoolProperties } from "@/scripts/types";
-import { featureCollection, point } from "@turf/turf";
+import type { Grades, School, Submissions } from "@/scripts/types";
 import Airtable from "airtable";
-import type { Point } from "geojson";
 
 const SUBMISSION_IDS = "Submissions 2";
 const REGION_NAME = "BEL_REGION_TEKST";
@@ -33,7 +31,7 @@ export async function getSchools() {
 	const submissions = await getSubmissions();
 
 	// Create an empty feature collection
-	const schools = featureCollection<Point, SchoolProperties>([]);
+	const schools: School[] = [];
 
 	// Add schools to the feature collection using Airtable's API
 	const { error: schoolsError } = await tryCatch(
@@ -52,13 +50,12 @@ export async function getSchools() {
 					function page(records, processNextPage) {
 						for (const record of records) {
 							// Get the submission ids
-							const submissionIds = record.get(SUBMISSION_IDS);
+							const submissionIds = record.get(SUBMISSION_IDS) ?? [];
 
 							// Type narrowing to ensure the submission ids are an array of strings
 							if (
 								!Array.isArray(submissionIds)
 								|| !submissionIds.every((item) => typeof item === "string")
-								|| !submissionIds.length
 							) {
 								continue;
 							}
@@ -87,7 +84,7 @@ export async function getSchools() {
 									return `${grade}. klasse`;
 								})
 								.filter((grade) => typeof grade === "string")
-								.reduce<Record<string, number>>((grades, grade) => {
+								.reduce<Grades>((grades, grade) => {
 									// Return the grades as a record with the grade as the key and the number of submissions as the value
 									if (grades[grade]) {
 										grades[grade] = grades[grade] + 1;
@@ -133,20 +130,20 @@ export async function getSchools() {
 							}
 
 							// Create a new feature
-							const feature = point<SchoolProperties>([lng, lat], {
+							const school = {
 								id: schoolId,
-								filter: [],
 								name: schoolName,
-								subs: submissionIds.length,
 								grades,
+								subs: submissionIds.length,
+								coord: [lng, lat],
 								m_name: municipalityName,
 								m_id: municipalityId,
 								r_name: regionName,
 								r_id: regionId,
-							});
+							} satisfies School;
 
 							// Add the feature to the feature collection
-							schools.features.push(feature);
+							schools.push(school);
 						}
 
 						// To fetch the next page of records, call `processNextPage`.
@@ -182,11 +179,11 @@ export async function getSchools() {
  */
 export async function getSubmissions() {
 	// Create an empty record
-	const submissions: Record<string, number> = {};
+	const submissions: Submissions = {};
 
 	// Fetch the submissions
 	const { error: submissionsError } = await tryCatch(
-		new Promise<Record<string, number>>((resolve, reject) => {
+		new Promise<Submissions>((resolve, reject) => {
 			// If the request takes longer than a minute, reject the promise
 			const timeout = setTimeout(() => {
 				reject(new Error("Submissions timeout"));

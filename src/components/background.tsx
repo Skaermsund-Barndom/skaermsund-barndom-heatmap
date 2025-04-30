@@ -14,7 +14,7 @@ export const Background: VoidComponent<Props> = (props) => {
 				id: BG_LAYER,
 				type: "background",
 				paint: {
-					"background-color": COLORS["--color-secondary"],
+					"background-color": COLORS.SECONDARY,
 				},
 			}}
 		/>

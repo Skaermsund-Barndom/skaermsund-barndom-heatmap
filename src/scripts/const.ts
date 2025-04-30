@@ -11,21 +11,22 @@ export const BG_HEATMAP_LEVELS_LAYER = "grade-levels-background-layer";
 export const BG_LAYER = "background-layer";
 
 export const COLORS = {
-	"--color-container": "#fafafa",
-	"--color-text": "#2b2b2b",
-	"--color-primary-10": "#d7f1e5",
-	"--color-primary-20": "#bce8d3",
-	"--color-primary-30": "#9bddbd",
-	"--color-primary-40": "#7ad1a7",
-	"--color-primary-50": "#58c691",
-	"--color-primary": "#37ba7b",
-	"--color-primary-60": "#2e9b67",
-	"--color-primary-70": "#257c52",
-	"--color-primary-80": "#1c5d3e",
-	"--color-primary-90": "#123e29",
-	"--color-primary-100": "#0b2519",
-	"--color-secondary": "#02321c",
-	"--color-tertiary": "#02321c",
+	CONTAINER: "#fafafa",
+	TEXT: "#2b2b2b",
+	DISABLED: "#CCCCCC",
+	PRIMARY_10: "#d7f1e5",
+	PRIMARY_20: "#bce8d3",
+	PRIMARY_30: "#9bddbd",
+	PRIMARY_40: "#7ad1a7",
+	PRIMARY_50: "#58c691",
+	PRIMARY: "#37ba7b",
+	PRIMARY_60: "#2e9b67",
+	PRIMARY_70: "#257c52",
+	PRIMARY_80: "#1c5d3e",
+	PRIMARY_90: "#123e29",
+	PRIMARY_100: "#0b2519",
+	SECONDARY: "#02321c",
+	TERTIARY: "#02321c",
 };
 
 export const LEVELS = [

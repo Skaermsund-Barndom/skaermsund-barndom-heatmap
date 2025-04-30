@@ -1,4 +1,4 @@
-import { getSchools } from "@/scripts/data";
+import { getSchools } from "@/scripts/schools";
 import type { MunicipalityProperties, RegionProperties } from "@/scripts/types";
 import { centerMedian, featureCollection, multiPoint, point } from "@turf/turf";
 import type { Feature, MultiPoint } from "geojson";
@@ -12,40 +12,32 @@ export async function getRegionCollection() {
 	if (!schools) return undefined;
 
 	// Reduce the features to an array of multi-points based on the region name
-	const reducedFeatures = schools.features.reduce<
+	const reducedFeatures = schools.reduce<
 		Feature<MultiPoint, RegionProperties>[]
 	>((features, feature) => {
-		const {
-			geometry: { coordinates },
-			properties: { r_name, r_id, subs },
-		} = feature;
+		const { r_name, r_id, subs, coord } = feature;
 
-		// Find the index of the feature with the same region name
+		// Find the index of the feature with the same region id
 		const index = features.findIndex(
-			(feature) => feature.properties.r_name === r_name,
+			(feature) => feature.properties.id === r_id,
 		);
 
 		// Find all municipalities in the region
 		const municipalityIds =
-			schools.features.reduce<number[]>((acc, feature) => {
-				if (
-					feature.properties.r_id === r_id
-					&& !acc.includes(feature.properties.m_id)
-				) {
-					acc.push(feature.properties.m_id);
+			schools.reduce<number[]>((acc, feature) => {
+				if (feature.r_id === r_id && !acc.includes(feature.m_id)) {
+					acc.push(feature.m_id);
 				}
 				return acc;
 			}, []) ?? [];
 
 		// If the feature does not exist, create a new one
 		if (index === -1) {
-			const feature = multiPoint([coordinates], {
+			const feature = multiPoint([coord], {
 				id: r_id,
 				filter: municipalityIds,
 				name: r_name,
 				subs,
-				r_name,
-				r_id,
 			});
 			features.push(feature);
 
@@ -57,7 +49,7 @@ export async function getRegionCollection() {
 
 		// If the feature exists, update the subs property and coordinates
 		features[index].properties.subs = features[index].properties.subs + subs;
-		features[index].geometry.coordinates.push(coordinates);
+		features[index].geometry.coordinates.push(coord);
 
 		return features;
 	}, []);
@@ -86,40 +78,32 @@ export async function getMunicipalityCollection() {
 	if (!schools) return undefined;
 
 	// Reduce the features to an array of multi-points based on the municipality name
-	const reducedFeatures = schools.features.reduce<
+	const reducedFeatures = schools.reduce<
 		Feature<MultiPoint, MunicipalityProperties>[]
 	>((features, feature) => {
-		const {
-			geometry: { coordinates },
-			properties: { m_name, m_id, r_name, r_id, subs },
-		} = feature;
+		const { coord, m_name, m_id, r_name, r_id, subs } = feature;
 
-		// Find the index of the feature with the same municipality name
+		// Find the index of the feature with the same municipality id
 		const index = features.findIndex(
-			(feature) => feature.properties.m_name === m_name,
+			(feature) => feature.properties.id === m_id,
 		);
 
 		// Find all schools in the municipality
 		const schoolIds =
-			schools.features.reduce<number[]>((acc, feature) => {
-				if (
-					feature.properties.m_id === m_id
-					&& !acc.includes(feature.properties.id)
-				) {
-					acc.push(feature.properties.id);
+			schools.reduce<number[]>((acc, feature) => {
+				if (feature.m_id === m_id && !acc.includes(feature.id)) {
+					acc.push(feature.id);
 				}
 				return acc;
 			}, []) ?? [];
 
 		// If the feature does not exist, create a new one, add it to the collection and return the collection
 		if (index === -1) {
-			const feature = multiPoint([coordinates], {
+			const feature = multiPoint([coord], {
 				id: m_id,
 				filter: schoolIds,
 				name: m_name,
 				subs,
-				m_id,
-				m_name,
 				r_id,
 				r_name,
 			});
@@ -133,7 +117,7 @@ export async function getMunicipalityCollection() {
 
 		// If the feature exists, update the properties and coordinates
 		features[index].properties.subs = subs + features[index].properties.subs;
-		features[index].geometry.coordinates.push(coordinates);
+		features[index].geometry.coordinates.push(coord);
 
 		return features;
 	}, []);
@@ -162,5 +146,18 @@ export async function getMunicipalityCollection() {
 export async function getSchoolCollection() {
 	if (!schools) return undefined;
 
-	return schools;
+	const schoolFeatures = schools.map(
+		({ coord, id, name, grades, subs, m_id, m_name, r_id, r_name }) =>
+			point(coord, {
+				id,
+				name,
+				grades,
+				subs,
+				m_id,
+				m_name,
+				r_id,
+				r_name,
+			}),
+	);
+	return featureCollection(schoolFeatures);
 }

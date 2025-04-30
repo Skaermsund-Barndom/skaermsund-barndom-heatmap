@@ -3,15 +3,8 @@ import { LoadedMap } from "@/components/loaded-map";
 import { MapGL } from "@/components/map-gl";
 import { INITIAL_ZOOM } from "@/scripts/const";
 import { remToPx } from "@/scripts/helpers";
-import { setStore } from "@/scripts/store";
 import type { Map as MapGLType } from "maplibre-gl";
-import {
-	Show,
-	type VoidComponent,
-	createEffect,
-	createSignal,
-	onCleanup,
-} from "solid-js";
+import { Show, type VoidComponent, createEffect, createSignal } from "solid-js";
 
 interface Props extends AppProps {}
 
@@ -22,24 +15,14 @@ export const Heatmap: VoidComponent<Props> = (props) => {
 		map()?.touchZoomRotate.disableRotation();
 		map()?.keyboard.disableRotation();
 
-		map()?.on("zoom", handleZoom);
-
 		if (props.initialBounds?.length === 4) {
 			map()?.zoomTo(0);
 			map()?.fitBounds(props.initialBounds, {
-				duration: 1000,
+				duration: 800,
 				padding: remToPx(2),
 			});
 		}
-
-		onCleanup(() => {
-			map()?.off("zoom", handleZoom);
-		});
 	});
-
-	const handleZoom = () => {
-		setStore({ hoverId: undefined });
-	};
 
 	return (
 		<div class="bg-secondary h-full w-full overflow-hidden rounded-[1.25rem]">

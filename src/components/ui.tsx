@@ -9,14 +9,14 @@ interface Props extends AppProps {}
 export const Ui: VoidComponent<Props> = (props) => {
 	const allRegionsItem = createMemo(() => ({
 		id: 0,
-		filter: store.allMunicipalities(props.schoolCollection),
+		filter: store.allIds(props.municipalityCollection),
 		name: "Alle regioner",
 		subs: store.allSubs(props.schoolCollection),
 	}));
 
 	const allMunicipalitiesItem = createMemo(() => ({
 		id: 0,
-		filter: store.allSchools(props.schoolCollection),
+		filter: store.allIds(props.schoolCollection),
 		name: "Alle kommuner",
 		subs: store.allSubs(props.schoolCollection),
 	}));
@@ -35,7 +35,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 				onClickAccordion={() =>
 					setStore({
 						levelId: LEVELS[0].id,
-						filter: store.allRegions(props.schoolCollection),
+						filter: store.allIds(props.regionCollection),
 					})
 				}
 				onClickItem={() => setStore({ levelId: LEVELS[1].id })}
@@ -55,7 +55,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 				onClickAccordion={() =>
 					setStore({
 						levelId: LEVELS[1].id,
-						filter: store.allMunicipalities(props.schoolCollection),
+						filter: store.allIds(props.municipalityCollection),
 					})
 				}
 				onClickItem={() => setStore({ levelId: LEVELS[2].id })}
@@ -74,7 +74,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 				onClickAccordion={() =>
 					setStore({
 						levelId: LEVELS[2].id,
-						filter: store.allSchools(props.schoolCollection),
+						filter: store.allIds(props.schoolCollection),
 					})
 				}
 			/>

@@ -31,6 +31,7 @@ interface Props extends MapProps {
 	source: ReturnType<typeof geojsonSource>;
 	sourceId: string;
 	size: {
+		circleDisabled: number;
 		circleMin: number;
 		circleMax: number;
 		textMin: number;
@@ -44,8 +45,28 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	// Active feature id (used to check if the active feature has changed with mousemove)
 	const [activeFeatureId, setActiveFeatureId] = createSignal<number | string>();
 
-	const filter = createMemo<FilterSpecification>(() => {
-		return ["in", ["get", "id"], ["literal", store.filter]];
+	const filterIds = createMemo(() => {
+		return [
+			"in",
+			["get", "id"],
+			["literal", store.filter],
+		] satisfies FilterSpecification;
+	});
+
+	const filterHasSubs = createMemo(() => {
+		return [
+			"all",
+			filterIds(),
+			["!=", ["number", ["get", "subs"], 0], 0],
+		] satisfies FilterSpecification;
+	});
+
+	const filterHasNoSubs = createMemo(() => {
+		return [
+			"all",
+			filterIds(),
+			["==", ["number", ["get", "subs"], 0], 0],
+		] satisfies FilterSpecification;
 	});
 
 	// Marker store
@@ -54,6 +75,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		offset: 0,
 		name: "",
 		grades: {},
+		subs: 0,
 	});
 
 	// Get the minimum and maximum submissions for the features
@@ -96,7 +118,13 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		const hoverId = store.hoverId;
 		if (!props.map.getSource(props.sourceId)) return;
 
-		setMarker({ lngLat: undefined, offset: 0, name: "", grades: {} });
+		setMarker({
+			lngLat: undefined,
+			offset: 0,
+			name: "",
+			grades: {},
+			subs: 0,
+		});
 
 		for (const feature of props.source.data.features) {
 			if (!feature.properties?.id) continue;
@@ -130,7 +158,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 				props.size.circleMax,
 			);
 
-			setMarker({ lngLat, offset, name, grades });
+			setMarker({ lngLat, offset, name, grades, subs });
 		}
 	});
 
@@ -153,38 +181,53 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 	return (
 		<>
 			{/* Tooltip marker with name */}
-			<TooltipMarker
-				{...props}
-				lngLat={marker.lngLat}
-				offset={marker.offset}
-				name={marker.name}
-				grades={marker.grades}
-			/>
+			<TooltipMarker {...props} {...marker} />
 
 			{/* Source */}
 			<GeoJSONSource id={props.sourceId} map={props.map} source={props.source}>
-				{/* Circle layer */}
+				{/* Circle layer (no subs) */}
 				<Layer
 					{...props}
-					beforeId={`${props.sourceId}-text`}
+					beforeId={`${props.sourceId}-circle`}
+					layer={{
+						id: `${props.sourceId}-circle-no-subs`,
+						type: "circle",
+						source: props.sourceId,
+						filter: filterHasNoSubs(),
+						paint: {
+							"circle-color": COLORS.DISABLED,
+							"circle-radius": props.size.circleDisabled,
+						},
+					}}
 					events={{
 						mousemove,
 						mouseleave,
 						click,
 					}}
+				/>
+
+				{/* Circle layer (has subs) */}
+				<Layer
+					{...props}
+					beforeId={`${props.sourceId}-text`}
 					layer={{
 						id: `${props.sourceId}-circle`,
 						type: "circle",
 						source: props.sourceId,
-						filter: filter(),
+						filter: filterHasSubs(),
 						paint: {
-							"circle-color": COLORS["--color-primary"],
+							"circle-color": COLORS.PRIMARY,
 							"circle-radius": size(props.size.circleMin, props.size.circleMax),
 						},
 					}}
+					events={{
+						mousemove,
+						mouseleave,
+						click,
+					}}
 				/>
 
-				{/* Text layer */}
+				{/* Text layer (has subs) */}
 				<Layer
 					{...props}
 					beforeId={`${props.sourceId}-circle-active`}
@@ -192,7 +235,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 						id: `${props.sourceId}-text`,
 						type: "symbol",
 						source: props.sourceId,
-						filter: filter(),
+						filter: filterHasSubs(),
 						layout: {
 							"text-field": ["get", "subs"],
 							"text-font": FONT_STACK,
@@ -200,7 +243,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 							"text-size": size(props.size.textMin, props.size.textMax),
 						},
 						paint: {
-							"text-color": COLORS["--color-container"],
+							"text-color": COLORS.CONTAINER,
 						},
 					}}
 				/>
@@ -213,7 +256,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 						id: `${props.sourceId}-circle-active`,
 						type: "circle",
 						source: props.sourceId,
-						filter: filter(),
+						filter: filterHasSubs(),
 						paint: {
 							"circle-opacity": [
 								"case",
@@ -221,7 +264,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 								1,
 								0,
 							],
-							"circle-color": COLORS["--color-primary-80"],
+							"circle-color": COLORS.PRIMARY_80,
 							"circle-radius": size(props.size.circleMin, props.size.circleMax),
 						},
 					}}
@@ -235,7 +278,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 						id: `${props.sourceId}-text-active`,
 						type: "symbol",
 						source: props.sourceId,
-						filter: filter(),
+						filter: filterHasSubs(),
 						layout: {
 							"text-field": ["get", "subs"],
 							"text-font": FONT_STACK,
@@ -249,7 +292,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 								1,
 								0,
 							],
-							"text-color": COLORS["--color-container"],
+							"text-color": COLORS.CONTAINER,
 						},
 					}}
 				/>

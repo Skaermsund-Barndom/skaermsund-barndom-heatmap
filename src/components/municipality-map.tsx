@@ -6,7 +6,7 @@ import { store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import { bbox, featureCollection } from "@turf/turf";
 import type { VoidComponent } from "solid-js";
-import { createEffect, createMemo } from "solid-js";
+import { createEffect } from "solid-js";
 
 const MUNICIPALITY_MAP_SOURCE = "municipalities-map";
 const MUNICIPALITY_MAP_FILL = "municipalities-map-heatmap";
@@ -15,14 +15,6 @@ const MUNICIPALITY_MAP_BORDER = "municipalities-map-border";
 interface Props extends MapProps {}
 
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
-	const totalMunicipalitiesLength = createMemo(
-		() =>
-			props.schoolCollection?.features.reduce(
-				(set, f) => set.add(Number(f.properties.m_id)),
-				new Set<number>(),
-			)?.size,
-	);
-
 	createEffect(() => {
 		if (store.levelId === LEVELS[0].id) {
 			if (!props.municipalityMap) return;
@@ -31,7 +23,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			if (bounds.length !== 4) return;
 
 			props.map.fitBounds(bounds, {
-				duration: 1000,
+				duration: 800,
 				padding: remToPx(2),
 			});
 
@@ -62,7 +54,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			if (bounds.length !== 4) return;
 
 			props.map.fitBounds(bounds, {
-				duration: 1000,
+				duration: 800,
 				padding: remToPx(2),
 			});
 
@@ -75,7 +67,8 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					},
 					{
 						active:
-							activeMunicipalities.length !== totalMunicipalitiesLength()
+							activeMunicipalities.length
+								!== store.allIds(props.municipalityCollection)?.length
 							&& activeMunicipalitySet.has(
 								Number(feature.properties.kommunekod),
 							),
@@ -109,7 +102,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			if (bounds.length !== 4) return;
 
 			props.map.fitBounds(bounds, {
-				duration: 1000,
+				duration: 800,
 				padding: remToPx(2),
 			});
 
@@ -122,7 +115,8 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					},
 					{
 						active:
-							activeMunicipalities.length !== totalMunicipalitiesLength()
+							activeMunicipalities.length
+								!== store.allIds(props.municipalityCollection)?.length
 							&& activeMunicipalities.some(
 								(m) =>
 									m.properties.kommunekod === feature.properties.kommunekod,
@@ -151,8 +145,8 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 						"fill-color": [
 							"case",
 							["boolean", ["feature-state", "active"], false],
-							COLORS["--color-container"],
-							COLORS["--color-primary-10"],
+							COLORS.CONTAINER,
+							COLORS.PRIMARY_10,
 						],
 					},
 				}}
@@ -167,7 +161,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					type: "line",
 					source: MUNICIPALITY_MAP_SOURCE,
 					paint: {
-						"line-color": COLORS["--color-secondary"],
+						"line-color": COLORS.SECONDARY,
 						"line-width": 1,
 					},
 					layout: {

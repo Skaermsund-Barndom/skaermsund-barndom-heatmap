@@ -35,10 +35,9 @@ export const BackControls: VoidComponent<Props> = (props) => {
 
 	const handleClick = (level: (typeof LEVELS)[number]) => {
 		const filter =
-			level.id === "region" ? store.allRegions(props.schoolCollection)
-			: level.id === "municipality" ?
-				store.allMunicipalities(props.schoolCollection)
-			: level.id === "school" ? store.allSchools(props.schoolCollection)
+			level.id === "region" ? store.allIds(props.regionCollection)
+			: level.id === "municipality" ? store.allIds(props.municipalityCollection)
+			: level.id === "school" ? store.allIds(props.schoolCollection)
 			: [];
 
 		setStore({ levelId: level.id, hoverId: undefined, filter });

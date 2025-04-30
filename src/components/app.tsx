@@ -21,7 +21,7 @@ export interface AppProps {
 export const App: VoidComponent<AppProps> = (props) => {
 	createEffect(() => {
 		setStore({
-			filter: store.allRegions(props.schoolCollection),
+			filter: store.allIds(props.regionCollection),
 		});
 	});
 

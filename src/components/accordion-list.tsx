@@ -118,7 +118,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 			data-open={props.isOpen}
 			ref={parentRef}
 		>
-			<label class="relative grid w-full cursor-pointer grid-cols-[2fr_1fr] items-center p-3.5 text-left">
+			<label class="relative grid w-full cursor-pointer grid-cols-[2fr_1fr] items-center gap-2 p-3.5 text-left">
 				<input
 					type="text"
 					placeholder={props.placeholder}
@@ -154,7 +154,8 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 								<button
 									data-id={item.id}
 									type="button"
-									class="hover:bg-primary focus:bg-primary grid w-full grid-cols-[2fr_1fr] p-3.5 text-left focus:outline-none"
+									class="hover:bg-primary focus:bg-primary data-[no-subs=true]:hover:bg-disabled data-[no-subs=true]:focus:bg-disabled data-[no-subs=true]:text-text/70 grid w-full grid-cols-[2fr_1fr] gap-2 p-3.5 text-left focus:outline-none"
+									data-no-subs={item.subs === 0}
 									onClick={() => handleSetActiveItem(item)}
 									onMouseEnter={() => setStore({ hoverId: item.id })}
 									onFocus={() => setStore({ hoverId: item.id })}

@@ -18,30 +18,55 @@ export interface HeatmapProps extends MapProps {
 
 export interface Item {
 	id: number;
-	filter: number[];
+	filter?: number[];
 	name: string;
 	subs: number;
 }
 
+/**
+ * A record of a grade.
+ */
+export type Grades = Record<string, number>;
+
+/**
+ * A record of a school.
+ */
+export interface School {
+	/** The id of the school */
+	id: number;
+	/** The name of the school */
+	name: string;
+	/** The grades of the school */
+	grades: Grades;
+	/** The number of submissions of the school */
+	subs: number;
+	/** The coordinates of the school */
+	coord: [number, number];
+	/** The name of the municipality */
+	m_name: string;
+	/** The id of the municipality */
+	m_id: number;
+	/** The name of the region */
+	r_name: string;
+	/** The id of the region */
+	r_id: number;
+}
+
+/**
+ * A record of a submission.
+ */
+export type Submissions = Record<string, number>;
+
 export interface SchoolProperties extends Item {
-	grades: Record<string, number>;
+	grades: Grades;
 	m_name: string;
 	m_id: number;
 	r_name: string;
 	r_id: number;
 }
 
-export interface RegionProperties extends Item {
-	r_name: string;
-	r_id: number;
-}
-
-export interface MunicipalityProperties extends Item {
-	m_name: string;
-	m_id: number;
-	r_name: string;
-	r_id: number;
-}
+export interface RegionProperties extends Item {}
+export interface MunicipalityProperties extends Item {}
 
 export type SchoolCollection = Awaited<ReturnType<typeof getSchoolCollection>>;
 export type MunicipalityCollection = Awaited<
