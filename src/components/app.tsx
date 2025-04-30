@@ -1,20 +1,20 @@
 import { Heatmap } from "@/components/heatmap";
 import { Ui } from "@/components/ui";
-import type {
-	municipalityCollection,
-	regionCollection,
-	schoolCollection,
-} from "@/scripts/collections";
-import type { municipalityMapCollection } from "@/scripts/municipality-map";
 import { setStore, store } from "@/scripts/store";
+import type {
+	MunicipalityCollection,
+	MunicipalityMap,
+	RegionCollection,
+	SchoolCollection,
+} from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
 import { createEffect } from "solid-js";
 
 export interface AppProps {
-	municipalityMap?: Awaited<ReturnType<typeof municipalityMapCollection>>;
-	schoolCollection?: Awaited<ReturnType<typeof schoolCollection>>;
-	municipalityCollection?: Awaited<ReturnType<typeof municipalityCollection>>;
-	regionCollection?: Awaited<ReturnType<typeof regionCollection>>;
+	municipalityMap?: MunicipalityMap;
+	schoolCollection?: SchoolCollection;
+	municipalityCollection?: MunicipalityCollection;
+	regionCollection?: RegionCollection;
 	initialBounds?: [number, number, number, number];
 }
 

@@ -9,6 +9,10 @@ const navItems = [
 	{ name: "Om Os", href: "#" },
 	{ name: "Book et Oplæg", href: "#" },
 ];
+
+if (import.meta.env.PROD) {
+	return null;
+}
 ---
 
 <!doctype html>

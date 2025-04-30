@@ -5,6 +5,10 @@ import { setStore } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
 
+const REGION_SOURCE_ID = "regions";
+const MUNICIPALITY_SOURCE_ID = "municipalities";
+const SCHOOL_SOURCE_ID = "schools";
+
 interface Props extends MapProps {}
 
 export const HeatmapLayers: VoidComponent<Props> = (props) => {
@@ -14,7 +18,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 			<HeatmapLayer
 				{...props}
 				source={geojsonSource(props.regionCollection, "id")}
-				sourceId="regions"
+				sourceId={REGION_SOURCE_ID}
 				size={{
 					circleMin: 16,
 					circleMax: 32,
@@ -31,7 +35,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 			<HeatmapLayer
 				{...props}
 				source={geojsonSource(props.municipalityCollection, "id")}
-				sourceId="municipalities"
+				sourceId={MUNICIPALITY_SOURCE_ID}
 				size={{
 					circleMin: 14,
 					circleMax: 28,
@@ -48,7 +52,7 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 			<HeatmapLayer
 				{...props}
 				source={geojsonSource(props.schoolCollection, "id")}
-				sourceId="schools"
+				sourceId={SCHOOL_SOURCE_ID}
 				size={{
 					circleMin: 10,
 					circleMax: 20,

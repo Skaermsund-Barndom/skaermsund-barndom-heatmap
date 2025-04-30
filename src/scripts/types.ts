@@ -1,5 +1,10 @@
 import type { AppProps } from "@/components/app";
-import type { FeatureCollection, Point } from "geojson";
+import type {
+	getMunicipalityCollection,
+	getRegionCollection,
+	getSchoolCollection,
+} from "@/scripts/collections";
+import type { getMunicipalityMap } from "@/scripts/municipality-map";
 import type { Map as MaplibreMap } from "maplibre-gl";
 
 export interface MapProps extends AppProps {
@@ -38,7 +43,12 @@ export interface MunicipalityProperties extends Item {
 	r_id: number;
 }
 
-export type SchoolCollection = FeatureCollection<Point, SchoolProperties>;
+export type SchoolCollection = Awaited<ReturnType<typeof getSchoolCollection>>;
+export type MunicipalityCollection = Awaited<
+	ReturnType<typeof getMunicipalityCollection>
+>;
+export type RegionCollection = Awaited<ReturnType<typeof getRegionCollection>>;
+export type MunicipalityMap = Awaited<ReturnType<typeof getMunicipalityMap>>;
 
 export interface MunicipalityMapProperties {
 	"id.namespa": string;

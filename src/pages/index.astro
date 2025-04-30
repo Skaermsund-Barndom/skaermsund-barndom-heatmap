@@ -1,9 +1,11 @@
 ---
 import { App, type AppProps } from "@/components/app";
-import { GET as getMunicipalityCollection } from "@/pages/api/municipality-collection.json";
-import { GET as getMunicipalityMap } from "@/pages/api/municipality-map.json";
-import { GET as getRegionCollection } from "@/pages/api/region-collection.json";
-import { GET as getSchoolCollection } from "@/pages/api/school-collection.json";
+import {
+	getMunicipalityCollection,
+	getRegionCollection,
+	getSchoolCollection,
+} from "@/scripts/collections";
+import { getMunicipalityMap } from "@/scripts/municipality-map";
 import "@/styles/global.css";
 import { bbox } from "@turf/turf";
 import { SEO } from "astro-seo";
@@ -18,10 +20,10 @@ const [
 	regionCollection,
 	municipalityMap,
 ] = await Promise.all([
-	(await getSchoolCollection(Astro)).json(),
-	(await getMunicipalityCollection(Astro)).json(),
-	(await getRegionCollection(Astro)).json(),
-	(await getMunicipalityMap(Astro)).json(),
+	getSchoolCollection(),
+	getMunicipalityCollection(),
+	getRegionCollection(),
+	getMunicipalityMap(),
 ]);
 
 // Calculate the initial bounds of the map
@@ -29,10 +31,10 @@ const bounds = bbox(municipalityMap);
 const initialBounds = bounds.length === 4 ? bounds : undefined;
 
 const props = {
-	municipalityMap,
+	schoolCollection,
 	municipalityCollection,
 	regionCollection,
-	schoolCollection,
+	municipalityMap,
 	initialBounds,
 } satisfies AppProps;
 ---

@@ -3,7 +3,7 @@ import { LoadedMap } from "@/components/loaded-map";
 import { MapGL } from "@/components/map-gl";
 import { INITIAL_ZOOM } from "@/scripts/const";
 import { remToPx } from "@/scripts/helpers";
-import { setStore, store } from "@/scripts/store";
+import { setStore } from "@/scripts/store";
 import type { Map as MapGLType } from "maplibre-gl";
 import {
 	Show,
@@ -24,9 +24,10 @@ export const Heatmap: VoidComponent<Props> = (props) => {
 
 		map()?.on("zoom", handleZoom);
 
-		if (store.initialBounds?.length === 4) {
-			map()?.fitBounds(store.initialBounds, {
-				duration: 0,
+		if (props.initialBounds?.length === 4) {
+			map()?.zoomTo(0);
+			map()?.fitBounds(props.initialBounds, {
+				duration: 1000,
 				padding: remToPx(2),
 			});
 		}
