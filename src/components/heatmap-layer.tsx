@@ -49,7 +49,7 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		return [
 			"in",
 			["get", "id"],
-			["literal", store.filter],
+			["literal", Array.from(store.filter)],
 		] satisfies FilterSpecification;
 	});
 
@@ -174,8 +174,10 @@ export const HeatmapLayer: VoidComponent<Props> = (props) => {
 		if (!props.click) return;
 		props.click();
 
-		const filter = JSON.parse(feature.properties?.filter);
-		setStore({ hoverId: undefined, filter });
+		setStore({
+			hoverId: undefined,
+			filter: new Set(JSON.parse(feature.properties?.filter) as number[]),
+		});
 	};
 
 	return (

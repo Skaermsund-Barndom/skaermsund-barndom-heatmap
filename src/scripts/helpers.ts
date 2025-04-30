@@ -98,7 +98,7 @@ export function interpolate(
 export function allIds(
 	collection?: RegionCollection | MunicipalityCollection | SchoolCollection,
 ) {
-	return collection?.features.map((f) => f.properties.id) ?? [];
+	return new Set(collection?.features.map((f) => f.properties.id) ?? []);
 }
 
 export function allSubs(collection?: SchoolCollection) {

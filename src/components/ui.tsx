@@ -10,14 +10,14 @@ interface Props extends AppProps {}
 export const Ui: VoidComponent<Props> = (props) => {
 	const allRegionsItem = createMemo(() => ({
 		id: 0,
-		filter: allIds(props.municipalityCollection),
+		filter: Array.from(allIds(props.municipalityCollection)),
 		name: "Alle regioner",
 		subs: allSubs(props.schoolCollection),
 	}));
 
 	const allMunicipalitiesItem = createMemo(() => ({
 		id: 0,
-		filter: allIds(props.schoolCollection),
+		filter: Array.from(allIds(props.schoolCollection)),
 		name: "Alle kommuner",
 		subs: allSubs(props.schoolCollection),
 	}));
@@ -48,7 +48,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 				items={[
 					allMunicipalitiesItem(),
 					...(props.municipalityCollection?.features
-						.filter((f) => store.filter.includes(f.properties.id))
+						.filter((f) => store.filter.has(f.properties.id))
 						.map((f) => f.properties) ?? []),
 				]}
 				placeholder="Kommune"
@@ -67,7 +67,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 				{...props}
 				items={
 					props.schoolCollection?.features
-						.filter((f) => store.filter.includes(f.properties.id))
+						.filter((f) => store.filter.has(f.properties.id))
 						.map((f) => f.properties) ?? []
 				}
 				placeholder="Skole"

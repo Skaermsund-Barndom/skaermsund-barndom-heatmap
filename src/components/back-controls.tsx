@@ -39,7 +39,7 @@ export const BackControls: VoidComponent<Props> = (props) => {
 			level.id === "region" ? allIds(props.regionCollection)
 			: level.id === "municipality" ? allIds(props.municipalityCollection)
 			: level.id === "school" ? allIds(props.schoolCollection)
-			: [];
+			: new Set<number>();
 
 		setStore({ levelId: level.id, hoverId: undefined, filter });
 	};

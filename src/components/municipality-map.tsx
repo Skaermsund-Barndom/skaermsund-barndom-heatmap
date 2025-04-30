@@ -68,7 +68,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					{
 						active:
 							activeMunicipalities.length
-								!== allIds(props.municipalityCollection)?.length
+								!== allIds(props.municipalityCollection).size
 							&& activeMunicipalitySet.has(
 								Number(feature.properties.kommunekod),
 							),
@@ -84,7 +84,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			// Pre-compute the set of municipality IDs for the active schools
 			const activeSchoolMunicipalityIds = new Set(
 				props.schoolCollection.features
-					.filter((school) => store.filter.includes(school.properties.id))
+					.filter((school) => store.filter.has(school.properties.id))
 					.map((school) => Number(school.properties.m_id)),
 			);
 
@@ -116,7 +116,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					{
 						active:
 							activeMunicipalities.length
-								!== allIds(props.municipalityCollection)?.length
+								!== allIds(props.municipalityCollection).size
 							&& activeMunicipalities.some(
 								(m) =>
 									m.properties.kommunekod === feature.properties.kommunekod,

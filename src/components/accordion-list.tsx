@@ -97,7 +97,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		if (!(input instanceof HTMLInputElement)) return;
 
 		props.onClickItem();
-		setStore({ hoverId: undefined, filter: item.filter });
+		setStore({ hoverId: undefined, filter: new Set(item.filter) });
 
 		input.value = item.name;
 		setSearch(item.name);
