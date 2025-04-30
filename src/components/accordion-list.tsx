@@ -1,6 +1,7 @@
 import type { AppProps } from "@/components/app";
 import { setStore, store } from "@/scripts/store";
 import type { Item } from "@/scripts/types";
+import type { Feature, Geometry } from "geojson";
 import {
 	For,
 	type VoidComponent,
@@ -11,7 +12,7 @@ import {
 
 interface Props extends AppProps {
 	placeholder: string;
-	items: Item[];
+	features: Feature<Geometry, Item>[];
 	disabled?: boolean;
 	isOpen: boolean;
 	onClickAccordion: () => void;
@@ -23,10 +24,12 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 
 	const [search, setSearch] = createSignal("");
 
-	const filteredItems = createMemo(() => {
+	const features = createMemo(() => {
 		return props.isOpen ?
-				props.items.filter((item) =>
-					item.name.toLowerCase().includes(search().toLowerCase()),
+				props.features.filter((feature) =>
+					feature.properties.name
+						.toLowerCase()
+						.includes(search().toLowerCase()),
 				)
 			:	[];
 	});
@@ -89,7 +92,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		props.onClickAccordion();
 	};
 
-	const handleSetActiveItem = (item: Item) => {
+	const handleSetActiveItem = (properties: Item) => {
 		if (!props.onClickItem) return;
 		if (!parentRef) return;
 
@@ -97,10 +100,13 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		if (!(input instanceof HTMLInputElement)) return;
 
 		props.onClickItem();
-		setStore({ hoverId: undefined, filter: new Set(item.filter) });
+		setStore({
+			hoverId: undefined,
+			filter: new Set(properties.filter),
+		});
 
-		input.value = item.name;
-		setSearch(item.name);
+		input.value = properties.name;
+		setSearch(properties.name);
 	};
 
 	const handleInput = (event: InputEvent) => {
@@ -147,27 +153,24 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 				<div class="border-text absolute -bottom-px left-0 h-px w-full border-t" />
 			</label>
 			<div class="h-0 overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(.3,.2,0,1)] group-data-[open=true]:h-96">
-				<ul class="h-96 overflow-x-hidden overflow-y-auto">
-					<For each={filteredItems()}>
-						{(item) => (
-							<li class="flex font-light">
-								<button
-									data-id={item.id}
-									type="button"
-									class="hover:bg-primary focus:bg-primary data-[no-subs=true]:hover:bg-disabled data-[no-subs=true]:focus:bg-disabled data-[no-subs=true]:text-text/70 grid w-full grid-cols-[2fr_1fr] gap-2 p-3.5 text-left focus:outline-none"
-									data-no-subs={item.subs === 0}
-									onClick={() => handleSetActiveItem(item)}
-									onMouseEnter={() => setStore({ hoverId: item.id })}
-									onFocus={() => setStore({ hoverId: item.id })}
-									onMouseLeave={() => setStore({ hoverId: undefined })}
-								>
-									<span>{item.name}</span>
-									<span>{item.subs}</span>
-								</button>
-							</li>
+				<div class="*:hover:bg-primary *:focus:bg-primary *:data-[no-subs=true]:hover:bg-disabled *:data-[no-subs=true]:focus:bg-disabled *:data-[no-subs=true]:text-text/70 h-96 overflow-x-hidden overflow-y-auto font-light *:grid *:w-full *:grid-cols-[2fr_1fr] *:gap-2 *:p-3.5 *:text-left *:focus:outline-none">
+					<For each={features()}>
+						{({ properties }) => (
+							<button
+								data-id={properties.id}
+								type="button"
+								data-no-subs={properties.subs === 0 ? "true" : undefined}
+								onClick={() => handleSetActiveItem(properties)}
+								onMouseEnter={() => setStore({ hoverId: properties.id })}
+								onFocus={() => setStore({ hoverId: properties.id })}
+								onMouseLeave={() => setStore({ hoverId: undefined })}
+							>
+								<span>{properties.name}</span>
+								<span>{properties.subs}</span>
+							</button>
 						)}
 					</For>
-				</ul>
+				</div>
 			</div>
 		</div>
 	);
