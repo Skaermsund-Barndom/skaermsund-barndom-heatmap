@@ -1,4 +1,4 @@
-import { Layer } from "@/components/maplibre/layer";
+import { Layer } from "@/components/layer";
 import { BG_LAYER, BOTTOM_LAYER, COLORS } from "@/scripts/const";
 import type { MapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";

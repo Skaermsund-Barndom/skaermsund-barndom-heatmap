@@ -1,5 +1,5 @@
-import { GeoJSONSource } from "@/components/maplibre/geojson-source";
-import { Layer } from "@/components/maplibre/layer";
+import { GeoJSONSource } from "@/components/geojson-source";
+import { Layer } from "@/components/layer";
 import { BG_MUNICIPALITIES_LAYER, COLORS, LEVELS } from "@/scripts/const";
 import { geojsonSource, remToPx } from "@/scripts/helpers";
 import { store } from "@/scripts/store";

@@ -1,4 +1,4 @@
-import type { AppProps } from "@/components/solid/app";
+import type { AppProps } from "@/components/app";
 import { setStore, store } from "@/scripts/store";
 import type { Item } from "@/scripts/types";
 import {

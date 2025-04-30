@@ -1,4 +1,4 @@
-import { Control } from "@/components/maplibre/control";
+import { Control } from "@/components/control";
 import type { MapProps } from "@/scripts/types";
 import {
 	type AttributionControlOptions,

@@ -1,5 +1,5 @@
-import { AccordionList } from "@/components/solid/accordion-list";
-import type { AppProps } from "@/components/solid/app";
+import { AccordionList } from "@/components/accordion-list";
+import type { AppProps } from "@/components/app";
 import { LEVELS } from "@/scripts/const";
 import { setStore, store } from "@/scripts/store";
 import { type VoidComponent, createMemo } from "solid-js";

@@ -1,6 +1,6 @@
-import { MapGL } from "@/components/maplibre/map-gl";
-import type { AppProps } from "@/components/solid/app";
-import { LoadedMap } from "@/components/solid/loaded-map";
+import type { AppProps } from "@/components/app";
+import { LoadedMap } from "@/components/loaded-map";
+import { MapGL } from "@/components/map-gl";
 import { INITIAL_ZOOM } from "@/scripts/const";
 import { remToPx } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";

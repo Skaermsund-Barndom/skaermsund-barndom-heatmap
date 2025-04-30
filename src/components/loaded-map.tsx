@@ -1,7 +1,7 @@
-import { AttributionControl } from "@/components/maplibre/attribution-control";
-import { BackControls } from "@/components/solid/back-controls";
-import { LayerOrder } from "@/components/solid/layer-order";
-import { ZoomControls } from "@/components/solid/zoom-controls";
+import { AttributionControl } from "@/components/attribution-control";
+import { BackControls } from "@/components/back-controls";
+import { LayerOrder } from "@/components/layer-order";
+import { ZoomControls } from "@/components/zoom-controls";
 import type { MapProps } from "@/scripts/types";
 import type { VoidComponent } from "solid-js";
 

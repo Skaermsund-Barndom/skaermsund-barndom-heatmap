@@ -1,4 +1,4 @@
-import { Marker } from "@/components/maplibre/marker";
+import { Marker } from "@/components/marker";
 import type { MapProps } from "@/scripts/types";
 import type { LngLat } from "maplibre-gl";
 import type { VoidComponent } from "solid-js";

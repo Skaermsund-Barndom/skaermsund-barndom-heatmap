@@ -1,4 +1,4 @@
-import { HeatmapLayer } from "@/components/solid/heatmap-layer";
+import { HeatmapLayer } from "@/components/heatmap-layer";
 import { LEVELS } from "@/scripts/const";
 import { geojsonSource } from "@/scripts/helpers";
 import { setStore } from "@/scripts/store";

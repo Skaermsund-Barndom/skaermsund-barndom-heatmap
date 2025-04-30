@@ -1,9 +1,9 @@
-import { GeoJSONSource } from "@/components/maplibre/geojson-source";
-import { Layer } from "@/components/maplibre/layer";
+import { GeoJSONSource } from "@/components/geojson-source";
+import { Layer } from "@/components/layer";
 import {
 	TooltipMarker,
 	type TooltipMarkerStore,
-} from "@/components/solid/tooltip-marker";
+} from "@/components/tooltip-marker";
 import {
 	BG_HEATMAP_LEVELS_LAYER,
 	COLORS,

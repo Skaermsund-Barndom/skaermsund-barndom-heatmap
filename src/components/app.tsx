@@ -1,5 +1,5 @@
-import { Heatmap } from "@/components/solid/heatmap";
-import { Ui } from "@/components/solid/ui";
+import { Heatmap } from "@/components/heatmap";
+import { Ui } from "@/components/ui";
 import type {
 	municipalityCollection,
 	regionCollection,

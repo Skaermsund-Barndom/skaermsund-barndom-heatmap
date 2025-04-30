@@ -1,4 +1,4 @@
-import { Control } from "@/components/maplibre/control";
+import { Control } from "@/components/control";
 import { LEVELS } from "@/scripts/const";
 import { setStore, store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";

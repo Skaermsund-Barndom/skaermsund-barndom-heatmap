@@ -1,7 +1,7 @@
-import { Layer } from "@/components/maplibre/layer";
-import { Background } from "@/components/solid/background";
-import { HeatmapLayers } from "@/components/solid/heatmap-layers";
-import { MunicipalityMap } from "@/components/solid/municipality-map";
+import { Background } from "@/components/background";
+import { HeatmapLayers } from "@/components/heatmap-layers";
+import { Layer } from "@/components/layer";
+import { MunicipalityMap } from "@/components/municipality-map";
 import {
 	BG_HEATMAP_LEVELS_LAYER,
 	BG_MUNICIPALITIES_LAYER,
