@@ -1,5 +1,6 @@
 import { Control } from "@/components/control";
 import { LEVELS } from "@/scripts/const";
+import { allIds } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import type { IControl } from "maplibre-gl";
@@ -35,9 +36,9 @@ export const BackControls: VoidComponent<Props> = (props) => {
 
 	const handleClick = (level: (typeof LEVELS)[number]) => {
 		const filter =
-			level.id === "region" ? store.allIds(props.regionCollection)
-			: level.id === "municipality" ? store.allIds(props.municipalityCollection)
-			: level.id === "school" ? store.allIds(props.schoolCollection)
+			level.id === "region" ? allIds(props.regionCollection)
+			: level.id === "municipality" ? allIds(props.municipalityCollection)
+			: level.id === "school" ? allIds(props.schoolCollection)
 			: [];
 
 		setStore({ levelId: level.id, hoverId: undefined, filter });

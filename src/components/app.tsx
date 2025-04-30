@@ -1,6 +1,7 @@
 import { Heatmap } from "@/components/heatmap";
 import { Ui } from "@/components/ui";
-import { setStore, store } from "@/scripts/store";
+import { allIds } from "@/scripts/helpers";
+import { setStore } from "@/scripts/store";
 import type {
 	MunicipalityCollection,
 	MunicipalityMap,
@@ -21,7 +22,7 @@ export interface AppProps {
 export const App: VoidComponent<AppProps> = (props) => {
 	createEffect(() => {
 		setStore({
-			filter: store.allIds(props.regionCollection),
+			filter: allIds(props.regionCollection),
 		});
 	});
 

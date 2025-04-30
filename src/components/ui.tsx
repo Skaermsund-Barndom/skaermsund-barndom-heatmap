@@ -1,6 +1,7 @@
 import { AccordionList } from "@/components/accordion-list";
 import type { AppProps } from "@/components/app";
 import { LEVELS } from "@/scripts/const";
+import { allIds, allSubs } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
 import { type VoidComponent, createMemo } from "solid-js";
 
@@ -9,16 +10,16 @@ interface Props extends AppProps {}
 export const Ui: VoidComponent<Props> = (props) => {
 	const allRegionsItem = createMemo(() => ({
 		id: 0,
-		filter: store.allIds(props.municipalityCollection),
+		filter: allIds(props.municipalityCollection),
 		name: "Alle regioner",
-		subs: store.allSubs(props.schoolCollection),
+		subs: allSubs(props.schoolCollection),
 	}));
 
 	const allMunicipalitiesItem = createMemo(() => ({
 		id: 0,
-		filter: store.allIds(props.schoolCollection),
+		filter: allIds(props.schoolCollection),
 		name: "Alle kommuner",
-		subs: store.allSubs(props.schoolCollection),
+		subs: allSubs(props.schoolCollection),
 	}));
 
 	return (
@@ -35,7 +36,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 				onClickAccordion={() =>
 					setStore({
 						levelId: LEVELS[0].id,
-						filter: store.allIds(props.regionCollection),
+						filter: allIds(props.regionCollection),
 					})
 				}
 				onClickItem={() => setStore({ levelId: LEVELS[1].id })}
@@ -55,7 +56,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 				onClickAccordion={() =>
 					setStore({
 						levelId: LEVELS[1].id,
-						filter: store.allIds(props.municipalityCollection),
+						filter: allIds(props.municipalityCollection),
 					})
 				}
 				onClickItem={() => setStore({ levelId: LEVELS[2].id })}
@@ -74,7 +75,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 				onClickAccordion={() =>
 					setStore({
 						levelId: LEVELS[2].id,
-						filter: store.allIds(props.schoolCollection),
+						filter: allIds(props.schoolCollection),
 					})
 				}
 			/>

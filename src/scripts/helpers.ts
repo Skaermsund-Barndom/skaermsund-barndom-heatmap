@@ -1,3 +1,8 @@
+import type {
+	MunicipalityCollection,
+	RegionCollection,
+	SchoolCollection,
+} from "@/scripts/types";
 import type { FeatureCollection } from "geojson";
 import type { GeoJSONSourceSpecification } from "maplibre-gl";
 
@@ -88,4 +93,16 @@ export function interpolate(
 	output2: number,
 ) {
 	return ((value - input1) * (output2 - input2)) / (output1 - input1) + input2;
+}
+
+export function allIds(
+	collection?: RegionCollection | MunicipalityCollection | SchoolCollection,
+) {
+	return collection?.features.map((f) => f.properties.id) ?? [];
+}
+
+export function allSubs(collection?: SchoolCollection) {
+	return (
+		collection?.features.reduce((acc, f) => acc + f.properties.subs, 0) ?? 0
+	);
 }

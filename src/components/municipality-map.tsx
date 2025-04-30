@@ -1,7 +1,7 @@
 import { GeoJSONSource } from "@/components/geojson-source";
 import { Layer } from "@/components/layer";
 import { BG_MUNICIPALITIES_LAYER, COLORS, LEVELS } from "@/scripts/const";
-import { geojsonSource, remToPx } from "@/scripts/helpers";
+import { allIds, geojsonSource, remToPx } from "@/scripts/helpers";
 import { store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
 import { bbox, featureCollection } from "@turf/turf";
@@ -68,7 +68,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					{
 						active:
 							activeMunicipalities.length
-								!== store.allIds(props.municipalityCollection)?.length
+								!== allIds(props.municipalityCollection)?.length
 							&& activeMunicipalitySet.has(
 								Number(feature.properties.kommunekod),
 							),
@@ -116,7 +116,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 					{
 						active:
 							activeMunicipalities.length
-								!== store.allIds(props.municipalityCollection)?.length
+								!== allIds(props.municipalityCollection)?.length
 							&& activeMunicipalities.some(
 								(m) =>
 									m.properties.kommunekod === feature.properties.kommunekod,
