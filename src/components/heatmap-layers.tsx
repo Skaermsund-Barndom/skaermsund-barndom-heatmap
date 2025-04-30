@@ -21,10 +21,10 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 				sourceId={REGION_SOURCE_ID}
 				size={{
 					circleDisabled: 12,
-					circleMin: 16,
-					circleMax: 32,
-					textMin: 14,
-					textMax: 20,
+					circleMin: 20,
+					circleMax: 40,
+					textMin: 16,
+					textMax: 24,
 				}}
 				levelId={LEVELS[0].id}
 				click={() => {
@@ -38,9 +38,9 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 				source={geojsonSource(props.municipalityCollection, "id")}
 				sourceId={MUNICIPALITY_SOURCE_ID}
 				size={{
-					circleDisabled: 10,
-					circleMin: 14,
-					circleMax: 28,
+					circleDisabled: 12,
+					circleMin: 16,
+					circleMax: 32,
 					textMin: 14,
 					textMax: 20,
 				}}
@@ -57,8 +57,8 @@ export const HeatmapLayers: VoidComponent<Props> = (props) => {
 				sourceId={SCHOOL_SOURCE_ID}
 				size={{
 					circleDisabled: 8,
-					circleMin: 10,
-					circleMax: 20,
+					circleMin: 12,
+					circleMax: 24,
 					textMin: 14,
 					textMax: 18,
 				}}
