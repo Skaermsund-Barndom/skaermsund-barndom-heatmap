@@ -7,20 +7,14 @@ import type {
 import type { getMunicipalityMap } from "@/scripts/municipality-map";
 import type { Map as MaplibreMap } from "maplibre-gl";
 
+/**
+ * The properties of all map components.
+ */
 export interface MapProps extends AppProps {
+	/** The maplibre map instance */
 	map: MaplibreMap;
+	/** Optional id of the layer to place this layer before */
 	beforeId?: string;
-}
-
-export interface HeatmapProps extends MapProps {
-	schools: SchoolCollection;
-}
-
-export interface Item {
-	id: number;
-	filter?: number[];
-	name: string;
-	subs: number;
 }
 
 /**
@@ -57,7 +51,20 @@ export interface School {
  */
 export type Submissions = Record<string, number>;
 
-export interface SchoolProperties extends Item {
+/**
+ * The base properties of a region, municipality or school.
+ */
+export interface BaseProperties {
+	id: number;
+	filter?: number[];
+	name: string;
+	subs: number;
+}
+
+/**
+ * The properties of a school.
+ */
+export interface SchoolProperties extends BaseProperties {
 	grades: Grades;
 	m_name: string;
 	m_id: number;
@@ -65,16 +72,49 @@ export interface SchoolProperties extends Item {
 	r_id: number;
 }
 
-export interface RegionProperties extends Item {}
-export interface MunicipalityProperties extends Item {}
+/**
+ * The properties of a region.
+ */
+export interface RegionProperties extends BaseProperties {}
 
+/**
+ * The properties of a municipality.
+ */
+export interface MunicipalityProperties extends BaseProperties {}
+
+/**
+ * A level (region, municipality or school).
+ */
+export interface Level {
+	id: string;
+	name: string;
+}
+
+/**
+ * Feature collection of schools.
+ */
 export type SchoolCollection = Awaited<ReturnType<typeof getSchoolCollection>>;
+
+/**
+ * Feature collection of municipalities.
+ */
 export type MunicipalityCollection = Awaited<
 	ReturnType<typeof getMunicipalityCollection>
 >;
+
+/**
+ * Feature collection of regions.
+ */
 export type RegionCollection = Awaited<ReturnType<typeof getRegionCollection>>;
+
+/**
+ * Feature collection of municipalities in the municipality map.
+ */
 export type MunicipalityMap = Awaited<ReturnType<typeof getMunicipalityMap>>;
 
+/**
+ * The properties of a municipality in the municipality map.
+ */
 export interface MunicipalityMapProperties {
 	"id.namespa": string;
 	"id.lokalId": string;
@@ -96,9 +136,11 @@ export interface MunicipalityMapProperties {
 	landekode: string;
 	skala: string;
 	udtraeksda: string;
+	/** The id of the municipality as a string always 4 characters long */
 	kommunekod: string;
 	LAU1vaerdi: string;
 	udenforKom: string;
+	/** The id of the region as a string always 4 characters long */
 	regionskod: string;
 	regionsLok: string;
 	region: string;

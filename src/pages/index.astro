@@ -70,13 +70,6 @@ const props = {
 		<title>{title}</title>
 	</head>
 	<body>
-		<main
-			class="text-text selection:bg-primary-70 selection:fill-container selection:text-container overflow-hidden bg-transparent font-sans antialiased"
-			spellcheck={false}
-		>
-			<article>
-				<App {...props} client:load />
-			</article>
-		</main>
+		<App {...props} client:load />
 	</body>
 </html>

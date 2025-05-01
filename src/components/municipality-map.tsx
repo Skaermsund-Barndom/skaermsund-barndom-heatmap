@@ -16,7 +16,7 @@ interface Props extends MapProps {}
 
 export const MunicipalityMap: VoidComponent<Props> = (props) => {
 	createEffect(() => {
-		if (store.levelId === LEVELS[0].id) {
+		if (store.level.id === LEVELS[0].id) {
 			if (!props.municipalityMap) return;
 
 			const bounds = bbox(props.municipalityMap);
@@ -41,7 +41,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			}
 		}
 
-		if (store.levelId === LEVELS[1].id) {
+		if (store.level.id === LEVELS[1].id) {
 			if (!props.municipalityMap?.features) return;
 			const activeMunicipalitySet = new Set(store.filter);
 			const activeMunicipalities = props.municipalityMap.features.filter((f) =>
@@ -76,7 +76,7 @@ export const MunicipalityMap: VoidComponent<Props> = (props) => {
 			}
 		}
 
-		if (store.levelId === LEVELS[2].id) {
+		if (store.level.id === LEVELS[2].id) {
 			if (!props.municipalityMap?.features || !props.schoolCollection?.features)
 				return;
 

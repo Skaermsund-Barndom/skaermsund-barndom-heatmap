@@ -1,6 +1,4 @@
-export const INITIAL_ZOOM = 3;
-export const MIN_ZOOM = 4;
-export const MAX_ZOOM = 10;
+import type { Level } from "./types";
 
 export const FONT_STACK = ["Figtree Light"];
 
@@ -33,16 +31,13 @@ export const LEVELS = [
 	{
 		id: "region",
 		name: "Regioner",
-		backTitle: "",
 	},
 	{
 		id: "municipality",
 		name: "Kommuner",
-		backTitle: "Regioner",
 	},
 	{
 		id: "school",
 		name: "Skoler",
-		backTitle: "Kommuner",
 	},
-] as const;
+] as const satisfies Level[];

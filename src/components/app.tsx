@@ -45,9 +45,14 @@ export const App: VoidComponent<AppProps> = (props) => {
 	});
 
 	return (
-		<div class="fixed inset-0 grid h-full rounded-[1.5rem] bg-white p-1 md:grid-cols-[25rem_1fr]">
-			<Ui {...props} />
-			<Heatmap {...props} />
-		</div>
+		<main
+			class="text-text selection:bg-primary-70 selection:fill-container selection:text-container overflow-hidden bg-transparent font-sans antialiased"
+			spellcheck={false}
+		>
+			<article class="fixed inset-0 grid h-full rounded-[1.5rem] bg-white p-1 md:grid-cols-[25rem_1fr]">
+				<Ui {...props} />
+				<Heatmap {...props} />
+			</article>
+		</main>
 	);
 };

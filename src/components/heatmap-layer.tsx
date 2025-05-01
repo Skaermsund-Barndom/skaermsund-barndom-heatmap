@@ -4,12 +4,7 @@ import {
 	TooltipMarker,
 	type TooltipMarkerStore,
 } from "@/components/tooltip-marker";
-import {
-	BG_HEATMAP_LEVELS_LAYER,
-	COLORS,
-	FONT_STACK,
-	type LEVELS,
-} from "@/scripts/const";
+import { BG_HEATMAP_LEVELS_LAYER, COLORS, FONT_STACK } from "@/scripts/const";
 import { type geojsonSource, interpolate } from "@/scripts/helpers";
 import { setStore, store } from "@/scripts/store";
 import type { MapProps } from "@/scripts/types";
@@ -37,7 +32,6 @@ interface Props extends MapProps {
 		textMin: number;
 		textMax: number;
 	};
-	levelId: (typeof LEVELS)[number]["id"];
 	click?: () => void;
 }
 

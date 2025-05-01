@@ -1,7 +1,7 @@
 import { Control } from "@/components/control";
 import { LEVELS } from "@/scripts/const";
 import { setStore, store } from "@/scripts/store";
-import type { MapProps } from "@/scripts/types";
+import type { Level, MapProps } from "@/scripts/types";
 import type { IControl } from "maplibre-gl";
 import { For, type VoidComponent, createSignal, onMount } from "solid-js";
 
@@ -33,14 +33,14 @@ export const BackControls: VoidComponent<Props> = (props) => {
 		setControl(new BackControl(element));
 	});
 
-	const handleClick = (level: (typeof LEVELS)[number]) => {
+	const handleClick = (level: Level) => {
 		const filter =
 			level.id === "region" ? store.allRegionsIds
 			: level.id === "municipality" ? store.allMunicipalitiesIds
 			: level.id === "school" ? store.allSchoolsIds
 			: new Set<number>();
 
-		setStore({ levelId: level.id, hoverId: undefined, filter });
+		setStore({ level, hoverId: undefined, filter });
 	};
 
 	return (
@@ -54,7 +54,7 @@ export const BackControls: VoidComponent<Props> = (props) => {
 						<button
 							type="button"
 							class="bg-primary flex items-center gap-1 rounded-full px-3 py-1 transition-opacity duration-300 ease-[cubic-bezier(.3,.2,0,1)] data-[active=false]:cursor-pointer data-[active=false]:opacity-50 data-[active=true]:opacity-100"
-							data-active={store.levelId === level.id}
+							data-active={store.level.id === level.id}
 							onClick={() => handleClick(level)}
 						>
 							{level.name}

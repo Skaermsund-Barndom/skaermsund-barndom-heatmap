@@ -1,6 +1,6 @@
 import type { AppProps } from "@/components/app";
 import { setStore, store } from "@/scripts/store";
-import type { Item } from "@/scripts/types";
+import type { BaseProperties } from "@/scripts/types";
 import type { Feature, Geometry } from "geojson";
 import {
 	For,
@@ -12,11 +12,11 @@ import {
 
 interface Props extends AppProps {
 	placeholder: string;
-	features: Feature<Geometry, Item>[];
+	features: Feature<Geometry, BaseProperties>[];
 	disabled?: boolean;
 	isOpen: boolean;
 	onClickAccordion: () => void;
-	onClickItem?: () => void;
+	onClickFeature?: () => void;
 }
 
 export const AccordionList: VoidComponent<Props> = (props) => {
@@ -92,14 +92,14 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 		props.onClickAccordion();
 	};
 
-	const handleSetActiveItem = (properties: Item) => {
-		if (!props.onClickItem) return;
+	const handleSetActiveFeature = (properties: BaseProperties) => {
+		if (!props.onClickFeature) return;
 		if (!parentRef) return;
 
 		const input = parentRef.querySelector("input[type='text']");
 		if (!(input instanceof HTMLInputElement)) return;
 
-		props.onClickItem();
+		props.onClickFeature();
 		setStore({
 			hoverId: undefined,
 			filter: new Set(properties.filter),
@@ -160,7 +160,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 								data-id={properties.id}
 								type="button"
 								data-no-subs={properties.subs === 0 ? "true" : undefined}
-								onClick={() => handleSetActiveItem(properties)}
+								onClick={() => handleSetActiveFeature(properties)}
 								onMouseEnter={() => setStore({ hoverId: properties.id })}
 								onFocus={() => setStore({ hoverId: properties.id })}
 								onMouseLeave={() => setStore({ hoverId: undefined })}

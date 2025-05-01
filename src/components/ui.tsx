@@ -8,7 +8,7 @@ import { type VoidComponent, createMemo } from "solid-js";
 interface Props extends AppProps {}
 
 export const Ui: VoidComponent<Props> = (props) => {
-	const allRegionsItem = createMemo(() =>
+	const allRegionsFeature = createMemo(() =>
 		feature(null, {
 			id: 0,
 			filter: Array.from(store.allMunicipalitiesIds),
@@ -17,7 +17,7 @@ export const Ui: VoidComponent<Props> = (props) => {
 		}),
 	);
 
-	const allMunicipalitiesItem = createMemo(() =>
+	const allMunicipalitiesFeature = createMemo(() =>
 		feature(null, {
 			id: 0,
 			filter: Array.from(store.allSchoolsIds),
@@ -32,38 +32,38 @@ export const Ui: VoidComponent<Props> = (props) => {
 			<AccordionList
 				{...props}
 				features={[
-					allRegionsItem(),
+					allRegionsFeature(),
 					...(props.regionCollection?.features ?? []),
 				]}
 				placeholder="Region"
-				isOpen={store.levelId === LEVELS[0].id}
+				isOpen={store.level.id === LEVELS[0].id}
 				onClickAccordion={() =>
 					setStore({
-						levelId: LEVELS[0].id,
+						level: LEVELS[0],
 						filter: store.allRegionsIds,
 					})
 				}
-				onClickItem={() => setStore({ levelId: LEVELS[1].id })}
+				onClickFeature={() => setStore({ level: LEVELS[1] })}
 			/>
 
 			{/* Municipality list */}
 			<AccordionList
 				{...props}
 				features={[
-					allMunicipalitiesItem(),
+					allMunicipalitiesFeature(),
 					...(props.municipalityCollection?.features.filter((f) =>
 						store.filter.has(f.properties.id),
 					) ?? []),
 				]}
 				placeholder="Kommune"
-				isOpen={store.levelId === LEVELS[1].id}
+				isOpen={store.level.id === LEVELS[1].id}
 				onClickAccordion={() =>
 					setStore({
-						levelId: LEVELS[1].id,
+						level: LEVELS[1],
 						filter: store.allMunicipalitiesIds,
 					})
 				}
-				onClickItem={() => setStore({ levelId: LEVELS[2].id })}
+				onClickFeature={() => setStore({ level: LEVELS[2] })}
 			/>
 
 			{/* School list */}
@@ -75,10 +75,10 @@ export const Ui: VoidComponent<Props> = (props) => {
 					) ?? []
 				}
 				placeholder="Skole"
-				isOpen={store.levelId === LEVELS[2].id}
+				isOpen={store.level.id === LEVELS[2].id}
 				onClickAccordion={() =>
 					setStore({
-						levelId: LEVELS[2].id,
+						level: LEVELS[2],
 						filter: store.allSchoolsIds,
 					})
 				}

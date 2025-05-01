@@ -1,7 +1,6 @@
 import type { AppProps } from "@/components/app";
 import { LoadedMap } from "@/components/loaded-map";
 import { MapGL } from "@/components/map-gl";
-import { INITIAL_ZOOM } from "@/scripts/const";
 import { remToPx } from "@/scripts/helpers";
 import type { Map as MapGLType } from "maplibre-gl";
 import { Show, type VoidComponent, createEffect, createSignal } from "solid-js";
@@ -38,8 +37,6 @@ export const Heatmap: VoidComponent<Props> = (props) => {
 							delay: 0,
 						},
 					},
-					// style: "https://demotiles.maplibre.org/style.json",
-					zoom: INITIAL_ZOOM,
 					dragRotate: false,
 					hash: false,
 					attributionControl: false,
