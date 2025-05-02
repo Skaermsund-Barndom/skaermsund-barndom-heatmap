@@ -11,6 +11,9 @@ Use the iframe in custom code like so:
     <style>
         .heatmap-embed {
             container-type: inline-size;
+            max-width: 90em;
+            margin: 0 auto;
+            padding: 0 2rem 0 0;
         }
         .heatmap-embed iframe {
             border: none;
@@ -26,10 +29,30 @@ Use the iframe in custom code like so:
         title="Skærmsund Barndom Heatmap"
         width="100%"
         sandbox="allow-scripts allow-same-origin"
-        <!-- link to heatmap that you host -->
-        src="https://skaermsund-barndom-heatmap-test-1.netlify.app" 
+        src="https://beamish-moxie-da5c0d.netlify.app" 
     >
     </iframe>
+</div>
+```
+
+And here is the HTML for the form:
+
+```html
+<div class="form-embed">
+    <style>
+        .form-embed {
+            container-type: inline-size;
+        }
+        .form-embed iframe {
+            border: none;
+        }
+        @container (max-width: 48rem) {
+            .form-embed iframe {
+                aspect-ratio: 1/1;
+            }
+        }
+    </style>
+    <iframe class="airtable-embed" src="https://airtable.com/embed/appFpQHfnl4TDWh4c/pagdW3cx1Iroep5uO/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
 </div>
 ```
 
