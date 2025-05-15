@@ -74,7 +74,7 @@ export async function getSchools() {
 									const now = new Date();
 									const year = now.getFullYear();
 									const month = now.getMonth(); // 0 = January, 6 = July
-									const schoolYear = month > 6 ? year + 1 : year;
+									const schoolYear = month > 6 ? year : year - 1;
 
 									// Calculate the grade by subtracting the start year from the current year
 									const grade = schoolYear - startYear;
