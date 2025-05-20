@@ -135,7 +135,7 @@ export const AccordionList: VoidComponent<Props> = (props) => {
 					tabIndex={props.disabled ? -1 : 0}
 				/>
 				<div class="flex items-center justify-between gap-2">
-					<p>{props.isOpen ? "Løfter" : ""}</p>
+					<p>{props.isOpen ? "Ønsker" : ""}</p>
 					<svg
 						width="14"
 						height="14"
